@@ -22,7 +22,14 @@
         </div>
     </div>
     <div class="container">
-        @yield('content')
+        <div class="row">
+            <div class="col-md-2">
+            @yield('login')
+            </div>
+            <div class="col-md-10">
+            @yield('content')
+            </div>
+        </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

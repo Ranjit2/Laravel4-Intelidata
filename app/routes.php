@@ -53,3 +53,20 @@ Route::get('/mail', function(){
 Route::get('/chart', function(){
     return "<h1>Welcome Charts...</h1>";
 });
+
+Route::get('formulario', function(){
+    return Response::view("formulario");
+});
+
+Route::post('envioForm',function(){
+    $validator = Validator::make(
+    array('username' => Input::get('username'), 'password' => Input::get('password'), 'email' => Input::get('email')),
+    array('username' => 'required', 'password' => 'required|min:5','email' => 'required|email')
+);
+    if ($validator->fails())
+    {
+        return Redirect::to('formulario')->withErrors($validator)->withInput();
+    }
+    return "Ok";
+});
+
