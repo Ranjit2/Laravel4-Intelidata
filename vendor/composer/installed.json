@@ -927,55 +927,6 @@
         ]
     },
     {
-        "name": "predis/predis",
-        "version": "v0.8.5",
-        "version_normalized": "0.8.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
-            "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2014-01-16 14:10:29",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Predis": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete PHP client library for Redis",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
-    },
-    {
         "name": "phpseclib/phpseclib",
         "version": "0.3.7",
         "version_normalized": "0.3.7.0",
@@ -1861,18 +1812,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "ed8228e1cbf73c1919c291054f4ea1309923cdae"
+            "reference": "5c1746c556753a19a980ab13d0ce23daebb6022f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ed8228e1cbf73c1919c291054f4ea1309923cdae",
-            "reference": "ed8228e1cbf73c1919c291054f4ea1309923cdae",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5c1746c556753a19a980ab13d0ce23daebb6022f",
+            "reference": "5c1746c556753a19a980ab13d0ce23daebb6022f",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-07-13 22:28:07",
+        "time": "2014-07-14 21:52:36",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2111,100 +2062,6 @@
         ]
     },
     {
-        "name": "leafo/scssphp",
-        "version": "v0.0.9",
-        "version_normalized": "0.0.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/leafo/scssphp.git",
-            "reference": "a06d702ebf9fabb22542bbb27cc12a905813bb6d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/leafo/scssphp/zipball/a06d702ebf9fabb22542bbb27cc12a905813bb6d",
-            "reference": "a06d702ebf9fabb22542bbb27cc12a905813bb6d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.0"
-        },
-        "require-dev": {
-            "php": ">=5.3.0",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2013-12-23 23:28:02",
-        "bin": [
-            "pscss"
-        ],
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "scss.inc.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT",
-            "GPL-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Leaf Corcoran",
-                "email": "leafot@gmail.com",
-                "homepage": "http://leafo.net"
-            }
-        ],
-        "description": "scssphp is a compiler for SCSS written in PHP.",
-        "homepage": "http://leafo.net/scssphp/"
-    },
-    {
-        "name": "panique/laravel-sass",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/panique/laravel-sass.git",
-            "reference": "d81e4c23edf53ccbb93378d1ef815e4ed3ce8112"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/panique/laravel-sass/zipball/d81e4c23edf53ccbb93378d1ef815e4ed3ce8112",
-            "reference": "d81e4c23edf53ccbb93378d1ef815e4ed3ce8112",
-            "shasum": ""
-        },
-        "require": {
-            "leafo/scssphp": "v0.0.9",
-            "php": ">=5.3.0"
-        },
-        "time": "2014-07-04 20:35:34",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "sass-compiler.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Panique",
-                "homepage": "http://careers.stackoverflow.com/panique",
-                "role": "Developer"
-            }
-        ],
-        "description": "Compiles your SASS .scss files to .css every time you run your app (in development)",
-        "homepage": "https://github.com/panique/laravel-sass",
-        "keywords": [
-            "css",
-            "sass",
-            "scss"
-        ]
-    },
-    {
         "name": "ghunti/highcharts-php",
         "version": "v3.0",
         "version_normalized": "3.0.0.0",
@@ -2250,6 +2107,58 @@
             "highstock",
             "javascript",
             "php"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "v0.8.6",
+        "version_normalized": "0.8.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/239864d9a0929f29bf8c5a8370ef743537c4953d",
+            "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2014-07-15 09:54:33",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Predis": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete PHP client library for Redis",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
         ]
     }
 ]

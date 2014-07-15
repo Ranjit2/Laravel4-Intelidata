@@ -82,7 +82,7 @@
 $(function () {
     $('#graff').highcharts({
         chart: {
-            type: 'line',
+            type: 'column',
             marginRight: 100,
             marginBottom: 40
         },
@@ -94,6 +94,18 @@ $(function () {
             text: 'Source: WorldClimate.com',
             x: -20
         },
+         plotOptions: {
+               column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: false,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            textShadow: '0 0 3px black, 0 0 3px black'
+                        }
+                    }
+                }
+            },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         },

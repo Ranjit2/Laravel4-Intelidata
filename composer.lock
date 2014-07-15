@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7aa583e58ae5f92cbbcc603c27fab446",
+    "hash": "e8627966d06d22689141cfeab072a8f0",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -599,52 +599,6 @@
             "time": "2014-06-29 00:16:51"
         },
         {
-            "name": "leafo/scssphp",
-            "version": "v0.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/scssphp.git",
-                "reference": "a06d702ebf9fabb22542bbb27cc12a905813bb6d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/scssphp/zipball/a06d702ebf9fabb22542bbb27cc12a905813bb6d",
-                "reference": "a06d702ebf9fabb22542bbb27cc12a905813bb6d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "require-dev": {
-                "php": ">=5.3.0",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "bin": [
-                "pscss"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "scss.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "scssphp is a compiler for SCSS written in PHP.",
-            "homepage": "http://leafo.net/scssphp/",
-            "time": "2013-12-23 23:28:02"
-        },
-        {
             "name": "maximebf/debugbar",
             "version": "1.9.14",
             "source": {
@@ -898,50 +852,6 @@
             "time": "2013-08-25 17:11:40"
         },
         {
-            "name": "panique/laravel-sass",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/panique/laravel-sass.git",
-                "reference": "d81e4c23edf53ccbb93378d1ef815e4ed3ce8112"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/panique/laravel-sass/zipball/d81e4c23edf53ccbb93378d1ef815e4ed3ce8112",
-                "reference": "d81e4c23edf53ccbb93378d1ef815e4ed3ce8112",
-                "shasum": ""
-            },
-            "require": {
-                "leafo/scssphp": "v0.0.9",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "sass-compiler.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Panique",
-                    "homepage": "http://careers.stackoverflow.com/panique",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Compiles your SASS .scss files to .css every time you run your app (in development)",
-            "homepage": "https://github.com/panique/laravel-sass",
-            "keywords": [
-                "css",
-                "sass",
-                "scss"
-            ],
-            "time": "2014-07-04 20:35:34"
-        },
-        {
             "name": "patchwork/utf8",
             "version": "v1.1.24",
             "source": {
@@ -1091,20 +1001,23 @@
         },
         {
             "name": "predis/predis",
-            "version": "v0.8.5",
+            "version": "v0.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
+                "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
-                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/239864d9a0929f29bf8c5a8370ef743537c4953d",
+                "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "suggest": {
                 "ext-curl": "Allows access to Webdis when paired with phpiredis",
@@ -1134,7 +1047,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-01-16 14:10:29"
+            "time": "2014-07-15 09:54:33"
         },
         {
             "name": "psr/log",
@@ -2086,12 +1999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "ed8228e1cbf73c1919c291054f4ea1309923cdae"
+                "reference": "5c1746c556753a19a980ab13d0ce23daebb6022f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ed8228e1cbf73c1919c291054f4ea1309923cdae",
-                "reference": "ed8228e1cbf73c1919c291054f4ea1309923cdae",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5c1746c556753a19a980ab13d0ce23daebb6022f",
+                "reference": "5c1746c556753a19a980ab13d0ce23daebb6022f",
                 "shasum": ""
             },
             "replace": {
@@ -2129,7 +2042,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-13 22:28:07"
+            "time": "2014-07-14 21:52:36"
         },
         {
             "name": "way/generators",
@@ -2192,8 +2105,7 @@
         "dollar/generators": 20,
         "fzaninotto/faker": 20,
         "barryvdh/laravel-debugbar": 20,
-        "twitter/bootstrap": 20,
-        "panique/laravel-sass": 20
+        "twitter/bootstrap": 20
     },
     "platform": [
 
