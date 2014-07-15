@@ -1,0 +1,12 @@
+body {
+  background-color: green;
+}
+body .welcome {
+  background-color: yellow;
+}
+body .info {
+  border: red 5px solid;
+}
+body a {
+  font-size: 11px;
+}
