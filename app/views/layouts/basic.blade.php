@@ -24,10 +24,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-            @yield('login')
+                @yield('login')
             </div>
             <div class="col-md-10">
-            @yield('content')
+                @yield('content')
             </div>
         </div>
     </div>
