@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel 4 - Ajax</title>
+    <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,10 +24,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-            @yield('login')
+                @yield('login')
             </div>
             <div class="col-md-10">
-            @yield('content')
+                @yield('content')
             </div>
         </div>
     </div>
