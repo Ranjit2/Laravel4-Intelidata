@@ -6,15 +6,15 @@ Proyecto generado para realizar pruebas de datos y funciones utilizando diversas
 [Bootstrap]: http://getbootstrap.com/ "Twitter Bootstrap 3"
 [Highcharts]: http://www.highcharts.com/ "Highcharts.js"
 
->Páginas de ejemplos para realizar graficos con [Highcharts]
-><http://i-am-sean.co.za/highcharts-laravel-4/>
-><https://github.com/ghunti/HighchartsPHP>
-><http://ngo-hung.com/blog/2012/07/19/create-a-simple-highcharts-bar-chart-with-real-time-update>
+>Páginas de ejemplos para realizar graficos con [Highcharts]  
+><http://i-am-sean.co.za/highcharts-laravel-4/>  
+><https://github.com/ghunti/HighchartsPHP>  
+><http://ngo-hung.com/blog/2012/07/19/create-a-simple-highcharts-bar-chart-with-real-time-update>  
 
-###Librerías JS para generar Gráficos####
-http://www.chartjs.org/
-http://www.amcharts.com/
-http://tenxer.github.io/xcharts/
-http://www.highcharts.com/
+####Librerías JS para generar Gráficos#####
+http://www.chartjs.org/  
+http://www.amcharts.com/  
+http://tenxer.github.io/xcharts/  
+http://www.highcharts.com/  
 
 &copy; 2014 Intelidata
