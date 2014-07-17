@@ -34,6 +34,7 @@ $(document).ready(function() {
     });
 
     $(document).ajaxComplete(function( event, xhr, settings ) {
+        // 
     });
 
     // FUNCTIONS ======================================================

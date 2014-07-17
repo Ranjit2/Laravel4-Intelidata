@@ -1,83 +1,157 @@
-var pollChart;
-var colors     = Highcharts.getOptions().colors;
-var teamsJson  = [{"name":"Team A","voteCount":"98"},{"name":"Team B","voteCount":"32"},  {"name":"Team C ","voteCount":"45"}];
-// use underscore to extract the names label
-var categories = _.pluck(teamsJson, 'name');
-var data       = [];
+// Chart.defaults.global = {
+//     // Boolean - Whether to animate the chart
+//     animation: true,
 
-for(var i = 0, teamJsonLength = teamsJson.length ; i < teamJsonLength ; i++ )
-{
-    var team = teamsJson[i];
-    // alternate colors, then repeat it if exceed the highchart options
-    data.push({
-        y: parseInt(team.voteCount),
-        color: colors[ i % colors.length]
-    });
-}
+//     // Number - Number of animation steps
+//     animationSteps: 60,
 
-pollChart = new Highcharts.Chart({
-    chart: {
-        renderTo: 'chartContainer',
-        type: 'bar' // change this to column if want to show the column chart
-    },
-    title: {
-        text: 'Poll Name Here',
-        style:{
-            color: '#3E576F',
-            fontSize: '23px',
-            fontFamily: 'Helvetica Neue,Helvetica,Arial,sans-serif'
-        }
-    },
-    subtitle: {
-        text: 'Poll Description here'
-    },
-    xAxis: {
-        categories: categories,
-        labels: {
-            style: {
-                fontSize: '16px',
-                fontFamily: 'Helvetica Neue,Helvetica,Arial,sans-serif',
-                color: 'black'
-            }
-        }
-    },
-    yAxis: {
-        title: {
-            text: 'Votes',
-            style: {
-                fontSize: '14px',
-                fontFamily: 'Helvetica Neue,Helvetica,Arial,sans-serif',
-                color: 'black',
-                fontWeight: 'normal'
-            }
-        }
-    },
-    legend: {
-        enabled: false
-    },
-    tooltip:{
-        enabled: false
-    },
-    series: [{
-        name: 'Vote Count',
-        data: data,
-        dataLabels: {
-            enabled: true,
-        }
-    }],
-    exporting: {
-        enabled: false
-    }
-});
+//     // String - Animation easing effect
+//     animationEasing: "easeOutQuart",
 
-setInterval(function() { getData(); }, 30000);
+//     // Boolean - If we should show the scale at all
+//     showScale: true,
 
-function getData(){
-    console.log("retrieving data from server ");
-    var url = "<some server url>";
-    $.getJSON (url, function (data) {
-        var data = data;
-        // update the series data
-        pollChart.series[0].setData(data);
-    });
-}
+//     // Boolean - If we want to override with a hard coded scale
+//     scaleOverride: false,
+
+//     // ** Required if scaleOverride is true **
+//     // Number - The number of steps in a hard coded scale
+//     scaleSteps: null,
+//     // Number - The value jump in the hard coded scale
+//     scaleStepWidth: null,
+//     // Number - The scale starting value
+//     scaleStartValue: null,
+
+//     // String - Colour of the scale line
+//     scaleLineColor: "rgba(0,0,0,.1)",
+
+//     // Number - Pixel width of the scale line
+//     scaleLineWidth: 1,
+
+//     // Boolean - Whether to show labels on the scale
+//     scaleShowLabels: true,
+
+//     // Interpolated JS string - can access value
+//     scaleLabel: "<%=value%>",
+
+//     // Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+//     scaleIntegersOnly: true,
+
+//     // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+//     scaleBeginAtZero: false,
+
+//     // String - Scale label font declaration for the scale label
+//     scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+//     // Number - Scale label font size in pixels
+//     scaleFontSize: 12,
+
+//     // String - Scale label font weight style
+//     scaleFontStyle: "normal",
+
+//     // String - Scale label font colour
+//     scaleFontColor: "#666",
+
+//     // Boolean - whether or not the chart should be responsive and resize when the browser does.
+//     responsive: true,
+
+//     // Boolean - Determines whether to draw tooltips on the canvas or not
+//     showTooltips: true,
+
+//     // Array - Array of string names to attach tooltip events
+//     tooltipEvents: ["mousemove", "touchstart", "touchmove"],
+
+//     // String - Tooltip background colour
+//     tooltipFillColor: "rgba(0,0,0,0.8)",
+
+//     // String - Tooltip label font declaration for the scale label
+//     tooltipFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+//     // Number - Tooltip label font size in pixels
+//     tooltipFontSize: 14,
+
+//     // String - Tooltip font weight style
+//     tooltipFontStyle: "normal",
+
+//     // String - Tooltip label font colour
+//     tooltipFontColor: "#fff",
+
+//     // String - Tooltip title font declaration for the scale label
+//     tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+//     // Number - Tooltip title font size in pixels
+//     tooltipTitleFontSize: 14,
+
+//     // String - Tooltip title font weight style
+//     tooltipTitleFontStyle: "bold",
+
+//     // String - Tooltip title font colour
+//     tooltipTitleFontColor: "#fff",
+
+//     // Number - pixel width of padding around tooltip text
+//     tooltipYPadding: 6,
+
+//     // Number - pixel width of padding around tooltip text
+//     tooltipXPadding: 6,
+
+//     // Number - Size of the caret on the tooltip
+//     tooltipCaretSize: 8,
+
+//     // Number - Pixel radius of the tooltip border
+//     tooltipCornerRadius: 6,
+
+//     // Number - Pixel offset from point x to tooltip edge
+//     tooltipXOffset: 10,
+
+//     // String - Template string for single tooltips
+//     tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= datasets[0].label %>",
+
+//     // String - Template string for single tooltips
+//     multiTooltipTemplate: "<%= value %>",
+
+//     // Function - Will fire on animation progression.
+//     onAnimationProgress : function(){},
+
+//     // Function - Will fire on animation completion.
+//     onAnimationComplete: function(){}
+// }
+    
+var data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+        {
+            label: "My First dataset",
+            title: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {   
+            label: "My Second dataset",
+            title: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+        }
+    ]
+};
+
+var ctx = $("#barChart").get(0).getContext("2d");
+Chart.defaults.global.responsive = true;
+var myLineChart = new Chart(ctx).Bar(data);
+
+legend(document.getElementById("barLegend"), data);
+
+console.log(data.datasets[0].label);    
+
+// <!-- Editar valores grafico   -->
+// myLineChart.datasets[0].points[2].value = 150;
+// myLineChart.update();

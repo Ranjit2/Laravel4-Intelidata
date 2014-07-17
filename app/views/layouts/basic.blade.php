@@ -13,6 +13,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
     <link rel="stylesheet" type="text/css" href="css/frontend.min.css">
 </head>
 <body>
@@ -35,8 +36,9 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
-    <script src="js/frontend.min.js"></script>
     <script src="js/Chart.js"></script>
+    <script src="js/legend.js"></script>
+    <script src="js/frontend.js"></script>
     <script type="text/javascript">
         @yield('script')
     </script>

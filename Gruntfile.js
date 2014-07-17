@@ -25,7 +25,8 @@ module.exports = function(grunt) {
                 src: [
                 // '<%= paths.assets.vendor %>jquery/dist/jquery.js',
                 // '<%= paths.assets.vendor %>bootstrap/dist/js/bootstrap.js',
-                '<%= paths.assets.js %>frontend.js'
+                '<%= paths.assets.js %>frontend.js',
+                '<%= paths.assets.js %>chart.js'
                 ],
                 dest: '<%= paths.js %>frontend.js',
             },
@@ -73,7 +74,7 @@ module.exports = function(grunt) {
             },
             backend: {
                 files: {
-                '<%= paths.js %>backend.min.js': '<%= paths.assets.js %>backend.js',
+                    '<%= paths.js %>backend.min.js': '<%= paths.assets.js %>backend.js',
                 }
             },
         },
@@ -92,6 +93,7 @@ module.exports = function(grunt) {
                     //watched files
                     // '<%= paths.assets.vendor %>jquery/jquery.js',
                     // '<%= paths.assets.vendor %>bootstrap/dist/js/bootstrap.js',
+                    '<%= paths.assets.js %>chart.js',
                     '<%= paths.assets.js %>frontend.js'
                 ],
                 tasks: ['concat:js_frontend','uglify:frontend'],//tasks to run
