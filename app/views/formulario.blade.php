@@ -24,14 +24,20 @@
 {{ Form::close() }}
 @stop
 
+
+
+
+
 @section('content')
 <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 <div class="row">
-<div id="barLegend" class="col-md-3"></div>
-<canvas id="barChart" class="col-md-9"></canvas>
+    <div class="col-md-9">
+        <canvas id="barChart"></canvas>
+    </div>
+    <div class="col-md-3">
+        <div id="barLegend" ></div>
+    </div>
 </div>
 @stop
 
-@section('script')
 
-@stop

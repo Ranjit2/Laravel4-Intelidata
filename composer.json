@@ -11,7 +11,8 @@
 		"barryvdh/laravel-debugbar": "1.*@dev",
 		"laracasts/validation": "~1.0",
 		"twitter/bootstrap": "3.2.*@dev",
-		"ghunti/highcharts-php": "~3.0"
+		"ghunti/highcharts-php": "~3.0",
+		"maatwebsite/excel": "1.*"
 	},
 	"require-dev": {
 	},

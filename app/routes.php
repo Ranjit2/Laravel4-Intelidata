@@ -55,6 +55,11 @@ Route::get('/chart', function(){
 });
 
 Route::get('formulario', function(){
+    Excel::load('datos/datos.csv', function($reader) {
+    
+        $reader->dump();        
+    
+    }, 'ISO-8859-1');
     return Response::view("formulario");
 });
 
@@ -69,4 +74,5 @@ Route::post('envioForm',function(){
     }
     return "Ok";
 });
+
 

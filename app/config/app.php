@@ -124,7 +124,8 @@ return array(
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Dollar\Generators\GeneratorsServiceProvider'
+		'Dollar\Generators\GeneratorsServiceProvider',
+		'Maatwebsite\Excel\ExcelServiceProvider'
 	),
 
 	/*
@@ -192,6 +193,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
 	),
 
