@@ -16,5 +16,10 @@ http://www.chartjs.org/
 http://www.amcharts.com/  
 http://tenxer.github.io/xcharts/  
 http://www.highcharts.com/  
+http://www.jqplot.com  
+http://g.raphaeljs.com/  
+
+#####Otros#####
+http://snapsvg.io/
 
 &copy; 2014 Intelidata
