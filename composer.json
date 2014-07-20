@@ -11,7 +11,8 @@
 		"laracasts/validation": "~1.0",
 		"twitter/bootstrap": "3.2.*@dev",
 		"ghunti/highcharts-php": "~3.0",
-		"maatwebsite/excel": "1.*"
+		"maatwebsite/excel": "1.*",
+		"jacopo/laravel-import-export": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "dev-master"
