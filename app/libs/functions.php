@@ -31,16 +31,30 @@ Class Funct {
   }
   
   public static function convNumberToMonth ($number = 01) {
+  
+    // Array with number => month
     $month = array('01' => 'enero', '02' => 'febrero', '03' => 'marzo', '04' => 'abril', '05' => 'mayo', '06' => 'junio', '07' => 'julio', '08' => 'agosto', '09' => 'septiembre', '10' => 'octubre', '11' => 'noviembre', '12' => 'diciembre');
+    
+    // Get Month name into array
     $month = array_get($month, $number, '');
+    
+    // Convert name to CamelCase 
     $month = Str::camel($month);
+    
     return $month;
   }
   
   public static function convMonthToNumber ($month = '') {
+    
+    // Array with month => number
     $number = array('enero' => '01', 'febrero' => '02', 'marzo' => '03', 'abril' => '04', 'mayo' => '05', 'junio' => '06', 'julio' => '07', 'agosto' => '08', 'septiembre' => '09', 'octubre' => '10', 'noviembre' => '11', 'diciembre' => '12');
+    
+    // Convert name to lower case 
     $month = Str::lower($month);
+    
+    // Get number into array 
     $number = array_get($number, $month, '');
+    
     return $number;
   }
   
