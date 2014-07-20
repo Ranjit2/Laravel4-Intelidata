@@ -28,8 +28,8 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-4": {
-            "Acme\\": "app/libs/Acme"
-        }
+        	"Acme\\": "app/libs/Acme"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
