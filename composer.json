@@ -5,7 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"way/generators": "dev-master",
 		"dollar/generators": "dev-master",
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-debugbar": "1.*@dev",
@@ -15,6 +14,7 @@
 		"maatwebsite/excel": "1.*"
 	},
 	"require-dev": {
+		"way/generators": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
