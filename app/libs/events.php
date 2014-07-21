@@ -1,8 +1,8 @@
-<?php
+<?php namespace libs\Events;
 
 // http://jasonlewis.me/article/laravel-events
 // http://heera.it/
-/*
+
 Event::fire('laravel.done                [Response $response]');
 Event::fire('laravel.log                 [String $type, String $message]');
 Event::fire('laravel.query               [String $sql, Array $bindings, String $time]');
@@ -29,7 +29,7 @@ Event::fire('eloquent.deleted            [Eloquent $model]');
 Event::fire('eloquent.deleted: {model}   [Eloquent $model]');
 Event::first('500');
 Event::first('404');
-*/
+
 
 Event::listen('404', function()
 {

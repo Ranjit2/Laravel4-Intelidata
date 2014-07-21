@@ -36,6 +36,8 @@ return array(
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
     'Laracasts\\Validation' => array($vendorDir . '/laracasts/validation/src'),
     'Jeremeamia\\SuperClosure' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
+    'Jacopo\\LaravelImportExport' => array($vendorDir . '/jacopo/laravel-import-export/src'),
+    'Jacopo\\Bootstrap3Table' => array($vendorDir . '/jacopo/bootstrap-3-table-generator/src'),
     'Illuminate' => array($vendorDir . '/laravel/framework/src'),
     'File' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),

@@ -125,7 +125,8 @@ return array(
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Dollar\Generators\GeneratorsServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider'
+		'Maatwebsite\Excel\ExcelServiceProvider',
+		'Jacopo\LaravelImportExport\LaravelImportExportServiceProvider',
 	),
 
 	/*
@@ -194,6 +195,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 		'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
+		'BoostrapTable'     => 'Jacopo\Bootstrap3Table\BootstrapTable',
 
 	),
 

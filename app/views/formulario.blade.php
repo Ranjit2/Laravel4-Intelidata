@@ -24,10 +24,6 @@
 {{ Form::close() }}
 @stop
 
-
-
-
-
 @section('content')
 <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 <div class="row">

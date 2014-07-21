@@ -5,21 +5,18 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"dollar/generators": "dev-master",
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-debugbar": "1.*@dev",
 		"laracasts/validation": "~1.0",
 		"twitter/bootstrap": "3.2.*@dev",
 		"ghunti/highcharts-php": "~3.0",
-<<<<<<< Updated upstream
-		"maatwebsite/excel": "1.*",
+		"jacopo/bootstrap-3-table-generator": "dev-master",
 		"jacopo/laravel-import-export": "dev-master"
-=======
-		"maatwebsite/excel": "dev-master"
->>>>>>> Stashed changes
 	},
 	"require-dev": {
-		"way/generators": "dev-master"
+		"dollar/generators": "dev-master",
+		"way/generators": "dev-master",
+		"maatwebsite/excel": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
