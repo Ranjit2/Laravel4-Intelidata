@@ -55,12 +55,14 @@ Route::get('/chart', function(){
 });
 
 Route::get('formulario', function(){
-    Excel::load('datos/datos.csv', function($reader) {
-    
-        $reader->dump();        
-    
-    }, 'ISO-8859-1');
-    return Response::view("formulario");
+    $res = Excel::load('datos/datos.csv', function($reader) {
+        // Getting all results
+        $results = $reader->get()->where('empresa','=','Movistar')->groupBy('mes');
+        // ->all() is a wrapper for ->get() and will work the same
+    }, 'ISO-8859-1')->toArray();
+
+    Debugbar::info($res);
+    return View::make("formulario")->with('json', $res);
 });
 
 Route::post('envioForm',function(){

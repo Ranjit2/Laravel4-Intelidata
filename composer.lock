@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9c9fe8795682c23a9609f931ecd72b9",
+    "hash": "c4ca85ed76fcf17b7973c54fd61b657e",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -600,16 +600,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v1.1.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4"
+                "reference": "fb70f0ecd76604a0ed6050d5b33f93fedabe1718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0c67aba8387726458d42461eae91a3415593bbc4",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/fb70f0ecd76604a0ed6050d5b33f93fedabe1718",
+                "reference": "fb70f0ecd76604a0ed6050d5b33f93fedabe1718",
                 "shasum": ""
             },
             "require": {
@@ -651,7 +651,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2014-07-10 09:06:07"
+            "time": "2014-07-12 14:40:45"
         },
         {
             "name": "maximebf/debugbar",
@@ -818,23 +818,23 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "b94de7192b01d0e80794eae984dcc773220ab0dc"
+                "reference": "9b42a1aec56011c2ac4d75c0ddad0794762344fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b94de7192b01d0e80794eae984dcc773220ab0dc",
-                "reference": "b94de7192b01d0e80794eae984dcc773220ab0dc",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b42a1aec56011c2ac4d75c0ddad0794762344fc",
+                "reference": "9b42a1aec56011c2ac4d75c0ddad0794762344fc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -860,7 +860,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2014-05-13 02:29:30"
+            "time": "2014-07-18 03:44:47"
         },
         {
             "name": "nikic/php-parser",
@@ -2217,7 +2217,8 @@
         "dollar/generators": 20,
         "fzaninotto/faker": 20,
         "barryvdh/laravel-debugbar": 20,
-        "twitter/bootstrap": 20
+        "twitter/bootstrap": 20,
+        "maatwebsite/excel": 20
     },
     "platform": [
 

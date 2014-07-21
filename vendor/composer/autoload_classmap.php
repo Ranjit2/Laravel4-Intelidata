@@ -372,6 +372,7 @@ return array(
     'File_ASN1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_ASN1_Element' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_X509' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/X509.php',
+    'Func' => $baseDir . '/app/libs/csv-to-json.php',
     'Ghunti\\HighchartsPHP\\Highchart' => $vendorDir . '/ghunti/highcharts-php/src/Highchart.php',
     'Ghunti\\HighchartsPHP\\HighchartJsExpr' => $vendorDir . '/ghunti/highcharts-php/src/HighchartJsExpr.php',
     'Ghunti\\HighchartsPHP\\HighchartOption' => $vendorDir . '/ghunti/highcharts-php/src/HighchartOption.php',
