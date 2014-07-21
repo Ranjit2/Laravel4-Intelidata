@@ -2039,6 +2039,12 @@ pre code {
 table {
   background-color: transparent;
 }
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777777;
+  text-align: left;
+}
 th {
   text-align: left;
 }
@@ -2521,6 +2527,7 @@ select[multiple].form-group-lg .form-control {
   height: 31px;
   line-height: 31px;
   text-align: center;
+  pointer-events: none;
 }
 .input-lg + .form-control-feedback {
   width: 42px;
@@ -5988,8 +5995,6 @@ button.close {
 }
 .affix {
   position: fixed;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
 }
 @-ms-viewport {
   width: device-width;
@@ -6200,6 +6205,9 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.progress {
+  height: 2px;
 }
 #progressbar {
   display: none;

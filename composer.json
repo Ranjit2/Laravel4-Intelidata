@@ -11,7 +11,8 @@
 		"twitter/bootstrap": "3.2.*@dev",
 		"ghunti/highcharts-php": "~3.0",
 		"jacopo/bootstrap-3-table-generator": "dev-master",
-		"jacopo/laravel-import-export": "dev-master"
+		"jacopo/laravel-import-export": "dev-master",
+		"thujohn/pdf": "dev-master"
 	},
 	"require-dev": {
 		"dollar/generators": "dev-master",
@@ -29,7 +30,7 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-4": {
-        	"Acme\\": "app/libs/Acme"
+			"Acme\\": "app/libs/Acme"
 		}
 	},
 	"scripts": {
