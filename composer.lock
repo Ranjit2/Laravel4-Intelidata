@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f4352281e696937f11820688a686b37",
+    "hash": "88396fcbc6d5a2fdaa1bca06dcc92de2",
     "packages": [
         {
             "name": "ahir/velocity",
@@ -65,12 +65,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "12751b7d90cdb7938e0d47b83f1ccc1c6bae4432"
+                "reference": "0ca928a9437c5d5754b22612147ed2b2958c1e4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/12751b7d90cdb7938e0d47b83f1ccc1c6bae4432",
-                "reference": "12751b7d90cdb7938e0d47b83f1ccc1c6bae4432",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/0ca928a9437c5d5754b22612147ed2b2958c1e4d",
+                "reference": "0ca928a9437c5d5754b22612147ed2b2958c1e4d",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-07-08 11:42:35"
+            "time": "2014-07-22 13:36:20"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1108,16 +1108,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.6",
+            "version": "v4.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2e73cd58ee42919166a51897b965e1135b85048c"
+                "reference": "11c1b47b365be02beab3e5aca2306aaa08203d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2e73cd58ee42919166a51897b965e1135b85048c",
-                "reference": "2e73cd58ee42919166a51897b965e1135b85048c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/11c1b47b365be02beab3e5aca2306aaa08203d8e",
+                "reference": "11c1b47b365be02beab3e5aca2306aaa08203d8e",
                 "shasum": ""
             },
             "require": {
@@ -1211,9 +1211,7 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell",
-                    "role": "Creator of Laravel"
+                    "email": "taylorotwell@gmail.com"
                 }
             ],
             "description": "The Laravel Framework.",
@@ -1221,7 +1219,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-06-29 00:16:51"
+            "time": "2014-07-22 20:25:45"
         },
         {
             "name": "maximebf/debugbar",
@@ -2723,12 +2721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a035ee59ae73510ebdb1064e59b4b16f1da9fc66"
+                "reference": "e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a035ee59ae73510ebdb1064e59b4b16f1da9fc66",
-                "reference": "a035ee59ae73510ebdb1064e59b4b16f1da9fc66",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb",
+                "reference": "e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb",
                 "shasum": ""
             },
             "replace": {
@@ -2766,7 +2764,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-20 05:11:07"
+            "time": "2014-07-22 02:38:30"
         }
     ],
     "packages-dev": [
