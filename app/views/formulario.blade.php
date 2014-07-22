@@ -25,49 +25,15 @@
 @stop
 
 @section('content')
+<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 <div class="row">
-<img src="" id="MyPix" style="display: none">
-    <a href="#" id="pdf">Download PDF</a>
-    <button onclick="putImage()">Save as Image</button>
-
-</div>
-<div class="row">
-    <div class="col-md-9" id="chart">
-        <h3>Historial Chart</h3>
+    <div class="col-md-9">
         <canvas id="barChart"></canvas>
     </div>
     <div class="col-md-3">
         <div id="barLegend" ></div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-9">
-        <h3>Donut Chart</h3>
-        <canvas id="donutChart" with="400"></canvas>
-    </div>
-    <div class="col-md-3">
-        <div id="donutLegend"></div>
-    </div>
-</div>
 @stop
 
-@section('script')
 
-var data = {
-    labels: {{ $labels }},
-    datasets: {{ $histo }}
-};
-
-var ctx = $("#barChart").get(0).getContext("2d");
-Chart.defaults.global.responsive = true;
-var myLineChart = new Chart(ctx).Bar(data);
-legend(document.getElementById("barLegend"), data);
-
-var data = {{ $donut }};
-
-var ctx2 = $("#donutChart").get(0).getContext("2d");
-var myDoughnutChart = new Chart(ctx2).Doughnut(data);
-legend(document.getElementById("donutLegend"), data);
-
-
-@stop

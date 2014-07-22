@@ -49,15 +49,27 @@ Route::get('/mail', function(){
     return Response::json(array('message' => 'Error!'));
 });
 
+
 Route::get('/chart', function(){
     return "<h1>Welcome Charts...</h1>";
 });
 
+Route::get('formulario', function(){
+    $res = Excel::load('datos/datos.csv', function($reader) {
+        // Getting all results
+        $results = $reader->get()->where('empresa','=','Movistar')->groupBy('mes');
+        // ->all() is a wrapper for ->get() and will work the same
+    }, 'ISO-8859-1')->toArray();
+
+    Debugbar::info($res);
+    return View::make("formulario")->with('json', $res);
+});
+
 Route::post('envioForm',function(){
     $validator = Validator::make(
-        array('username' => Input::get('username'), 'password' => Input::get('password'), 'email' => Input::get('email')),
-        array('username' => 'required', 'password' => 'required|min:5','email' => 'required|email')
-        );
+    array('username' => Input::get('username'), 'password' => Input::get('password'), 'email' => Input::get('email')),
+    array('username' => 'required', 'password' => 'required|min:5','email' => 'required|email')
+);
     if ($validator->fails())
     {
         return Redirect::to('formulario')->withErrors($validator)->withInput();
@@ -65,36 +77,4 @@ Route::post('envioForm',function(){
     return "Ok";
 });
 
-Route::get('formulario', function(){
-    // Convierte el mes del archivo a importar a numero
-    // $res = Excel::load('datos/datos.csv', 'ISO-8859-1')->toArray();
-    // $graff = new Grafico;
-    // foreach($res as $sheet)
-    // {
-    //     $month = Func::convMonthToNumber(array_get($sheet, 'mes'));
-    //     $graff->empresa   = array_get($sheet, 'empresa', '');
-    //     $graff->año       = array_get($sheet, 'año', '');
-    //     $graff->mes       = $month;
-    //     $graff->categoria = array_get($sheet, 'categoria', '');
-    //     $graff->save();
-    //     Debugbar::info($res);
-    // }
 
-    foreach (Grafico::groupBy('mes')->get() as $value) {
-        // Debugbar::info($value);
-        $labels[] = $value->mes;
-    }
-
-    $histo = Grafico::historicChart();
-    $donut = Grafico::donut_valueByProduct('Entel', 'mes', 2014);
-
-    Debugbar::info($histo);
-
-    return View::make("formulario")->with('labels', json_encode($labels))->with('histo', $histo)->with('donut', $donut);
-});
-
-Route::post('/pdf', function()
-{
-    $html = Input::get('canvas');
-    return PDF::load($html, 'A4', 'portrait')->download('a');
-});

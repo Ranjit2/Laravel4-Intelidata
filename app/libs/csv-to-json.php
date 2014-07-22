@@ -14,7 +14,7 @@
 // $keys = array();
 // $newArray = array();
 
-class Func2 {
+class Func {
 // Function to convert CSV into associative array
 public static  function csvToArray($file, $delimiter) {
   if (($handle = fopen($file, 'r')) !== FALSE) {

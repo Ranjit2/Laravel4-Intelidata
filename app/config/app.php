@@ -127,7 +127,6 @@ return array(
 		'Dollar\Generators\GeneratorsServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'Jacopo\LaravelImportExport\LaravelImportExportServiceProvider',
-		'Thujohn\Pdf\PdfServiceProvider',
 	),
 
 	/*
@@ -197,8 +196,7 @@ return array(
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 		'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
 		'BoostrapTable'     => 'Jacopo\Bootstrap3Table\BootstrapTable',
-		'Carbon'            => 'Carbon\Carbon',
-		'PDF'               => 'Thujohn\Pdf\PdfFacade',
+
 	),
 
 );
