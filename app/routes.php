@@ -57,13 +57,47 @@ Route::get('/chart', function(){
 Route::get('formulario', function(){
     $res = Excel::load('datos/datos.csv', function($reader) {
         // Getting all results
-        $results = $reader->get()->where('empresa','=','Movistar')->groupBy('mes');
+        
+
+        //DB::select('call listadoMeses(?,?)', array('movistar', 2014));
+
+        DB::select('Select * from tabla1 where empresa = ?', array('Movistar'));
+
+
+
         // ->all() is a wrapper for ->get() and will work the same
     }, 'ISO-8859-1')->toArray();
 
     Debugbar::info($res);
     return View::make("formulario")->with('json', $res);
+
 });
+
+
+Route::get('query', function(){
+
+     $empresa = 'Movistar';
+     $year = '2014';
+     
+    //$respuesta = DB::select('select * from empresa');
+     $respuesta = DB::select('call listadoMeses(?,?)', array($empresa, $year));
+     
+
+     Debugbar::info($respuesta);
+     return View::make("formulario")->with('meses', $respuesta);
+});
+
+Route::get('listado', function(){
+
+    $respuesta = DB::select('select nombre from empresa');
+    $arreglo = array();
+    foreach ($respuesta as $value) {
+        $arreglo[] = $value;
+    }
+
+    return View::make("formulario")->with('variable', json_encode($arreglo));
+});
+
 
 Route::post('envioForm',function(){
     $validator = Validator::make(

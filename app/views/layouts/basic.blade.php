@@ -39,6 +39,10 @@
     <script src="js/Chart.js"></script>
     <script src="js/legend.js"></script>
     <script src="js/frontend.js"></script>
+    
+    
+
+
     <script type="text/javascript">
         @yield('script')
     </script>
