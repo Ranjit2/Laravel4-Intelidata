@@ -1,0 +1,4 @@
+id,username,email,password,confirmation_code,remember_token,confirmed,created_at,updated_at
+1,admin,admin@example.org,$2y$10$B0FfYp5cZNBENbao.OCKeuqB747hRX9NsciUEMhGQ9R//i0hbkbWa,759f7a9a7eb3a7bf3e81f86e352efc67,,1,2014-07-10 19:06:39,2014-07-10 19:06:39
+2,user,user@example.org,$2y$10$g4l9VvHo7BFZGz58efTdquNbCZ2vM/SaI84tIDOp5OudAs0.deP2G,44d30e2dec062e4306b01e6ce2740adb,,1,2014-07-10 19:06:39,2014-07-10 19:06:39
+3,test,test@test.test,$2y$10$td2wVvZ83uP5je4tG05SMO28Nxd37i/4vSw2.6BPTOAYYnN9CRJ1G,5b277c92f692b80428001f6d54d54ca7,,1,2014-07-11 02:45:46,2014-07-11 02:45:46
