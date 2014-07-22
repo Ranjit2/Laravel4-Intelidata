@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
 
     $(document).ajaxComplete(function( event, xhr, settings ) {
-        // 
+        //
     });
 
     // FUNCTIONS ======================================================
@@ -111,7 +111,86 @@ $(document).ready(function() {
             }
         });
     });
-});;// Chart.defaults.global = {
+
+    $('#pdf').on('click', function (e) {
+        e.preventDefault();
+        // var img = putImage();
+        // $.post('/pdf', {canvas:img}, function (data) {
+        // });
+        exportCanvas();
+    });
+})
+
+function convertCanvas(strType) {
+    if (strType == "PNG")
+        var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
+    if (strType == "BMP")
+        var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
+    if (strType == "JPEG")
+        var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
+
+    if (!oImg) {
+        alert("Sorry, this browser is not capable of saving " + strType + " files!");
+        return false;
+    }
+
+    oImg.id = "canvasimage";
+
+    oImg.style.border = oCanvas.style.border;
+    oCanvas.parentNode.replaceChild(oImg, oCanvas);
+
+    showDownloadText();
+}
+
+function putImage()
+{
+    var canvas = document.getElementById("barChart");
+    if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        var myImage = canvas.toDataURL("image/png");
+    }
+    var imageElement = document.getElementById("MyPix");
+    imageElement.src = myImage;
+    return myImage;
+}
+
+function getCanvasContext() {
+    var mycanvas = document.getElementById("barChart");
+    var canvas_context = null;
+    var x,y = 0;
+
+    if(mycanvas && mycanvas.getContext) {
+        canvas_context = mycanvas.getContext("2d");
+    }
+    else {
+        return false;
+    }
+    return canvas_context;
+}
+function canvasImgExperiment() {
+    canvas_context = getCanvasContext();
+    if(canvas_context) {
+        canvas_context.fillStyle = "#FFFFFF";
+        canvas_context.fillRect(0,0,700,700);
+        // draw something
+        canvas_context.fillStyle = "#C00000";
+        canvas_context.font = "40px arial";
+        canvas_context.fillText("This canvas will be exported",100,300);
+    }
+}
+function exportCanvas(){
+    var mycanvas = document.getElementById("barChart");
+    if(mycanvas && mycanvas.getContext) {
+        var img = mycanvas.toDataURL("image/png;base64;");
+        //img = img.replace("image/png","image/octet-stream"); // force download, user would have to give the file name.
+        // you can also use anchor tag with download attribute to force download the canvas with file name.
+        window.open(img,"","width=700,height=700");
+    }
+    else {
+        alert("Can not export");
+    }
+}
+canvasImgExperiment();;// Chart.defaults.global = {
 //     // Boolean - Whether to animate the chart
 //     animation: true,
 
@@ -228,42 +307,8 @@ $(document).ready(function() {
 //     // Function - Will fire on animation completion.
 //     onAnimationComplete: function(){}
 // }
-    
-var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            title: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {   
-            label: "My Second dataset",
-            title: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-    ]
-};
 
-var ctx = $("#barChart").get(0).getContext("2d");
-Chart.defaults.global.responsive = true;
-var myLineChart = new Chart(ctx).Bar(data);
 
-legend(document.getElementById("barLegend"), data);
-
-console.log(data.datasets[0].label);    
 
 // <!-- Editar valores grafico   -->
 // myLineChart.datasets[0].points[2].value = 150;
