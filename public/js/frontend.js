@@ -34,7 +34,11 @@ $(document).ready(function() {
     });
 
     $(document).ajaxComplete(function( event, xhr, settings ) {
+<<<<<<< HEAD
         //
+=======
+        // 
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
     });
 
     // FUNCTIONS ======================================================
@@ -111,6 +115,7 @@ $(document).ready(function() {
             }
         });
     });
+<<<<<<< HEAD
 
     $('#pdf').on('click', function (e) {
         e.preventDefault();
@@ -191,6 +196,9 @@ function exportCanvas(){
     }
 }
 canvasImgExperiment();;// Chart.defaults.global = {
+=======
+});;// Chart.defaults.global = {
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 //     // Boolean - Whether to animate the chart
 //     animation: true,
 
@@ -308,7 +316,45 @@ canvasImgExperiment();;// Chart.defaults.global = {
 //     onAnimationComplete: function(){}
 // }
 
+<<<<<<< HEAD
 
+=======
+// var data = {
+//     labels: ["January", "February", "March", "April", "May", "June", "July"],
+//     datasets: [
+//         {
+//             label: "My First dataset",
+//             title: "My First dataset",
+//             fillColor: "rgba(220,220,220,0.2)",
+//             strokeColor: "rgba(220,220,220,1)",
+//             pointColor: "rgba(220,220,220,1)",
+//             pointStrokeColor: "#fff",
+//             pointHighlightFill: "#fff",
+//             pointHighlightStroke: "rgba(220,220,220,1)",
+//             data: [65, 59, 80, 81, 56, 55, 40]
+//         },
+//         {   
+//             label: "My Second dataset",
+//             title: "My Second dataset",
+//             fillColor: "rgba(151,187,205,0.2)",
+//             strokeColor: "rgba(151,187,205,1)",
+//             pointColor: "rgba(151,187,205,1)",
+//             pointStrokeColor: "#fff",
+//             pointHighlightFill: "#fff",
+//             pointHighlightStroke: "rgba(151,187,205,1)",
+//             data: [28, 48, 40, 19, 86, 27, 90]
+//         }
+//     ]
+// };
+
+// var ctx = $("#barChart").get(0).getContext("2d");
+// Chart.defaults.global.responsive = true;
+// var myLineChart = new Chart(ctx).Bar(data);
+
+// legend(document.getElementById("barLegend"), data);
+
+  
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 
 // <!-- Editar valores grafico   -->
 // myLineChart.datasets[0].points[2].value = 150;

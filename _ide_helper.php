@@ -11827,9 +11827,15 @@ namespace {
 		 * Clears all session attributes and flashes and regenerates the
 		 * session and deletes the old session from persistence.
 		 *
+<<<<<<< HEAD
 		 * @param int     $lifetime Sets the cookie lifetime for the session cookie. A null value
 		 *                          will leave the system settings unchanged, 0 sets the cookie
 		 *                          to expire with browser session. Time is in seconds, and is
+=======
+		 * @param int     $lifetime Sets the cookie lifetime for the session cookie. A null value
+		 *                          will leave the system settings unchanged, 0 sets the cookie
+		 *                          to expire with browser session. Time is in seconds, and is
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 		 *                          not a Unix timestamp.
 		 * @return bool    True if session invalidated, false if error.
 		 * @api 
@@ -11845,9 +11851,15 @@ namespace {
 		 * session attributes.
 		 *
 		 * @param bool    $destroy  Whether to delete the old session or leave it to garbage collection.
+<<<<<<< HEAD
 		 * @param int     $lifetime Sets the cookie lifetime for the session cookie. A null value
 		 *                          will leave the system settings unchanged, 0 sets the cookie
 		 *                          to expire with browser session. Time is in seconds, and is
+=======
+		 * @param int     $lifetime Sets the cookie lifetime for the session cookie. A null value
+		 *                          will leave the system settings unchanged, 0 sets the cookie
+		 *                          to expire with browser session. Time is in seconds, and is
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 		 *                          not a Unix timestamp.
 		 * @return bool    True if session migrated, false if error.
 		 * @api 
@@ -13323,7 +13335,11 @@ namespace {
 		/**
 		 * Injects the web debug toolbar into the given Response.
 		 *
+<<<<<<< HEAD
 		 * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+=======
+		 * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 		 * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
 		 * @static 
 		 */
@@ -13709,8 +13725,13 @@ namespace {
 		 * 
 		 * @param  string $file The file we want to load
 		 *
+<<<<<<< HEAD
 		 * @param callback|null $callback
 		 *  @param  string|null $encoding
+=======
+		 * @param callback|null $callback
+		 *  @param  string|null $encoding
+>>>>>>> d054bc23dc830711bf7a32ff901c2a6740c96e07
 		 *  @return LaravelExcelReader
 		 * @static 
 		 */
