@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Whoops' => array($vendorDir . '/filp/whoops/src'),
     'Way\\Generators' => array($vendorDir . '/way/generators/src'),
     'Thujohn\\Pdf' => array($vendorDir . '/thujohn/pdf/src'),
@@ -23,6 +24,7 @@ return array(
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Symfony\\Component\\CssSelector\\' => array($vendorDir . '/symfony/css-selector'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Symfony\\Component\\ClassLoader\\' => array($vendorDir . '/symfony/class-loader'),
     'Symfony\\Component\\BrowserKit\\' => array($vendorDir . '/symfony/browser-kit'),
     'Stack' => array($vendorDir . '/stack/builder/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
@@ -44,10 +46,19 @@ return array(
     'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
     'Faker' => array($vendorDir . '/fzaninotto/faker/src'),
     'Dollar\\Generators' => array($vendorDir . '/dollar/generators/src'),
+    'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
+    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
+    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
+    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib'),
+    'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
     'DebugBar' => array($vendorDir . '/maximebf/debugbar/src'),
     'Crypt' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'ClassPreloader' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Boris' => array($vendorDir . '/d11wtq/boris/lib'),
+    'Barryvdh\\LaravelIdeHelper' => array($vendorDir . '/barryvdh/laravel-ide-helper/src'),
     'Barryvdh\\Debugbar' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
+    'Ahir\\Velocity' => array($vendorDir . '/ahir/velocity/src'),
 );
