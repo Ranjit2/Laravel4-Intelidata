@@ -5,14 +5,17 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
+		"twitter/bootstrap": "3.2.*@dev",
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-debugbar": "1.*@dev",
+		"barryvdh/laravel-ide-helper": "1.*",
 		"laracasts/validation": "~1.0",
-		"twitter/bootstrap": "3.2.*@dev",
-		"ghunti/highcharts-php": "~3.0",
 		"jacopo/bootstrap-3-table-generator": "dev-master",
 		"jacopo/laravel-import-export": "dev-master",
-		"thujohn/pdf": "dev-master"
+		"ghunti/highcharts-php": "~3.0",
+		"thujohn/pdf": "dev-master",
+		"doctrine/dbal": "~2.3",
+		"ahir/velocity": "dev-master"
 	},
 	"require-dev": {
 		"dollar/generators": "dev-master",
@@ -40,6 +43,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+			"php artisan ide-helper:generate",
 			"php artisan optimize",
 			"php artisan debugbar:publish"
 		],
