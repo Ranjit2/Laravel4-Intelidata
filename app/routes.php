@@ -93,8 +93,29 @@ Route::get('formulario', function(){
     return View::make("formulario")->with('labels', json_encode($labels))->with('histo', $histo)->with('donut', $donut);
 });
 
+Route::get('grafico', function(){
+    // Convierte el mes del archivo a importar a numero
+    // $res = Excel::load('datos/datos.csv', 'ISO-8859-1')->toArray();
+    // $graff = new Grafico;
+    // foreach($res as $sheet)
+    // {
+    //     $month = Func::convMonthToNumber(array_get($sheet, 'mes'));
+    //     $graff->empresa   = array_get($sheet, 'empresa', '');
+    //     $graff->año       = array_get($sheet, 'año', '');
+    //     $graff->mes       = $month;
+    //     $graff->categoria = array_get($sheet, 'categoria', '');
+    //     $graff->save();
+    //     Debugbar::info($res);
+    // }
+
+
+
+    return View::make("formulario");
+});
+
 Route::post('/pdf', function()
 {
     $html = Input::get('canvas');
     return PDF::load($html, 'A4', 'portrait')->download('a');
 });
+

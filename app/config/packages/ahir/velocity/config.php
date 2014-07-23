@@ -3,7 +3,7 @@
 return array(
 
 		// Activation
-		'active' => true,
+		'active' => false,
 
 		// Unmonitored Urls
 		'ban_url_array' => array(
