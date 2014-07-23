@@ -22,22 +22,21 @@
 </div>
 {{Form::submit('Click Me!',array('class'=>'btn btn-default'))}}
 {{ Form::close() }}
+
+
 @stop
 
 @section('content')
-<div id="chartdiv2" style="width: 100%; height: 400px;"></div>
- <div id="chartdiv" style="width: 100%; height: 300px;"></div>
+<div class="row">
+    {{ Form::text('empresa','',array('id' => 'txtEmpresa','class' => 'form-control')) }}
+    {{ Form::button('Envia ID',array('class'=>'btn btn-default', 'id' => 'btnEnviar'))}}
+    <div id="datos"></div>
+</div>
+<div class="row">
+    <div id="chartdiv2" style="width: 100%; height: 400px;"></div>
+    <div id="chartdiv" style="width: 100%; height: 300px;"></div>
+</div>
 @stop
-
-<style type="text/css">
-/*#chartdiv {
-background: #3f3f4f;
-color:#ffffff;
-width       : 100%;
-height      : 500px;
-font-size   : 11px;
-}*/
-</style>
 
 @section('script')
 

@@ -98,8 +98,15 @@ Route::get('formulario', function(){
 Route::get('/graf1', function () {
     return Grafico::graf1();
 });
+
 Route::post('/pdf', function()
 {
     $html = Input::get('canvas');
     return PDF::load($html, 'A4', 'portrait')->download('a');
 });
+
+Route::get('/graffs', function() {
+    return "VACIO";
+});
+
+Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');

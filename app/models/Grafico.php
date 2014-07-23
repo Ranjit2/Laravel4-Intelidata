@@ -7,6 +7,20 @@ class Grafico extends Eloquent {
 
 	protected $table = 'my_chart_data';
 
+	public static function graf2 (){
+		$qry = Grafico::orderBy('category','ASC')->get();
+		$graf = array();
+		foreach ($qry as $value) {
+			$array = array(
+				'category' => $value->category,
+				'value1'   => (int)$value->value1,
+				'value2'   => (int)$value->value2,
+				);
+			array_push($graf, $array);
+		}
+		return json_encode($graf);
+	}
+
 	public static function graf1 (){
 		$qry = Grafico::orderBy('category','ASC')->get();
 		$graf = array();

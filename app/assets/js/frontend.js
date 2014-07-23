@@ -33,9 +33,6 @@ $(document).ready(function() {
         return false;
     });
 
-    $(document).ajaxComplete(function( event, xhr, settings ) {
-        //
-    });
 
     // FUNCTIONS ======================================================
     $("#get").click(function (e) {
@@ -112,128 +109,125 @@ $(document).ready(function() {
         });
     });
 
-    $('#pdf').on('click', function (e) {
+    $("#btnEnviar").on('click',function (e) {
         e.preventDefault();
-        // var img = putImage();
-        // $.post('/pdf', {canvas:img}, function (data) {
-        // });
-        exportCanvas();
+        var idEmpresa = $('#txtEmpresa').val();
+        if(idEmpresa) {
+            $.post('/graffs/'+idEmpresa, function(data) {
+                console.log("DATA: " + data);
+                $.each(data, function(index, value) {
+                    $('#datos').append(value.nombre);
+                });
+            }, 'json');
+        } else {
+            $.get('/graffs', function(data) {
+                $('#datos').html(data);
+            });
+        }
     });
 
-    AmCharts.loadJSON = function(url) {
-        return eval($.ajax({type: "GET", url: url, async: false}).responseText);
-    };
 
-    var chart;
+    AmCharts.loadJSON = function(url, id, method) {
+        url    = typeof url !== 'undefined' ? url : '';
+        id     = typeof id !== 'undefined' ? id : '';
+        method = typeof method !== 'undefined' ? method : 'GET';
+        if(url !== '')
+            return eval($.ajax({type: method, url: url+id, async: false}).responseText);
+            // return $.ajax({type: method, url: url+id, async: false}).responseText;
+    };
 
     // create chart
     AmCharts.ready(function() {
 
-      // load the data
-      var chartData = AmCharts.loadJSON('/graf1');
+        // load the data
+        var chartData = AmCharts.loadJSON('/graf1');
 
-      // SERIAL CHART
-      chart = new AmCharts.AmSerialChart();
-      chart.pathToImages   = "http://www.amcharts.com/lib/images/";
-      chart.dataProvider   = chartData;
-      chart.categoryField  = "category";
-      chart.dataDateFormat = "YYYY-MM-DD";
-
-      // GRAPHS
-
-      var graph1 = new AmCharts.AmGraph();
-      graph1.valueField            = "value1";
-      graph1.bullet                = "round";
-      // graph1.bulletBorderColor     = "#FFFFFF";
-      // graph1.bulletBorderThickness = 2;
-      // graph1.lineThickness         = 2;
-      // graph1.lineAlpha             = 0.5;
-      chart.addGraph(graph1);
-
-      var graph2 = new AmCharts.AmGraph();
-      graph2.valueField            = "value2";
-      graph2.bullet                = "round";
-      // graph2.bulletBorderColor     = "#FFFFFF";
-      // graph2.bulletBorderThickness = 2;
-      // graph2.lineThickness         = 2;
-      // graph2.lineAlpha             = 0.5;
-      chart.addGraph(graph2);
-
-      // CATEGORY AXIS
-      chart.categoryAxis.parseDates = true;
-
-      // WRITE
-      chart.write("chartdiv2");
-
+        var chart = AmCharts.makeChart("chartdiv2", {
+            "type": "serial",
+            "theme": "none",
+            "pathToImages": "http://cdn.amcharts.com/lib/3/images/",
+            "categoryField": "category",
+            "rotate": false,
+            "startDuration": 1,
+            "categoryAxis": {
+                "gridPosition": "start",
+                "position": "left"
+            },
+            "trendLines": [],
+            "legend": {
+                "autoMargins": false,
+                "borderAlpha": 0.8,
+                "equalWidths": true,
+                "horizontalGap": 10,
+                "markerSize": 10,
+                "useGraphSettings": true,
+                "valueAlign": "left",
+                "align": "center",
+                "valueWidth": 0,
+            },
+            "dataProvider": chartData,
+            "graphs": [
+            {
+                "id": "AmGraph-1",
+                "balloonText": "[[title]], [[category]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "title": "value1",
+                "type": "column",
+                "valueField": "value1"
+            },
+            {
+                "id": "AmGraph-2",
+                "balloonText": "[[title]], [[category]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "title": "value2",
+                "type": "column",
+                "valueField": "value2"
+            }
+            ],
+            "guides": [],
+            "valueAxes": [
+            {
+                "id": "ValueAxis-1",
+                "position": "left",
+                "axisAlpha": 0
+            }
+            ],
+            "allLabels": [],
+            "amExport": {
+                "right": 20,
+                "top": 20
+            },
+            "balloon": {},
+            "titles": [],
+            "pathToImages":"http://www.amcharts.com/lib/3/images/",
+            "amExport":{
+               "top":21,
+               "right":20,
+               "exportJPG":true,
+               "exportPNG":true,
+               "exportSVG":true,
+               "exportPDF":true
+           }
+       });
     });
+
+
 })
 
-function convertCanvas(strType) {
-    if (strType == "PNG")
-        var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
-    if (strType == "BMP")
-        var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
-    if (strType == "JPEG")
-        var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
+$.barChart = function() {
+    console.log('VER');
+};
 
-    if (!oImg) {
-        alert("Sorry, this browser is not capable of saving " + strType + " files!");
-        return false;
-    }
+$.donutChart = function() {
+    console.log('VER');
+};
 
-    oImg.id = "canvasimage";
+$.lineChart = function() {
+    console.log('VER');
+};
 
-    oImg.style.border = oCanvas.style.border;
-    oCanvas.parentNode.replaceChild(oImg, oCanvas);
-
-    showDownloadText();
-}
-
-function putImage()
-{
-    var canvas = document.getElementById("barChart");
-    if (canvas.getContext) {
-        var ctx = canvas.getContext("2d");
-        var myImage = canvas.toDataURL("image/png");
-    }
-    var imageElement = document.getElementById("MyPix");
-    imageElement.src = myImage;
-    return myImage;
-}
-
-function getCanvasContext() {
-    var mycanvas = document.getElementById("barChart");
-    var canvas_context = null;
-    var x,y = 0;
-
-    if(mycanvas && mycanvas.getContext) {
-        canvas_context = mycanvas.getContext("2d");
-    }
-    else {
-        return false;
-    }
-    return canvas_context;
-}
-function canvasImgExperiment() {
-    canvas_context = getCanvasContext();
-    if(canvas_context) {
-        canvas_context.fillStyle = "#FFFFFF";
-        canvas_context.fillRect(0,0,700,700);
-        // draw something
-        canvas_context.fillStyle = "#C00000";
-        canvas_context.font = "40px arial";
-        canvas_context.fillText("This canvas will be exported",100,300);
-    }
-}
-function exportCanvas(){
-    var mycanvas = document.getElementById("barChart");
-    if(mycanvas && mycanvas.getContext) {
-        var img = mycanvas.toDataURL("image/png;base64;");
-        //img = img.replace("image/png","image/octet-stream"); // force download, user would have to give the file name.
-        // you can also use anchor tag with download attribute to force download the canvas with file name.
-        window.open(img,"","width=700,height=700");
-    }
-    else {
-        alert("Can not export");
-    }
-}
+$.pieChart = function() {
+    console.log('VER');
+};
