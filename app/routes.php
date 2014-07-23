@@ -66,38 +66,14 @@ Route::post('envioForm',function(){
 });
 
 Route::get('formulario', function(){
-    // Convierte el mes del archivo a importar a numero
-    // $res = Excel::load('datos/datos.csv', 'ISO-8859-1')->toArray();
-    // $graff = new Grafico;
-    // foreach($res as $sheet)
-    // {
-    //     $month = Func::convMonthToNumber(array_get($sheet, 'mes'));
-    //     $graff->empresa   = array_get($sheet, 'empresa', '');
-    //     $graff->año       = array_get($sheet, 'año', '');
-    //     $graff->mes       = $month;
-    //     $graff->categoria = array_get($sheet, 'categoria', '');
-    //     $graff->save();
-    //     Debugbar::info($res);
-    // }
-
-    // foreach (Grafico::groupBy('mes')->get() as $value) {
-    //     // Debugbar::info($value);
-    //     $labels[] = $value->mes;
-    // }
-
-    // $histo = Grafico::historicChart();
-    // $donut = Grafico::donut_valueByProduct('Entel', 'mes', 2014);
-
-    // Debugbar::info($histo);
-
-    // Debugbar::info();
-
     return View::make("formulario");
 });
 
 
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
+
+Route::get('/pivote/{aca}', 'GraffController@devuelvePivote');
 
 Route::get('prueba', function()
 {

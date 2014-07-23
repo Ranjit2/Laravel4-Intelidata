@@ -81,6 +81,16 @@ class GraffController extends BaseController {
 		return json_encode(Empresa::find($id)->categorias);
 	}
 
-	
+	public function devuelvePivote($idEmpresa)
+	{
+		$arreglo = array();
+	    $datos = Empresa::find($idEmpresa)->categorias;
+	    $cont = 0;
+	    foreach ($datos as $value) {
+	        $arreglo[$cont] = $value->pivot->id;
+	        $cont++;
+	    }
+	    return json_encode($arreglo);
+	}
 
 }

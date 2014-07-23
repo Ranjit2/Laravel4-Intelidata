@@ -1,41 +1,37 @@
 $(document).ready(function() {
     // GENERAL AJAX ======================================================
-    $(document).ajaxStart(function () {
-        $('#progressbar').fadeIn('fast');
-        setTimeout(function(){
-            $('#progressbar').each(function() {
-                var perc         = $('#progressbar').attr("aria-valuemax");
-                var current_perc = 0;
-                var progress     = setInterval(function() {
-                    if (current_perc >= perc) {
-                        clearInterval(progress);
-                    } else {
-                        current_perc += Math.floor((Math.random()*10)+1);
-                        $('#progressbar').css('width', (current_perc)+'%').attr('aria-valuenow', current_perc);
-                    }
-                }, 300);
-            });
-        }, 150);
-        return false;
-    });
+    // $(document).ajaxStart(function () {
+    //     $('#progressbar').fadeIn('fast');
+    //     setTimeout(function(){
+    //         $('#progressbar').each(function() {
+    //             var perc         = $('#progressbar').attr("aria-valuemax");
+    //             var current_perc = 0;
+    //             var progress     = setInterval(function() {
+    //                 if (current_perc >= perc) {
+    //                     clearInterval(progress);
+    //                 } else {
+    //                     current_perc += Math.floor((Math.random()*10)+1);
+    //                     $('#progressbar').css('width', (current_perc)+'%').attr('aria-valuenow', current_perc);
+    //                 }
+    //             }, 300);
+    //         });
+    //     }, 150);
+    //     return false;
+    // });
 
-    $(document).ajaxStop(function() {
-        /* stuff to do when all AJAX calls have completed */
-        // console.log("Triggered ajaxComplete handler. The result is " + xhr.responseText);
-        setTimeout(function(){
-            setTimeout(function(){
-                $("#progressbar").fadeOut('slow', function() {
-                    $("#progressbar").css('width', '0%').attr('aria-valuenow', '0');
-                });
-            }, 4500);
-            $("#progressbar").css('width', '100%').attr('aria-valuenow', '100');
-        }, 4500);
-        return false;
-    });
-
-    $(document).ajaxComplete(function( event, xhr, settings ) {
-        //
-    });
+    // $(document).ajaxStop(function() {
+    //     /* stuff to do when all AJAX calls have completed */
+    //     // console.log("Triggered ajaxComplete handler. The result is " + xhr.responseText);
+    //     setTimeout(function(){
+    //         setTimeout(function(){
+    //             $("#progressbar").fadeOut('slow', function() {
+    //                 $("#progressbar").css('width', '0%').attr('aria-valuenow', '0');
+    //             });
+    //         }, 4500);
+    //         $("#progressbar").css('width', '100%').attr('aria-valuenow', '100');
+    //     }, 4500);
+    //     return false;
+    // });
 
     // FUNCTIONS ======================================================
     $("#get").click(function (e) {
@@ -112,82 +108,129 @@ $(document).ready(function() {
         });
     });
 
-    $('#pdf').on('click', function (e) {
-        e.preventDefault();
-        // var img = putImage();
-        // $.post('/pdf', {canvas:img}, function (data) {
-        // });
-        exportCanvas();
-    });
-})
 
-function convertCanvas(strType) {
-    if (strType == "PNG")
-        var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
-    if (strType == "BMP")
-        var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
-    if (strType == "JPEG")
-        var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
 
-    if (!oImg) {
-        alert("Sorry, this browser is not capable of saving " + strType + " files!");
-        return false;
+    AmCharts.loadJSON = function(url) {
+        return eval($.ajax({type: "GET", url: url, async: false}).responseText);
+    };
+
+})    
+
+
+    function mostrarGrafico()
+    {
+        var chart = AmCharts.makeChart("chartdiv", {
+            "type": "serial",
+            "theme": "none",
+            "pathToImages": "http://cdn.amcharts.com/lib/3/images/",
+            "categoryField": "year",
+            "rotate": false,
+            "startDuration": 1,
+            "categoryAxis": {
+                "gridPosition": "start",
+                "position": "left"
+            },
+            "trendLines": [],
+            "legend": {
+                "autoMargins": false,
+                "borderAlpha": 0.8,
+                "equalWidths": true,
+                "horizontalGap": 10,
+                "markerSize": 10,
+                "useGraphSettings": true,
+                "valueAlign": "left",
+                "align": "center",
+                "valueWidth": 0,
+            },
+            "graphs": [
+            {
+                "id": "AmGraph-1",
+                "balloonText": "[[title]], [[category]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "title": "Telefonía",
+                "type": "column",
+                "valueField": "Telefonia"
+            },
+            {
+                "id": "AmGraph-2",
+                "balloonText": "[[title]], [[category]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "title": "Internet",
+                "type": "column",
+                "valueField": "Internet"
+            },
+            {
+                "id": "AmGraph-3",
+                "balloonText": "[[title]], [[category]]<br><span style='font-size:14px;'><b>[[value]]</b> ([[percents]]%)</span>",
+                "fillAlphas": 1,
+                "lineAlpha": 1,
+                "title": "Televisión",
+                "type": "column",
+                "valueField": "Television"
+            }
+            ],
+            "guides": [],
+            "valueAxes": [
+            {
+                "id": "ValueAxis-1",
+                "position": "left",
+                "axisAlpha": 0
+            }
+            ],
+            "allLabels": [],
+            "amExport": {
+                "right": 20,
+                "top": 20
+            },
+            "balloon": {},
+            "titles": [],
+            "dataProvider": [
+            {
+                "year": "Enero",
+                "Telefonia": 23.5,
+                "Television": 18.1,
+                "Internet": 15
+            },
+            {
+                "year": "Febrero",
+                "Telefonia": 23.5,
+                "Internet": 17.1,
+                "Television": 16
+            },
+            {
+                "year": "Marzo",
+                "Telefonia": 30.5,
+                "Internet": 40.1,
+                "Television": 20
+            },
+            {
+                "year": "Abril",
+                "Telefonia": 26.5,
+                "Internet": 30.1,
+                "Television": 31
+            },
+            {
+                "year": "Mayo",
+                "Telefonia": 33.5,
+                "Internet": 38.1,
+                "Television": 27
+            }
+            ],
+            "pathToImages":"http://www.amcharts.com/lib/3/images/",
+            "amExport":{
+               "top":21,
+               "right":20,
+               "exportJPG":true,
+               "exportPNG":true,
+               "exportSVG":true,
+               "exportPDF":true
+            }
+        });
     }
 
-    oImg.id = "canvasimage";
+    
 
-    oImg.style.border = oCanvas.style.border;
-    oCanvas.parentNode.replaceChild(oImg, oCanvas);
 
-    showDownloadText();
-}
 
-function putImage()
-{
-    var canvas = document.getElementById("barChart");
-    if (canvas.getContext) {
-        var ctx = canvas.getContext("2d");
-        var myImage = canvas.toDataURL("image/png");
-    }
-    var imageElement = document.getElementById("MyPix");
-    imageElement.src = myImage;
-    return myImage;
-}
-
-function getCanvasContext() {
-    var mycanvas = document.getElementById("barChart");
-    var canvas_context = null;
-    var x,y = 0;
-
-    if(mycanvas && mycanvas.getContext) {
-        canvas_context = mycanvas.getContext("2d");
-    }
-    else {
-        return false;
-    }
-    return canvas_context;
-}
-function canvasImgExperiment() {
-    canvas_context = getCanvasContext();
-    if(canvas_context) {
-        canvas_context.fillStyle = "#FFFFFF";
-        canvas_context.fillRect(0,0,700,700);
-        // draw something
-        canvas_context.fillStyle = "#C00000";
-        canvas_context.font = "40px arial";
-        canvas_context.fillText("This canvas will be exported",100,300);
-    }
-}
-function exportCanvas(){
-    var mycanvas = document.getElementById("barChart");
-    if(mycanvas && mycanvas.getContext) {
-        var img = mycanvas.toDataURL("image/png;base64;");
-        //img = img.replace("image/png","image/octet-stream"); // force download, user would have to give the file name.
-        // you can also use anchor tag with download attribute to force download the canvas with file name.
-        window.open(img,"","width=700,height=700");
-    }
-    else {
-        alert("Can not export");
-    }
-}
-canvasImgExperiment();

@@ -5,6 +5,6 @@ class Mes extends Eloquent {
 	protected $primaryKey = 'id';
 
 	public function empresasCategorias(){
-        return $this->belongsToMany('EmpresaCategorias', 'emp_categ_mes', 'id_empresa_categoria', 'id_mes');
+        return $this->belongsToMany('empresaCategorias', 'emp_categ_mes', 'id_empresa_categoria', 'id_mes');
     }
 }
