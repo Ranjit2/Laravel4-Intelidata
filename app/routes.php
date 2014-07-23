@@ -80,19 +80,24 @@ Route::get('formulario', function(){
     //     Debugbar::info($res);
     // }
 
-    foreach (Grafico::groupBy('mes')->get() as $value) {
-        // Debugbar::info($value);
-        $labels[] = $value->mes;
-    }
+    // foreach (Grafico::groupBy('mes')->get() as $value) {
+    //     // Debugbar::info($value);
+    //     $labels[] = $value->mes;
+    // }
 
-    $histo = Grafico::historicChart();
-    $donut = Grafico::donut_valueByProduct('Entel', 'mes', 2014);
+    // $histo = Grafico::historicChart();
+    // $donut = Grafico::donut_valueByProduct('Entel', 'mes', 2014);
 
-    Debugbar::info($histo);
+    // Debugbar::info($histo);
 
-    return View::make("formulario")->with('labels', json_encode($labels))->with('histo', $histo)->with('donut', $donut);
+    // Debugbar::info();
+
+    return View::make("formulario");
 });
 
+Route::get('/graf1', function () {
+    return Grafico::graf1();
+});
 Route::post('/pdf', function()
 {
     $html = Input::get('canvas');
