@@ -76,4 +76,11 @@ class GraffController extends BaseController {
 		//
 	}
 
+	public function devuelveCategoria($id)
+	{
+		return json_encode(Empresa::find($id)->categorias);
+	}
+
+	
+
 }
