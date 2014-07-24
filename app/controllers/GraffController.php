@@ -114,47 +114,38 @@ class GraffController extends BaseController {
 	{
 		try
 		{
-     		$producto  = array();
-			$valor     = array();
 			$resultado = array();
 			$arreglo   = array();
 			$datos     = Cliente::find($idCliente)->productos;
-			//Mes::find(7)->mes; 
-			$numero = 0;
+			$numero    = false;
 		    foreach ($datos as $value) 
 		    {
-		        //var_dump($arreglo[0]." - ".Mes::find($value->pivot->id_mes)->mes);
-		        
-		        
-		        // if($resultado != null){
-		        // 	//var_dump(Mes::find($value->pivot->id_mes)->mes);
-		        // 	$numero = array_search('JUNIO'/*Mes::find($value->pivot->id_mes)->mes*/, $resultado[0]);
-		        // 	var_dump($numero);
-		        // }
+		        if($arreglo != null){
+		        	$numero = array_search(Mes::find($value->pivot->id_mes)->mes, $arreglo[0]);
+		        }
 
-		        
-
-		        // if($numero == false)
-		        // {
+		        if(!is_int($numero))
+		        {
+			        $ingreso = true;
 			        $arreglo[0][] = Mes::find($value->pivot->id_mes)->mes;
 			        $arreglo[1][] = $value->pivot->numero_telefonico;
 			        $arreglo[2][] = $value->pivot->monto;
-			        //array_push($resultado, $arreglo);
-			    // }
-			    // else
-			    // {
-			    // 	$insertar = array();
-			    // 	$insertar[0] = $value->pivot->numero_telefonico;
-			    //     $insertar[1] = $value->pivot->monto;
-			    // 	$idArreglo = array_search(Mes::find($value->pivot->id_mes)->mes, $resultado);
 
-			    // 	array_push($resultado[$idArreglo], $insertar);
-			    // }
-			    ;
+			        $mes = Mes::find($value->pivot->id_mes)->mes;
+			        $telefono = $value->pivot->numero_telefonico;
+			        $monto = $value->pivot->monto;
 
-
+			        array_push($resultado, array($mes, $telefono, $monto));
+			    }
+			    else
+			    {
+			    	$telefono = $value->pivot->numero_telefonico;
+			        $monto = $value->pivot->monto;
+			        $mes = Mes::find($value->pivot->id_mes)->mes;
+			    	array_push($resultado[$numero], $telefono, $monto);
+			    }; 
 		    }
-		    return $arreglo[0];
+		    return $resultado;
 		}
 		catch(Exception $e)
 		{
