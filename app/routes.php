@@ -73,8 +73,6 @@ Route::get('formulario', function(){
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
 
-Route::get('/pivote/{aca}', 'GraffController@devuelvePivote');
-
 Route::get('prueba', function()
 {
     $arreglo = array();
@@ -86,3 +84,21 @@ Route::get('prueba', function()
     }
     return $arreglo;
 });
+
+
+
+
+
+Route::get('productos', function(){
+    $arreglo = array();
+    $datos = Cliente::find('111-1')->productos;
+    $cont = 0;
+    foreach ($datos as $value) {
+        $arreglo[$cont] = $value->nombre;
+        $cont++;
+    }
+    return $arreglo; 
+});
+
+Route::get('/meses/{idCliente}', 'GraffController@devuelveMeses');
+Route::get('/productos/{idCliente}', 'GraffController@devuelveProductos');

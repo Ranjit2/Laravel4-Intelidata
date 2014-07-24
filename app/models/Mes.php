@@ -4,7 +4,11 @@ class Mes extends Eloquent {
 	protected $table = 'mes';
 	protected $primaryKey = 'id';
 
-	public function empresasCategorias(){
-        return $this->belongsToMany('empresaCategorias', 'emp_categ_mes', 'id_empresa_categoria', 'id_mes');
+	public function productos(){
+        return $this->belongsToMany('Producto', 'cliente_producto', 'id_mes', 'id_producto')->withPivot('id');
+    }
+
+    public function clientes(){
+        return $this->belongsToMany('Cliente', 'cliente_producto', 'id_mes', 'id_cliente')->withPivot('id');
     }
 }

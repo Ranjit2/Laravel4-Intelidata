@@ -93,4 +93,73 @@ class GraffController extends BaseController {
 	    return json_encode($arreglo);
 	}
 
+	public function devuelveMeses($idCliente)
+	{
+		try
+		{
+			$arreglo = array();
+			$datos = Cliente::find($idCliente)->meses;
+		    foreach ($datos as $value) {
+		        $arreglo[] = $value->mes;
+		    }
+		    return $arreglo; 
+		}
+		catch(Exception $e)
+		{
+			return $e->getMessage();
+		}
+	}
+
+	public function devuelveProductos($idCliente)
+	{
+		try
+		{
+     		$producto  = array();
+			$valor     = array();
+			$resultado = array();
+			$arreglo   = array();
+			$datos     = Cliente::find($idCliente)->productos;
+			//Mes::find(7)->mes; 
+			$numero = 0;
+		    foreach ($datos as $value) 
+		    {
+		        //var_dump($arreglo[0]." - ".Mes::find($value->pivot->id_mes)->mes);
+		        
+		        
+		        // if($resultado != null){
+		        // 	//var_dump(Mes::find($value->pivot->id_mes)->mes);
+		        // 	$numero = array_search('JUNIO'/*Mes::find($value->pivot->id_mes)->mes*/, $resultado[0]);
+		        // 	var_dump($numero);
+		        // }
+
+		        
+
+		        // if($numero == false)
+		        // {
+			        $arreglo[0][] = Mes::find($value->pivot->id_mes)->mes;
+			        $arreglo[1][] = $value->pivot->numero_telefonico;
+			        $arreglo[2][] = $value->pivot->monto;
+			        //array_push($resultado, $arreglo);
+			    // }
+			    // else
+			    // {
+			    // 	$insertar = array();
+			    // 	$insertar[0] = $value->pivot->numero_telefonico;
+			    //     $insertar[1] = $value->pivot->monto;
+			    // 	$idArreglo = array_search(Mes::find($value->pivot->id_mes)->mes, $resultado);
+
+			    // 	array_push($resultado[$idArreglo], $insertar);
+			    // }
+			    ;
+
+
+		    }
+		    return $arreglo[0];
+		}
+		catch(Exception $e)
+		{
+			return $e->getMessage();
+		}
+	}
+
 }
