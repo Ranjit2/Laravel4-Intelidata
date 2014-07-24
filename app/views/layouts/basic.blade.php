@@ -13,8 +13,8 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="css/demo.css">
-    <link rel="stylesheet" type="text/css" href="css/frontend.min.css">
+    {{ HTML::style('css/demo.css'); }}
+    {{ HTML::style('css/frontend.min.css'); }}
 </head>
 <body>
     <div class="progress active">
@@ -37,7 +37,15 @@
     <!-- Bootstrap 3.2 JS -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
-    <script src="js/frontend.js"></script>
+        <!-- Charts -->
+    {{ HTML::script('js/amcharts_3.10.0.free/amcharts/amcharts.js'); }}
+
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/black.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
+   {{ HTML::script('js/frontend.js'); }}
     <script type="text/javascript">
         @yield('script')
     </script>

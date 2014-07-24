@@ -126,10 +126,9 @@ class GraffController extends BaseController {
 
 		        if(!is_int($numero))
 		        {
-			        $ingreso = true;
 			        $arreglo[0][] = Mes::find($value->pivot->id_mes)->mes;
-			        $arreglo[1][] = $value->pivot->numero_telefonico;
-			        $arreglo[2][] = $value->pivot->monto;
+			        //$arreglo[1][] = $value->pivot->numero_telefonico;
+			        //$arreglo[2][] = $value->pivot->monto;
 
 			        $mes = Mes::find($value->pivot->id_mes)->mes;
 			        $telefono = $value->pivot->numero_telefonico;
@@ -145,12 +144,19 @@ class GraffController extends BaseController {
 			    	array_push($resultado[$numero], $telefono, $monto);
 			    }; 
 		    }
-		    return $resultado;
+		    //$resultado;
+		    return View::make('formulario', array('productos' => $resultado));
 		}
 		catch(Exception $e)
 		{
 			return $e->getMessage();
 		}
+	}
+
+	public function probando($var)
+	{	
+		$var = 0;
+		return View::make('formulario')->with('var', $var);
 	}
 
 }
