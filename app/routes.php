@@ -23,7 +23,7 @@ Route::get('/get', function(){
 
 Route::post('/get2', function(){
     if(Request::ajax()) {
-        return Input::get("name") . Input::get("age");
+        return Input::get('name') . Input::get('age');
     }
 });
 
@@ -50,7 +50,7 @@ Route::get('/mail', function(){
 });
 
 Route::get('/chart', function(){
-    return "<h1>Welcome Charts...</h1>";
+    return '<h1>Welcome Charts...</h1>';
 });
 
 Route::post('envioForm',function(){
@@ -62,7 +62,7 @@ Route::post('envioForm',function(){
     {
         return Redirect::to('formulario')->withErrors($validator)->withInput();
     }
-    return "Ok";
+    return 'Ok';
 });
 
 Route::get('formulario', function(){
@@ -92,21 +92,106 @@ Route::get('formulario', function(){
 
     // Debugbar::info();
 
-    return View::make("formulario");
+    return View::make('formulario');
 });
 
 Route::get('/graf1', function () {
     return Grafico::graf1();
 });
 
-Route::post('/pdf', function()
-{
-    $html = Input::get('canvas');
-    return PDF::load($html, 'A4', 'portrait')->download('a');
-});
+Route::post('/graffs', function() {
+    $type = array('serial', 'pie');
+    // Debugbar::info($type[0]);
 
-Route::get('/graffs', function() {
-    return "VACIO";
+    $ejeY = 'year';
+
+    $data = array(
+        array(
+            'year'     => 2004,
+            'europe'   => 3.54,
+            'namerica' => 1.78,
+            'asia'     => 2.5,
+            'lamerica' => 0.3,
+            'meast'    => 9.2,
+            'africa'   => 8.1
+        ),
+        array(
+            'year'     => 2003,
+            'europe'   => 2.5,
+            'namerica' => 2.5,
+            'asia'     => 2.1,
+            'lamerica' => 0.3,
+            'meast'    => 0.2,
+            'africa'   => 0.1
+        ),
+    );
+
+    $graphs = array(
+        'balloonText' => e('<b>[[title]]</b><br><span style="font-size: 4px">[[category]] => <b>[[value]]</b></span>'),
+        'labelText'   => '[[title]] [[value]]',
+        'fillAlphas'  => 0.8,
+        'lineAlpha'   => 0.2,
+        'color'       => '#000000',
+        'title'       => 'Europe',
+        'type'        => 'column',
+        'valueField'  => 'europe',
+    );
+
+    $serial = array(
+        'type'   => $type[1],
+        'theme'  => 'none',
+        'legend' => array(
+            'horizontalGap'    => 10,
+            'maxColumns'       => 1,
+            'position'         => 'bottom',
+            'useGraphSettings' => true,
+            'markerSize'       => 10,
+        ),
+        'dataProvider' => $data,
+        'valueAxes'    => array(
+            'stackType'  => 'regular',
+            'axisAlpha'  => 0.3,
+            'gridAlpha'  => 0.2,
+            'gridColor'  => '#FFFFFF',
+            'dashLength' =>  0
+        ),
+        'graphs'        => $graphs,
+        'categoryField' => $ejeY,
+        'categoryAxis'  => array(
+            'gridPosition' => 'start',
+            'axisAlpha'    => 0,
+            'gridAlpha'    => 0,
+            'position'     => 'left',
+        ),
+        'pathToImages' => 'http://cdn.amcharts.com/lib/3/images/',
+        // 'gridAboveGraphs': true,
+        // 'startDuration': 1,
+        'exportConfig' => array(
+            'menuTop'   => '20px',
+            'menuRight' => '20px',
+            'menuItems' =>  array(
+                'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
+                'format' =>  'png'
+            )
+        ),
+
+    );
+
+    $pie = array(
+        'type'         => 'pie',
+        'theme'        => 'none',
+        'dataProvider' => $data,
+        'titleField'   => 'year',
+        'valueField'   => 'europe',
+        'labelRadius'  => 5,
+
+        'radius'       => '42%',
+        'innerRadius'  => '60%',
+        'labelText'    => '[[title]]'
+    );
+    Debugbar::info(json_encode($serial));
+    return Response::json($serial);
+     // return json_encode($var);
 });
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');

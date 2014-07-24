@@ -1,9 +1,6 @@
 <?php
 
 class Grafico extends Eloquent {
-	protected $guarded = array();
-
-	public static $rules = array();
 
 	protected $table = 'my_chart_data';
 
