@@ -32,6 +32,7 @@ class Grafico extends Eloquent {
 		return json_encode($graf);
 	}
 
+
 	// public static function donut_valueByProduct ($user = '', $groupBy = '', $year = 2014) {
 	// 	$donut = array();
 	// 	$query = Grafico::select('empresa', DB::raw('SUM(monto) as monto'), 'categoria')->where('empresa', $user)->where('año', $year)->groupBy($groupBy)->get();

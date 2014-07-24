@@ -23,23 +23,35 @@
 {{ Form::submit('Click Me!',array('class'=>'btn btn-default')) }}
 {{ Form::close() }}
 
+<h3>CHOICE YOUR CHART!: </h3>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" class="radioChart" id="r1" data-chart="Pie" value="donut" checked>
+    Donut Chart
+</label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" class="radioChart" id="r2" data-chart="Pie" value="pie">
+    Pie Chart
+</label>
+</div>
+<div class="radio disabled">
+  <label>
+    <input type="radio" name="optionsRadios" class="radioChart" id="hide" data-chart="" value="hide" disabled>
+    Hide Chart
+</label>
+</div>
 
 @stop
 
 @section('content')
+
 <div class="row">
-    {{ Form::text('empresa','',array('id' => 'txtEmpresa','class' => 'form-control')) }}
-    {{ Form::button('Envia ID',array('class'=>'btn btn-default', 'id' => 'btnEnviar')) }}
-    <div id="datos"></div>
-</div>
-<div class="row">
-    <!-- <div id="chartdiv2" style="width: 100%; height: 400px;"></div> -->
-    <div id="chartdiv" style="width: 100%; height: 300px;"></div>
+    <div id="chartdiv" style="width: 100%; height: 500px;"></div>
 </div>
 @stop
 
 @section('script')
-
-$.{{ 'stackbar' }}Chart('#chartdiv' @if (isset($data)) ,{{ $data }} @endif);
 
 @stop

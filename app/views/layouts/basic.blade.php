@@ -37,10 +37,12 @@
     <!-- Bootstrap 3.2 JS -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Charts -->
-    <script src="js/amcharts_3.10.0.free/amcharts/amcharts.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/amcharts_3.10.0.free/amcharts/amcharts.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/black.js"></script>
-    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
     <!-- Custom JS -->
