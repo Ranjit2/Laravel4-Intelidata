@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'test',
+			'database'  => 'vtrdata',
 			'username'  => 'test',
 			'password'  => 'test',
 			'charset'   => 'utf8',

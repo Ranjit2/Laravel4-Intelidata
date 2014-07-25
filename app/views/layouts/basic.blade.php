@@ -10,10 +10,10 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="css/frontend.min.css">
+    {{ HTML::style('css/frontend.min.css') }}
     <!-- <link rel="stylesheet" href="js/amcharts_3.10.0.free/images/style.css" type="text/css"> -->
 </head>
 <body>
@@ -22,6 +22,19 @@
             <span class="sr-only">0% Complete</span>
         </div>
     </div>
+    <!-- <div class="container-fluid">
+        <div class="row-fluid" style="background-color: blue">
+            <div class="centering text-center" style="background-color: green">Yeah I'm centered</div>
+        </div>
+    </div>
+    <div id="target" class="loading">
+        <div class="loading-overlay">
+            <p class="loading-spinner">
+                <span class="loading-icon"></span>
+                <span class="loading-text">loading</span>
+            </p>
+        </div>
+    </div> -->
     <div class="container">
         <div class="row">
             <div class="col-md-2">
@@ -37,18 +50,14 @@
     <!-- Bootstrap 3.2 JS -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Charts -->
-    <script type="text/javascript" src="js/amcharts_3.10.0.free/amcharts/amcharts.js"></script>
+    {{ HTML::script('js/amcharts_3.10.0.free/amcharts/amcharts.js') }}
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
-    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
-    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/black.js"></script>
-    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
     <!-- Custom JS -->
-    <script src="js/frontend.js"></script>
+    {{ HTML::script('js/frontend.js') }}
     <script type="text/javascript">
-        @yield('script')
+    @yield('script')
     </script>
-</body>
+    </body>
 </html>

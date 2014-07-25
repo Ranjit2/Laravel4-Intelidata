@@ -84,6 +84,6 @@ return array(
 	|
 	*/
 
-	'prefix' => 'prx_',
+	'prefix' => 'kche_',
 
 );

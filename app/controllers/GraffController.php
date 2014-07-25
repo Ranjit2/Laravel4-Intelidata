@@ -125,17 +125,18 @@ class GraffController extends BaseController {
 				'exportSVG' => true,
 				'exportPDF' => true,
 				),
-		);
+			);
 
 
 		// echo json_encode('SERAL CHART');
 		// Debugbar::info(json_encode($chart));
 		// return Response::json($chart);
 		// return json_encode($chart);
-	}
+}
 
-	public function getChartPie($id = '', $type = 'pie') {
-		$data   = Cliente::getChartPie($id);
+public function getChartPie($id = '', $type = 'pie') {
+	if(!Cache::has($type)) {
+		$data = Cliente::getChartPie($id);
 		$titleF = 'nombre';
 		$valueF = 'monto';
 		$chart = array(
@@ -151,14 +152,19 @@ class GraffController extends BaseController {
 				'menuItems' =>  array(
 					'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
 					'format' =>  'png',
+					),
 				),
-			),
-		);
+			);
 		if ($type == 'donut') {
 			$chart = array_add($chart, "labelRadius", 5);
 			$chart = array_add($chart, "radius", "42%");
 			$chart = array_add($chart, "innerRadius", "60%");
 		}
-		return Response::json($chart);
+		Cache::put($type, $chart, 20);
+	} else {
+		$chart = Cache::get($type);
 	}
+
+	return Response::json($chart);
+}
 }
