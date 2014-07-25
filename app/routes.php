@@ -89,11 +89,7 @@ Route::get('prueba', function()
 
 
 
-// Route::get('/productosTest/{var}', 'GraffController@probando');
-
-Route::get('/productosTest/{var}', function($var){
-    return View::make('formulario');
-});
+Route::get('/productosTest/{var}', 'GraffController@devuelveProductos');
 
 Route::get('/meses/{idCliente}', 'GraffController@devuelveMeses');
 

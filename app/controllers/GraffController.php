@@ -130,33 +130,30 @@ class GraffController extends BaseController {
 			        //$arreglo[1][] = $value->pivot->numero_telefonico;
 			        //$arreglo[2][] = $value->pivot->monto;
 
-			        $mes = Mes::find($value->pivot->id_mes)->mes;
+			        $mes      = Mes::find($value->pivot->id_mes)->mes;
 			        $telefono = $value->pivot->numero_telefonico;
-			        $monto = $value->pivot->monto;
-
-			        array_push($resultado, array($mes, $telefono, $monto));
+			        $monto    = $value->pivot->monto;
+			        $arreglin = array("mes"=>$mes, "telefono"=>$telefono, "monto"=>$monto);
+			        
+			        array_push($resultado, $arreglin);
 			    }
 			    else
 			    {
 			    	$telefono = $value->pivot->numero_telefonico;
-			        $monto = $value->pivot->monto;
-			        $mes = Mes::find($value->pivot->id_mes)->mes;
-			    	array_push($resultado[$numero], $telefono, $monto);
+			        $monto    = $value->pivot->monto;
+			        $mes      = Mes::find($value->pivot->id_mes)->mes;
+
+
+					array_push($resultado[$numero], ['telefono']$telefono, ['monto']$monto);
 			    }; 
 		    }
-		    //$resultado;
-		    return View::make('formulario', array('productos' => $resultado));
+		    return $resultado[0][0];
+		    //return View::make('formulario', array('productos' => json_encode($resultado)));
 		}
 		catch(Exception $e)
 		{
 			return $e->getMessage();
 		}
-	}
-
-	public function probando($var)
-	{	
-		$var = 0;
-		return View::make('formulario')->with('var', $var);
 	}
 
 }

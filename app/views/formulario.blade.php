@@ -25,7 +25,6 @@
 @stop
 
 @section('content')
-{{ $var or 'HOLA' }}
 <!-- <div id="chartdiv2" style="width: 100%; height: 400px;"></div> -->
  <div id="chartdiv" style="width: 100%; height: 300px;"></div>
 
@@ -39,11 +38,8 @@
 @section('script')
     $("#btnEnviar").on('click', function (e) {
         e.preventDefault();
-
-        
-        mostrarGrafico();
-        
-
+            
+            mostrarGrafico({{$productos}});
 
     });
 

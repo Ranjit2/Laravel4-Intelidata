@@ -117,13 +117,49 @@ $(document).ready(function() {
 })    
 
 
-    function mostrarGrafico()
+    function mostrarGrafico(productos)
     {
+        var data = new Array();
+        data = [
+            {
+                "mes": "Enero",
+                "Telefonia": 23.5,
+                "Television": 18.1,
+                "Internet": 15
+            },
+            {
+                "mes": "Febrero",
+                "Telefonia": 23.5,
+                "Internet": 17.1,
+                "Television": 16
+            },
+            {
+                "mes": "Marzo",
+                "Telefonia": 30.5,
+                "Internet": 40.1,
+                "Television": 20
+            },
+            {
+                "mes": "Abril",
+                "Telefonia": 26.5,
+                "Internet": 30.1,
+                "Television": 31
+            },
+            {
+                "mes": "Mayo",
+                "Telefonia": 33.5,
+                "Internet": 38.1,
+                "Television": 27
+            }
+            ];
+
+        console.log(productos);
+        console.log(data);
         var chart = AmCharts.makeChart("chartdiv", {
             "type": "serial",
             "theme": "none",
             "pathToImages": "http://cdn.amcharts.com/lib/3/images/",
-            "categoryField": "year",
+            "categoryField": "mes",
             "rotate": false,
             "startDuration": 1,
             "categoryAxis": {
@@ -186,38 +222,7 @@ $(document).ready(function() {
             },
             "balloon": {},
             "titles": [],
-            "dataProvider": [
-            {
-                "year": "Enero",
-                "Telefonia": 23.5,
-                "Television": 18.1,
-                "Internet": 15
-            },
-            {
-                "year": "Febrero",
-                "Telefonia": 23.5,
-                "Internet": 17.1,
-                "Television": 16
-            },
-            {
-                "year": "Marzo",
-                "Telefonia": 30.5,
-                "Internet": 40.1,
-                "Television": 20
-            },
-            {
-                "year": "Abril",
-                "Telefonia": 26.5,
-                "Internet": 30.1,
-                "Television": 31
-            },
-            {
-                "year": "Mayo",
-                "Telefonia": 33.5,
-                "Internet": 38.1,
-                "Television": 27
-            }
-            ],
+            "dataProvider": data ,
             "pathToImages":"http://www.amcharts.com/lib/3/images/",
             "amExport":{
                "top":21,
