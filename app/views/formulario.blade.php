@@ -49,6 +49,7 @@
 
 <div class="row">
     <div id="chartdiv" style="width: 100%; height: 400px;"></div>
+     <div id="chartdiv2     " style="width: 100%; height: 400px;"></div>
 </div>
 @stop
 

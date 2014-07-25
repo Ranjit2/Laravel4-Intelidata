@@ -23,31 +23,31 @@ class Cliente extends Eloquent {
 	public static function getChartPie($id) {
 		$data = Cliente::find($id)->productos;
 		$result = array();
+		Debugbar::info($data);
 		foreach ($data as $value) {
-			$array['nombre'] = $value->nombre;
-			$array['monto'] = $value->pivot->monto;
-			array_push($result, $array);
+			array_push($result,array(
+				'producto' => $value->nombre,
+				'numero'   => $value->pivot->numero_telefonico,
+				'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
+				'monto'    => $value->pivot->monto,
+				));
 		}
 		return $result;
 	}
 
 	public static function getChartSerial($id) {
-		// $chart = array();
-		// $data = Cliente::find($id)->productos->toArray();
+		$d = Cliente::find($id)->productos;
+		$data = array();
+		$numeros = array();
+		$count = 0;
 
-		// $graphs = array(
-		// 	sarray(
-		// 		'balloonText' => e('<b>[[title]]</b><br><span style="font-size: 4px">[[category]] => <b>[[value]]</b></span>'),
-		// 		'labelText'   => '[[title]] [[value]]',
-		// 		'fillAlphas'  => 0.8,
-		// 		'lineAlpha'   => 0.2,
-		// 		'color'       => '#000000',
-		// 		'title'       => 'Europe',
-		// 		'type'        => 'column',
-		// 		'valueField'  => 'europe',
-		// 		),
-		// 	);
-		// return $chart;
+		foreach ($d as $value) {
+			array_push($numeros, $value->pivot->numero_telefonico);
+
+			while () {
+			}
+		}
+
+		Func::printr(array_unique($numeros));
 	}
-
 }

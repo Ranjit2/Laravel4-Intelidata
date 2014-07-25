@@ -96,8 +96,9 @@ Route::get('formulario', function(){
 });
 
 Route::get('/graf1', function () {
-    return Grafico::graf1();
+    return Cliente::getChartSerial('444-4');
 });
+
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
 
 // ROUTES CHARTS

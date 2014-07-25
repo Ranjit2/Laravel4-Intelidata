@@ -145,7 +145,7 @@ $(document).ready(function() {
 });
 
 AmCharts.loadJSON = function (url, method) {
-    return JSON.parse($.ajax({type: method, url: url, async: false, cache: true, dataType: 'json' }).responseText);
+    return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
 };
 
 $.barChart = function (div, url, type, method) {
@@ -155,6 +155,7 @@ $.barChart = function (div, url, type, method) {
 $.columnChart = function (div, url, type, method) {
     var url   = typeof url !== 'undefined' ? url+'/'+type : '';
     var data  = AmCharts.loadJSON(url, method);
+    console.log(data);
     var chart = AmCharts.makeChart(div, data);
 };
 
@@ -218,6 +219,7 @@ $('.radioChart').change(function (e) {
 });
 
 $.loadChart('chartdiv', '/getChartPie/111-1', 'donut', 'POST');
+$.loadChart('chartdiv2', '/getChartSerie/111-1', 'column', 'POST');
 ;// Chart.defaults.global = {
 //     // Boolean - Whether to animate the chart
 //     animation: true,

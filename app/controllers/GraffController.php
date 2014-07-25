@@ -77,94 +77,89 @@ class GraffController extends BaseController {
 	}
 
 	public function getChartSerial($id = '', $type = 'column') {
-		$data   = Cliente::getChartSerial($id);
-		$graphs = '';
-		$ejex   = '';
-		$chart = array(
-			'type'   => 'serial',
-			'theme'  => 'none',
-			'legend' => array(
-				'horizontalGap'    => 10,
-				'maxColumns'       => 1,
-				'position'         => 'bottom',
-				'useGraphSettings' => true,
-				'markerSize'       => 10,
-				),
-			'dataProvider' => $data,
-			'valueAxes'    => array(
-				'stackType'  => 'regular',
-				'axisAlpha'  => 0.3,
-				'gridAlpha'  => 0.2,
-				'gridColor'  => '#FFFFFF',
-				'dashLength' =>  0
-				),
-			'graphs'        => $graphs,
-			'categoryField' => $ejex,
-			'categoryAxis'  => array(
-				'gridPosition' => 'start',
-				'axisAlpha'    => 0,
-				'gridAlpha'    => 0,
-				'position'     => 'left',
-				),
-			'pathToImages' => 'http://cdn.amcharts.com/lib/3/images/',
-			// 'gridAboveGraphs': true,
-			// 'startDuration': 1,
-			'exportConfig' => array(
-				'menuTop'   => '20px',
-				'menuRight' => '20px',
-				'menuItems' =>  array(
-					'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
-					'format' =>  'png',
-					)
-				),
-			'amExport' => array(
-				'top' => 21,
-				'right' => 20,
-				'exportJPG' => true,
-				'exportPNG' => true,
-				'exportSVG' => true,
-				'exportPDF' => true,
-				),
-			);
+		// $config   = Cliente::getChartSerial($id);
+		// $data = $config['data'];
+		// $graphs = $config['graphs'];
+		// $ejex   = '';
+		// $chart = array(
+		// 	'type'   => 'serial',
+		// 	'theme'  => 'none',
+		// 	'legend' => array(
+		// 		'horizontalGap'    => 10,
+		// 		'maxColumns'       => 1,
+		// 		'position'         => 'bottom',
+		// 		'useGraphSettings' => true,
+		// 		'markerSize'       => 10,
+		// 		),
+		// 	'dataProvider' => $data,
+		// 	'valueAxes'    => array(
+		// 		'stackType'  => 'regular',
+		// 		'axisAlpha'  => 0.3,
+		// 		'gridAlpha'  => 0.2,
+		// 		'gridColor'  => '#FFFFFF',
+		// 		'dashLength' =>  0
+		// 		),
+		// 	'graphs'        => $graphs,
+		// 	'categoryField' => $ejex,
+		// 	'categoryAxis'  => array(
+		// 		'gridPosition' => 'start',
+		// 		'axisAlpha'    => 0,
+		// 		'gridAlpha'    => 0,
+		// 		'position'     => 'left',
+		// 		),
+		// 	'pathToImages' => 'http://cdn.amcharts.com/lib/3/images/',
+		// 	'exportConfig' => array(
+		// 		'menuTop'   => '20px',
+		// 		'menuRight' => '20px',
+		// 		'menuItems' =>  array(
+		// 			'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
+		// 			'format' =>  'png',
+		// 			)
+		// 		),
+		// 	'amExport' => array(
+		// 		'top' => 21,
+		// 		'right' => 20,
+		// 		'exportJPG' => true,
+		// 		'exportPNG' => true,
+		// 		'exportSVG' => true,
+		// 		'exportPDF' => true,
+		// 		),
+		// 	);
 
-
-		// echo json_encode('SERAL CHART');
-		// Debugbar::info(json_encode($chart));
+		Debugbar::info("HOLA");
 		// return Response::json($chart);
-		// return json_encode($chart);
 }
 
-public function getChartPie($id = '', $type = 'pie') {
-	if(!Cache::has($type)) {
-		$data = Cliente::getChartPie($id);
-		$titleF = 'nombre';
-		$valueF = 'monto';
-		$chart = array(
-			'type'         => 'pie',
-			'theme'        => 'none',
-			'dataProvider' => $data,
-			'labelText'    => '[[title]]',
-			'titleField'   => $titleF,
-			'valueField'   => $valueF,
-			'exportConfig' => array(
-				'menuTop'   => '20px',
-				'menuRight' => '20px',
-				'menuItems' =>  array(
-					'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
-					'format' =>  'png',
+	public function getChartPie($id = '', $type = 'pie') {
+		// if(!Cache::has($type)) {
+			$data = Cliente::getChartPie($id);
+			$titleF = 'mes';
+			$valueF = 'monto';
+			$chart = array(
+				'type'         => 'pie',
+				'theme'        => 'none',
+				'dataProvider' => $data,
+				'labelText'    => '[[title]]<br>[[numero]]',
+				'titleField'   => $titleF,
+				'valueField'   => $valueF,
+				'exportConfig' => array(
+					'menuTop'   => '20px',
+					'menuRight' => '20px',
+					'menuItems' =>  array(
+						'icon'   =>  'http => //www.amcharts.com/lib/3/images/export.png',
+						'format' =>  'png',
+						),
 					),
-				),
-			);
-		if ($type == 'donut') {
-			$chart = array_add($chart, "labelRadius", 5);
-			$chart = array_add($chart, "radius", "42%");
-			$chart = array_add($chart, "innerRadius", "60%");
-		}
-		Cache::put($type, $chart, 20);
-	} else {
-		$chart = Cache::get($type);
+				);
+			if ($type == 'donut') {
+				$chart = array_add($chart, "labelRadius", 5);
+				$chart = array_add($chart, "radius", "42%");
+				$chart = array_add($chart, "innerRadius", "60%");
+			}
+			// Cache::put($type, $chart, 20);
+		// } else {
+			// $chart = Cache::get($type);
+		// }
+		return Response::json($chart);
 	}
-
-	return Response::json($chart);
-}
 }
