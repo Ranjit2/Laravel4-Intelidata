@@ -28,12 +28,16 @@ class Cliente extends Eloquent {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array((7-6), 7))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
+	public static function productosPorMes($id, $mes){
+		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
+	}
+
 	/**
 	 * [getChartPie description]
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public static function getChartPie($id, ){
+	public static function getChartPie($id = '') {
 		$data = array();
 		foreach (Cliente::find($id)->productos2 as $value) {
 			array_push($data,array(
@@ -46,12 +50,26 @@ class Cliente extends Eloquent {
 		return $data;
 	}
 
+	public static function getChartPieMonth($id = '', $mes = 1) {
+		$data = array();
+		foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
+			array_push($data,array(
+				'producto' => $value->nombre,
+				'numero'   => $value->pivot->numero_telefonico,
+				'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
+				'monto'    => $value->pivot->monto,
+				));
+		}
+		return $data;
+	}
+
+
 	/**
 	 * [getChartSerial description]
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public static function getChartSerial($id) {
+	public static function getChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		foreach (Cliente::find($id)->productos2 as $value) {
 			array_push($numbers, $value->pivot->numero_telefonico);

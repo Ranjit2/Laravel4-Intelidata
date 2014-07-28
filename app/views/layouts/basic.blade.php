@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -14,7 +13,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     {{ HTML::style('css/frontend.min.css') }}
-    <!-- <link rel="stylesheet" href="js/amcharts_3.10.0.free/images/style.css" type="text/css"> -->
 </head>
 <body>
     <div class="progress active">
@@ -45,7 +43,7 @@
     <!-- Custom JS -->
     {{ HTML::script('js/frontend.min.js') }}
     <script type="text/javascript">
-    @yield('script')
+        @yield('script')
     </script>
-    </body>
+</body>
 </html>

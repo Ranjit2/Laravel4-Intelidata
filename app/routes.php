@@ -84,8 +84,11 @@ Route::get('formulario', function(){
 });
 
 Route::get('/graf1', function () {
-    // Func::printr(Cliente::whereNumeroCliente('444-4')->get()->toArray());
-    return Cliente::getChartSerial('444-4');
+    // $now = Carbon::now();
+    // Func::printr($now);                               // 2014-02-12 22:52:03
+    // $today = Carbon::today();
+    // Func::printr($today->subMonth());                             // 2014-02-12 00:00:00
+    Func::printr(Cliente::productosPorMes('111-1', 7));
 });
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
@@ -93,5 +96,5 @@ Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
 /**
  * ROUTES CHARTS
  */
-Route::post('/getChartPie/{id}/{type}', 'GraffController@getChartPie');
+Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
 Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');

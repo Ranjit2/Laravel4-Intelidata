@@ -47,11 +47,16 @@
 
 @section('content')
 <div class="row">
-    <div id="chartdiv" style="with: 100%; height: 500px;"></div>
-    <div id="chartdiv2" style="with: 100%; height: 500px;"></div>
+    <div id="chartdiv" class="col-md-4" style="height: 400px;"></div>
+    <div id="chartdiv2" class="col-md-4" style="height: 400px;"></div>
+    <div id="chartdiv3" class="col-md-4" style="height: 400px;"></div>
 </div>
 <div class="row">
-    <div id="chartdiv3" style="with: 100%; height: 500px;"></div>
+    <div id="chartdiv4" class="col-md-12" style="height: 400px;"></div>
+</div>
+<div class="row">
+    <div id="chartdiv5" class="col-md-12" style="height: 400px;"></div>
+    <div id="chartdiv6" class="col-md-12" style="height: 400px;"></div>
 </div>
 @stop
 
