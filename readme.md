@@ -1,15 +1,12 @@
 Proyecto Intelidata
 ===================
-Proyecto generado para realizar pruebas de datos y funciones utilizando diversas librerías JS para graficar data a través de distintas herramientas de programación y diseño, tales como [Laravel], [Bootstrap] y [Highcharts].
-
-[Laravel]: http://laravel.com/ "Laravel 4"
-[Bootstrap]: http://getbootstrap.com/ "Twitter Bootstrap 3"
-[Highcharts]: http://www.highcharts.com/ "Highcharts.js"
+Proyecto generado para realizar pruebas de datos y funciones utilizando diversas librerías JS para graficar data a través de distintas herramientas de programación y diseño, tales como [Laravel 4] (http://laravel.com/), [Twitter Bootstrap 3] (http://getbootstrap.com/) y [AmChart - Javascript Chart v3] (http://www.amcharts.com/)
 
 >Páginas de ejemplos para realizar graficos con [Highcharts]  
-><http://i-am-sean.co.za/highcharts-laravel-4/>  
-><https://github.com/ghunti/HighchartsPHP>  
-><http://ngo-hung.com/blog/2012/07/19/create-a-simple-highcharts-bar-chart-with-real-time-update>  
+><http://www.amcharts.com/tutorials/your-first-stock-chart/>  
+><http://www.amcharts.com/tutorials/your-first-chart-with-amcharts/>
+><http://www.amcharts.com/demos/>
+><http://docs.amcharts.com/3/>
 
 ####Librerías JS para generar Gráficos#####
 http://www.chartjs.org/  
@@ -24,3 +21,4 @@ http://snapsvg.io/
 http://www.laravelmy.com/  
  
 &copy; 2014 Intelidata
+

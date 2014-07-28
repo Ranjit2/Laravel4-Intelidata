@@ -155,31 +155,31 @@ $.barChart = function (div, url, type, method) {
 $.columnChart = function (div, url, type, method) {
     var url   = typeof url !== 'undefined' ? url+'/'+type : '';
     var data  = AmCharts.loadJSON(url, method);
-    console.log(data);
     var chart = AmCharts.makeChart(div, data);
 };
 
 $.donutChart = function (div, url, type, method) {
     var url   = typeof url !== 'undefined' ? url+'/'+type : '';
     var data  = AmCharts.loadJSON(url, method);
-    var chart = AmCharts.makeChart(div,     data);
+    var chart = AmCharts.makeChart(div, data);
 };
 
 $.lineChart = function (div, url, type, method) {
-    var url = typeof url !== 'undefined' ? url+'/'+type : '';
+    var url   = typeof url !== 'undefined' ? url+'/'+type : '';
+    var data  = AmCharts.loadJSON(url, method);
+    var chart = AmCharts.makeChart(div, data);
 };
 
 $.pieChart = function (div, url, type, method) {
     var url   = typeof url !== 'undefined' ? url+'/'+type : '';
     var data  = AmCharts.loadJSON(url, method);
-    var chart = AmCharts.makeChart(div,     data);
+    var chart = AmCharts.makeChart(div, data);
 };
 
 $.stackbarChart = function (div, url, type, method) {
     var url   = typeof url !== 'undefined' ? url+'/'+type : '';
     var data  = AmCharts.loadJSON(url, method);
-    console.log(data);
-    // var chart = AmCharts.makeChart(div, data);
+    var chart = AmCharts.makeChart(div, data);
 };
 
 $.loadChart = function (div, url, type, method) {
@@ -211,6 +211,7 @@ $.loadChart = function (div, url, type, method) {
     }
 };
 
+
 $('.radioChart').change(function (e) {
     e.preventDefault();
     var type  = $(this).attr('value');
@@ -219,4 +220,4 @@ $('.radioChart').change(function (e) {
 });
 
 $.loadChart('chartdiv', '/getChartPie/111-1', 'donut', 'POST');
-$.loadChart('chartdiv2', '/getChartSerie/111-1', 'column', 'POST');
+// $.loadChart('chartdiv2', '/getChartSerial/222-2', 'column', 'POST');

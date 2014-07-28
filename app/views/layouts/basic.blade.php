@@ -22,19 +22,6 @@
             <span class="sr-only">0% Complete</span>
         </div>
     </div>
-    <!-- <div class="container-fluid">
-        <div class="row-fluid" style="background-color: blue">
-            <div class="centering text-center" style="background-color: green">Yeah I'm centered</div>
-        </div>
-    </div>
-    <div id="target" class="loading">
-        <div class="loading-overlay">
-            <p class="loading-spinner">
-                <span class="loading-icon"></span>
-                <span class="loading-text">loading</span>
-            </p>
-        </div>
-    </div> -->
     <div class="container">
         <div class="row">
             <div class="col-md-2">
@@ -51,11 +38,13 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Charts -->
     {{ HTML::script('js/amcharts_3.10.0.free/amcharts/amcharts.js') }}
+    {{ HTML::script('js/amcharts_3.10.0.free/amcharts/amcharts.js') }}
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
     <script type="text/javascript" src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
-    {{ HTML::script('js/frontend.js') }}
+    {{ HTML::script('js/frontend.min.js') }}
     <script type="text/javascript">
     @yield('script')
     </script>

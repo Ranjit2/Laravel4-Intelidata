@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Grafico
+ *
+ */
 class Grafico extends Eloquent {
 
 	protected $table = 'my_chart_data';

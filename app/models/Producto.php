@@ -7,8 +7,8 @@
  * @property string $nombre
  * @property-read \Illuminate\Database\Eloquent\Collection|\Mes[] $meses
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cliente[] $clientes
- * @method static \Illuminate\Database\Query\Builder|\Producto whereId($value) 
- * @method static \Illuminate\Database\Query\Builder|\Producto whereNombre($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Producto whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Producto whereNombre($value)
  */
 class Producto extends Eloquent {
 	protected $table = 'producto';

@@ -46,13 +46,9 @@
 @stop
 
 @section('content')
-
-<div class="row">
-    <div id="chartdiv" style="width: 100%; height: 400px;"></div>
-     <div id="chartdiv2     " style="width: 100%; height: 400px;"></div>
-</div>
+    <div id="chartdiv" class="col-md-6"></div>
+    <div id="chartdiv2" class="col-md-6"></div>
 @stop
 
 @section('script')
-
 @stop

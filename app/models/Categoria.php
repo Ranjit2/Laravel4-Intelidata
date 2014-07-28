@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Categoria
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Empresas[] $empresas
+ */
 class Categoria extends Eloquent {
 
 	protected $table      = 'categoria';

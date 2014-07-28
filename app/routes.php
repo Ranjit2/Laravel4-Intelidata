@@ -80,27 +80,18 @@ Route::get('formulario', function(){
     //     Debugbar::info($res);
     // }
 
-    // foreach (Grafico::groupBy('mes')->get() as $value) {
-    //     // Debugbar::info($value);
-    //     $labels[] = $value->mes;
-    // }
-
-    // $histo = Grafico::historicChart();
-    // $donut = Grafico::donut_valueByProduct('Entel', 'mes', 2014);
-
-    // Debugbar::info($histo);
-
-    // Debugbar::info();
-
     return View::make('formulario');
 });
 
 Route::get('/graf1', function () {
-    return Cliente::getChartSerial('444-4');
+    Func::printr(Cliente::whereNumeroCliente('444-4')->get()->toArray());
+    // return Cliente::getChartSerial('444-4');
 });
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');
 
-// ROUTES CHARTS
+/**
+ * ROUTES CHARTS
+ */
 Route::post('/getChartPie/{id}/{type}', 'GraffController@getChartPie');
 Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');

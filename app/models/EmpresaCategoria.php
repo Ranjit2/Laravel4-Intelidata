@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * EmpresaCategoria
+ *
+ */
 class EmpresaCategoria extends Eloquent {
 
 	protected $table      = 'empresa_categoria';
