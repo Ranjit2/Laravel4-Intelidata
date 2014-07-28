@@ -2,11 +2,11 @@ Proyecto Intelidata
 ===================
 Proyecto generado para realizar pruebas de datos y funciones utilizando diversas librerías JS para graficar data a través de distintas herramientas de programación y diseño, tales como [Laravel 4] (http://laravel.com/), [Twitter Bootstrap 3] (http://getbootstrap.com/) y [AmChart - Javascript Chart v3] (http://www.amcharts.com/)
 
->Páginas de ejemplos para realizar graficos con [Highcharts]  
+>Páginas de ejemplos para realizar graficos con [AmChart - Javascript Chart v3] (http://www.amcharts.com/)
 ><http://www.amcharts.com/tutorials/your-first-stock-chart/>  
-><http://www.amcharts.com/tutorials/your-first-chart-with-amcharts/>
-><http://www.amcharts.com/demos/>
-><http://docs.amcharts.com/3/>
+><http://www.amcharts.com/tutorials/your-first-chart-with-amcharts/>  
+>Demos: <http://www.amcharts.com/demos/>  
+>Doc's: <http://docs.amcharts.com/3/>  
 
 ####Librerías JS para generar Gráficos#####
 http://www.chartjs.org/  
@@ -17,8 +17,11 @@ http://www.jqplot.com
 http://g.raphaeljs.com/  
 
 #####Otros#####
-http://snapsvg.io/
+http://snapsvg.io/  
 http://www.laravelmy.com/  
- 
-&copy; 2014 Intelidata
 
+#####Oracle PDO Connection######
+><https://github.com/jfelder/Laravel-OracleDB#installation>  
+><https://github.com/yajra/laravel-oci8>
+ 
+<b>&copy; 2014 Intelidata</b>
