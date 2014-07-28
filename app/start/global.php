@@ -83,12 +83,10 @@ require app_path().'/filters.php';
 
 App::before(function($request)
 {
-    Velocity::start();
 });
 
 App::after(function($request, $response)
 {
-    Velocity::stop();
 });
 
 Event::listen('ahir.velocity', 'Ahir\Velocity\Velocity@handle');

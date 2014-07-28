@@ -207,13 +207,3 @@ Class Func {
 		return $color;
 	}
 }
-
-class Correos {
-
-	public function fire($tarea, $datos){
-        //código que ejecutara la tarea
-
-        //cuando la tarea se ejecute debemos borrarla
-		$tarea->delete();
-	}
-}

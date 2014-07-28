@@ -1,6 +1,5 @@
 {
   "name": "Laravel4-Ajax",
   "dependencies": {
-    "bootstrap": "~3.2.0"
   }
 }

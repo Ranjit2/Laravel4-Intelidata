@@ -9,18 +9,12 @@
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-debugbar": "1.*@dev",
 		"barryvdh/laravel-ide-helper": "1.*",
-		"laracasts/validation": "~1.0",
-		"jacopo/bootstrap-3-table-generator": "dev-master",
-		"jacopo/laravel-import-export": "dev-master",
-		"ghunti/highcharts-php": "~3.0",
-		"thujohn/pdf": "dev-master",
 		"doctrine/dbal": "~2.3",
-		"ahir/velocity": "dev-master"
+		"thujohn/pdf": "dev-master"
 	},
 	"require-dev": {
 		"dollar/generators": "dev-master",
-		"way/generators": "dev-master",
-		"maatwebsite/excel": "dev-master"
+		"way/generators": "2.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -4,73 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "88396fcbc6d5a2fdaa1bca06dcc92de2",
+    "hash": "d8fa12a562741979f98d7c3850c8410d",
     "packages": [
-        {
-            "name": "ahir/velocity",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ahirarge/velocity.git",
-                "reference": "23ea964cfc641c5fc3632cdf82c771e9bbaecbe0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ahirarge/velocity/zipball/23ea964cfc641c5fc3632cdf82c771e9bbaecbe0",
-                "reference": "23ea964cfc641c5fc3632cdf82c771e9bbaecbe0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.2.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/migrations",
-                    "src/controllers"
-                ],
-                "psr-0": {
-                    "Ahir\\Velocity": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL"
-            ],
-            "authors": [
-                {
-                    "name": "Ahir Ar-Ge",
-                    "email": "development@ahir.com.tr"
-                },
-                {
-                    "name": "Özgür Adem Işıklı",
-                    "email": "i.ozguradem@gmail.com",
-                    "role": "Creator & Designer"
-                }
-            ],
-            "description": "Velocity is a url analyzer for Laravel 4.",
-            "keywords": [
-                "analyzer",
-                "laravel",
-                "profiler",
-                "requests",
-                "url"
-            ],
-            "time": "2014-07-18 08:47:58"
-        },
         {
             "name": "barryvdh/laravel-debugbar",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "0ca928a9437c5d5754b22612147ed2b2958c1e4d"
+                "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/0ca928a9437c5d5754b22612147ed2b2958c1e4d",
-                "reference": "0ca928a9437c5d5754b22612147ed2b2958c1e4d",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d045d5a67590cefe348c034243fa18daf1c8cb56",
+                "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +29,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -108,7 +55,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-07-22 13:36:20"
+            "time": "2014-07-26 11:40:53"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -312,7 +259,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -385,9 +332,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -528,9 +475,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -836,52 +783,6 @@
             "time": "2014-07-17 07:25:43"
         },
         {
-            "name": "ghunti/highcharts-php",
-            "version": "v3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ghunti/HighchartsPHP.git",
-                "reference": "c0e824a129af03666042d0084064288d55492af9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ghunti/HighchartsPHP/zipball/c0e824a129af03666042d0084064288d55492af9",
-                "reference": "c0e824a129af03666042d0084064288d55492af9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ghunti\\HighchartsPHP\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Gonçalo Queirós",
-                    "email": "mail@goncaloqueiros.net",
-                    "homepage": "http://goncaloqueiros.net",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A php wrapper for highcharts and highstock javascript libraries",
-            "homepage": "http://goncaloqueiros.net/highcharts.php",
-            "keywords": [
-                "charts",
-                "highcharts",
-                "highstock",
-                "javascript",
-                "php"
-            ],
-            "time": "2014-05-28 22:52:43"
-        },
-        {
             "name": "ircmaxell/password-compat",
             "version": "1.0.3",
             "source": {
@@ -919,104 +820,6 @@
                 "password"
             ],
             "time": "2013-04-30 19:58:08"
-        },
-        {
-            "name": "jacopo/bootstrap-3-table-generator",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/intrip/bootstrap-table-generator.git",
-                "reference": "02714867eb66e7b160a8466424010f4e1b9216d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/intrip/bootstrap-table-generator/zipball/02714867eb66e7b160a8466424010f4e1b9216d9",
-                "reference": "02714867eb66e7b160a8466424010f4e1b9216d9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Jacopo\\Bootstrap3Table": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacopo Beschi",
-                    "email": "beschi.jacopo@gmail.com"
-                }
-            ],
-            "description": "Dynamic table generator for bootstrap 3",
-            "keywords": [
-                "bootstrap",
-                "bootstrap3",
-                "create",
-                "generator",
-                "table"
-            ],
-            "time": "2013-11-12 11:29:08"
-        },
-        {
-            "name": "jacopo/laravel-import-export",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/intrip/laravel-import-export.git",
-                "reference": "513e30f55e0bb729525c297a0b7257d7c0c4a26b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/intrip/laravel-import-export/zipball/513e30f55e0bb729525c297a0b7257d7c0c4a26b",
-                "reference": "513e30f55e0bb729525c297a0b7257d7c0c4a26b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4",
-                "jacopo/bootstrap-3-table-generator": "dev-master",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "laravel/framework": "~4",
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/controllers"
-                ],
-                "psr-0": {
-                    "Jacopo\\LaravelImportExport": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacopo Beschi",
-                    "email": "beschi.jacopo@gmail.com"
-                }
-            ],
-            "description": "A package to import and export data in csv for Laravel",
-            "keywords": [
-                "csv",
-                "database",
-                "export",
-                "import",
-                "laravel"
-            ],
-            "time": "2014-03-18 21:53:31"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1065,46 +868,6 @@
                 "tokenizer"
             ],
             "time": "2013-10-09 04:20:00"
-        },
-        {
-            "name": "laracasts/validation",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laracasts/Validation.git",
-                "reference": "ebcea2dd1c4c276d1e2549ea12ed4f9806a2794d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/Validation/zipball/ebcea2dd1c4c276d1e2549ea12ed4f9806a2794d",
-                "reference": "ebcea2dd1c4c276d1e2549ea12ed4f9806a2794d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "2.0.*@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Laracasts\\Validation": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@laracasts.com"
-                }
-            ],
-            "description": "Easy validation for Laravel applications.",
-            "time": "2014-05-01 21:01:24"
         },
         {
             "name": "laravel/framework",
@@ -1387,19 +1150,20 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v0.9.4",
+            "version": "v0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f"
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
-                "reference": "1e5e280ae88a27effa2ae4aa2bd088494ed8594f",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ef70767475434bdb3615b43c327e2cae17ef12eb",
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb",
                 "shasum": ""
             },
             "require": {
+                "ext-tokenizer": "*",
                 "php": ">=5.2"
             },
             "type": "library",
@@ -1427,7 +1191,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-08-25 17:11:40"
+            "time": "2014-07-23 18:24:17"
         },
         {
             "name": "patchwork/utf8",
@@ -2721,12 +2485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb"
+                "reference": "5892273a2367ccc0b599414e848ccabd74781403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb",
-                "reference": "e3f4072a9e1f1163c5b7b6a52d9b2632569f90fb",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5892273a2367ccc0b599414e848ccabd74781403",
+                "reference": "5892273a2367ccc0b599414e848ccabd74781403",
                 "shasum": ""
             },
             "replace": {
@@ -2764,7 +2528,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-22 02:38:30"
+            "time": "2014-07-28 00:08:27"
         }
     ],
     "packages-dev": [
@@ -2831,61 +2595,6 @@
             "time": "2014-05-11 14:35:11"
         },
         {
-            "name": "maatwebsite/excel",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "fb70f0ecd76604a0ed6050d5b33f93fedabe1718"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/fb70f0ecd76604a0ed6050d5b33f93fedabe1718",
-                "reference": "fb70f0ecd76604a0ed6050d5b33f93fedabe1718",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "phpoffice/phpexcel": "~1.8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "orchestra/testbench": "~2.2.0@dev",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/Maatwebsite/Excel",
-                    "tests/TestCase.php"
-                ],
-                "psr-0": {
-                    "Maatwebsite\\Excel\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Maatwebsite.nl",
-                    "email": "patrick@maatwebsite.nl"
-                }
-            ],
-            "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
-            "keywords": [
-                "PHPExcel",
-                "batch",
-                "csv",
-                "excel",
-                "export",
-                "import",
-                "laravel"
-            ],
-            "time": "2014-07-12 14:40:45"
-        },
-        {
             "name": "mustache/mustache",
             "version": "v2.4.1",
             "source": {
@@ -2931,74 +2640,17 @@
             "time": "2013-08-13 04:49:23"
         },
         {
-            "name": "phpoffice/phpexcel",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
-                "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-xml": "*",
-                "ext-xmlwriter": "*",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "PHPExcel": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Maarten Balliauw",
-                    "homepage": "http://blog.maartenballiauw.be"
-                },
-                {
-                    "name": "Mark Baker"
-                },
-                {
-                    "name": "Franck Lefevre",
-                    "homepage": "http://blog.rootslabs.net"
-                },
-                {
-                    "name": "Erik Tilt"
-                }
-            ],
-            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
-            "homepage": "http://phpexcel.codeplex.com",
-            "keywords": [
-                "OpenXML",
-                "excel",
-                "php",
-                "spreadsheet",
-                "xls",
-                "xlsx"
-            ],
-            "time": "2014-03-02 15:22:49"
-        },
-        {
             "name": "way/generators",
-            "version": "dev-master",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "37e65c48d7900868e4a7da1ac396287dd7739c88"
+                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/37e65c48d7900868e4a7da1ac396287dd7739c88",
-                "reference": "37e65c48d7900868e4a7da1ac396287dd7739c88",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
+                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
                 "shasum": ""
             },
             "require": {
@@ -3033,7 +2685,7 @@
                 }
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2014-07-05 12:32:38"
+            "time": "2014-05-27 14:21:26"
         }
     ],
     "aliases": [
@@ -3044,13 +2696,8 @@
         "twitter/bootstrap": 20,
         "fzaninotto/faker": 20,
         "barryvdh/laravel-debugbar": 20,
-        "jacopo/bootstrap-3-table-generator": 20,
-        "jacopo/laravel-import-export": 20,
         "thujohn/pdf": 20,
-        "ahir/velocity": 20,
-        "dollar/generators": 20,
-        "way/generators": 20,
-        "maatwebsite/excel": 20
+        "dollar/generators": 20
     },
     "platform": [
 

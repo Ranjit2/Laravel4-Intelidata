@@ -25,7 +25,7 @@ class Cliente extends Eloquent {
 	 * @return [type] [description]
 	 */
 	public function productos2(){
-		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array((7-6), 7))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
+		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
 	public static function productosPorMes($id, $mes){
@@ -62,7 +62,6 @@ class Cliente extends Eloquent {
 		}
 		return $data;
 	}
-
 
 	/**
 	 * [getChartSerial description]

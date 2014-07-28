@@ -123,13 +123,9 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-		'Laracasts\Validation\ValidationServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider',
-		'Dollar\Generators\GeneratorsServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider',
-		'Jacopo\LaravelImportExport\LaravelImportExportServiceProvider',
 		'Thujohn\Pdf\PdfServiceProvider',
-		'Ahir\Velocity\VelocityServiceProvider',
+		'Dollar\Generators\GeneratorsServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 	),
 
 	/*
@@ -197,11 +193,8 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
-		'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
-		'BoostrapTable'     => 'Jacopo\Bootstrap3Table\BootstrapTable',
 		'Carbon'            => 'Carbon\Carbon',
 		'PDF'               => 'Thujohn\Pdf\PdfFacade',
-		'Velocity'          => 'Ahir\Velocity\Facades\Velocity',
 	),
 
 );
