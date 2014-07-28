@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 /**
  * Cliente
@@ -33,7 +33,7 @@ class Cliente extends Eloquent {
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public static function getChartPie($id) {
+	public static function getChartPie($id, ){
 		$data = array();
 		foreach (Cliente::find($id)->productos2 as $value) {
 			array_push($data,array(
@@ -65,13 +65,13 @@ class Cliente extends Eloquent {
 		foreach (array_unique($numbers) as $value) {
 			$config['graphs'][] = array(
 				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas"  => 1,
 				"labelText"   => "[[value]]",
+				"lineAlpha"   => 1,
 				"title"       => "Numero ". ++$count . " - " . $value,
-				"valueField"  => $value,
 				"type"        => "column",
 				"color"       => "#000000",
-				"fillAlphas"  => 1,
-				"lineAlpha"   => 1,
+				"valueField"  => $value,
 				);
 		}
 		return $config;

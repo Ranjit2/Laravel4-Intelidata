@@ -84,8 +84,8 @@ Route::get('formulario', function(){
 });
 
 Route::get('/graf1', function () {
-    Func::printr(Cliente::whereNumeroCliente('444-4')->get()->toArray());
-    // return Cliente::getChartSerial('444-4');
+    // Func::printr(Cliente::whereNumeroCliente('444-4')->get()->toArray());
+    return Cliente::getChartSerial('444-4');
 });
 
 Route::post('/graffs/{id}', 'GraffController@devuelveCategoria');

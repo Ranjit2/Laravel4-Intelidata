@@ -25,49 +25,51 @@ class GraffController extends BaseController {
 		$graphs = $config['graphs'];
 		$ejex   = 'mes';
 		$chart = array(
-			"baseHref" => true,
-			"type" => "serial",
-			"theme" => "none",
+			"type"   => "serial",
+			"theme"  => "none",
+			"legend" => array(
+				"horizontalGap"    => 10,
+				"maxColumns"       => 1,
+				"position"         => "right",
+				"useGraphSettings" => true,
+				"markerSize"       => 10
+				),
 			"dataProvider" => $data,
-			"gridAboveGraphs" => true,
-			"startDuration" => 1,
 			"graphs" => $graphs,
-			"chartCursor" => array(
-				"categoryBalloonEnabled" => false,
-				"cursorAlpha"            => 0,
-				"zoomable"               => false
-				),
-			"categoryField" => "mes",
+			"categoryField" => $ejex,
 			"categoryAxis" => array(
+				"gridPosition" => "start",
+				"axisAlpha"    => 0,
 				"gridAlpha"    => 0,
-				"tickLength"   => 0,
-				"equalSpacing" => true,
+				"position"     => "left"
 				),
-			"titles" => array(
-				"text" => "Speedometer",
-				"size" => 15
-				),
-			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
-			"amExport" => array(
-				"top"                 => 21,
-				"right"               => 20,
-				"buttonColor"         => '#EFEFEF',
-				"buttonRollOverColor" => '#DDDDDD',
-				"exportPDF"           => true,
-				"exportJPG"           => true,
-				"exportPNG"           => true,
-				"exportSVG"           => true,
-				),
-			"sequencedAnimation" => false,
-			"startAlpha" => 0,
-			"startDuration" => 0,
+			"exportConfig" => array(
+				"menuTop"   =>"20px",
+				"menuRight" =>"20px",
+				"menuItems" => array(
+					array(
+						"icon"   => '/lib/3/images/export.png',
+						"format" => 'png'
+						),
+					),
+				)
 			);
+		if($type == 'stackbar') {
+			$chart = array_add($chart, "valueAxes", array(
+				array(
+					"stackType" => "regular",
+					"axisAlpha" => 0.3,
+					"gridAlpha" => 0
+					)
+				)
+			);
+		}
 		// 	Cache::put($type, $chart, 20);
 		// } else {
 		// 	$chart = Cache::get($type);
 		// }
-return Response::json($chart);
-}
+		return Response::json($chart);
+	}
 
 	/**
 	 * Get data for Pie/Donut chart and send to JS function
@@ -81,7 +83,6 @@ return Response::json($chart);
 		$titleF = 'mes';
 		$valueF = 'monto';
 		$chart = array(
-			"baseHref" => true,
 			"type"         => "pie",
 			"theme"        => "none",
 			"dataProvider" => $data,
@@ -92,7 +93,7 @@ return Response::json($chart);
 			"legend" => array(
 				"align" => "center",
 				"markerType" => "circle",
-			),
+				),
 			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
 			"amExport" => array(
 				"top" => 21,
