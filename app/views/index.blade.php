@@ -1,178 +1,199 @@
-@extends('layouts.basic')
-@section('login')
-{{ Form::open(array('url' => 'envioForm','role'=>'form')) }}
-    <div class="form-group">
-    {{Form::label('name','Username: ')}}
-    {{Form::text('username',Input::old('username'),array('class' => 'form-control'))}}
-    {{$errors->first('username');}}
-    </div>
-    <div class="form-group">
-    {{Form::label('password','Password: ')}}
-    {{Form::password('password',array('class' => 'form-control'))}}
-    {{$errors->first('password');}}
-    </div>
-    <div class="form-group">
-    {{Form::label('email','Email: ')}}
-    {{Form::email('email','',array('class' => 'form-control'))}}
-    {{$errors->first('email');}}
-    </div>
-    <div class="form-group">
-    {{Form::label('activo','Activo: ')}}
-    {{Form::checkbox('activo', 'value', true)}}
-    </div>
-    {{Form::submit('Click Me!',array('class'=>'btn btn-default'))}}
-{{ Form::close() }}
-@stop
+@extends('layouts.login')
 @section('content')
-<div class="row">
-    <div class="col-md-12s" id="graff"></div>
-</div>
-<div class="row">
-    <div class="col-lg-8">
-        <div class="alert alert-info info" style="display: none;">
-            <ul></ul>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <!-- <a href="#" id="get">GET</a> -->
-    <button class="btn btn-primary" id="get" data-toggle="modal" data-target="#modal">
-        <span class="glyphicon glyphicon-star"></span>Large modal
-    </button>
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">HEADER</div>
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button id="cerrar" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="#" id="mail"><span class="glyphicon glyphicon-envelope"></span> SEND EMAIL!</a>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <form method="POST" id="post" role="form">
-            <fieldset>
-                <legend>Form post</legend>
-                <div class="form-group">
-                    <label for="name">Name: </label>
-                    <input type="text" name="name" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="age">Age: </label>
-                    <input type="text" name="age" id="age" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
-        </form>
-    </div>
-    <div class="col-md-6">
-        <form action="" method="POST" id="post2" role="form">
-            <fieldset>
-                <legend>Form post2</legend>
-                <div class="form-group">
-                    <label for="name">Name: </label>
-                    <input type="text" name="name" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="age">Age: </label>
-                    <input type="text" name="age" id="age" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
-        </form>
-    </div>
-</div>
-<!-- .row>.col-lg-12>.alert.alert-info.info[style="display: none;"]>ul -->
-<div class="row">
-    <div class="col-md-4">
-        <form method="POST" id="fError" role="form">
-            <fieldset>
-                <legend>FormData ajax - Errors Feedback</legend>
-                <div class="form-group">
-                    <label for="name">Name: </label>
-                    <input type="text" name="name2" id="name2" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
+<div class="login-container">
+    <div id="output"></div>
+    <div class="avatar"></div>
+    <div class="form-box">
+        <form action="" method="">
+            <input name="user" type="text" placeholder="username">
+            <input type="password" placeholder="password">
+            <button class="btn btn-info btn-block login" type="submit">Login</button>
         </form>
     </div>
 </div>
 @stop
+@section('style')
+<style>
+    body{background: #eee url(http://subtlepatterns.com/patterns/sativa.png);}
+    html,body{
+        position: relative;
+        height: 100%;
+    }
+
+    .login-container{
+        position: relative;
+        width: 300px;
+        margin: 80px auto;
+        padding: 20px 40px 40px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #ccc;
+    }
+
+    #output{
+        position: absolute;
+        width: 300px;
+        top: -75px;
+        left: 0;
+        color: #fff;
+    }
+
+    #output.alert-success{
+        background: rgb(25, 204, 25);
+    }
+
+    #output.alert-danger{
+        background: rgb(228, 105, 105);
+    }
+
+
+    .login-container::before,.login-container::after{
+        content: "";
+        position: absolute;
+        width: 100%;height: 100%;
+        top: 3.5px;left: 0;
+        background: #fff;
+        z-index: -1;
+        -webkit-transform: rotateZ(4deg);
+        -moz-transform: rotateZ(4deg);
+        -ms-transform: rotateZ(4deg);
+        border: 1px solid #ccc;
+
+    }
+
+    .login-container::after{
+        top: 5px;
+        z-index: -2;
+        -webkit-transform: rotateZ(-2deg);
+        -moz-transform: rotateZ(-2deg);
+        -ms-transform: rotateZ(-2deg);
+
+    }
+
+    .avatar{
+        width: 100px;height: 100px;
+        margin: 10px auto 30px;
+        border-radius: 100%;
+        border: 2px solid #aaa;
+        background-size: cover;
+    }
+
+    .form-box input{
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        height:40px;
+        border: 1px solid #ccc;;
+        background: #fafafa;
+        transition:0.2s ease-in-out;
+
+    }
+
+    .form-box input:focus{
+        outline: 0;
+        background: #eee;
+    }
+
+    .form-box input[type="text"]{
+        border-radius: 5px 5px 0 0;
+        text-transform: lowercase;
+    }
+
+    .form-box input[type="password"]{
+        border-radius: 0 0 5px 5px;
+        border-top: 0;
+    }
+
+    .form-box button.login{
+        margin-top:15px;
+        padding: 10px 20px;
+    }
+
+    .animated {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+}
+
+100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+</style>
+@stop
+
 @section('script')
-$(function () {
-    $('#graff').highcharts({
-        chart: {
-            type: 'column',
-            marginRight: 100,
-            marginBottom: 40
-        },
-        title: {
-            text: 'Monthly Average Temperature',
-            x: -20 //center
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com',
-            x: -20
-        },
-         plotOptions: {
-               column: {
-                    stacking: 'normal',
-                    dataLabels: {
-                        enabled: false,
-                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                        style: {
-                            textShadow: '0 0 3px black, 0 0 3px black'
-                        },
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-            title: {
-                text: 'Temperature (°C)'
-            },
-            plotLines: [{
-                value: 15,
-                width: 2,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valueSuffix: '$',
-            formatter: function() {
-                return '<b>'+ this.x +'</b><br/>'+
-                    this.series.name +': '+ this.y +'<br/>'+
-                    'Total: '+ this.point.stackTotal;
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: 0,
-            y: 100,
-            borderWidth: 0
-        },
-        series: [{
-            name: 'Tokyo',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-            name: 'New York',
-            data: [19.3, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-            name: 'Berlin',
-            data: [1.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-            name: 'London',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }]
-    });
+<script type="text/javascript">
+    $(function(){
+        var textfield = $("input[name=user]");
+        $('button[type="submit"]').click(function(e) {
+            e.preventDefault();
+//little validation just to check username
+if (textfield.val() != "") {
+//$("body").scrollTo("#output");
+$("#output").addClass("alert alert-success animated fadeInUp").html("Welcome back " + "<span style='text-transform:uppercase'>" + textfield.val() + "</span>");
+$("#output").removeClass(' alert-danger');
+$("input").css({
+    "height":"0",
+    "padding":"0",
+    "margin":"0",
+    "opacity":"0"
 });
+//change button text
+$('button[type="submit"]').html("continue")
+.removeClass("btn-info")
+.addClass("btn-default").click(function(){
+    $("input").css({
+        "height":"auto",
+        "padding":"10px",
+        "opacity":"1"
+    }).val("");
+});
+
+//show avatar
+$(".avatar").css({
+    "background-image": "url('http://api.randomuser.me/0.3.2/portraits/women/35.jpg')"
+});
+} else {
+//remove success mesage replaced with error message
+$("#output").removeClass(' alert alert-success');
+$("#output").addClass("alert alert-danger animated fadeInUp").html("sorry enter a username ");
+}
+//console.log(textfield.val());
+
+});
+});
+</script>
 @stop

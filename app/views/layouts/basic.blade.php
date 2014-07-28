@@ -20,7 +20,7 @@
             <span class="sr-only">0% Complete</span>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
                 @yield('login')
