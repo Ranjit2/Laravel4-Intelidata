@@ -8,24 +8,29 @@ class UsersTableSeeder extends Seeder {
 	public function run()
 	{
         DB::table('users')->delete();
-        $faker = Faker::create();
 
-        foreach(range(1, 15) as $index)
-        {
-            $user = User::create(array(
-                'name'     => $faker->firstName.' '.$faker->lastName,
-                'username' => $faker->userName,
-                'email'    => $faker->email,
-                'password' => Hash::make($faker->word),
-                ));
-        }
+        $users = array(
+            array(
+                'id'         => 1,
+                'name'       => 'Cliente',
+                'username'   => 'cliente',
+                'email'      => 'cliente@test.io',
+                'password'   => Hash::make('cliente'),
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime,
+                ),
+            array(
+                'id'         => 2,
+                'name'       => 'Empresa',
+                'username'   => 'empresa',
+                'email'      => 'empresa@test.io',
+                'password'   => Hash::make('empresa'),
+                'created_at' => new DateTime,
+                'updated_at' => new DateTime,
+                )
+            );
 
-        User::create(array(
-            'name'     => 'Chris Sevilleja',
-            'username' => 'sevilayha',
-            'email'    => 'chris@scotch.io',
-            'password' => Hash::make('awesome'),
-            ));
+        DB::table('users')->insert($users);
 
     }
 

@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -11,31 +11,31 @@
 |
 */
 
+/**
+ * ROOT
+ */
 Route::get('/', function(){
 	return View::make('index');
 });
 
 Route::get('formulario', function(){
-    return View::make('formulario');
+	return View::make('formulario');
 });
 
 Route::get('/graf1', function () {
-    Func::printr(Carbon::today()->subMonths(6)->month);
-    // Func::printr(Cliente::productosPorMes('111-1', 7));
+	// Func::printr(Carbon::today()->subMonths(6)->month);
+	Func::printr(Cliente::productosPorMes('1', 7));
 });
 
 /**
- * route to show the login form
+ * LOGIN
  */
 Route::get('login', 'HomeController@showLogin');
-
-    // route to process the form
 Route::post('login', 'HomeController@doLogin');
-
 Route::get('logout', 'HomeController@doLogout');
 
 /**
- * ROUTES CHARTS
- */
+* CHARTS
+*/
 Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
 Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');

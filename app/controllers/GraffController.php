@@ -9,7 +9,7 @@ class GraffController extends BaseController {
 	 * @return JSON data    Data used to make the chart
 	 */
 	public function getChartPie($id = '', $type = 'pie', $mes = NULL) {
-		if(!Cache::has($type)) {
+		// if(!Cache::has($type)) {
 			if(is_null($mes) OR !is_numeric($mes)){
 				$data = Cliente::getChartPie($id);
 			} else {
@@ -46,10 +46,10 @@ class GraffController extends BaseController {
 				$chart = array_add($chart, "radius", "42%");
 				$chart = array_add($chart, "innerRadius", "60%");
 			}
-			Cache::put($type, $chart, 20);
-		} else {
-			$chart = Cache::get($type);
-		}
+		// 	Cache::put($type, $chart, 20);
+		// } else {
+		// 	$chart = Cache::get($type);
+		// }
 		return Response::json($chart);
 	}
 
@@ -60,9 +60,9 @@ class GraffController extends BaseController {
 	 * @return JSON data    Data used to make the chart
 	 */
 	public function getChartSerial($id = '', $type = 'column') {
-		if(!Cache::has($type)) {
-		$config   = Cliente::getChartSerial($id);
-		$data = $config['data'];
+		// if(!Cache::has($type)) {
+		$config = Cliente::getChartSerial($id);
+		$data   = $config['data'];
 		$graphs = $config['graphs'];
 		$ejex   = 'mes';
 		$chart = array(
@@ -105,10 +105,10 @@ class GraffController extends BaseController {
 				)
 			);
 		}
-			Cache::put($type, $chart, 20);
-		} else {
-			$chart = Cache::get($type);
-		}
+		// 	Cache::put($type, $chart, 20);
+		// } else {
+		// 	$chart = Cache::get($type);
+		// }
 		return Response::json($chart);
 	}
 }

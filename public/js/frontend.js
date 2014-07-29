@@ -7,12 +7,12 @@ $('.radioChart').change(function (e) {
     $.loadChart('chartdiv', '/getChart'+chart+'/111-1', type, 'POST');
 });
 
-$.loadChart('chartdiv', '/getChartPie/111-1', 'pie', 7, 'POST');
-$.loadChart('chartdiv2', '/getChartPie/111-1', 'donut', 6, 'POST');
-$.loadChart('chartdiv3', '/getChartPie/111-1', 'pie', 2, 'POST');
-$.loadChart('chartdiv4', '/getChartPie/111-1', 'donut', '', 'POST');
-$.loadChart('chartdiv5', '/getChartSerial/444-4', 'column', '', 'POST');
-$.loadChart('chartdiv6', '/getChartSerial/444-4', 'stackbar', '', 'POST');
+$.loadChart('chartdiv', '/getChartPie/1', 'pie', 7, 'POST');
+$.loadChart('chartdiv2', '/getChartPie/1', 'donut', 6, 'POST');
+$.loadChart('chartdiv3', '/getChartPie/1', 'pie', 2, 'POST');
+$.loadChart('chartdiv4', '/getChartPie/1', 'donut', '', 'POST');
+$.loadChart('chartdiv5', '/getChartSerial/4', 'column', '', 'POST');
+$.loadChart('chartdiv6', '/getChartSerial/4', 'stackbar', '', 'POST');
 
 });
 

@@ -88,3 +88,26 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('defineConnection', function($request) {
+	if (Session::has('slug_cliente')) {
+		$cliente = Session::get('slug_cliente');
+		$minutes = 30;
+		$cli = Cache::remember('connection' . $cliente, $minutes, function() use ($cliente) {
+			return DB::connection("admin") ->table("clientes") ->where("code", "=", $cliente) ->first();
+		});
+		if (count($_cli)) {
+		//Esse cara aqui eu criaria um "Filter" para usar com before -> "defineConnection" Fazendo essa verifica
+			Config::set("database.conections.cliente.driver", "mysql");
+			Config::set("database.conections.cliente.host", $_cli->host);
+			Config::set("database.conections.cliente.database", $_cli->database);
+			Config::set("database.conections.cliente.user", $_cli->username);
+			Config::set("database.conections.cliente.password", $_cli->password);
+			Config::set("database.default", "cliente");
+		} else {
+			return Redirect::to("/");
+		}
+	} else {
+		return Redirect::to("/");
+	}
+});

@@ -2,7 +2,7 @@
 //styles specific for the frontend
 
 .progress{
-    height: 2px;
+    height: 2px; position: absolute;
 }
 
 #progressbar {
@@ -97,3 +97,108 @@ h2 {
     border-bottom-right-radius: 0;
 }
 
+
+/**
+*
+* USER PROFILE
+*
+*/
+
+.user-profile {
+    margin: 20px 0 0;
+}
+.user-profile:before, .user-profile:after {
+    content: " ";
+    display: table;
+}
+.user-profile:after {
+    clear: both;
+}
+.user-profile:before, .user-profile:after {
+    content: " ";
+    display: table;
+}
+.user-profile:after {
+    clear: both;
+}
+.user-profile figure {
+    margin: 0;
+}
+.user-profile figure:before, .user-profile figure:after {
+    content: " ";
+    display: table;
+}
+.user-profile figure:after {
+    clear: both;
+}
+.user-profile figure:before, .user-profile figure:after {
+    content: " ";
+    display: table;
+}
+.user-profile figure:after {
+    clear: both;
+}
+.user-profile img {
+    border-radius: 4px;
+    float: left;
+    height: 40px;
+    width: 40px;
+}
+.user-profile figcaption {
+    float: left;
+    margin-left: 10px;
+}
+.user-profile figcaption strong {
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+}
+.user-profile figcaption strong a {
+    color: #869198;
+}
+.user-profile figcaption strong a:hover {
+    color: #2980b9;
+    text-decoration: none;
+}
+.user-profile figcaption ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.user-profile figcaption ul:before, .user-profile figcaption ul:after {
+    content: " ";
+    display: table;
+}
+.user-profile figcaption ul:after {
+    clear: both;
+}
+.user-profile figcaption ul:before, .user-profile figcaption ul:after {
+    content: " ";
+    display: table;
+}
+.user-profile figcaption ul:after {
+    clear: both;
+}
+.user-profile figcaption ul > li {
+    display: block;
+    float: left;
+}
+.user-profile figcaption ul > li a {
+    color: #a1aab0;
+}
+.user-profile figcaption ul > li a:hover {
+    color: #2980b9;
+    text-decoration: none;
+}
+.user-profile figcaption ul > li + li {
+    margin-left: 8px;
+}
+@media (min-width: 480px) {
+.user-profile {
+    float: right;
+    margin: 10px 0 0;
+}
+.user-profile figure, .user-profile figcaption {
+    float: right;
+}
+}

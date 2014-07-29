@@ -81,12 +81,4 @@ App::down(function()
 
 require app_path().'/filters.php';
 
-App::before(function($request)
-{
-});
-
-App::after(function($request, $response)
-{
-});
-
 Event::listen('ahir.velocity', 'Ahir\Velocity\Velocity@handle');

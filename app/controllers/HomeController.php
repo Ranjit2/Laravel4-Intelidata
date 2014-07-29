@@ -20,14 +20,19 @@ class HomeController extends BaseController {
 			'password' => 'required|alphaNum|min:3'
 			);
 
-		$validator = Validator::make(Input::all(), $rules);
+		$messages = array(
+			'username.required' => 'Usuario requerido.',
+			'password.required' => 'Contraseña requerida.'
+			);
+
+		$validator = Validator::make(Input::all(), $rules, $messages);
 
 		if ($validator->fails()) {
 			return Redirect::to('login')->withErrors($validator)->withInput(Input::except('password'));
 		} else {
 			$userdata = array(
-				'username' 	=> Input::get('username'),
-				'password' 	=> Input::get('password'),
+				'username' => Input::get('username'),
+				'password' => Input::get('password'),
 				);
 
 			if (Auth::attempt($userdata)) {

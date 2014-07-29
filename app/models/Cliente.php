@@ -10,7 +10,7 @@
  */
 class Cliente extends Eloquent {
 	protected $table = 'cliente';
-	protected $primaryKey = 'numero_cliente';
+	protected $primaryKey = 'id';
 
 	/**
 	 * [productos description]
@@ -43,7 +43,7 @@ class Cliente extends Eloquent {
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public static function getChartPie($id = '') {
+	public static function getChartPie($id) {
 		$data = array();
 		foreach (Cliente::find($id)->productos2 as $value) {
 			array_push($data,array(
@@ -58,11 +58,11 @@ class Cliente extends Eloquent {
 
 	/**
 	 * [getChartPieMonth description]
-	 * @param  string  $id  [description]
+	 * @param  integer  $id  [description]
 	 * @param  integer $mes [description]
 	 * @return [type]       [description]
 	 */
-	public static function getChartPieMonth($id = '', $mes = 1) {
+	public static function getChartPieMonth($id, $mes) {
 		$data = array();
 		foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
 			array_push($data,array(
