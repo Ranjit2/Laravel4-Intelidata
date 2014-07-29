@@ -124,7 +124,6 @@ return array(
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Thujohn\Pdf\PdfServiceProvider',
-		'Dollar\Generators\GeneratorsServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 	),
 

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8fa12a562741979f98d7c3850c8410d",
+    "hash": "4cf623dc143a2947688fc8dfd7caf62c",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2533,113 +2533,6 @@
     ],
     "packages-dev": [
         {
-            "name": "dollar/generators",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wdollar/Laravel-4-Generators-Bootstrap-3.git",
-                "reference": "fbfe72010f731067b7a9903a467c808abfb7559f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wdollar/Laravel-4-Generators-Bootstrap-3/zipball/fbfe72010f731067b7a9903a467c808abfb7559f",
-                "reference": "fbfe72010f731067b7a9903a467c808abfb7559f",
-                "shasum": ""
-            },
-            "require": {
-                "mustache/mustache": "2.4.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "illuminate/console": "~4",
-                "illuminate/filesystem": "~4",
-                "illuminate/support": "~4",
-                "mockery/mockery": "0.8.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Dollar\\Generators": "src/"
-                },
-                "classmap": [
-                    "src/Dollar/Generators/Generators"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@jeffrey-way.com",
-                    "homepage": "http://jeffrye-way.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Wes Dollar",
-                    "email": "github@wesdollar.com",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "Laravel 4 Generators w/ Bootstrap 3",
-            "keywords": [
-                "artisan",
-                "bootstrap",
-                "generators",
-                "laravel",
-                "scaffold"
-            ],
-            "time": "2014-05-11 14:35:11"
-        },
-        {
-            "name": "mustache/mustache",
-            "version": "v2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bobthecow/mustache.php.git",
-                "reference": "14bc3b4f6a4770b535fc433bfd0435471ed386c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/14bc3b4f6a4770b535fc433bfd0435471ed386c6",
-                "reference": "14bc3b4f6a4770b535fc433bfd0435471ed386c6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Mustache": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Justin Hileman",
-                    "email": "justin@justinhileman.info",
-                    "homepage": "http://justinhileman.com"
-                }
-            ],
-            "description": "A Mustache implementation in PHP.",
-            "homepage": "https://github.com/bobthecow/mustache.php",
-            "keywords": [
-                "mustache",
-                "templating"
-            ],
-            "time": "2013-08-13 04:49:23"
-        },
-        {
             "name": "way/generators",
             "version": "2.6.1",
             "source": {
@@ -2696,8 +2589,7 @@
         "twitter/bootstrap": 20,
         "fzaninotto/faker": 20,
         "barryvdh/laravel-debugbar": 20,
-        "thujohn/pdf": 20,
-        "dollar/generators": 20
+        "thujohn/pdf": 20
     },
     "platform": [
 

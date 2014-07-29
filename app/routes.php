@@ -25,6 +25,16 @@ Route::get('/graf1', function () {
 });
 
 /**
+ * route to show the login form
+ */
+Route::get('login', 'HomeController@showLogin');
+
+    // route to process the form
+Route::post('login', 'HomeController@doLogin');
+
+Route::get('logout', 'HomeController@doLogout');
+
+/**
  * ROUTES CHARTS
  */
 Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');

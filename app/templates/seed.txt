@@ -9,12 +9,11 @@ class $CLASS$ extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 30) as $index)
+		foreach(range(1, 10) as $index)
 		{
-			$MODEL$::create(array(
-                // 'username' => $faker->userName,
-                // 'email' => $faker->email,
-			));
+			$MODEL$::create([
+
+			]);
 		}
 	}
 

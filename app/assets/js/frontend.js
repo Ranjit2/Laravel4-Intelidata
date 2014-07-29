@@ -16,10 +16,25 @@ $.loadChart('chartdiv6', '/getChartSerial/444-4', 'stackbar', '', 'POST');
 
 });
 
+/**
+ * [loadJSON description]
+ * @param  {[type]} url    [description]
+ * @param  {[type]} method [description]
+ * @return {[type]}        [description]
+ */
 AmCharts.loadJSON = function (url, method) {
     return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
 };
 
+/**
+ * [loadChart description]
+ * @param  {[type]} div    [description]
+ * @param  {[type]} url    [description]
+ * @param  {[type]} type   [description]
+ * @param  {[type]} mes    [description]
+ * @param  {[type]} method [description]
+ * @return {[type]}        [description]
+ */
 $.loadChart = function (div, url, type, mes, method) {
     var div    = typeof div !== 'undefined' ? div : '#chartdiv';
     var type   = typeof type !== 'undefined' ? type : '';

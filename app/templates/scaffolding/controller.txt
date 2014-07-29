@@ -1,10 +1,9 @@
 <?php
 
-class $NAME$ extends BaseController {
+class $NAME$ extends \BaseController {
 
 	/**
 	 * Display a listing of $COLLECTION$
-	 * GET /$COLLECTION$
 	 *
 	 * @return Response
 	 */
@@ -17,7 +16,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Show the form for creating a new $RESOURCE$
-	 * GET /$COLLECTION$/create
 	 *
 	 * @return Response
 	 */
@@ -28,7 +26,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Store a newly created $RESOURCE$ in storage.
-	 * POST /$COLLECTION$
 	 *
 	 * @return Response
 	 */
@@ -48,7 +45,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Display the specified $RESOURCE$.
-	 * GET /$COLLECTION$/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -62,7 +58,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Show the form for editing the specified $RESOURCE$.
-	 * GET /$COLLECTION$/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -76,7 +71,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Update the specified $RESOURCE$ in storage.
-	 * PUT /$COLLECTION$/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -99,7 +93,6 @@ class $NAME$ extends BaseController {
 
 	/**
 	 * Remove the specified $RESOURCE$ from storage.
-	 * DELETE /$COLLECTION$/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

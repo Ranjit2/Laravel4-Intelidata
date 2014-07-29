@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 /**
  * Cliente
@@ -28,6 +28,12 @@ class Cliente extends Eloquent {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
+	/**
+	 * [productosPorMes description]
+	 * @param  [type] $id  [description]
+	 * @param  [type] $mes [description]
+	 * @return [type]      [description]
+	 */
 	public static function productosPorMes($id, $mes){
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
@@ -50,6 +56,12 @@ class Cliente extends Eloquent {
 		return $data;
 	}
 
+	/**
+	 * [getChartPieMonth description]
+	 * @param  string  $id  [description]
+	 * @param  integer $mes [description]
+	 * @return [type]       [description]
+	 */
 	public static function getChartPieMonth($id = '', $mes = 1) {
 		$data = array();
 		foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
