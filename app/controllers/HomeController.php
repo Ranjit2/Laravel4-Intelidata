@@ -15,13 +15,17 @@ class HomeController extends BaseController {
 	 * @return [type] [description]
 	 */
 	public function doLogin() {
+
+		Config::set('auth.username', 'rut');
+		Config::set('auth.password', 'clave');
+
 		$rules = array(
-			'username'    => 'required',
-			'password' => 'required|alphaNum|min:3'
+			'rut'      => 'required',
+			'password' => 'required|alpha_dash|min:3'
 			);
 
 		$messages = array(
-			'username.required' => 'Usuario requerido.',
+			'rut.required'      => 'RUT requerido.',
 			'password.required' => 'Contraseña requerida.'
 			);
 
@@ -31,11 +35,12 @@ class HomeController extends BaseController {
 			return Redirect::to('login')->withErrors($validator)->withInput(Input::except('password'));
 		} else {
 			$userdata = array(
-				'username' => Input::get('username'),
-				'password' => Input::get('password'),
+				'rut'      => (string) Input::get('rut'),
+				'password' => (string) Input::get('password'),
 				);
-
+			dd(Auth::user()->rut);
 			if (Auth::attempt($userdata)) {
+				Session::put('ses_user', Auth::user()->id);
 				return Redirect::to('formulario');
 			} else {
 				return Redirect::to('login');

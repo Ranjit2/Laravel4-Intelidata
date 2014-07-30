@@ -1,7 +1,6 @@
 @extends('layouts.basic')
 @section('login')
 <!-- LOGOUT BUTTON -->
-
 @stop
 
 @section('content')

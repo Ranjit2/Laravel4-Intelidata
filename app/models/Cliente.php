@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Auth\UserTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\Reminders\RemindableInterface;
+
 /**
  * Cliente
  *
@@ -8,9 +13,24 @@
  * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos2
  * @method static \Illuminate\Database\Query\Builder|\Cliente whereNumeroCliente($value)
  */
-class Cliente extends Eloquent {
-	protected $table = 'cliente';
+class Cliente extends Eloquent implements UserInterface, RemindableInterface {
+
+	use UserTrait, RemindableTrait;
+
+	protected $table      = 'cliente';
 	protected $primaryKey = 'id';
+	protected $fillable   = array('id','numero_cliente','rut','clave');
+	protected $hidden     = array('numero_cliente', 'clave');
+
+	public function getAuthIdentifier()
+	{
+		return $this->getKey();
+	}
+
+	public function getAuthPassword()
+	{
+		return $this->clave;
+	}
 
 	/**
 	 * [productos description]
