@@ -123,12 +123,25 @@ class GraffController extends BaseController {
 		return Cliente::find($idCliente)->telefonos;
 	}
 
-	public function montoTotal($telefono)
+	public function montoTotal($nroCliente)
 	{
-		// $devuelve = Telefono::find(1)->servicios;
-		$idTelefono = Telefono::where('numero','=',$telefono)->get()[0]['id'];
-		return Total::where('id_telefono','=',$idTelefono)->orderBy('fecha', 'desc')->get();
+		$idCliente = $this->devuelveIdCliente($nroCliente);
+		$telefonos = Cliente::find($idCliente)->telefonos;
+		$arreglo = array();
+		foreach ($telefonos as $value) 
+		{
+		  	$idTelefono = $value['id'];
+		  	$numero     = $value['numero'];
+   	  	    foreach (Telefono::find($idTelefono)->montos as $value2) 
+   	  	    {
+	  	     	$dt         = new Carbon($value2->fecha);
+	  	     	$mes 		= $dt ->month;
+	  	     	$year 		= $dt ->year; 
+	  	     	$fecha      = $value2->fecha;
+	  	     	$montoTotal = $value2->monto_total;
+	  	      	$arreglo[] = ["fecha"=>$fecha,"Telefono"=>$numero, "Monto"=>$montoTotal];
+	  	    }
+		}
+		return $arreglo;
 	}
-
-
 }
