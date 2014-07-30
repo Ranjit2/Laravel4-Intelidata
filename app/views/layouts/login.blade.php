@@ -13,7 +13,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     {{ HTML::style('css/frontend.min.css') }}
-    @yield('style')
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     @yield('content')
@@ -21,8 +21,5 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Bootstrap 3.2 JS -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    {{ HTML::script('js/frontend.min.js') }}
-    @yield('script')
 </body>
 </html>
