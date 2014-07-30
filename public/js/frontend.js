@@ -1,41 +1,32 @@
 $(document).ready(function() {
-// // FUNCTIONS ======================================================
-$('.radioChart').change(function (e) {
-    e.preventDefault();
-    var type  = $(this).attr('value');
-    var chart = $(this).attr('data-chart');
-    $.loadChart('chartdiv', '/getChart'+chart+'/111-1', type, 'POST');
-});
-
-$.loadChart('chartdiv', '/getChartPie/1', 'pie', 7, 'POST');
-$.loadChart('chartdiv2', '/getChartPie/1', 'donut', 6, 'POST');
-$.loadChart('chartdiv3', '/getChartPie/1', 'pie', 2, 'POST');
-$.loadChart('chartdiv4', '/getChartPie/1', 'donut', '', 'POST');
-$.loadChart('chartdiv5', '/getChartSerial/4', 'column', '', 'POST');
-$.loadChart('chartdiv6', '/getChartSerial/4', 'stackbar', '', 'POST');
-
+    $.loadChart('chartdiv', '/getChartPie/'+id, 'pie', 7, 'POST');
+    $.loadChart('chartdiv2', '/getChartPie/'+id, 'donut', 6, 'POST');
+    $.loadChart('chartdiv3', '/getChartPie/'+id, 'pie', 2, 'POST');
+    $.loadChart('chartdiv4', '/getChartPie/'+id, 'donut', '', 'POST');
+    $.loadChart('chartdiv5', '/getChartSerial/'+id, 'column', '', 'POST');
+    $.loadChart('chartdiv6', '/getChartSerial/'+id, 'stackbar', '', 'POST');
 });
 
 /**
  * [loadJSON description]
- * @param  {[type]} url    [description]
- * @param  {[type]} method [description]
- * @return {[type]}        [description]
+ * @param  {string} url    [description]
+ * @param  {string} method [description]
+ * @return {json}          Return json data from database
  */
-AmCharts.loadJSON = function (url, method) {
+ AmCharts.loadJSON = function (url, method) {
     return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
 };
 
 /**
  * [loadChart description]
- * @param  {[type]} div    [description]
- * @param  {[type]} url    [description]
- * @param  {[type]} type   [description]
- * @param  {[type]} mes    [description]
- * @param  {[type]} method [description]
- * @return {[type]}        [description]
+ * @param  {string}  div    [description]
+ * @param  {string}  url    [description]
+ * @param  {string}  type   [description]
+ * @param  {integer} mes    [description]
+ * @param  {[]}  method     [description]
+ * @return {chart}          Return chart
  */
-$.loadChart = function (div, url, type, mes, method) {
+ $.loadChart = function (div, url, type, mes, method) {
     var div    = typeof div !== 'undefined' ? div : '#chartdiv';
     var type   = typeof type !== 'undefined' ? type : '';
     var mes    = typeof mes !== 'undefined' ? '/'+mes : '';

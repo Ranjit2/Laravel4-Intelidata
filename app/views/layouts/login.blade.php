@@ -14,6 +14,8 @@
     <![endif]-->
     {{ HTML::style('css/frontend.min.css') }}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {{ HTML::style('css/pe-icon-7-stroke.css') }}
+    {{ HTML::style('css/helper.css') }}
 </head>
 <body>
     @yield('content')

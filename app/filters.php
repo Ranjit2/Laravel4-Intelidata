@@ -22,6 +22,26 @@ App::after(function($request, $response)
 	//
 });
 
+if (!Config::get('app.debug')) {
+    App::error(function(Exception $exception, $code)
+    {
+        switch ($code) {
+            case 403:
+                return Response::view('errors.403', array(), 403);
+
+            case 404:
+                return Response::view('errors.404', array(), 404);
+
+            case 500:
+                return Response::view('errors.500', array(), 500);
+
+            default:
+                return Response::view('errors.default', array(), $code);
+        }
+        Log::error($exception);
+    });
+}
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -86,28 +106,5 @@ Route::filter('csrf', function()
 	if (Session::token() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
-	}
-});
-
-Route::filter('defineConnection', function($request) {
-	if (Session::has('slug_cliente')) {
-		$cliente = Session::get('slug_cliente');
-		$minutes = 30;
-		$cli = Cache::remember('connection' . $cliente, $minutes, function() use ($cliente) {
-			return DB::connection("admin") ->table("clientes") ->where("code", "=", $cliente) ->first();
-		});
-		if (count($_cli)) {
-		//Esse cara aqui eu criaria um "Filter" para usar com before -> "defineConnection" Fazendo essa verifica
-			Config::set("database.conections.cliente.driver", "mysql");
-			Config::set("database.conections.cliente.host", $_cli->host);
-			Config::set("database.conections.cliente.database", $_cli->database);
-			Config::set("database.conections.cliente.user", $_cli->username);
-			Config::set("database.conections.cliente.password", $_cli->password);
-			Config::set("database.default", "cliente");
-		} else {
-			return Redirect::to("/");
-		}
-	} else {
-		return Redirect::to("/");
 	}
 });

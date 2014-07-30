@@ -7,42 +7,44 @@
     <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
-media queries -->
+    media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-{{ HTML::style('css/frontend.min.css') }}
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {{ HTML::style('css/frontend.css') }}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {{ HTML::style('css/pe-icon-7-stroke.css') }}
+    {{ HTML::style('css/helper.css') }}
 </head>
 <body>
     <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle"
-data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span class="fa
-fa-bar-chart-o"></span> Intelidata Stadistics</a>
+                data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="fa
+                fa-bar-chart-o"></span> <strong>VTR</strong></h3> Stadistics</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="user-profile">
-                        <figure>
-                            <figcaption>
-                                <strong>Diego Pinto</strong>
-                                <ul>
-                                    <li> <a href="{{ URL::to('logout')
-}}">Logout</a></li>
-                                </ul>
-                            </figcaption>
-                            <img src="holder.js/40x40"
-class="img-circle img-responsive pull-left" alt="">
-                        </figure>
+                <ul class="nav navbar-nav  col-md-offset-3 navbar-right profile">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle profile__name" data-toggle="dropdown">
+                            <figure class="pull-left profile__img">
+                                <img src="holder.js/40x40" class="img-circle" alt="">
+                            </figure>
+                            User <strong>{{ Session::get('ses_user_rut', '') }}</strong> <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"> <span class="icon pe-7s-info"></span> Profile</a></li>
+                            <li><a href="{{ URL::to('logout') }}"><span class="icon pe-7s-close-circle"></span> Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -53,8 +55,7 @@ class="img-circle img-responsive pull-left" alt="">
             <aside class="col-sm-3 col-md-2 sidebar">
                 @yield('aside')
             </aside>
-            <section class="col-sm-9 col-sm-offset-3 col-md-10
-col-md-offset-2 main">
+            <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 @yield('content')
             </section>
         </div>
@@ -69,17 +70,15 @@ col-md-offset-2 main">
     <!-- Charts -->
     {{ HTML::script('js/amcharts/amcharts.js') }}
     <script type="text/javascript"
-src="http://www.amcharts.com/lib/3/pie.js"></script>
+    src="http://www.amcharts.com/lib/3/pie.js"></script>
     <script type="text/javascript"
-src="http://www.amcharts.com/lib/3/serial.js"></script>
+    src="http://www.amcharts.com/lib/3/serial.js"></script>
     <script type="text/javascript"
-src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
+    src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
     <script type="text/javascript"
-src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+    src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
+    @yield('script')
     {{ HTML::script('js/frontend.min.js') }}
-    <script type="text/javascript">
-        @yield('script')
-    </script>
 </body>
 </html>

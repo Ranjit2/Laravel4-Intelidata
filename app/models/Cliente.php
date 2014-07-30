@@ -22,21 +22,23 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable   = array('id','numero_cliente','rut','clave');
 	protected $hidden     = array('numero_cliente', 'clave');
 
-	public function getAuthIdentifier()
-	{
+	public function getAuthIdentifier() {
 		return $this->getKey();
 	}
 
-	public function getAuthPassword()
-	{
+	public function getAuthPassword() {
 		return $this->clave;
+	}
+
+	public function getId() {
+		return $this->id;
 	}
 
 	/**
 	 * [productos description]
 	 * @return [type] [description]
 	 */
-	public function productos(){
+	public function productos() {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico');
 	}
 
@@ -44,7 +46,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 * [productos2 description]
 	 * @return [type] [description]
 	 */
-	public function productos2(){
+	public function productos2() {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
@@ -54,7 +56,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 * @param  [type] $mes [description]
 	 * @return [type]      [description]
 	 */
-	public static function productosPorMes($id, $mes){
+	public static function productosPorMes($id, $mes) {
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
 
@@ -126,10 +128,8 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $config;
 	}
 
-	public function telefonos(){
+	public function telefonos() {
 		return $this->hasMany('Telefono', 'id_cliente');
 	}
-
-
 
 }

@@ -2,32 +2,32 @@
 //styles specific for the frontend
 
 .progress{
-    height: 2px;
-    position: absolute;
+  height: 2px;
+  position: absolute;
 }
 
 #progressbar {
-    display: none;
-    border-radius: 0;
-    position:fixed;
-    z-index: 999999;
-    top: 0;
-    left: 0;
-    height: 2px;
-    background: #b91f1f;
-    border-radius: 10%;
+  display: none;
+  border-radius: 0;
+  position:fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #b91f1f;
+  border-radius: 10%;
 }
 
 #progressBar:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    opacity: 1;
-    width: 10%;
-    right: 0px;
-    height: 2px;
-    box-shadow: #b91f1f 1px 0 6px 2px;
-    border-radius: 50%;
+  position: absolute;
+  content: '';
+  top: 0;
+  opacity: 1;
+  width: 10%;
+  right: 0px;
+  height: 2px;
+  box-shadow: #b91f1f 1px 0 6px 2px;
+  border-radius: 50%;
 }
 
 /**
@@ -36,13 +36,13 @@
 *
 */
 body {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 
 /*
- * Global add-ons
- */
+* Global add-ons
+*/
 
 .sub-header {
   padding-bottom: 10px;
@@ -50,16 +50,16 @@ body {
 }
 
 /*
- * Top navigation
- * Hide default border to remove 1px line.
- */
+* Top navigation
+* Hide default border to remove 1px line.
+*/
 .navbar-fixed-top {
   border: 0;
 }
 
 /*
- * Sidebar
- */
+* Sidebar
+*/
 
 /* Hide for mobile, show later */
 .sidebar {
@@ -100,8 +100,8 @@ body {
 
 
 /*
- * Main content
- */
+* Main content
+*/
 
 .main {
   padding: 20px;
@@ -114,26 +114,6 @@ body {
 }
 .main .page-header {
   margin-top: 0;
-}
-
-
-/*
- * Placeholder dashboard ideas
- */
-
-.placeholders {
-  margin-bottom: 30px;
-  text-align: center;
-}
-.placeholders h4 {
-  margin-bottom: 0;
-}
-.placeholder {
-  margin-bottom: 20px;
-}
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
 }
 
 /**
@@ -153,47 +133,40 @@ body {
 
 
 .jumbotron {
-    text-align: center;
-    width: 30rem;
-    border-radius: 0.5rem;
-    left: 0;
-    right: 0;
-    position: absolute;
-    margin: 4rem auto;
-    vertical-align: center;
-    background-color: #fff;
+  text-align: center;
+  width: 30rem;
+  border-radius: 0.5rem;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 4rem auto;
+  vertical-align: center;
+  background-color: #fff;
 }
 
 .jumbotron .container .fa-bar-chart-o {
-    font-size: 10rem;
-    margin-top: 3rem;
-    color: #f96145;
+  font-size: 10rem;
+  margin-top: 3rem;
+  color: #f96145;
 }
 
 .jumbotron input {
-    margin-bottom: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .jumbotron h2 {
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #ababab;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ababab;
 }
 
 .btn .glyphicon {
-    font-size: 3rem;
-    color: #fff;
+  font-size: 3rem;
+  color: #fff;
 }
 
 .jumbotron .full-width {
-    background-color: @vtr-color-botonblue;
-    // width: 100%;
-    // -webkit-border-top-right-radius: 0;
-    // -webkit-border-bottom-right-radius: 0;
-    // -moz-border-radius-topright: 0;
-    // -moz-border-radius-bottomright: 0;
-    // border-top-right-radius: 0;
-    // border-bottom-right-radius: 0;
+  background-color: @vtr-color-botonblue;
 }
 
 
@@ -202,62 +175,40 @@ body {
 * USER PROFILE
 *
 */
-.user-profile {
-    margin-right: 10px;
+.profile__img {
+  margin-right: 10px;
+  margin-top: -10px;
 }
-.user-profile figcaption {
-    margin-left: 10px;
+
+.profile__name {
+  font-size: 14px;
 }
-.user-profile figcaption strong {
-    display: block;
-    font-size: 16px;
-    line-height: 18px;
+
+.profile .dropdown-menu {
+  padding: 0;
+  margin: 0;
+  margin-right: 20px;
+  border: 0;
+  left: 0;
+  right: 0;
 }
-.user-profile figcaption strong a {
-    color: #869198;
+
+.profile .dropdown-menu a{
+  color: #9a9a9a;
+  height: auto;
+  padding: 15px 76px 15px 15px;
 }
-.user-profile figcaption strong a:hover {
-    color: #2980b9;
-    text-decoration: none;
+
+.profile .glyphicon {
+  font-size: 1rem;
 }
-.user-profile figcaption ul {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
+
+.profile .dropdown-menu a {
+  vertical-align: middle;
 }
-.user-profile figcaption ul:before, .user-profile figcaption ul:after {
-    content: " ";
-    display: table;
-}
-.user-profile figcaption ul:after {
-    clear: both;
-}
-.user-profile figcaption ul:before, .user-profile figcaption ul:after {
-    content: " ";
-    display: table;
-}
-.user-profile figcaption ul:after {
-    clear: both;
-}
-.user-profile figcaption ul > li {
-    display: block;
-    float: left;
-}
-.user-profile figcaption ul > li a {
-    color: #a1aab0;
-}
-.user-profile figcaption ul > li a:hover {
-    color: #2980b9;
-    text-decoration: none;
-}
-.user-profile figcaption ul > li + li {
-    margin-left: 8px;
-}
-@media (min-width: 480px) {
-    .user-profile {
-        float: right;
-    }
-    .user-profile figure, .user-profile figcaption {
-        float: right;
-    }
+
+.profile .dropdown-menu .icon {
+  font-size: 22px;
+  vertical-align: middle;
+  margin-right: 5px;
 }

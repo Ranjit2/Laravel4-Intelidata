@@ -1,7 +1,4 @@
 @extends('layouts.basic')
-@section('login')
-<!-- LOGOUT BUTTON -->
-@stop
 
 @section('content')
 <h2>Stadistics</h2>
@@ -53,4 +50,7 @@
 @stop
 
 @section('script')
+<script type="text/javascript">
+    var id = {{ Session::get('ses_user_id') }};
+</script>
 @stop
