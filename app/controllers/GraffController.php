@@ -111,4 +111,24 @@ class GraffController extends BaseController {
 		// }
 		return Response::json($chart);
 	}
+
+	public function devuelveIdCliente($numeroCliente)
+	{
+		return Cliente::where('numero_cliente','=', $numeroCliente)->get()[0]['id'];
+	}
+
+	public function telefonosPorCliente($numeroCliente)
+	{
+		$idCliente = $this->devuelveIdCliente($numeroCliente);
+		return Cliente::find($idCliente)->telefonos;
+	}
+
+	public function montoTotal($telefono)
+	{
+		// $devuelve = Telefono::find(1)->servicios;
+		$idTelefono = Telefono::where('numero','=',$telefono)->get()[0]['id'];
+		return Total::where('id_telefono','=',$idTelefono)->orderBy('fecha', 'desc')->get();
+	}
+
+
 }

@@ -105,4 +105,11 @@ class Cliente extends Eloquent {
 		}
 		return $config;
 	}
+
+	public function telefonos(){
+		return $this->hasMany('Telefono', 'id_cliente');
+	}
+
+
+
 }

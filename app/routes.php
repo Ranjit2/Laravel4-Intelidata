@@ -39,3 +39,9 @@ Route::get('logout', 'HomeController@doLogout');
 */
 Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
 Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
+
+
+Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
+
+Route::get('/montos/{fono}', 'GraffController@montoTotal');
+

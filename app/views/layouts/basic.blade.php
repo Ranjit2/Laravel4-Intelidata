@@ -43,10 +43,10 @@
                                 <figure>
                                     <img src="holder.js/50x50" class="img-responsive" alt="Responsive image">
                                     <figcaption>
-                                        <strong>{{ HTML::link('','Username'); }}</strong>
+                                        <strong>{{ HTML::link('#','Username'); }}</strong>
                                         <ul>
-                                            <li>{{ HTML::link('logout','Inbox', array("data-original-title" => "Message inbox")); }}</li>
-                                            <li>{{ HTML::link('logout','Settings', array("data-original-title" => "Account settings")); }}</li>
+                                            <li>{{ HTML::link('#','Inbox', array("data-original-title" => "Message inbox")); }}</li>
+                                            <li>{{ HTML::link('#','Settings', array("data-original-title" => "Account settings")); }}</li>
                                             <li>{{ HTML::link('logout','Logout', array("data-original-title" => "Logout")); }}</li>
                                         </ul>
                                     </figcaption>
