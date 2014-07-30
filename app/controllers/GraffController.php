@@ -9,7 +9,7 @@ class GraffController extends BaseController {
 	 * @return JSON data    Data used to make the chart
 	 */
 	public function getChartPie($id = '', $type = 'pie', $mes = NULL) {
-		// if(!Cache::has($type)) {
+		if(!Cache::has($type)) {
 			if(is_null($mes) OR !is_numeric($mes)){
 				$data = Cliente::getChartPie($id);
 			} else {
@@ -46,10 +46,10 @@ class GraffController extends BaseController {
 				$chart = array_add($chart, "radius", "42%");
 				$chart = array_add($chart, "innerRadius", "60%");
 			}
-		// 	Cache::put($type, $chart, 20);
-		// } else {
-		// 	$chart = Cache::get($type);
-		// }
+			Cache::put($type, $chart, 20);
+		} else {
+			$chart = Cache::get($type);
+		}
 		return Response::json($chart);
 	}
 
@@ -60,55 +60,55 @@ class GraffController extends BaseController {
 	 * @return JSON data    Data used to make the chart
 	 */
 	public function getChartSerial($id = '', $type = 'column') {
-		// if(!Cache::has($type)) {
-		$config = Cliente::getChartSerial($id);
-		$data   = $config['data'];
-		$graphs = $config['graphs'];
-		$ejex   = 'mes';
-		$chart = array(
-			"type"   => "serial",
-			"theme"  => "none",
-			"legend" => array(
-				"horizontalGap"    => 10,
-				"position"         => "bottom",
-				"useGraphSettings" => true,
-				"markerSize"       => 10
-				),
-			"dataProvider" => $data,
-			"graphs" => $graphs,
-			"categoryField" => $ejex,
-			"categoryAxis" => array(
-				"gridPosition" => "start",
-				"axisAlpha"    => 0,
-				"gridAlpha"    => 0,
-				"position"     => "left"
-				),
-			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
-			"amExport" => array(
-				"top" => 21,
-				"right" => 20,
-				"exportJPG" => true,
-				"exportPNG" => true,
-				"exportSVG" => true,
-				),
-			"sequencedAnimation" => false,
-			"startAlpha" => 0,
-			"startDuration" => 0,
-			);
-		if($type == 'stackbar') {
-			$chart = array_add($chart, "valueAxes", array(
-				array(
-					"stackType" => "regular",
-					"axisAlpha" => 0.3,
-					"gridAlpha" => 0
+		if(!Cache::has($type)) {
+			$config = Cliente::getChartSerial($id);
+			$data   = $config['data'];
+			$graphs = $config['graphs'];
+			$ejex   = 'mes';
+			$chart = array(
+				"type"   => "serial",
+				"theme"  => "none",
+				"legend" => array(
+					"horizontalGap"    => 10,
+					"position"         => "bottom",
+					"useGraphSettings" => true,
+					"markerSize"       => 10
+					),
+				"dataProvider" => $data,
+				"graphs" => $graphs,
+				"categoryField" => $ejex,
+				"categoryAxis" => array(
+					"gridPosition" => "start",
+					"axisAlpha"    => 0,
+					"gridAlpha"    => 0,
+					"position"     => "left"
+					),
+				"pathToImages" => "http://www.amcharts.com/lib/3/images/",
+				"amExport" => array(
+					"top" => 21,
+					"right" => 20,
+					"exportJPG" => true,
+					"exportPNG" => true,
+					"exportSVG" => true,
+					),
+				"sequencedAnimation" => false,
+				"startAlpha" => 0,
+				"startDuration" => 0,
+				);
+			if($type == 'stackbar') {
+				$chart = array_add($chart, "valueAxes", array(
+					array(
+						"stackType" => "regular",
+						"axisAlpha" => 0.3,
+						"gridAlpha" => 0
+						)
 					)
-				)
-			);
+				);
+			}
+			Cache::put($type, $chart, 20);
+		} else {
+			$chart = Cache::get($type);
 		}
-		// 	Cache::put($type, $chart, 20);
-		// } else {
-		// 	$chart = Cache::get($type);
-		// }
 		return Response::json($chart);
 	}
 
@@ -128,19 +128,19 @@ class GraffController extends BaseController {
 		$idCliente = $this->devuelveIdCliente($nroCliente);
 		$telefonos = Cliente::find($idCliente)->telefonos;
 		$arreglo = array();
-		foreach ($telefonos as $value) 
+		foreach ($telefonos as $value)
 		{
-		  	$idTelefono = $value['id'];
-		  	$numero     = $value['numero'];
-   	  	    foreach (Telefono::find($idTelefono)->montos as $value2) 
-   	  	    {
-	  	     	$dt         = new Carbon($value2->fecha);
-	  	     	$mes 		= $dt ->month;
-	  	     	$year 		= $dt ->year; 
-	  	     	$fecha      = $value2->fecha;
-	  	     	$montoTotal = $value2->monto_total;
-	  	      	$arreglo[] = ["fecha"=>$fecha,"Telefono"=>$numero, "Monto"=>$montoTotal];
-	  	    }
+			$idTelefono = $value['id'];
+			$numero     = $value['numero'];
+			foreach (Telefono::find($idTelefono)->montos as $value2)
+			{
+				$dt         = new Carbon($value2->fecha);
+				$mes 		= $dt ->month;
+				$year 		= $dt ->year;
+				$fecha      = $value2->fecha;
+				$montoTotal = $value2->monto_total;
+				$arreglo[] = ["fecha"=>$fecha,"Telefono"=>$numero, "Monto"=>$montoTotal];
+			}
 		}
 		return $arreglo;
 	}
