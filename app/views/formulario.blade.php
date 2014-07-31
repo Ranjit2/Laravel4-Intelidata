@@ -1,13 +1,31 @@
 @extends('layouts.basic')
 
 @section('content')
-<ol class="breadcrumb">
-  <li><a href="#">Inicio</a></li>
-  <li><a href="#">Estadisticas</a></li>
-  <li class="active">Data</li>
-</ol>
 
-<h2>Stadistics</h2>
+<header class="clearfix">
+    <ul class="list-inline">
+        <li>
+            <h2 class="main-header__title">
+                <i class="icon pe-7s-graph"></i>
+                Statistics <small>Charts &amp; graphs</small>
+            </h2>
+        </li>
+        <li>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li class="active">Data</li>
+            </ol>
+        </li>
+        <li>
+            <div>
+                <i class="icon pe-7s-date"></i>
+                <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
+                <i class="pe-7s-angle-down-circle"></i>
+            </div>
+        </li>
+    </ul>
+</header>
 <div class="row">
     <div class="col-md-4">
         <div class="panel panel-default">
@@ -63,7 +81,7 @@
 
 @section('script')
 <script type="text/javascript">
-var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
+    var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
 </script>
 @stop
 

@@ -33,6 +33,11 @@ class GraffController extends BaseController {
 					// "useGraphSettings" => true,
 					// "markerSize"       => 10
 				),
+			"numberFormatter" => array(
+				"decimalSeparator" => ",",
+				"thousandsSeparator" => ".",
+				"precision" => -1
+				),
 			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
 			"amExport" => array(
 				"top" => 21,
@@ -41,7 +46,7 @@ class GraffController extends BaseController {
 				"exportPNG" => true,
 				"exportSVG" => true,
 				),
-			"sequencedAnimation" => true,
+			"sequencedAnimation" => false,
 			"startAlpha" => 0,
 			"startDuration" => 2,
 			);
@@ -49,6 +54,21 @@ class GraffController extends BaseController {
 			$chart = array_add($chart, "labelRadius", 5);
 			$chart = array_add($chart, "radius", "42%");
 			$chart = array_add($chart, "innerRadius", "60%");
+			$chart = array_add($chart, "allLabels", array(
+				array(
+					"text" => "This is chart title",
+					"align" => "center",
+					"bold" => true,
+					"y" => 120
+					),
+				array(
+					"text" => "Ans here's the subtitle as well",
+					"align" => "center",
+					"bold" => false,
+					"y" => 150
+					),
+				)
+			);
 		}
 		// 	Cache::put($type, $chart, 20);
 		// } else {
@@ -65,7 +85,7 @@ class GraffController extends BaseController {
 	 */
 	public function getChartSerial($id = '', $type = 'column') {
 		// if(!Cache::has($type)) {
-		$config = Cliente::getChartSerial($id);
+		$config = Cliente::getChartSerial($id, $type);
 		$data   = isset($config['data']) ? $config['data'] : array();
 		$graphs = isset($config['graphs']) ? $config['graphs']  : array();
 		$ejex   = 'mes';
@@ -88,6 +108,11 @@ class GraffController extends BaseController {
 				"axisAlpha"    => 0.3,
 				"gridAlpha"    => 0,
 				),
+			"numberFormatter" => array(
+				"decimalSeparator" => ",",
+				"thousandsSeparator" => ".",
+				"precision" => -1
+				),
 			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
 			"amExport" => array(
 				"top" => 21,
@@ -96,7 +121,7 @@ class GraffController extends BaseController {
 				"exportPNG" => true,
 				"exportSVG" => true,
 				),
-			"sequencedAnimation" => true,
+			"sequencedAnimation" => false,
 			"startAlpha" => 0,
 			"startDuration" => 2,
 			);
@@ -104,6 +129,20 @@ class GraffController extends BaseController {
 			$chart = array_add($chart, "valueAxes", array(
 				array(
 					"stackType" => "regular",
+					"unit" => "$",
+					"unitPosition" => "left",
+					"fontSize" => 13,
+					"axisAlpha" => 0.3,
+					"gridAlpha" => 0,
+					)
+				)
+			);
+		} else {
+			$chart = array_add($chart, "valueAxes", array(
+				array(
+					"unit" => "$",
+					"unitPosition" => "left",
+					"fontSize" => 13,
 					"axisAlpha" => 0.3,
 					"gridAlpha" => 0,
 					)

@@ -7,8 +7,8 @@
     <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
-    media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -41,11 +41,11 @@
                                 <img src="holder.js/40x40" class="img-circle" alt="">
                             </figure>
                             @if (Session::has('ses_user_rut'))
-                                User <strong>{{ Session::get('ses_user_rut') }}</strong>
+                            User <strong>{{ Session::get('ses_user_rut') }}</strong>
                             @else
-                                User 111111-1
+                            User 111111-1
                             @endif
-                           <span class="glyphicon glyphicon-chevron-down"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"> <span class="icon pe-7s-info"></span> Profile</a></li>
@@ -75,14 +75,11 @@
     {{ HTML::script('js/holder.js') }}
     <!-- Charts -->
     {{ HTML::script('js/amcharts/amcharts.js') }}
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/pie.js"></script>
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/serial.js"></script>
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/black.js"></script>
     <!-- Custom JS -->
     @yield('script')
     {{ HTML::script('js/frontend.min.js') }}
