@@ -171,5 +171,4 @@ class GraffController extends BaseController {
 		}
 		return $arreglo;
 	}
-
 }

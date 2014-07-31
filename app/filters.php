@@ -28,25 +28,25 @@ App::error(function(Exception $exception)
     Log::error($exception);
 });
 
-if (!Config::get('app.debug')) {
-    App::error(function(Exception $exception, $code)
-    {
-        switch ($code) {
-            case 403:
-                return Response::view('errors.403', array(), 403);
+// if (!Config::get('app.debug')) {
+//     App::error(function(Exception $exception, $code)
+//     {
+//         switch ($code) {
+//             case 403:
+//                 return Response::view('errors.403', array(), 403);
 
-            case 404:
-                return Response::view('errors.404', array(), 404);
+//             case 404:
+//                 return Response::view('errors.404', array(), 404);
 
-            case 500:
-                return Response::view('errors.500', array(), 500);
+//             case 500:
+//                 return Response::view('errors.500', array(), 500);
 
-            default:
-                return Response::view('errors.default', array(), $code);
-        }
-        Log::error($exception);
-    });
-}
+//             default:
+//                 return Response::view('errors.default', array(), $code);
+//         }
+//         Log::error($exception);
+//     });
+// }
 
 /*
 |--------------------------------------------------------------------------
