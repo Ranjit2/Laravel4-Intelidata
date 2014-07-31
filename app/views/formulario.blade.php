@@ -1,6 +1,5 @@
 @extends('layouts.basic')
 
-<<<<<<< HEAD
 @section('header')
 <header class="clearfix">
     <ul class="list-inline">
@@ -29,16 +28,6 @@
 @stop
 
 @section('content')
-=======
-@section('content')
-<ol class="breadcrumb">
-  <li><a href="#">Inicio</a></li>
-  <li><a href="#">Estadisticas</a></li>
-  <li class="active">Data</li>
-</ol>
-
-<h2>Stadistics</h2>
->>>>>>> origin/dev
 <div class="row">
     <div class="col-md-4">
         <div class="panel panel-default">
@@ -110,7 +99,7 @@
 
     var types = [{
         type: "84465285",
-        percent: 50000, 
+        percent: 50000,
         color: "#ff9e01",
         subs: [
             { type: "servicio1", percent: 25000 },
@@ -168,11 +157,11 @@
         chart.balloonText      = "<b>[[percent]]</b>";
         chart.labelText        = "[[type]]";
         chart.radius           = "30%",
-        
-        
+
+
         // ADD TITLE
         chart.addTitle("ENERO");
-        
+
         // AN EVENT TO HANDLE SLICE CLICKS
         chart.addListener("clickSlice", function (event) {
             if (event.dataItem.dataContext.id != undefined) {
@@ -191,14 +180,10 @@
 
 
 </script>
-<<<<<<< HEAD
-@stop
-=======
+
 @stop
 
 @section('style')
 <style type="text/css" media="screen">
 </style>
 @stop
-
->>>>>>> origin/dev
