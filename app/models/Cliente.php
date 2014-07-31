@@ -111,7 +111,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 * @param  [type] $id [description]
 	 * @return [type]     [description]
 	 */
-	public static function getChartSerial($id = '', $type = 'column') {
+	public static function getChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		try {
 			foreach (Cliente::find($id)->productos2 as $value) {
@@ -127,28 +127,16 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		foreach ($data as $value) { $config['data'][] = $value; }
 		foreach (array_unique($numbers) as $value) {
-			if($type  == 'column') {
-				$config['graphs'][] = array(
-					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-					"fillAlphas"  => 1,
-					"lineAlpha"   => 1,
-					"title"       => "Numero ". ++$count . " - " . $value,
-					"type"        => "column",
-					"color"       => "#000000",
-					"valueField"  => $value,
-					);
-			} else {
-				$config['graphs'][] = array(
-					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-					"fillAlphas"  => 1,
-					"lineAlpha"   => 1,
-					"labelText"   => "[[value]]",
-					"title"       => "Numero ". ++$count . " - " . $value,
-					"type"        => "column",
-					"color"       => "#000000",
-					"valueField"  => $value,
-					);
-			}
+			$config['graphs'][] = array(
+				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas"  => 1,
+				"labelText"   => "[[value]]",
+				"lineAlpha"   => 1,
+				"title"       => "Numero ". ++$count . " - " . $value,
+				"type"        => "column",
+				"color"       => "#000000",
+				"valueField"  => $value,
+				);
 		}
 		return $config;
 	}

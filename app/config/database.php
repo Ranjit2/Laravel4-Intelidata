@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'vtrData',
-			'username'  => 'empresa',
-			'password'  => 'empresa',
+			'database'  => 'forge',
+			'username'  => 'forge',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
