@@ -193,8 +193,8 @@ class GraffController extends BaseController {
 			foreach (Telefono::find($idTelefono)->montos as $value2)
 			{
 				$dt         = new Carbon($value2->fecha);
-				$mes                    = $dt ->month;
-				$year                    = $dt ->year;
+				$mes        = $dt ->month;
+				$year       = $dt ->year;
 				$fecha      = $value2->fecha;
 				$montoTotal = $value2->monto_total;
 				if( (!empty($arreglo) ) && (is_numeric($this->existeFechaArreglo($arreglo, $year, $mes) ) ) )
@@ -204,7 +204,10 @@ class GraffController extends BaseController {
 				}
 				else
 				{
-					$arreglo[] = ["fecha"=>$fecha, $numero=>$montoTotal];
+					$arreglo[] = array(
+						"fecha" => $fecha, 
+						$numero => $montoTotal
+						);
 				}
 			}
 		}
