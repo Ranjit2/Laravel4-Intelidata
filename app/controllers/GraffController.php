@@ -128,6 +128,20 @@ class GraffController extends BaseController {
 		return Cliente::find($idCliente)->telefonos;
 	}
 
+	public function existeFechaArreglo($arreglo, $year, $month)
+	{
+		foreach ($arreglo as $key => $value) {
+			$dt   = new Carbon($value['fecha']);
+			$mes  = $dt->month;
+			$ano  = $dt->year;
+			if( ($month == $mes) && ($year == $ano) )
+			{
+				return $key;
+			}
+		}
+		return false;
+	}
+
 	public function montoTotal($nroCliente)
 	{
 		$idCliente = $this->devuelveIdCliente($nroCliente);
@@ -144,9 +158,18 @@ class GraffController extends BaseController {
 				$year 		= $dt ->year;
 				$fecha      = $value2->fecha;
 				$montoTotal = $value2->monto_total;
-				$arreglo[] = ["fecha"=>$fecha,"Telefono"=>$numero, "Monto"=>$montoTotal];
+				if( (!empty($arreglo) ) && (is_numeric($this->existeFechaArreglo($arreglo, $year, $mes) ) ) )
+				{
+				 	$indice = $this->existeFechaArreglo($arreglo, $year, $mes);
+					$arreglo[$indice] = array_add($arreglo[$indice], $numero, $montoTotal);
+				}
+				else
+				{
+					$arreglo[] = ["fecha"=>$fecha, $numero=>$montoTotal];
+				}
 			}
 		}
 		return $arreglo;
 	}
+
 }
