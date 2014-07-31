@@ -52,6 +52,11 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::error(function(PDOException $exception, $code){
+    Log::error($exception);
+    Response::make("Error en la base de datos");
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler

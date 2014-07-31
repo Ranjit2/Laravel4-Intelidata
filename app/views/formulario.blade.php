@@ -1,6 +1,12 @@
 @extends('layouts.basic')
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="#">Inicio</a></li>
+  <li><a href="#">Estadisticas</a></li>
+  <li class="active">Data</li>
+</ol>
+
 <h2>Stadistics</h2>
 <div class="row">
     <div class="col-md-4">
@@ -49,8 +55,19 @@
 </div>
 @stop
 
+
+@section('aside')
+
+@stop
+
+
 @section('script')
 <script type="text/javascript">
-    var id = {{ Session::get('ses_user_id') }};
+var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
 </script>
+@stop
+
+@section('style')
+<style type="text/css" media="screen">
+</style>
 @stop

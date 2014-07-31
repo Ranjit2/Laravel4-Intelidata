@@ -22,6 +22,12 @@ App::after(function($request, $response)
 	//
 });
 
+// Handle specific Exceptions
+App::error(function(Exception $exception)
+{
+    Log::error($exception);
+});
+
 if (!Config::get('app.debug')) {
     App::error(function(Exception $exception, $code)
     {

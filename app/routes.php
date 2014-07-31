@@ -11,8 +11,7 @@
 |
 */
 
-Route::group(array('after' => 'auth'), function()
-{
+// Route::group(array('after' => 'auth'), function() {
 	// ROOT
 	Route::get('/', function()
 	{
@@ -22,11 +21,9 @@ Route::group(array('after' => 'auth'), function()
 	// LOGIN
 	Route::get('login', 'HomeController@showLogin');
 	Route::post('login', 'HomeController@doLogin');
+// });
 
-});
-
-Route::group(array('before' => 'auth'), function()
-{
+// Route::group(array('before' => 'auth'), function() {
 	// LOGOUT
 	Route::get('logout', 'HomeController@doLogout');
 
@@ -43,4 +40,4 @@ Route::group(array('before' => 'auth'), function()
 	// CLIENTE
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 	Route::get('/montos/{fono}', 'GraffController@montoTotal');
-});
+// });

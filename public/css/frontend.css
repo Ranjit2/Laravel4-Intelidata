@@ -3176,7 +3176,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 12px;
   text-align: left;
-  background-color: #444444;
+  background-color: #252525;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0px;
@@ -4224,8 +4224,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc;
 }
 .navbar-inverse {
-  background-color: #444444;
-  border-color: #2b2b2b;
+  background-color: #252525;
+  border-color: #0c0c0c;
 }
 .navbar-inverse .navbar-brand {
   color: #ffffff;
@@ -4270,7 +4270,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #323232;
+  border-color: #131313;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
@@ -4280,10 +4280,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
-    border-color: #2b2b2b;
+    border-color: #0c0c0c;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-    background-color: #2b2b2b;
+    background-color: #0c0c0c;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #ffffff;
@@ -6248,30 +6248,16 @@ button.close {
   border-radius: 50%;
 }
 /**
-*
-* DASHBOARD
-*
-*/
+    *
+    * DASHBOARD
+    *
+    */
 body {
   padding-top: 60px;
 }
-/*
-* Global add-ons
-*/
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-/*
-* Top navigation
-* Hide default border to remove 1px line.
-*/
-.navbar-fixed-top {
-  border: 0;
-}
-/*
-* Sidebar
-*/
+/**
+    * Sidebar
+    */
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
@@ -6310,8 +6296,8 @@ body {
   background-color: #428bca;
 }
 /*
-* Main content
-*/
+    * Main content
+    */
 .main {
   padding: 20px;
 }
@@ -6325,10 +6311,10 @@ body {
   margin-top: 0;
 }
 /**
-*
-* LOGIN STYLE
-*
-*/
+    *
+    * LOGIN STYLE
+    *
+    */
 .jumbotron {
   text-align: center;
   width: 30rem;
@@ -6365,10 +6351,13 @@ body {
   background-color: #006d87;
 }
 /**
-*
-* USER PROFILE
-*
-*/
+    *
+    * USER PROFILE
+    *
+    */
+.profile {
+  margin-right: 26px;
+}
 .profile__img {
   margin-right: 10px;
   margin-top: -10px;
@@ -6379,7 +6368,6 @@ body {
 .profile .dropdown-menu {
   padding: 0;
   margin: 0;
-  margin-right: 20px;
   border: 0;
   left: 0;
   right: 0;

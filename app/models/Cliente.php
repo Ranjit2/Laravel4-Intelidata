@@ -67,13 +67,17 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function getChartPie($id) {
 		$data = array();
-		foreach (Cliente::find($id)->productos2 as $value) {
-			array_push($data,array(
-				'producto' => $value->nombre,
-				'numero'   => $value->pivot->numero_telefonico,
-				'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
-				'monto'    => $value->pivot->monto,
-				));
+		try {
+			foreach (Cliente::find($id)->productos2 as $value) {
+				array_push($data,array(
+					'producto' => $value->nombre,
+					'numero'   => $value->pivot->numero_telefonico,
+					'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
+					'monto'    => $value->pivot->monto,
+					));
+			}
+		} catch(PDOException $exception) {
+			return Response::make('Database error! ' . $exception->getCode());
 		}
 		return $data;
 	}
@@ -86,13 +90,18 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function getChartPieMonth($id, $mes) {
 		$data = array();
-		foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
-			array_push($data,array(
-				'producto' => $value->nombre,
-				'numero'   => $value->pivot->numero_telefonico,
-				'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
-				'monto'    => $value->pivot->monto,
-				));
+		try {
+			foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
+				array_push($data,array(
+					'producto' => $value->nombre,
+					'numero'   => $value->pivot->numero_telefonico,
+					'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
+					'monto'    => $value->pivot->monto,
+					));
+			}
+		}
+		catch(PDOException $exception) {
+			return Response::make('Database error! ' . $exception->getCode());
 		}
 		return $data;
 	}
@@ -104,13 +113,17 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function getChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
-		foreach (Cliente::find($id)->productos2 as $value) {
-			array_push($numbers, $value->pivot->numero_telefonico);
-			if(isset($data[$value->pivot->id_mes])) {
-				$data[$value->pivot->id_mes] = array_add($data[$value->pivot->id_mes], $value->pivot->numero_telefonico, $value->pivot->monto);
-			} else {
-				$data[$value->pivot->id_mes] = array( 'mes' => Func::convNumberToMonth($value->pivot->id_mes), $value->pivot->numero_telefonico => $value->pivot->monto, );
+		try {
+			foreach (Cliente::find($id)->productos2 as $value) {
+				array_push($numbers, $value->pivot->numero_telefonico);
+				if(isset($data[$value->pivot->id_mes])) {
+					$data[$value->pivot->id_mes] = array_add($data[$value->pivot->id_mes], $value->pivot->numero_telefonico, $value->pivot->monto);
+				} else {
+					$data[$value->pivot->id_mes] = array( 'mes' => Func::convNumberToMonth($value->pivot->id_mes), $value->pivot->numero_telefonico => $value->pivot->monto, );
+				}
 			}
+		} catch(PDOException $exception) {
+			return Response::make('Database error! ' . $exception->getCode());
 		}
 		foreach ($data as $value) { $config['data'][] = $value; }
 		foreach (array_unique($numbers) as $value) {

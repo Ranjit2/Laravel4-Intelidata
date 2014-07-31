@@ -13,10 +13,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    {{ HTML::style('css/frontend.css') }}
+    {{ HTML::style('css/frontend.min.css') }}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     {{ HTML::style('css/pe-icon-7-stroke.css') }}
     {{ HTML::style('css/helper.css') }}
+    @yield('style')
 </head>
 <body>
     <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,7 +40,12 @@
                             <figure class="pull-left profile__img">
                                 <img src="holder.js/40x40" class="img-circle" alt="">
                             </figure>
-                            User <strong>{{ Session::get('ses_user_rut', '') }}</strong> <span class="glyphicon glyphicon-chevron-down"></span>
+                            @if (Session::has('ses_user_rut'))
+                                User <strong>{{ Session::get('ses_user_rut') }}</strong>
+                            @else
+                                User 111111-1
+                            @endif
+                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"> <span class="icon pe-7s-info"></span> Profile</a></li>

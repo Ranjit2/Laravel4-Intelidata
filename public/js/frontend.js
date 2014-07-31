@@ -14,7 +14,11 @@ $(document).ready(function() {
  * @return {json}          Return json data from database
  */
  AmCharts.loadJSON = function (url, method) {
-    return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
+    try {
+        return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
+    } catch(err) {
+        console.log(err);
+    }
 };
 
 /**
@@ -32,6 +36,12 @@ $(document).ready(function() {
     var mes    = typeof mes !== 'undefined' ? '/'+mes : '';
     var method = typeof method !== 'undefined' ? method : 'POST';
     var url    = typeof url !== 'undefined' ? url+'/'+type+mes : '';
-    var data  = AmCharts.loadJSON(url, method);
-    var chart = AmCharts.makeChart(div, data);
+    try {
+        var data  = AmCharts.loadJSON(url, method);
+        AmCharts.ready(function(){
+            var chart = AmCharts.makeChart(div, data);
+        });
+    } catch(err) {
+        console.log(err);
+    }
 };
