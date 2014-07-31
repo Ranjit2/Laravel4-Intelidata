@@ -1,1 +1,5 @@
 bootstrap/start.php
+app/config/local/database.php
+app/config/local/database.php
+app/filters.php
+bootstrap/start.php
