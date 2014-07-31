@@ -39,5 +39,5 @@
 
 	// CLIENTE
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
-	Route::get('/montos/{fono}', 'GraffController@montoTotal');
+	Route::get('/montos/{id}', 'GraffController@montoTotal');
 // });

@@ -7,8 +7,8 @@
     <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
-        media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -59,9 +59,16 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-sm-3 col-md-2 sidebar">
-                @yield('aside')
+                @section('aside')
+                    <div class="list-group">
+                        {{ HTML::link('/stackbar', 'Stackbar Chart', array('class' => 'list-group-item')) }}
+                        {{ HTML::link('/column', 'Columnbar Chart', array('class' => 'list-group-item')) }}
+                        {{ HTML::link('/pie', 'Donut/Pie Chart', array('class' => 'list-group-item')) }}
+                    </div>
+                @show
             </aside>
             <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                @yield('header')
                 @yield('content')
             </section>
         </div>

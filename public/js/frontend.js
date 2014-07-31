@@ -1,4 +1,4 @@
-$(document).ready(function() {
+    $(document).ready(function() {
     $.loadChart('chartdiv', '/getChartPie/'+id, 'pie', 7, 'POST');
     $.loadChart('chartdiv2', '/getChartPie/'+id, 'donut', 6, 'POST');
     $.loadChart('chartdiv3', '/getChartPie/'+id, 'pie', 2, 'POST');
