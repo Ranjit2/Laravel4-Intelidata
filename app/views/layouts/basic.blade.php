@@ -17,6 +17,7 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 {{ HTML::style('css/pe-icon-7-stroke.css') }}
 {{ HTML::style('css/helper.css') }}
+{{ HTML::style('css/styl.css') }}
 @yield('style')
 </head>
 <body>
@@ -69,30 +70,23 @@
                 @show
             </aside>
             <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <header class="clearfix">
-                    <ul class="list-inline">
-                        <li>
-                            <h2 class="main-header__title">
-                                <i class="icon pe-7s-graph"></i>
-                                Statistics <small>Charts &amp; graphs</small>
-                            </h2>
-                        </li>
-                        <li>
-                            <ol class="breadcrumb">
-                                <li>{{ HTML::link('/', 'HOME') }}</li>
-                                <li>{{ HTML::link('/statics', 'STADISTICS') }}</li>
-                                <li>{{ HTML::link('/charts', 'CHARTS') }}</li>
-                                <li>{{ HTML::link('/client', 'CLIENT') }}</li>
-                                <li>{{ HTML::link('/column', 'COLUMN') }}</li>
-                                <li class="active">DATA</li>
-                            </ol>
-                        </li>
-                        <li>
-                            <i class="icon pe-7s-date"></i>
-                            <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
-                            <i class="pe-7s-angle-down-circle"></i>
-                        </li>
-                    </ul>
+                <header>
+                    @section('title')
+                    <div class="calendar pull-right">
+                        <i class="icon pe-7s-date"></i>
+                        <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
+                        <i class="pe-7s-angle-down-circle"></i>
+                    </div>
+                    <h2 class="main-header__title">
+                        <i class="icon pe-7s-graph"></i>
+                        Statistics <small>Charts &amp; graphs</small>
+                    </h2>
+                    @show
+                    <ol class="breadcrumb">
+                        @section('breadcrumb')
+                        <li>{{ HTML::link('/', 'HOME') }}</li>
+                        @show
+                    </ol>
                 </header>
                 @yield('content')
             </section>
@@ -117,7 +111,8 @@
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
-    @yield('script')
     {{ HTML::script('js/frontend.min.js') }}
+    @yield('script')
 </body>
 </html>
+
