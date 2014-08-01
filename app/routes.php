@@ -36,7 +36,7 @@ Route::get('formulario', function()
 });
 
 	// VISTA CHARTS
-Route::get('/charts/pie', function(){ return View::make('charts.pie.cliente'); });
+Route::get('/charts/pie', function(){ return View::make('charts.pie.cliente'); }); // AGREGAR VARIABLE DE SESION PARA VER LA RUTA
 Route::get('/charts/column', function(){ return View::make('charts.column.cliente'); });
 Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.cliente'); });
 Route::get('/charts/breakchart', function(){ return View::make('charts.break.cliente'); });
@@ -44,11 +44,21 @@ Route::get('/charts/breakchart', function(){ return View::make('charts.break.cli
 	// CHARTS
 Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
 Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
+Route::post('/getBreakChart/{id}', 'GraffController@getChartBreak');
 
 	// CLIENTE
 Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
-Route::get('/montos/{id}', 'GraffController@montoTotal');
+// Route::get('/montos/{id}', 'GraffController@montoTotal');
 
+<<<<<<< HEAD
 Route::get('/telefonosServicios/{nroCliente}/{fecha}', 'GraffController@telefonosConServicios');
 
 // });
+=======
+// });
+
+
+Route::get('/test', function(){
+	// dd(Cliente::find(7)->telefonos);
+});
+>>>>>>> origin/dev

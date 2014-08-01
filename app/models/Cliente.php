@@ -50,6 +50,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
+	public function telefonos() {
+		return $this->hasMany('Telefono', 'id_cliente');
+	}
+
 	/**
 	 * [productosPorMes description]
 	 * @param  [type] $id  [description]
@@ -131,6 +135,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
 				"fillAlphas"  => 1,
 				"labelText"   => "[[value]]",
+"labelRotation" => 45,
 				"lineAlpha"   => 1,
 				"title"       => "Numero ". ++$count . " - " . $value,
 				"type"        => "column",
@@ -141,12 +146,77 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $config;
 	}
 
-	public function telefonos() {
-		return $this->hasMany('Telefono', 'id_cliente');
+	public function devuelveIdCliente($numeroCliente)
+	{
+		return Cliente::where('numero_cliente','=', $numeroCliente)->get()[0]['id'];
 	}
 
+	public function telefonosPorCliente($numero_cliente)
+	{
+		$idCliente = $this->devuelveIdCliente($numeroCliente);
+		return Cliente::find($idCliente)->telefonos;
+	}
+
+<<<<<<< HEAD
 	public function numeros(){
 		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
 	}
 
+=======
+	public static function existeFechaArreglo($arreglo, $year, $month)
+	{
+		foreach ($arreglo as $key => $value) {
+			$dt   = new Carbon($value['fecha']);
+			$mes  = $dt->month;
+			$ano  = $dt->year;
+			if( ($month == $mes) && ($year == $ano) )
+			{
+				return $key;
+			}
+		}
+		return false;
+	}
+
+	public static function montoTotal($id) {
+		$arreglo = array(); $config = array(); $numbers = array(); $count = 0;
+		foreach (Cliente::find($id)->telefonos as $value)
+		{
+			$idTelefono = $value['id'];
+			$numero     = $value['numero'];
+			array_push($numbers, $numero);
+			foreach (Telefono::find($idTelefono)->montos as $value2)
+			{
+				$dt         = new Carbon($value2->fecha);
+				$mes        = $dt ->month;
+				$year       = $dt ->year;
+				$fecha      = $value2->fecha;
+				$montoTotal = $value2->monto_total;
+				if((!empty($arreglo)) && (is_numeric(Cliente::existeFechaArreglo($arreglo, $year, $mes)))) {
+					$indice = Cliente::existeFechaArreglo($arreglo, $year, $mes);
+					$arreglo[$indice] = array_add($arreglo[$indice], $numero, $montoTotal);
+				}
+				else {
+					$arreglo[] = array("fecha" => $fecha, $numero => $montoTotal);
+				}
+			}
+		}
+		foreach ($arreglo as $value) { $config['data'][] = $value; }
+
+		foreach (array_unique($numbers) as $value) {
+			$config['graphs'][] = array(
+				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas"  => 1,
+				"labelText"   => "[[value]]",
+				"lineAlpha"   => 1,
+				"title"       => "Numero ". ++$count . " - " . $value,
+				"type"        => "column",
+				"color"       => "#000000",
+				"valueField"  => $value,
+				);
+		}
+		return $config;
+	}
+
+
+>>>>>>> origin/dev
 }

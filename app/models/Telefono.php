@@ -9,7 +9,11 @@ class Telefono extends \Eloquent {
 	}
 
 	public function montos(){
-		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'desc')->take(13);
+		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC')->take(13);
+	}
+
+	public function cliente(){
+		return $this->belongsTo('Cliente');
 	}
 
 }
