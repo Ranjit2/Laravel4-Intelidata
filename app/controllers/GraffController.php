@@ -206,4 +206,48 @@ class GraffController extends BaseController {
 		return $arreglo;
 	}
 
+	public function telefonosConServicios($nroCliente, $fecha)
+	{
+		$idCliente = $this->devuelveIdCliente($nroCliente);
+		$telefonos = Cliente::find($idCliente)->numeros; //devuelve id y numeros del telefono del cliente a buscar
+		// $arreglo   = array();
+		// $date      = new Carbon($fecha);
+		// $month     = $date->month;
+		// $year      = $date->year;
+		$arregloTelefonos = array();
+		
+		foreach ($telefonos as $value)
+		{
+			$idTelefono = $value['id'];
+			$numero     = $value['numero'];
+			array_push($arregloTelefonos, $numero);
+			$arregloServicios = array();
+			foreach (Telefono::find($idTelefono)->servicios as $value2)//devuelve id telefono, servicio y monto serv
+			{
+				// $dt         = new Carbon($value2->fecha);
+				// $mes        = $dt->month;
+				// $ano        = $dt->year;
+				// $montoTotal = $value2->montoTotal;
+				$servicio = $value2['tipo'];
+				$monto    = $value2['precio_servicio'];
+				array_push($arregloServicios, $servicio, $monto);
+			}
+			array_push($arregloTelefonos, $arregloServicios);
+			
+
+			//array_push($arreglo, $numero, $montoTotal);
+		}
+
+		//return Telefono::find(1)->servicios;
+
+		
+		//return Cliente::find($idCliente)->numeros;
+
+
+
+		
+		return $arregloTelefonos;
+	}
+
 }
+

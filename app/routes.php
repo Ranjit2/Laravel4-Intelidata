@@ -49,4 +49,6 @@ Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
 Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 Route::get('/montos/{id}', 'GraffController@montoTotal');
 
+Route::get('/telefonosServicios/{nroCliente}/{fecha}', 'GraffController@telefonosConServicios');
+
 // });

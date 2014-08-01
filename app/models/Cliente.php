@@ -145,4 +145,8 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Telefono', 'id_cliente');
 	}
 
+	public function numeros(){
+		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
+	}
+
 }

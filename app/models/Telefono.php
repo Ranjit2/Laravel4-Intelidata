@@ -5,7 +5,7 @@ class Telefono extends \Eloquent {
 	protected $primaryKey = 'id';
 
 	public function servicios(){
-		return $this->belongsToMany('Servicio', 'telefonos_Servicios', 'id_servicio', 'id_telefono');
+		return $this->belongsToMany('Servicio', 'telefonos_Servicios', 'id_servicio', 'id_telefono')->withpivot('precio_servicio')->select('id_telefono','tipo','precio_servicio');
 	}
 
 	public function montos(){
