@@ -13,8 +13,8 @@
 			<ol class="breadcrumb">
 				<li>{{ HTML::link('/', 'HOME') }}</li>
 				<li>{{ HTML::link('/charts', 'CHARTS') }}</li>
-				<li>{{ HTML::link('/client', 'CLIENT') }}</li>
-				<li>{{ HTML::link('/stackbar', 'STACKBAR') }}</li>
+				<li>{{ HTML::link('/enterprise', 'CLIENT') }}</li>
+				<li>{{ HTML::link('/break', 'BREAKCHART') }}</li>
 				<li class="active">DATA</li>
 			</ol>
 		</li>
@@ -32,7 +32,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div id="chartdiv6" style="height: 400px;"></div>
+				<div id="chartdiv7" style="height: 400px;"></div>
 			</div>
 		</div>
 	</div>

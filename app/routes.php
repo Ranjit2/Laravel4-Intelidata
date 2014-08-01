@@ -11,33 +11,42 @@
 |
 */
 
+// ANTES O SIN AUTENTIFICARCE
 // Route::group(array('after' => 'auth'), function() {
 	// ROOT
-	Route::get('/', function()
-	{
-		return View::make('index');
-	});
+Route::get('/', function()
+{
+	return View::make('index');
+});
 
 	// LOGIN
-	Route::get('login', 'HomeController@showLogin');
-	Route::post('login', 'HomeController@doLogin');
+Route::get('login', 'HomeController@showLogin');
+Route::post('login', 'HomeController@doLogin');
 // });
 
+// DESPUES DE AUTENTIFICARCE
 // Route::group(array('before' => 'auth'), function() {
 	// LOGOUT
-	Route::get('logout', 'HomeController@doLogout');
+Route::get('logout', 'HomeController@doLogout');
 
 	// FORMULARIO VIEW
-	Route::get('formulario', function()
-	{
-		return View::make('formulario');
-	});
+Route::get('formulario', function()
+{
+	return View::make('formulario');
+});
+
+	// VISTA CHARTS
+Route::get('/charts/pie', function(){ return View::make('charts.pie.cliente'); });
+Route::get('/charts/column', function(){ return View::make('charts.column.cliente'); });
+Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.cliente'); });
+Route::get('/charts/breakchart', function(){ return View::make('charts.break.cliente'); });
 
 	// CHARTS
-	Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
-	Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
+Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
+Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
 
 	// CLIENTE
-	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
-	Route::get('/montos/{id}', 'GraffController@montoTotal');
+Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
+Route::get('/montos/{id}', 'GraffController@montoTotal');
+
 // });

@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Intelidata Project</title>
     <!-- Latest compiled and minified CSS -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
     media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    {{ HTML::style('css/frontend.min.css') }}
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    {{ HTML::style('css/pe-icon-7-stroke.css') }}
-    {{ HTML::style('css/helper.css') }}
-    @yield('style')
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+{{ HTML::style('css/frontend.min.css') }}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+{{ HTML::style('css/pe-icon-7-stroke.css') }}
+{{ HTML::style('css/helper.css') }}
+@yield('style')
 </head>
 <body>
     <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#"><span class="fa
-                fa-bar-chart-o"></span> <strong>VTR</strong></h3> Stadistics</a>
+                fa-bar-chart-o"></span> <strong>Entel Empresa</strong></h3> Stadistics</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav  col-md-offset-3 navbar-right profile">
@@ -41,11 +41,11 @@
                                 <img src="holder.js/40x40" class="img-circle" alt="">
                             </figure>
                             @if (Session::has('ses_user_rut'))
-                                User <strong>{{ Session::get('ses_user_rut') }}</strong>
+                            User <strong>{{ Session::get('ses_user_rut') }}</strong>
                             @else
-                                User 111111-1
+                            User 111111-1
                             @endif
-                           <span class="glyphicon glyphicon-chevron-down"></span>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"> <span class="icon pe-7s-info"></span> Profile</a></li>
@@ -60,15 +60,40 @@
         <div class="row">
             <aside class="col-sm-3 col-md-2 sidebar">
                 @section('aside')
-                    <div class="list-group">
-                        {{ HTML::link('/stackbar', 'Stackbar Chart', array('class' => 'list-group-item')) }}
-                        {{ HTML::link('/column', 'Columnbar Chart', array('class' => 'list-group-item')) }}
-                        {{ HTML::link('/pie', 'Donut/Pie Chart', array('class' => 'list-group-item')) }}
-                    </div>
+                <div class="list-group">
+                    {{ HTML::link('/charts/pie', 'Donut/Pie Chart', array('class' => 'list-group-item')) }}
+                    {{ HTML::link('/charts/column', 'Columnbar Chart', array('class' => 'list-group-item')) }}
+                    {{ HTML::link('/charts/stackbar', 'Stackbar Chart', array('class' => 'list-group-item')) }}
+                    {{ HTML::link('/charts/breakchart', 'Break Chart', array('class' => 'list-group-item')) }}
+                </div>
                 @show
             </aside>
             <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                @yield('header')
+                <header class="clearfix">
+                    <ul class="list-inline">
+                        <li>
+                            <h2 class="main-header__title">
+                                <i class="icon pe-7s-graph"></i>
+                                Statistics <small>Charts &amp; graphs</small>
+                            </h2>
+                        </li>
+                        <li>
+                            <ol class="breadcrumb">
+                                <li>{{ HTML::link('/', 'HOME') }}</li>
+                                <li>{{ HTML::link('/statics', 'STADISTICS') }}</li>
+                                <li>{{ HTML::link('/charts', 'CHARTS') }}</li>
+                                <li>{{ HTML::link('/client', 'CLIENT') }}</li>
+                                <li>{{ HTML::link('/column', 'COLUMN') }}</li>
+                                <li class="active">DATA</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <i class="icon pe-7s-date"></i>
+                            <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
+                            <i class="pe-7s-angle-down-circle"></i>
+                        </li>
+                    </ul>
+                </header>
                 @yield('content')
             </section>
         </div>
@@ -88,6 +113,7 @@
     src="http://www.amcharts.com/lib/3/serial.js"></script>
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
+    {{ HTML::script('js/amcharts/exporting/amexport.js') }}
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->

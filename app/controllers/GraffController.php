@@ -56,16 +56,10 @@ class GraffController extends BaseController {
 			$chart = array_add($chart, "innerRadius", "60%");
 			$chart = array_add($chart, "allLabels", array(
 				array(
-					"text" => "This is chart title",
+					"text" => "[[title]]%",
 					"align" => "center",
 					"bold" => true,
-					"y" => 120
-					),
-				array(
-					"text" => "Ans here's the subtitle as well",
-					"align" => "center",
-					"bold" => false,
-					"y" => 150
+					"y" => 135,
 					),
 				)
 			);
@@ -131,7 +125,6 @@ class GraffController extends BaseController {
 					"stackType" => "regular",
 					"unit" => "$",
 					"unitPosition" => "left",
-					"fontSize" => 13,
 					"axisAlpha" => 0.3,
 					"gridAlpha" => 0,
 					)
@@ -142,7 +135,6 @@ class GraffController extends BaseController {
 				array(
 					"unit" => "$",
 					"unitPosition" => "left",
-					"fontSize" => 13,
 					"axisAlpha" => 0.3,
 					"gridAlpha" => 0,
 					)
@@ -205,7 +197,7 @@ class GraffController extends BaseController {
 				else
 				{
 					$arreglo[] = array(
-						"fecha" => $fecha, 
+						"fecha" => $fecha,
 						$numero => $montoTotal
 						);
 				}
