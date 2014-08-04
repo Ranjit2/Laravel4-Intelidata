@@ -61,7 +61,7 @@
             <aside class="col-sm-3 col-md-2 sidebar">
                 @section('aside')
                 <div class="list-group">
-                    {{ HTML::link('/', 'HOME', array('class' => 'list-group-item')) }}
+                    <a href="{{ URL::to('/') }}" class="list-group-item"><span class="icon pe-7s-home"></span> HOME</a>
                     @include('layouts.menus.menu_cliente')
                 </div>
                 @show
