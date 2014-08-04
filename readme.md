@@ -1,4 +1,4 @@
-	Proyecto Intelidata
+Proyecto Intelidata
 ===================
 Proyecto generado para realizar pruebas de datos y funciones utilizando diversas librerías JS para graficar data a través de distintas herramientas de programación y diseño, tales como [Laravel 4] (http://laravel.com/), [Twitter Bootstrap 3] (http://getbootstrap.com/) y [AmChart - Javascript Chart v3] (http://www.amcharts.com/)
 
