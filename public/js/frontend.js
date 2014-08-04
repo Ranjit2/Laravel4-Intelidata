@@ -1,13 +1,10 @@
-$(document).ready(function() {
-    // $.loadChart('chartdiv4', '/getChartPie/'+id, 'donut', '', 'POST');
-    $.loadChart('chartdiv8', '/getBreakChart/'+id, '', '', 'POST');
-});
+$(document).ready(function() {});
 
 AmCharts.loadJSON = function (url, method) {
     try {
         return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
     } catch(err) {
-        console.log(err);
+        console.log('Error: ' + err);
     }
 };
 
@@ -23,7 +20,7 @@ $.loadChart = function (div, url, type, mes, method) {
             var chart = AmCharts.makeChart(div, data);
         });
     } catch(err) {
-        console.log(err);
+        console.log('Error: ' + err);
     }
 };
 
@@ -90,7 +87,7 @@ var exportConfig = {
 
 
 chart.dataProvider     = $.generateChartData(types, selected);
-chart.titleField       = "type";
+chart.titleField       = "<numero></numero>";
 chart.valueField       = "percent";
 chart.outlineColor     = "#FFFFFF";
 chart.outlineAlpha     = 0.8;
@@ -98,7 +95,7 @@ chart.outlineThickness = 2;
 chart.colorField       = "color";
 chart.pulledField      = "pulled";
 chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
-chart.labelText        = "[[type]]";
+chart.labelText        = "[[numero]]";
 chart.radius           = "30%";
 chart.exportConfig     =  exportConfig;
 

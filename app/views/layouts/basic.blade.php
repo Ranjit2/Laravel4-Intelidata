@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>iDATA - @yield('title')</title>
+    <title>iDATA | @yield('title') </title>
     <!-- Latest compiled and minified CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
     media queries -->
@@ -62,7 +62,7 @@
                 @section('aside')
                 <div class="list-group">
                     <a href="{{ URL::to('/') }}" class="list-group-item"><span class="icon pe-7s-home"></span> HOME</a>
-                    @include('layouts.menus.menu_cliente')
+                    @include('layouts.menu')
                 </div>
                 @show
                 <footer class="main-footer">
@@ -76,8 +76,8 @@
                     @section('header')
                     <div class="calendar pull-right">
                         <i class="icon pe-7s-date"></i>
-                        <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
-                        <i class="pe-7s-angle-down-circle"></i>
+                        <span>{{ Carbon::now()->format('l jS \\of F Y') }}</span>
+                        <i class="icon pe-7s-angle-down-circle"></i>
                     </div>
                     <h2 class="main-header__title">
                         <i class="icon pe-7s-graph"></i>
@@ -109,6 +109,7 @@
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
     {{ HTML::script('js/amcharts/exporting/amexport.js') }}
+    {{ HTML::script('js/amcharts/lang/es.js') }}
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->

@@ -17,7 +17,7 @@
 			</div>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
-				<div id="chartdiv6" style="height: 400px;"></div>
+				<div id="chartdiv" style="min-height: 500px;"></div>
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 @section('script')
 <script type="text/javascript">
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
-	$.loadChart('chartdiv6', '/getChartSerial/'+id, 'stackbar', '', 'POST');
+	$.loadChart('chartdiv', '/getChartSerial/'+id, 'stackbar', '', 'POST');
 </script>
 
 @stop

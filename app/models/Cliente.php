@@ -105,7 +105,38 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$config['graphs'][] = array(
 				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
 				"fillAlphas"  => 1,
-				"labelText"   => "[[value]]",
+				"labelText"   => "",
+				"labelRotation" => 45,
+				"lineAlpha"   => 1,
+				"title"       => "Numero ". ++$count . " - " . $value,
+				"type"        => "column",
+				"color"       => "#000000",
+				"valueField"  => $value,
+				);
+		}
+		return $config;
+	}
+
+	public static function getChartStacked($id = '') {
+		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
+		try {
+			foreach (Cliente::find($id)->productos2 as $value) {
+				array_push($numbers, $value->pivot->numero_telefonico);
+				if(isset($data[$value->pivot->id_mes])) {
+					$data[$value->pivot->id_mes] = array_add($data[$value->pivot->id_mes], $value->pivot->numero_telefonico, $value->pivot->monto);
+				} else {
+					$data[$value->pivot->id_mes] = array( 'mes' => Func::convNumberToMonth($value->pivot->id_mes), $value->pivot->numero_telefonico => $value->pivot->monto, );
+				}
+			}
+		} catch(PDOException $exception) {
+			return Response::make('Database error! ' . $exception->getCode());
+		}
+		foreach ($data as $value) { $config['data'][] = $value; }
+		foreach (array_unique($numbers) as $value) {
+			$config['graphs'][] = array(
+				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+				"fillAlphas"  => 1,
+				"labelText"   => "$[[value]]",
 				"labelRotation" => 45,
 				"lineAlpha"   => 1,
 				"title"       => "Numero ". ++$count . " - " . $value,
@@ -176,7 +207,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$config['graphs'][] = array(
 				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
 				"fillAlphas"  => 1,
-				"labelText"   => "[[value]]",
+				"labelText"   => "",
 				"lineAlpha"   => 1,
 				"title"       => "Numero ". ++$count . " - " . $value,
 				"type"        => "column",
