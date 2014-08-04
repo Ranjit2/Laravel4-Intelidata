@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    // $.loadChart('chartdiv4', '/getChartPie/'+id, 'donut', '', 'POST');
-    $.loadChart('chartdiv8', '/getBreakChart/'+id, '', '', 'POST');
-});
 
 AmCharts.loadJSON = function (url, method) {
     try {
@@ -87,7 +83,6 @@ var exportConfig = {
         }]
     }]
 };
-
 
 chart.dataProvider     = $.generateChartData(types, selected);
 chart.titleField       = "type";

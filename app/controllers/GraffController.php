@@ -204,37 +204,52 @@ class GraffController extends BaseController {
 
 	public function telefonosConServicios($nroCliente, $fecha)
 	{
-		$idCliente = $this->devuelveIdCliente($nroCliente);
-		$telefonos = Cliente::find($idCliente)->numeros; //devuelve id y numeros del telefono del cliente a buscar
-		// $arreglo   = array();
-		// $date      = new Carbon($fecha);
-		// $month     = $date->month;
-		// $year      = $date->year;
+		//$idCliente = Cliente::devuelveIdCliente($nroCliente);
+		$idCliente = Session::get("ses_user_id");
+		$telefonos = Cliente::find(7)->numeros; //devuelve id y numeros del telefono del cliente a buscar
+		
+		$date      = new Carbon($fecha);
+		$month     = $date->month;
+		$year      = $date->year;
 		$arregloTelefonos = array();
+		$monto = Telefono::find(1)->montos()->where(DB::raw('MONTH(fecha)'),'=',$month)->get();
+
 
 		foreach ($telefonos as $value)
 		{
 			$idTelefono = $value['id'];
 			$numero     = $value['numero'];
-			array_push($arregloTelefonos, $numero);
+			$totalTelefono = Telefono::find(1)->montos()->where('fecha','=',$fecha)->get();
+			$arregloTelefonos['type'] = $numero;
 			$arregloServicios = array();
+			$arrayAux = array();
 			foreach (Telefono::find($idTelefono)->servicios as $value2)//devuelve id telefono, servicio y monto serv
 			{
 				// $dt         = new Carbon($value2->fecha);
 				// $mes        = $dt->month;
 				// $ano        = $dt->year;
 				// $montoTotal = $value2->montoTotal;
-				$servicio = $value2['tipo'];
-				$monto    = $value2['precio_servicio'];
-				array_push($arregloServicios, $servicio, $monto);
+				$arrayAux = array(
+				'servicio' => $value2['tipo'],
+				'monto'    => $value2['precio_servicio'],
+				);
+				// $arrayAux = array_add($arrayAux,'servicio', $servicio);
+				// $arrayAux = array_add($arrayAux, 'monto', $monto);
+				array_push($arregloTelefonos, $arregloAux);
+				//$arregloTelefonos = array_add($arregloTelefonos, 'sub', $arrayAux);
 			}
-			array_push($arregloTelefonos, $arregloServicios);
-			//array_push($arreglo, $numero, $montoTotal);
-		}
 
-		//return Telefono::find(1)->servicios;
-		//return Cliente::find($idCliente)->numeros;
-		return $arregloTelefonos;
+			//$arregloServicios = array_add($arregloServicios, 'sub', $arregloAux);
+			// array_push($arregloTelefonos, $arregloServicios);
+
+		}
+	
+		//return Telefono::totalMesTelefono(1, '2014/04/01');//where('inicio_fac','2014-05-01');
+		 
+
+
+		return Response::json($arregloTelefonos);
+
 	}
 
 }
