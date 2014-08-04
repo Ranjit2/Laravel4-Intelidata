@@ -12,7 +12,11 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
+		<div class="panel-heading">
+				<h4>Title</h4>
+			</div>
 			<div class="panel-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<div id="chartdiv5" style="height: 400px;"></div>
 			</div>
 		</div>

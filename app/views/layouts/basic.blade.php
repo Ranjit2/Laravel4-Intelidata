@@ -4,21 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Intelidata Project</title>
+    <title>iDATA - @yield('title')</title>
     <!-- Latest compiled and minified CSS -->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
     media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-{{ HTML::style('css/frontend.min.css') }}
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-{{ HTML::style('css/pe-icon-7-stroke.css') }}
-{{ HTML::style('css/helper.css') }}
-{{ HTML::style('css/styl.css') }}
-@yield('style')
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {{ HTML::style('css/frontend.min.css') }}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {{ HTML::style('css/pe-icon-7-stroke.css') }}
+    {{ HTML::style('css/helper.css') }}
+    @yield('style')
 </head>
 <body>
     <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -50,7 +49,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"> <span class="icon pe-7s-info"></span> Profile</a></li>
-                            <li><a href="{{ URL::to('logout') }}"><span class="icon pe-7s-close-circle"></span> Logout</a></li>
+                            <li><a href="{{ URL::to('/logout') }}"><span class="icon pe-7s-close-circle"></span> Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -62,16 +61,19 @@
             <aside class="col-sm-3 col-md-2 sidebar">
                 @section('aside')
                 <div class="list-group">
-                    {{ HTML::link('/charts/pie', 'Donut/Pie Chart', array('class' => 'list-group-item')) }}
-                    {{ HTML::link('/charts/column', 'Columnbar Chart', array('class' => 'list-group-item')) }}
-                    {{ HTML::link('/charts/stackbar', 'Stackbar Chart', array('class' => 'list-group-item')) }}
-                    {{ HTML::link('/charts/breakchart', 'Break Chart', array('class' => 'list-group-item')) }}
+                    {{ HTML::link('/', 'HOME', array('class' => 'list-group-item')) }}
+                    @include('layouts.menus.menu_cliente')
                 </div>
                 @show
+                <footer class="main-footer">
+                    <a class="back-top" href="#">
+                        <p>{{ Carbon::now()->year }} &copy; Intelidata.</p>
+                    </a>
+                </footer>
             </aside>
             <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <header>
-                    @section('title')
+                    @section('header')
                     <div class="calendar pull-right">
                         <i class="icon pe-7s-date"></i>
                         <span>{{ Carbon::now()->format('l jS \\of F Y h:i:s A') }}</span>
@@ -92,7 +94,6 @@
             </section>
         </div>
     </div>
-    <footer class="container-fluid"></footer>
     <!-- JQuery 1.11.1 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Bootstrap 3.2 JS -->

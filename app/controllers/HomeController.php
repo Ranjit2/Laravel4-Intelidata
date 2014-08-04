@@ -2,18 +2,10 @@
 
 class HomeController extends BaseController {
 
-	/**
-	 * [showLogin description]
-	 * @return [type] [description]
-	 */
 	public function showLogin() {
 		return View::make('index');
 	}
 
-	/**
-	 * [doLogin description]
-	 * @return [type] [description]
-	 */
 	public function doLogin() {
 
 		Config::set('auth.username', 'rut');
@@ -43,24 +35,20 @@ class HomeController extends BaseController {
 				{
 					Session::put('ses_user_id', Auth::user()->getId());
 					Session::put('ses_user_rut', Auth::user()->rut);
-					return Redirect::to('formulario');
+					Session::put('ses_user_tipo', Auth::user()->tipo);
+					return Redirect::to('/home');
 				}
 			} else {
-				return Redirect::to('login');
+				return Redirect::to('/login');
 			}
 		}
 	}
 
-	/**
-	 * [doLogout description]
-	 * @return [type] [description]
-	 */
 	public function doLogout() {
 		Auth::logout();
 		Session::forget('ses_user_id');
 		Session::forget('ses_user_rut');
 		return Redirect::to('login');
 	}
-
 
 }

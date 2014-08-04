@@ -2,12 +2,6 @@
 
 class GraffController extends BaseController {
 
-	/**
-	 * Get data for Pie/Donut chart and send to JS function
-	 * @param  string $id   ID User
-	 * @param  string $type Type of chart
-	 * @return JSON data    Data used to make the chart
-	 */
 	public function getChartPie($id = '', $type = 'pie', $mes = NULL) {
 		// if(!Cache::has($type)) {
 		if(is_null($mes) OR !is_numeric($mes)){
@@ -25,14 +19,14 @@ class GraffController extends BaseController {
 			"labelText"    => "", //"labelText"    => "[[numero]]",
 			"titleField"   => $titleF,
 			"valueField"   => $valueF,
-			// "balloonText" => "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>",
+			"balloonText" => "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>",
 			"legend" => array(
 				"align"      => "center",
 				"markerType" => "circle",
-					// "horizontalGap"    => 10,
+				"horizontalGap"    => 10,
 				"position"         => "bottom",
-					// "useGraphSettings" => true,
-					// "markerSize"       => 10,
+				"useGraphSettings" => true,
+				"markerSize"       => 10,
 				"divId" => "donut-legend",
 				),
 			"numberFormatter" => array(
@@ -52,24 +46,18 @@ class GraffController extends BaseController {
 			"startAlpha" => 0,
 			"startDuration" => 0,
 			);
-if ($type == 'donut') {
-	$chart = array_add($chart, "labelRadius", 5);
-	$chart = array_add($chart, "radius", "42%");
-	$chart = array_add($chart, "innerRadius", "60%");
-}
+		if ($type == 'donut') {
+			$chart = array_add($chart, "labelRadius", 5);
+			$chart = array_add($chart, "radius", "42%");
+			$chart = array_add($chart, "innerRadius", "60%");
+		}
 		// 	Cache::put($type, $chart, 20);
 		// } else {
 		// 	$chart = Cache::get($type);
 		// }
-return Response::json($chart);
-}
+		return Response::json($chart);
+	}
 
-	/**
-	 * Get data for Serial chart and send to JS function
-	 * @param  string $id   ID User
-	 * @param  string $type Type of chart
-	 * @return JSON data    Data used to make the chart
-	 */
 	public function getChartSerial($id = '', $type = 'column') {
 		if(!Cache::has($type)) {
 			$config = Cliente::getChartSerial($id, $type);
@@ -81,10 +69,10 @@ return Response::json($chart);
 				"theme"  => "none",
 				"language" => "de",
 				"legend" => array(
-					// "horizontalGap"    => 10,
+					"horizontalGap"    => 10,
 					"position"         => "bottom",
-					// "useGraphSettings" => true,
-					// "markerSize"       => 10,
+					"useGraphSettings" => true,
+					"markerSize"       => 10,
 					"markerType" => "circle",
 					"align"      => "center",
 					),
@@ -142,12 +130,6 @@ return Response::json($chart);
 		return Response::json($chart);
 	}
 
-	/**
-	 * Get data for Serial chart and send to JS function
-	 * @param  string $id   ID User
-	 * @param  string $type Type of chart
-	 * @return JSON data    Data used to make the chart
-	 */
 	public function getChartBreak($id = '', $type = 'column') {
 		$config = Cliente::montoTotal($id);
 		$data   = isset($config['data']) ? $config['data'] : array();
@@ -158,10 +140,10 @@ return Response::json($chart);
 			"theme"  => "none",
 			"language" => "de",
 			"legend" => array(
-					// "horizontalGap"    => 10,
+				"horizontalGap"    => 10,
 				"position"         => "bottom",
-					// "useGraphSettings" => true,
-					// "markerSize"       => 10,
+				"useGraphSettings" => true,
+				"markerSize"       => 10,
 				"markerType" => "circle",
 				"align"      => "center",
 				),
@@ -194,30 +176,30 @@ return Response::json($chart);
 			"startAlpha" => 0,
 			"startDuration" => 0,
 			);
-if($type == 'stackbar') {
-	$chart = array_add($chart, "valueAxes", array(
-		array(
-			"stackType" => "regular",
-			"unit" => "$",
-			"unitPosition" => "left",
-			"axisAlpha" => 0.3,
-			"gridAlpha" => 0,
-			)
-		)
-	);
-} else {
-	$chart = array_add($chart, "valueAxes", array(
-		array(
-			"unit" => "$",
-			"unitPosition" => "left",
-			"axisAlpha" => 0.3,
-			"gridAlpha" => 0,
-			)
-		)
-	);
-}
-return Response::json($chart);
-}
+		if($type == 'stackbar') {
+			$chart = array_add($chart, "valueAxes", array(
+				array(
+					"stackType" => "regular",
+					"unit" => "$",
+					"unitPosition" => "left",
+					"axisAlpha" => 0.3,
+					"gridAlpha" => 0,
+					)
+				)
+			);
+		} else {
+			$chart = array_add($chart, "valueAxes", array(
+				array(
+					"unit" => "$",
+					"unitPosition" => "left",
+					"axisAlpha" => 0.3,
+					"gridAlpha" => 0,
+					)
+				)
+			);
+		}
+		return Response::json($chart);
+	}
 
 
 	public function telefonosConServicios($nroCliente, $fecha)
@@ -229,7 +211,7 @@ return Response::json($chart);
 		// $month     = $date->month;
 		// $year      = $date->year;
 		$arregloTelefonos = array();
-		
+
 		foreach ($telefonos as $value)
 		{
 			$idTelefono = $value['id'];
@@ -247,19 +229,11 @@ return Response::json($chart);
 				array_push($arregloServicios, $servicio, $monto);
 			}
 			array_push($arregloTelefonos, $arregloServicios);
-			
-
 			//array_push($arreglo, $numero, $montoTotal);
 		}
 
 		//return Telefono::find(1)->servicios;
-
-		
 		//return Cliente::find($idCliente)->numeros;
-
-
-
-		
 		return $arregloTelefonos;
 	}
 

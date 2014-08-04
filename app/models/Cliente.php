@@ -34,18 +34,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->id;
 	}
 
-	/**
-	 * [productos description]
-	 * @return [type] [description]
-	 */
 	public function productos() {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico');
 	}
 
-	/**
-	 * [productos2 description]
-	 * @return [type] [description]
-	 */
+
 	public function productos2() {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
@@ -54,21 +47,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Telefono', 'id_cliente');
 	}
 
-	/**
-	 * [productosPorMes description]
-	 * @param  [type] $id  [description]
-	 * @param  [type] $mes [description]
-	 * @return [type]      [description]
-	 */
 	public static function productosPorMes($id, $mes) {
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
 
-	/**
-	 * [getChartPie description]
-	 * @param  [type] $id [description]
-	 * @return [type]     [description]
-	 */
 	public static function getChartPie($id) {
 		$data = array();
 		try {
@@ -86,12 +68,6 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-	/**
-	 * [getChartPieMonth description]
-	 * @param  integer  $id  [description]
-	 * @param  integer $mes [description]
-	 * @return [type]       [description]
-	 */
 	public static function getChartPieMonth($id, $mes) {
 		$data = array();
 		try {
@@ -110,11 +86,6 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-	/**
-	 * [getChartSerial description]
-	 * @param  [type] $id [description]
-	 * @return [type]     [description]
-	 */
 	public static function getChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		try {
@@ -135,7 +106,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
 				"fillAlphas"  => 1,
 				"labelText"   => "[[value]]",
-"labelRotation" => 45,
+				"labelRotation" => 45,
 				"lineAlpha"   => 1,
 				"title"       => "Numero ". ++$count . " - " . $value,
 				"type"        => "column",
@@ -157,12 +128,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return Cliente::find($idCliente)->telefonos;
 	}
 
-<<<<<<< HEAD
+
 	public function numeros(){
 		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
 	}
 
-=======
 	public static function existeFechaArreglo($arreglo, $year, $month)
 	{
 		foreach ($arreglo as $key => $value) {
@@ -216,7 +186,4 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		return $config;
 	}
-
-
->>>>>>> origin/dev
 }

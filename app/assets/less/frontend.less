@@ -1,6 +1,10 @@
 @import 'base.less';
-//styles specific for the frontend
 
+/**
+*
+* PROGRESS BAR
+*
+*/
 .progress{
   height: 2px;
   position: absolute;
@@ -41,24 +45,26 @@ body {
 
 
 /**
-* Sidebar
+*
+* SIDEBAR
+*
 */
 
-/* Hide for mobile, show later */
 .sidebar {
   display: none;
 }
+
 @media (min-width: 768px) {
   .sidebar {
-    position: fixed;
+    position: absolute;
     top: 51px;
     bottom: 0;
     left: 0;
     z-index: 1000;
     display: block;
     padding: 20px 0;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    // overflow-x: hidden;
+    // overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
@@ -89,36 +95,58 @@ body {
 }
 
 
-/*
-* Main content
+/**
+*
+* MAIN CONTENT
+*
 */
 
 .main {
   padding: 20px;
 }
+
 @media (min-width: 768px) {
   .main {
     padding-right: 40px;
     padding-left: 40px;
   }
 }
+
 .main .page-header {
   margin-top: 0;
 }
 
-/*
+
+/**
+*
+* MAIN FOOTER
+*
+*/
+.main-footer {
+    bottom: 10px;
+    color: #9a9a9a;
+    font-size: 14px;
+    left: 10px;
+    position: absolute;
+    text-align: right;
+    z-index: 1001;
+}
+
+/**
+*
 * CALENDAR
+*
 */
 .calendar {
   vertical-align: middle;
   margin-top: 5px;
 }
+
 /**
 *
 * LOGIN STYLE
 *
 */
-
 .jumbotron {
   text-align: center;
   width: 30rem;
@@ -215,6 +243,7 @@ body {
 .cont {
   position: relative;
 }
+
 .donut-info {
   display: table-cell;
   height: 60px;
@@ -243,4 +272,15 @@ body {
 
 #donut-legend {
   position: relative;
+}
+
+.sidebar .list-group span {
+  background: none repeat scroll 0 0 #f6f6f6;
+  // box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  display: inline-block;
+  // height: 68px;
+  // margin-right: 21px;
+  text-align: center;
+  // transition: background 0.3s ease 0s;
+  // width: 68px;
 }

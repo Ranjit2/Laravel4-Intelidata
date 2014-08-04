@@ -12,53 +12,42 @@
 */
 
 // ANTES O SIN AUTENTIFICARCE
-// Route::group(array('after' => 'auth'), function() {
+Route::group(array('after' => 'auth'), function() {
 	// ROOT
-Route::get('/', function()
-{
-	return View::make('index');
-});
+	Route::get('/', function() { return Redirect::to('/login'); });
 
 	// LOGIN
-Route::get('login', 'HomeController@showLogin');
-Route::post('login', 'HomeController@doLogin');
-// });
+	Route::get('/login', 'HomeController@showLogin');
+	Route::post('/login', 'HomeController@doLogin');
+});
 
 // DESPUES DE AUTENTIFICARCE
-// Route::group(array('before' => 'auth'), function() {
+Route::group(array('before' => 'auth'), function() {
+	// ROOT
+	Route::get('/', function() { return Redirect::to('/home'); });
+
 	// LOGOUT
-Route::get('logout', 'HomeController@doLogout');
+	Route::get('/logout', 'HomeController@doLogout');
 
-	// FORMULARIO VIEW
-Route::get('formulario', function()
-{
-	return View::make('formulario');
-});
+	// HOME VIEW
+	Route::get('/home', function() { return View::make('home'); });
 
-	// VISTA CHARTS
-Route::get('/charts/pie', function(){ return View::make('charts.pie.cliente'); }); // AGREGAR VARIABLE DE SESION PARA VER LA RUTA
-Route::get('/charts/column', function(){ return View::make('charts.column.cliente'); });
-Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.cliente'); });
-Route::get('/charts/breakchart', function(){ return View::make('charts.break.cliente'); });
+	// CHARTS VIEWS
+	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); }); // AGREGAR VARIABLE DE SESION PARA VER LA RUTA
+	Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
+	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
+	Route::get('/charts/breakchart', function(){ return View::make('charts.break.'.Session::get('ses_user_tipo')); });
 
-	// CHARTS
-Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
-Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
-Route::post('/getBreakChart/{id}', 'GraffController@getChartBreak');
+	// CHARTS REQUESTS
+	Route::post('/getChartPie/{id}/{type}/{mes?}', 'GraffController@getChartPie');
+	Route::post('/getChartSerial/{id}/{type}', 'GraffController@getChartSerial');
+	Route::post('/getBreakChart/{id}', 'GraffController@getChartBreak');
 
 	// CLIENTE
-Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
-// Route::get('/montos/{id}', 'GraffController@montoTotal');
+	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
-<<<<<<< HEAD
-Route::get('/telefonosServicios/{nroCliente}/{fecha}', 'GraffController@telefonosConServicios');
+	Route::get('/telefonosServicios/{nroCliente}/{fecha}', 'GraffController@telefonosConServicios');
 
-// });
-=======
-// });
+	Route::get('/test', function(){ dd(Cliente::find(7)->telefonos); });
 
-
-Route::get('/test', function(){
-	// dd(Cliente::find(7)->telefonos);
 });
->>>>>>> origin/dev
