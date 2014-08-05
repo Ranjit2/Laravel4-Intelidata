@@ -17,7 +17,7 @@
 			</div>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
-				<div id="chartdiv5" style="height: 400px;"></div>
+				<div id="chartdiv" style="min-height: 500px;"></div>
 			</div>
 		</div>
 	</div>

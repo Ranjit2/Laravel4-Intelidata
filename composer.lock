@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4cf623dc143a2947688fc8dfd7caf62c",
+    "hash": "15828f89367378ec8caf7b32e781ae36",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1392,16 +1392,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v0.8.6",
+            "version": "v0.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d"
+                "reference": "4123fcd85d61354c6c9900db76c9597dbd129bf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/239864d9a0929f29bf8c5a8370ef743537c4953d",
-                "reference": "239864d9a0929f29bf8c5a8370ef743537c4953d",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/4123fcd85d61354c6c9900db76c9597dbd129bf6",
+                "reference": "4123fcd85d61354c6c9900db76c9597dbd129bf6",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1438,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-07-15 09:54:33"
+            "time": "2014-08-01 09:43:10"
         },
         {
             "name": "psr/log",
@@ -2442,12 +2442,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thujohn/pdf-l4.git",
-                "reference": "d42c056780aaed128601d0f46511faf50eb80294"
+                "reference": "d939972c69c4ab5546f999247fec0173095e8361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/pdf-l4/zipball/d42c056780aaed128601d0f46511faf50eb80294",
-                "reference": "d42c056780aaed128601d0f46511faf50eb80294",
+                "url": "https://api.github.com/repos/thujohn/pdf-l4/zipball/d939972c69c4ab5546f999247fec0173095e8361",
+                "reference": "d939972c69c4ab5546f999247fec0173095e8361",
                 "shasum": ""
             },
             "require": {
@@ -2466,7 +2466,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Thuau",
+                    "name": "thujohn",
                     "email": "jonathan.thuau@gmail.com"
                 }
             ],
@@ -2477,7 +2477,7 @@
                 "laravel4",
                 "pdf"
             ],
-            "time": "2014-06-16 18:00:30"
+            "time": "2014-08-04 20:00:35"
         },
         {
             "name": "twitter/bootstrap",
@@ -2485,12 +2485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "5892273a2367ccc0b599414e848ccabd74781403"
+                "reference": "77b0dc69ebefb8c3ddb1b25a0bd51ef53c0d0e9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5892273a2367ccc0b599414e848ccabd74781403",
-                "reference": "5892273a2367ccc0b599414e848ccabd74781403",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/77b0dc69ebefb8c3ddb1b25a0bd51ef53c0d0e9b",
+                "reference": "77b0dc69ebefb8c3ddb1b25a0bd51ef53c0d0e9b",
                 "shasum": ""
             },
             "replace": {
@@ -2528,7 +2528,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-28 00:08:27"
+            "time": "2014-08-04 05:12:52"
         }
     ],
     "packages-dev": [
