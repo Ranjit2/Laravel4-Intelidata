@@ -17,49 +17,73 @@ Route::pattern('type', '[a-z]+');
 Route::pattern('mes', '[0-9]+');
 
 // ANTES O SIN AUTENTIFICARCE
-Route::group(array('after' => 'auth'), function() {
+// Route::group(array('after' => 'auth'), function() {
 	// ROOT
-	Route::get('/', function() { return Redirect::to('/login'); });
+Route::get('/', function() { return Redirect::to('/login'); });
 
 	// LOGIN
-	Route::get('/login', 'HomeController@showLogin');
-	Route::post('/login', 'HomeController@doLogin');
-});
+Route::get('/login', 'HomeController@showLogin');
+Route::post('/login', 'HomeController@doLogin');
+// });
 
 // DESPUES DE AUTENTIFICARCE
-Route::group(array('before' => 'auth'), function() {
+// Route::group(array('before' => 'auth'), function() {
 	// ROOT
-	Route::get('/', function() { return Redirect::to('/home'); });
+Route::get('/', function() { return Redirect::to('/home'); });
 
 	// LOGOUT
-	Route::get('/logout', 'HomeController@doLogout');
+Route::get('/logout', 'HomeController@doLogout');
 
 	// HOME VIEW
-	Route::get('/home', function() { return View::make('home'); });
+Route::get('/home', function() { return View::make('home'); });
 
 	// CHARTS VIEWS
-	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/breakchart', function(){ return View::make('charts.break.'.Session::get('ses_user_tipo')); });
+Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });
+Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
+Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
+Route::get('/charts/breakchart', function(){ return View::make('charts.break.'.Session::get('ses_user_tipo')); });
 
 	// CHARTS REQUESTS
 	// CLIENT
-	Route::post('/getChartPie/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
-	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
+Route::post('/getChartPie/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
-	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
+Route::post('/getChartPieEnt/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
 
 
 	// --------------------------------------------------------------------------------------------------------
 
 	// CLIENTE
-	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
+Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
-	Route::get('/telefonosServicios/{id}/{fecha}', 'GraffController@telefonosConServicios');
+Route::get('/telefonosServicios/{id}/{fecha}', 'GraffController@telefonosConServicios');
 
-	Route::get('/test', function(){ dd(Cliente::find(7)->telefonos); });
+Route::get('/test', function(){ dd(Cliente::find(7)->telefonos); });
 
+// });
+
+Route::get('/test', function() {
+	$b = array();
+	$c = array();
+	foreach ($telefonos = Cliente::find(7)->numeros as $key => $value) {
+		$id     = $value->id;
+		$numero = $value->numero;
+		echo $value;
+		// array_push($b, array(
+		// 	'type' => $numero,
+		// 	// 'percent' => $value->,
+		// 	'subs' => array(),
+		// 	));
+		// foreach (Telefono::find($id)->servicios as $key => $value) {
+		// 	$c = array_add($c, $key, array(
+		// 		'type' => $value->tipo,
+		// 		'percent' => $value->precio_servicio,
+		// 		));
+		// }
+		// array_push($b[$key]['subs'], $c);
+	}
+
+	// Func::printr(json_encode($b));
 });

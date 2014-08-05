@@ -19,7 +19,7 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<figure class="cont">
 					<div class="donut-info">
-						<h3>Balance</h3>
+						<h3>Julio</h3>
 						<h2>-26%</h2>
 					</div>
 					<div id="chartdiv" style="height: 362px;"></div>
@@ -37,7 +37,7 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<figure class="cont">
 					<div class="donut-info">
-						<h3>Balance</h3>
+						<h3>Junio</h3>
 						<h2>+36%</h2>
 					</div>
 					<div id="chartdiv2" style="height: 362px;"></div>
@@ -54,7 +54,7 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<figure class="cont">
 					<div class="donut-info centrar">
-						<h3>Balance</h3>
+						<h3>Febrero</h3>
 						<h2>+43%</h2>
 					</div>
 					<div id="chartdiv3" style="height: 362px;"></div>

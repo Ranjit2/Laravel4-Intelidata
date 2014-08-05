@@ -111,6 +111,7 @@ chart.addListener("clickSlice", function (event) {
         selected = undefined;
     }
     chart.dataProvider = $.generateChartData(types, selected);
+
     chart.validateData();
 });
 
@@ -145,3 +146,12 @@ $.generateChartData = function (types, selected) {
 }
 
 $.graficoBroken();
+
+var html = "<ul>
+    <li>HOLA</li>
+</ul>"
+$('dasd').on('click', '.selector', function(event) {
+    event.preventDefault();
+    $('x').html(hmml);
+
+});
