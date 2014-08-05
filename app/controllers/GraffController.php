@@ -250,6 +250,7 @@ class GraffController extends BaseController {
 				"axisAlpha" => 0.3,
 				"gridAlpha" => 0,
 				)));
+<<<<<<< HEAD
 			}
 		return Response::json($chart);
 	}
@@ -290,6 +291,28 @@ class GraffController extends BaseController {
 		//return Cliente::find($idCliente)->numeros;
 		return $arregloTelefonos;
 	}
+=======
+		}
+			return Response::json($chart);
+	}
 
+	public function getChartBroke($id, $fecha = null)
+	{
+		if(!isset($fecha))
+		{
+			$fecha = Carbon::now()->toDateString();
+		}
+>>>>>>> origin/dev
+
+		try
+		{
+			$data = Telefono::telefonosConServicios($id, $fecha);
+			return $data;
+		}
+		catch(Exception $ex)
+		{
+			dd($ex->getMessage());
+		}
+	}
 }
 

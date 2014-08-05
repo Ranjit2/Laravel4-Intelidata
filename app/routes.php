@@ -17,17 +17,30 @@ Route::pattern('type', '[a-z]+');
 Route::pattern('mes', '[0-9]+');
 
 // ANTES O SIN AUTENTIFICARCE
+<<<<<<< HEAD
 // Route::group(array('after' => 'auth'), function() {
+=======
+//Route::group(array('after' => 'auth'), function() {
+>>>>>>> origin/dev
 	// ROOT
 Route::get('/', function() { return Redirect::to('/login'); });
 
 	// LOGIN
+<<<<<<< HEAD
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 // });
 
 // DESPUES DE AUTENTIFICARCE
 // Route::group(array('before' => 'auth'), function() {
+=======
+	Route::get('/login', 'HomeController@showLogin');
+	Route::post('/login', 'HomeController@doLogin');
+//});
+
+// DESPUES DE AUTENTIFICARCE
+//Route::group(array('before' => 'auth'), function() {
+>>>>>>> origin/dev
 	// ROOT
 Route::get('/', function() { return Redirect::to('/home'); });
 
@@ -56,6 +69,7 @@ Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEn
 	// --------------------------------------------------------------------------------------------------------
 
 	// CLIENTE
+<<<<<<< HEAD
 Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
 Route::get('/telefonosServicios/{id}/{fecha}', 'GraffController@telefonosConServicios');
@@ -87,3 +101,13 @@ Route::get('/test', function() {
 
 	// Func::printr(json_encode($b));
 });
+=======
+	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
+
+
+    Route::get('/test', function(){ dd(Cliente::find(7)->telefonos); });
+
+//});
+	Route::post('/telefonosServicios/{idCliente}/{fecha?}', 'GraffController@getChartBroke');
+
+>>>>>>> origin/dev
