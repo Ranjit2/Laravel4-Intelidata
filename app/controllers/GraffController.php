@@ -3,7 +3,6 @@
 class GraffController extends BaseController {
 
 	public function getChartPie($id = '', $type = 'pie', $mes = NULL) {
-// if(!Cache::has($type)) {
 		if(is_null($mes) OR !is_numeric($mes)){
 			$data = Cliente::getChartPie($id);
 		} else {
@@ -50,91 +49,86 @@ class GraffController extends BaseController {
 			$chart = array_add($chart, "radius", "42%");
 			$chart = array_add($chart, "innerRadius", "60%");
 		}
-// 	Cache::put($type, $chart, 20);
-// } else {
-// 	$chart = Cache::get($type);
-// }
 		return Response::json($chart);
 	}
 
 	public function getChartSerial($id = '', $type = 'column') {
-// if(!Cache::has($type)) {
-		if($type != 'column') {
-			$config = Cliente::getChartStacked($id);
-		} else {
-			$config = Cliente::getChartSerial($id);
-		}
-		$data   = isset($config['data']) ? $config['data'] : array();
-		$graphs = isset($config['graphs']) ? $config['graphs']  : array();
-		$ejex   = 'mes';
-		$chart = array(
-			"type"   => "serial",
-			"theme"  => "none",
-			"language" => "es",
-			"legend" => array(
-				"horizontalGap"    => 10,
-				"position"         => "bottom",
-				"useGraphSettings" => true,
-				"markerSize"       => 10,
-				"markerType"       => "circle",
-				"align"            => "center",
-				),
-			"dataProvider" => $data,
-			"graphs" => $graphs,
-			"categoryField" => $ejex,
-			"categoryAxis" => array(
-				"gridPosition" => "start",
-				"axisAlpha"    => 0.3,
-				"gridAlpha"    => 0,
-				),
-			"numberFormatter" => array(
-				"decimalSeparator" => ",",
-				"thousandsSeparator" => ".",
-				"precision" => -1
-				),
-			"pathToImages" => "http://www.amcharts.com/lib/3/images/",
-			"amExport" => array(
-				"top" => 21,
-				"right" => 20,
-				"exportJPG" => true,
-				"exportPNG" => true,
-				"exportSVG" => true,
-				),
-			"sequencedAnimation" => false,
-			"startAlpha" => 0,
-			"startDuration" => 0,
-			);
-		if($type == 'stackbar') {
-			$chart = array_add($chart, "valueAxes", array(
-				array(
-					"stackType" => "regular",
-					"unit" => "$",
-					"unitPosition" => "left",
-					"axisAlpha" => 0.3,
-					"gridAlpha" => 0,
+		if(!Cache::has($type)) {
+			if($type != 'column') {
+				$config = Cliente::getChartStacked($id);
+			} else {
+				$config = Cliente::getChartSerial($id);
+			}
+			$data   = isset($config['data']) ? $config['data'] : array();
+			$graphs = isset($config['graphs']) ? $config['graphs']  : array();
+			$ejex   = 'mes';
+			$chart = array(
+				"type"   => "serial",
+				"theme"  => "none",
+				"language" => "es",
+				"legend" => array(
+					"horizontalGap"    => 10,
+					"position"         => "bottom",
+					"useGraphSettings" => true,
+					"markerSize"       => 10,
+					"markerType"       => "circle",
+					"align"            => "center",
+					),
+				"dataProvider" => $data,
+				"graphs" => $graphs,
+				"categoryField" => $ejex,
+				"categoryAxis" => array(
+					"gridPosition" => "start",
+					"axisAlpha"    => 0.3,
+					"gridAlpha"    => 0,
+					),
+				"numberFormatter" => array(
+					"decimalSeparator" => ",",
+					"thousandsSeparator" => ".",
+					"precision" => -1
+					),
+				"pathToImages" => "http://www.amcharts.com/lib/3/images/",
+				"amExport" => array(
+					"top" => 21,
+					"right" => 20,
+					"exportJPG" => true,
+					"exportPNG" => true,
+					"exportSVG" => true,
+					),
+				"sequencedAnimation" => false,
+				"startAlpha" => 0,
+				"startDuration" => 0,
+				);
+			if($type == 'stackbar') {
+				$chart = array_add($chart, "valueAxes", array(
+					array(
+						"stackType" => "regular",
+						"unit" => "$",
+						"unitPosition" => "left",
+						"axisAlpha" => 0.3,
+						"gridAlpha" => 0,
+						)
 					)
-				)
-			);
-		} else {
-			$chart = array_add($chart, "valueAxes", array(
-				array(
-					"unit" => "$",
-					"unitPosition" => "left",
-					"axisAlpha" => 0.3,
-					"gridAlpha" => 0,
+				);
+			} else {
+				$chart = array_add($chart, "valueAxes", array(
+					array(
+						"unit" => "$",
+						"unitPosition" => "left",
+						"axisAlpha" => 0.3,
+						"gridAlpha" => 0,
+						)
 					)
-				)
-			);
+				);
+			}
+			Cache::put($type, $chart, 20);
+		} else {
+			$chart = Cache::get($type);
 		}
-// 	Cache::put($type, $chart, 20);
-// } else {
-// 	$chart = Cache::get($type);
-// }
 		return Response::json($chart);
 	}
 
 	public function getChartPieEnt($id = '', $type = 'pie', $mes = NULL) {
-// if(!Cache::has($type)) {
 		if(is_null($mes) OR !is_numeric($mes)){
 			$data = Cliente::getChartPie($id);
 		} else {
@@ -182,10 +176,6 @@ class GraffController extends BaseController {
 			$chart = array_add($chart, "radius", "42%");
 			$chart = array_add($chart, "innerRadius", "60%");
 		}
-// 	Cache::put($type, $chart, 20);
-// } else {
-// 	$chart = Cache::get($type);
-// }
 		return Response::json($chart);
 	}
 
@@ -235,84 +225,48 @@ class GraffController extends BaseController {
 			"startAlpha" => 0,
 			"startDuration" => 0,
 			);
-		if($type == 'stackbar') {
-			$chart = array_add($chart, "valueAxes", array(array(
-				"stackType" => "regular",
-				"unit" => "$",
-				"unitPosition" => "left",
-				"axisAlpha" => 0.3,
-				"gridAlpha" => 0,
-				)));
-		} else {
-			$chart = array_add($chart, "valueAxes", array(array(
-				"unit" => "$",
-				"unitPosition" => "left",
-				"axisAlpha" => 0.3,
-				"gridAlpha" => 0,
-				)));
-<<<<<<< HEAD
-			}
-		return Response::json($chart);
-	}
+if($type == 'stackbar') {
+	$chart = array_add($chart, "valueAxes", array(array("stackType" => "regular","unit" => "$","unitPosition" => "left","axisAlpha" => 0.3,	"gridAlpha" => 0,)));
+} else {
+	$chart = array_add($chart, "valueAxes", array(array("unit" => "$","unitPosition" => "left","axisAlpha" => 0.3,
+		"gridAlpha" => 0,)));
+}
+return Response::json($chart);
+}
 
 
-	public function telefonosConServicios($fecha)
+public function telefonosConServicios($fecha)
+{
+	$idCliente = Session::get('ses_user_id');
+	$telefonos = Cliente::find($idCliente)->numeros;
+	$arregloTelefonos = array();
+
+	foreach ($telefonos as $value)
 	{
-		// $idCliente = Cliente::devuelveIdCliente($nroCliente);
-		$idCliente = Session::get('ses_user_id');
-		$telefonos = Cliente::find($idCliente)->numeros; //devuelve id y numeros del telefono del cliente a buscar
-		// $arreglo   = array();
-		// $date      = new Carbon($fecha);
-		// $month     = $date->month;
-		// $year      = $date->year;
-		$arregloTelefonos = array();
-
-		foreach ($telefonos as $value)
-		{
-			$idTelefono = $value['id'];
-			$numero     = $value['numero'];
-			array_push($arregloTelefonos, $numero);
-			$arregloServicios = array();
-			foreach (Telefono::find($idTelefono)->servicios as $value2)//devuelve id telefono, servicio y monto serv
-			{
-				// $dt         = new Carbon($value2->fecha);
-				// $mes        = $dt->month;
-				// $ano        = $dt->year;
-				// $montoTotal = $value2->montoTotal;
-				$servicio = $value2['tipo'];
-				$monto    = $value2['precio_servicio'];
-				array_push($arregloServicios, $servicio, $monto);
-			}
-			array_push($arregloTelefonos, $arregloServicios);
-			//array_push($arreglo, $numero, $montoTotal);
+		$idTelefono = $value['id'];
+		$numero     = $value['numero'];
+		array_push($arregloTelefonos, $numero);
+		$arregloServicios = array();
+		foreach (Telefono::find($idTelefono)->servicios as $value2)	{
+			$servicio = $value2['tipo'];
+			$monto    = $value2['precio_servicio'];
+			array_push($arregloServicios, $servicio, $monto);
 		}
-
-		//return Telefono::find(1)->servicios;
-		//return Cliente::find($idCliente)->numeros;
-		return $arregloTelefonos;
+		array_push($arregloTelefonos, $arregloServicios);
 	}
-=======
-		}
-			return Response::json($chart);
-	}
+	return $arregloTelefonos;
+}
 
-	public function getChartBroke($id, $fecha = null)
-	{
-		if(!isset($fecha))
-		{
-			$fecha = Carbon::now()->toDateString();
-		}
->>>>>>> origin/dev
-
-		try
-		{
-			$data = Telefono::telefonosConServicios($id, $fecha);
-			return $data;
-		}
-		catch(Exception $ex)
-		{
-			dd($ex->getMessage());
-		}
+public function getChartBroke($id, $fecha = null) {
+	if(!isset($fecha)) {
+		$fecha = Carbon::now()->toDateString();
 	}
+	try {
+		$data = Telefono::telefonosConServicios($id, $fecha);
+		return $data;
+	} catch(Exception $ex) {
+		dd($ex->getMessage());
+	}
+}
 }
 

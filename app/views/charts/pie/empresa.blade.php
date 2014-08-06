@@ -1,4 +1,4 @@
-@extends('layouts.basic')
+w@extends('layouts.basic')
 
 @section('breadcrumb')
 @parent
