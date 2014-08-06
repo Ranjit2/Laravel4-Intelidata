@@ -235,28 +235,6 @@ return Response::json($chart);
 }
 
 
-public function telefonosConServicios($fecha)
-{
-	$idCliente = Session::get('ses_user_id');
-	$telefonos = Cliente::find($idCliente)->numeros;
-	$arregloTelefonos = array();
-
-	foreach ($telefonos as $value)
-	{
-		$idTelefono = $value['id'];
-		$numero     = $value['numero'];
-		array_push($arregloTelefonos, $numero);
-		$arregloServicios = array();
-		foreach (Telefono::find($idTelefono)->servicios as $value2)	{
-			$servicio = $value2['tipo'];
-			$monto    = $value2['precio_servicio'];
-			array_push($arregloServicios, $servicio, $monto);
-		}
-		array_push($arregloTelefonos, $arregloServicios);
-	}
-	return $arregloTelefonos;
-}
-
 public function getChartBroke($id, $fecha = null) {
 	if(!isset($fecha)) {
 		$fecha = Carbon::now()->toDateString();

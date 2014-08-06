@@ -19,9 +19,9 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<div id="chartdiv" style="min-height: 500px;"></div>
 				<div id="legenddiv"></div>
-				<table class="lista table" style="display: none;">
+				<table class="lista table table-responsive" style="display: none;">
 					<thead>
-						<tr>
+						<tr style="font-size: 14px;">
 							<th>Servicio</th>
 							<th>Monto</th>
 						</tr>
@@ -42,7 +42,7 @@
 @section('script')
 <script type="text/javascript">
 var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
-$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/2014-03-25','post');
+$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/2014-05-25','post');
 </script>
 @stop
 

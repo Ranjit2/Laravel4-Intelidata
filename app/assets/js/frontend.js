@@ -96,44 +96,42 @@ $.graficoBroken = function (div, url, method) {
                 $('#legenddiv').show();
             }
             chart.dataProvider = $.generateChartData(types, selected);
-            console.log(chart.dataProvider);
             chart.validateData();
         });
-
-        // legend.addListener("clickMarker", function (event)
-        // {
-        //      return false;
-        // });
-
-        // legend.addListener("clickLabel", function (event)
-        // {
-        //      alert('click label on');
-        // });
-
-chart.write(div);
-});
+        chart.write(div);
+    });
 }
 
 
 $.generateChartData = function (types, selected) {
-            $('.lista').hide();
-            $('.lista tbody').empty();
+    $('.lista').hide();
+    $('.lista tbody').empty();
+    $('.lista tfoot').empty();
     var chartData = [];
+    var total = 0;
     for (var i = 0; i < types.length; i++) {
-        if (i == selected) {
+        if (types[i].subs.length > 0 && i == selected) {
             $('#legenddiv').hide();
             $('.lista').show();
+
             for (var x = 0; x < types[i].subs.length; x++) {
+                console.log(types[i].subs.length);
                 chartData.push({
                     type: types[i].subs[x].type,
                     percent: types[i].subs[x].percent,
                     pulled: true
                 });
-                $('.lista tbody').append('<tr>'+
-                    '<td>'+types[i].subs[x].type+'</td>'+
-                    '<td>$'+types[i].subs[x].percent+'</td>'+
-                    '</tr>');
+
+                if (types[i].subs[x].percent < 0) {
+                    $('.lista tbody').append('<tr class="danger">'+'<td>'+types[i].subs[x].type+'</td>'+'<td>$'+types[i].subs[x].percent+'</td>'+'</tr>');
+                } else {
+                    $('.lista tbody').append('<tr>'+'<td>'+types[i].subs[x].type+'</td>'+'<td>$'+types[i].subs[x].percent+'</td>'+'</tr>');
+                }
+                console.log(types[i].subs[x].percent);
+                total += types[i].subs[x].percent;
             }
+            $('.lista').append('<tfoot><tr class="info" style="font-weight: bold;">'+'<td>TOTAL</td><td>$'+total+'</td>'+'</tr></tfoot>');
+            console.log(total);
         } else {
             chartData.push({
                 type: types[i].type,
