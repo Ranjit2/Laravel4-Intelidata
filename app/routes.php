@@ -35,6 +35,9 @@ Route::group(array('before' => 'auth'), function() {
 	// LOGOUT
 	Route::get('/logout', 'HomeController@doLogout');
 
+	// PROFILE
+	Route::get('/profile', function() { return View::make('users.profile'); });
+
 	// HOME VIEW
 	Route::get('/home', function() { return View::make('home'); });
 
@@ -79,5 +82,9 @@ Route::group(array('before' => 'auth'), function() {
 			array_push($b[$key]['subs'], $c);
 		}
 		Func::printr(json_encode($b));
+	});
+
+	Route::get('test2', function(){
+		echo url('/formulario/1');
 	});
 });

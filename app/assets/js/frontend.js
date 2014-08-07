@@ -89,49 +89,65 @@ $.graficoBroken = function (div, url, method) {
         chart.addListener("clickSlice", function (event) {
             if (event.dataItem.dataContext.id != undefined) {
                 selected = event.dataItem.dataContext.id;
-                $('#legenddiv').empty().show();
+                console.log(a);
+                b = parseInt(a+(a*0.15));
+                $('#chartdiv svg').css('min-height',b + 'px');
+                $('#chartdiv div:first-child').css('min-height',b + 'px').css('overflow', '');
+                // $('#legenddiv').empty().show();
             }
             else {
                 selected = undefined;
+                $('#chartdiv svg').css('min-height',a + 'px');
+                $('#chartdiv div:first-child').css('min-height',a + 'px');
                 $('#legenddiv').show();
             }
             chart.dataProvider = $.generateChartData(types, selected);
             chart.validateData();
         });
         chart.write(div);
+        var a = $('#chartdiv svg').height();
+        var b = 0;
     });
 }
 
 
 $.generateChartData = function (types, selected) {
-    $('.lista').hide();
-    $('.lista tbody').empty();
-    $('.lista tfoot').empty();
+    $('#lista').hide();
+    $('#lista tbody').empty();
+    $('#lista tfoot').empty();
     var chartData = [];
     var total = 0;
+    var porcent = 0;
     for (var i = 0; i < types.length; i++) {
         if (types[i].subs.length > 0 && i == selected) {
             $('#legenddiv').hide();
-            $('.lista').show();
+            $('#lista').show();
 
             for (var x = 0; x < types[i].subs.length; x++) {
-                console.log(types[i].subs.length);
                 chartData.push({
                     type: types[i].subs[x].type,
                     percent: types[i].subs[x].percent,
                     pulled: true
                 });
-
-                if (types[i].subs[x].percent < 0) {
-                    $('.lista tbody').append('<tr class="danger">'+'<td>'+types[i].subs[x].type+'</td>'+'<td>$'+types[i].subs[x].percent+'</td>'+'</tr>');
-                } else {
-                    $('.lista tbody').append('<tr>'+'<td>'+types[i].subs[x].type+'</td>'+'<td>$'+types[i].subs[x].percent+'</td>'+'</tr>');
-                }
-                console.log(types[i].subs[x].percent);
-                total += types[i].subs[x].percent;
+                total += parseInt(types[i].subs[x].percent);
             }
-            $('.lista').append('<tfoot><tr class="info" style="font-weight: bold;">'+'<td>TOTAL</td><td>$'+total+'</td>'+'</tr></tfoot>');
-            console.log(total);
+            for (var x = 0; x < types[i].subs.length; x++) {
+                porcent = $.porcentaje(total, types[i].subs[x].percent, 1, ',', '.');
+                if (types[i].subs[x].percent < 0) {
+                    $('#lista tbody').append('<tr class="danger">'+
+                        '<td class="col-md-5">'+types[i].subs[x].type+'</td>'+
+                        '<td class="col-md-4">'+$.progressbar(porcent)+'</td>'+
+                        '<td class="col-md-2 text-right">- $'+types[i].subs[x].percent*-1+'</td>'+
+                        '</tr>');
+                } else {
+                    $('#lista tbody').append('<tr>'+
+                        '<td class="col-md-5">'+types[i].subs[x].type+'</td>'+
+                        '<td class="col-md-4">'+$.progressbar(porcent)+'</td>'+
+                        '<td class="col-md-2 text-right">$'+types[i].subs[x].percent+'</td>'+
+                        '</tr>');
+                }
+            };
+            $('#lista').append('<tfoot><tr class="info" style="font-weight: bold;">'+'<td class="col-md-5">TOTAL</td><td class="col-md-4"></td><td class="col-md-2 text-right">$'+total+'</td>'+'</tr></tfoot>');
         } else {
             chartData.push({
                 type: types[i].type,
@@ -142,3 +158,56 @@ $.generateChartData = function (types, selected) {
     }
     return chartData;
 }
+
+$.porcentaje = function (total, number) {
+    a = number*100;
+    a = a/total;
+    return a.toFixed(1);
+}
+
+$.progressbar = function (a) {
+    var b = 0;
+    var c = '';
+    if (a > 0 && a < 100) {
+        c = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="'+a+'" aria-valuemin="0" aria-valuemax="100" style="width: '+a+'%;">'+a+'%</div></div>';
+    } else {
+        b = a * -5;
+        c = '<div class="progress"><div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+b+'" aria-valuemin="0" aria-valuemax="100" style="width: '+b+'%;">'+a+'%</div></div>';
+    };
+    return c;
+}
+
+$(document).ready(function() {
+    var panels = $('.user-infos');
+    var panelsButton = $('.dropdown-user');
+    panels.hide();
+
+    //Click dropdown
+    panelsButton.click(function() {
+        //get data-for attribute
+        var dataFor = $(this).attr('data-for');
+        var idFor = $(dataFor);
+
+        //current button
+        var currentButton = $(this);
+        idFor.slideToggle(400, function() {
+            //Completed slidetoggle
+            if(idFor.is(':visible'))
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+            }
+            else
+            {
+                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+            }
+        })
+    });
+
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('button').click(function(e) {
+        e.preventDefault();
+        alert("This is a demo.\n :-)");
+    });
+});

@@ -3091,6 +3091,7 @@ fieldset[disabled] .btn-danger.active {
 }
 .btn-link,
 .btn-link:active,
+.btn-link.active,
 .btn-link[disabled],
 fieldset[disabled] .btn-link {
   background-color: transparent;
@@ -6445,7 +6446,7 @@ body {
   font-weight: bolder;
   color: #f96145;
 }
-.btn .glyphicon {
+.jumbotron .btn .glyphicon {
   font-size: 3rem;
   color: #fff;
 }
@@ -6523,4 +6524,39 @@ body {
 }
 #donut-legend {
   position: relative;
+}
+#lista .progress {
+  margin: 0;
+  height: auto !important;
+  position: relative;
+}
+/**
+*
+* USER PROFILE
+*/
+.user-row {
+  margin-bottom: 14px;
+}
+.user-row:last-child {
+  margin-bottom: 0;
+}
+.dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+.dropdown-user:hover {
+  cursor: pointer;
+}
+.table-user-information > tbody > tr {
+  border-top: 1px solid #dddddd;
+}
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+.toppad {
+  margin-top: 20px;
 }

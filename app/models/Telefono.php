@@ -57,4 +57,9 @@ class Telefono extends \Eloquent {
 		return Response::json($arregloTelefonos);
 	}
 
+	// public static function datosFactura () {
+	// 	Telefono::
+	// 	return ;
+	// }
+
 }

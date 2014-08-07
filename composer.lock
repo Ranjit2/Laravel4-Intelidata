@@ -2566,6 +2566,7 @@
         "barryvdh/laravel-debugbar": 20,
         "thujohn/pdf": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],

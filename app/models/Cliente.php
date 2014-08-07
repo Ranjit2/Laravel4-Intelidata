@@ -47,6 +47,20 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Telefono', 'id_cliente');
 	}
 
+
+	public function devuelveIdCliente($numeroCliente) {
+		return Cliente::where('numero_cliente','=', $numeroCliente)->get()[0]['id'];
+	}
+
+	public function telefonosPorCliente($numero_cliente) {
+		$idCliente = $this->devuelveIdCliente($numeroCliente);
+		return Cliente::find($idCliente)->telefonos;
+	}
+
+	public function numeros() {
+		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
+	}
+
 	public static function productosPorMes($id, $mes) {
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
@@ -148,24 +162,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $config;
 	}
 
-	public function devuelveIdCliente($numeroCliente)
-	{
-		return Cliente::where('numero_cliente','=', $numeroCliente)->get()[0]['id'];
-	}
-
-	public function telefonosPorCliente($numero_cliente)
-	{
-		$idCliente = $this->devuelveIdCliente($numeroCliente);
-		return Cliente::find($idCliente)->telefonos;
-	}
-
-
-	public function numeros(){
-		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
-	}
-
-	public static function existeFechaArreglo($arreglo, $year, $month)
-	{
+	public static function existeFechaArreglo($arreglo, $year, $month) {
 		foreach ($arreglo as $key => $value) {
 			$dt   = new Carbon($value['fecha']);
 			$mes  = $dt->month;
@@ -217,4 +214,5 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		return $config;
 	}
+
 }
