@@ -75,7 +75,6 @@
 					<a href="#" data-original-title="Eliminar perfil" data-toggle="tooltip" type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i></a>
 				</span>
 			</div>
-
 		</div>
 	</div>
 </div>

@@ -19,12 +19,10 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<div class="row">
 					<div class="col-md-12">
-						<div id="chartdiv" style="min-height: 350px !important; margin: 20px;"></div>
+						<div id="chartdiv" style="min-height: 350px !important;"></div>
 					</div>
 					<div class="col-md-12">
 						<div id="legenddiv"></div>
-					</div>
-					<div class="col-md-12">
 						<table id="lista" class="table table-condensed table-hover" style="display: none;">
 							<thead>
 								<tr style="font-size: 14px;">
@@ -36,6 +34,7 @@
 							<tbody>
 							</tbody>
 						</table>
+						<div class="clearfix"></div>
 					</div>
 				</div>
 			</div>
@@ -51,7 +50,7 @@
 @section('script')
 <script type="text/javascript">
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
-	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/2014-05-25','post');
+	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/2014-08-25','post');
 </script>
 @stop
 

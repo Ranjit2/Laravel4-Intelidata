@@ -82,28 +82,31 @@ $.graficoBroken = function (div, url, method) {
         chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
         chart.labelText        = "[[type]]";
         chart.radius           = "30%";
-        chart.exportConfig     =  exportConfig;
-
-        chart.addTitle("ENERO");
+        chart.exportConfig     = exportConfig;
+        chart.depth3D          = 10;
+        chart.groupedPulled = true;
 
         chart.addListener("clickSlice", function (event) {
             if (event.dataItem.dataContext.id != undefined) {
                 selected = event.dataItem.dataContext.id;
-                console.log(a);
                 b = parseInt(a+(a*0.15));
                 $('#chartdiv svg').css('min-height',b + 'px');
-                $('#chartdiv div:first-child').css('min-height',b + 'px').css('overflow', '');
-                // $('#legenddiv').empty().show();
-            }
-            else {
-                selected = undefined;
-                $('#chartdiv svg').css('min-height',a + 'px');
-                $('#chartdiv div:first-child').css('min-height',a + 'px');
-                $('#legenddiv').show();
-            }
-            chart.dataProvider = $.generateChartData(types, selected);
-            chart.validateData();
-        });
+                $('#chartdiv div:first-child').css('min-height',b + 'px');
+                chart.marginTop = 100;
+                chart.labelRadius = 2;
+// $('#legenddiv').empty().show();
+}
+else {
+    selected = undefined;
+    $('#chartdiv svg').css('min-height',a + 'px');
+    $('#chartdiv div:first-child').css('min-height',a + 'px');
+    chart.marginTop = 10;
+    chart.labelRadius = 20;
+    $('#legenddiv').show();
+}
+chart.dataProvider = $.generateChartData(types, selected);
+chart.validateData();
+});
         chart.write(div);
         var a = $('#chartdiv svg').height();
         var b = 0;
@@ -171,7 +174,7 @@ $.progressbar = function (a) {
     if (a > 0 && a < 100) {
         c = '<div class="progress"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="'+a+'" aria-valuemin="0" aria-valuemax="100" style="width: '+a+'%;">'+a+'%</div></div>';
     } else {
-        b = a * -5;
+        b = a * -1.5;
         c = '<div class="progress"><div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="'+b+'" aria-valuemin="0" aria-valuemax="100" style="width: '+b+'%;">'+a+'%</div></div>';
     };
     return c;
@@ -182,30 +185,20 @@ $(document).ready(function() {
     var panelsButton = $('.dropdown-user');
     panels.hide();
 
-    //Click dropdown
     panelsButton.click(function() {
-        //get data-for attribute
         var dataFor = $(this).attr('data-for');
         var idFor = $(dataFor);
 
-        //current button
         var currentButton = $(this);
         idFor.slideToggle(400, function() {
-            //Completed slidetoggle
-            if(idFor.is(':visible'))
-            {
+            if(idFor.is(':visible')) {
                 currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            }
-            else
-            {
+            } else {
                 currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
             }
         })
     });
-
-
     $('[data-toggle="tooltip"]').tooltip();
-
     $('button').click(function(e) {
         e.preventDefault();
         alert("This is a demo.\n :-)");
