@@ -15,12 +15,13 @@
     <![endif]-->
     {{ HTML::style('css/frontend.min.css') }}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    {{ HTML::style('css/bootstrap-select.css') }}
     {{ HTML::style('css/pe-icon-7-stroke.css') }}
     {{ HTML::style('css/helper.css') }}
     @yield('style')
 </head>
 <body>
-    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<header class="navbar navbar-inverse navbar-fixed-top topbar" role="navigation">
         @include('layouts.topbar')
     </header>
     <div class="container-fluid">
@@ -81,6 +82,7 @@
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
     {{ HTML::script('js/frontend.min.js') }}
+    {{ HTML::script('js/bootstrap-select.js') }}
     @yield('script')
 </body>
 </html>

@@ -46,7 +46,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
 	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
 	Route::get('/charts/breakchart', function(){
-		$titulares = Titular::select('tipo')->where->get();
+		$titulares = Titular::select('tipo')->get();
 		return View::make('charts.break.'.Session::get('ses_user_tipo'))->with('titulares', $titulares);
 	});
 
