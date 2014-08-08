@@ -16,12 +16,13 @@ class HomeController extends BaseController {
 			'password' => 'required|alpha_dash|min:3'
 			);
 
-		$messages = array(
-			'rut.required'      => 'RUT requerido.',
-			'password.required' => 'Contraseña requerida.'
-			);
+		// $messages = array(
+		// 	'rut.required'      => 'RUT requerido.',
+		// 	'password.required' => 'Contraseña requerida.'
+		// 	);
 
-		$validator = Validator::make(Input::all(), $rules, $messages);
+		// $validator = Validator::make(Input::all(), $rules, $messages);
+		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
 			return Redirect::to('login')->withErrors($validator)->withInput(Input::except('password'));

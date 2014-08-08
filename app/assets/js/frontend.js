@@ -1,4 +1,3 @@
-
 AmCharts.loadJSON = function (url, method) {
     try {
         return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
@@ -74,7 +73,7 @@ $.graficoBroken = function (div, url, method) {
         chart.dataProvider     = $.generateChartData(types, selected);
         chart.titleField       = "type";
         chart.valueField       = "percent";
-        chart.outlineColor     = "#FFFFFF";
+        chart.outlineColor     = ""; // "#FFFFFF";
         chart.outlineAlpha     = 0.8;
         chart.outlineThickness = 2;
         chart.colorField       = "color";
@@ -199,8 +198,4 @@ $(document).ready(function() {
         })
     });
     $('[data-toggle="tooltip"]').tooltip();
-    $('button').click(function(e) {
-        e.preventDefault();
-        alert("This is a demo.\n :-)");
-    });
 });
