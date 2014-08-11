@@ -1,21 +1,11 @@
 @extends('layouts.basic')
 
-@section('breadcrumb')
-@parent
-<li>{{ HTML::link('/charts', 'CHARTS') }}</li>
-<li>{{ HTML::link('/client', 'CLIENT') }}</li>
-<li>{{ HTML::link('/pie', 'PIE') }}</li>
-<li class="active">DATA</li>
-@stop
-
 @section('content')
 <div class="row">
 	<div class="col-md-4">
 		<article class="panel panel-default">
-			<div class="panel-heading">
-				<h4>Title</h4>
-			</div>
 			<div class="panel-body">
+				<h4>Title</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<figure class="cont">
 					<div class="donut-info">

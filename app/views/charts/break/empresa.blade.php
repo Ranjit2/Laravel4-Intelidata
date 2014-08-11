@@ -1,29 +1,21 @@
 @extends('layouts.basic')
 
-@section('breadcrumb')
-@parent
-<li>{{ HTML::link('/charts', 'CHARTS') }}</li>
-<li>{{ HTML::link('/enterprise', 'ENTERPRISE') }}</li>
-<li>{{ HTML::link('/break', 'BREAKCHART') }}</li>
-<li class="active">DATA</li>
-@stop
-
 @section('content')
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4>Title</h4>
-			</div>
 			<div class="panel-body">
-				{{ Form::select('selectpicker', array('' => '', 'L' => 'Large', 'S' => 'Small'), 'S', array('class' => 'selectpicker')); }}
-				<select class="selectpicker">
-					<option></option>
-					@foreach ($titulares as $a)
-					<option value="{{ $a->id }}">{{ $a->tipo }}</option>
-					@endforeach
-				</select>
-
+				<div class="tiny-timeline text-center">
+					<ul class="list-inline">
+						@for ($i = 13; $i > 0; $i--)
+						@if (Carbon::now()->subMonths($i)->month == 1)
+						|
+						@endif
+						<li><a href="#" data-timeline="1/{{ Carbon::now()->subMonths($i)->month }}/{{ Carbon::now()->subMonths($i)->year }}">{{ Carbon::now()->subMonths($i)->month }}-{{ Carbon::now()->subMonths($i)->year }}</a></li>
+						@endfor
+					</ul>
+				</div>
+				<h4>Title</h4>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
@@ -40,7 +32,6 @@
 						<tbody>
 						</tbody>
 					</table>
-					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
