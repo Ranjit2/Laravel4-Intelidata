@@ -19,7 +19,6 @@
     {{ HTML::style('css/mono-social-icons.css') }}
     {{ HTML::style('css/pe-icon-7-stroke.css') }}
     {{ HTML::style('css/helper.css') }}
-    {{ HTML::style('css/bootstrap-select.css') }}
     @yield('style')
 </head>
 <body>
@@ -38,30 +37,6 @@
             </section>
         </div>
     </div>
-<<<<<<< HEAD
-    <!-- JQuery 1.11.1 -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Bootstrap 3.2 JS -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <!-- HOLDER.JS -->
-    {{ HTML::script('js/holder.js') }}
-    <!-- Charts -->
-    {{ HTML::script('js/amcharts/amcharts.js') }}
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/pie.js"></script>
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/serial.js"></script>
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/exporting/amexport_combined.js"></script>
-    {{ HTML::script('js/amcharts/exporting/amexport.js') }}
-    {{ HTML::script('js/amcharts/lang/es.js') }}
-    <script type="text/javascript"
-    src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-    <!-- Custom JS -->
-    {{ HTML::script('js/frontend.min.js') }}
-    {{ HTML::script('js/bootstrap-select.js') }}
-    @yield('script')
-=======
     <footer class="container-fluid">
         <div class="row">
            @include('layouts.footer')
@@ -87,9 +62,7 @@
    src="http://www.amcharts.com/lib/3/themes/none.js"></script>
    <!-- Custom JS -->
    {{ HTML::script('js/frontend.min.js') }}
-   {{ HTML::script('js/bootstrap-select.js') }}
    @yield('script')
->>>>>>> b82c4c138191edf401e36493d1eb2c7e2dbc2c92
 </body>
 </html>
 

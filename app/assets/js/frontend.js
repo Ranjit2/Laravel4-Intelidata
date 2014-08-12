@@ -1,6 +1,6 @@
 AmCharts.loadJSON = function (url, method) {
     try {
-        return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
+        return JSON.parse($.ajax({type: method, url: 'idata'+url, async: false, cache: false, dataType: 'json' }).responseText);
     } catch(err) {
         console.log('Error: ' + err);
     }

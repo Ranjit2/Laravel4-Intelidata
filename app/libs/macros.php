@@ -541,17 +541,21 @@ HEADSCRIPT;
 return $headScript;
 });
 
-HTML::macro('tiny-timeline', function($url){
+HTML::macro('tiny_timeline', function($url){
+    $year = '';
     $a = '<ul class="list-inline">';
     for ($i = 13; $i > 0; $i--) {
-        if (Carbon::now()->subMonths($i)->month == 1) {
-            $a .= '|';
+        if (Carbon::now()->subMonths($i)->month == 12 || ($year != '' && $year != Carbon::now()->subMonths($i)->year)) {
+            $year = '';
+            // $a .= '| ' . (Carbon::now()->subMonths($i)->year);
+        } else {
+            if($year == '') {
+                $a .= '<li class="year"><strong>' . Carbon::now()->subMonths($i)->year . '</strong> | </li>';
+            }
+            $year = Carbon::now()->subMonths($i)->year;
         }
-        $a .= '<li><a href="' . $url . '" data-timeline="1/';
-        $a .= Carbon::now()->subMonths($i)->month . '/';
-        $a .= Carbon::now()->subMonths($i)->year . '">';
-        $a .= Carbon::now()->subMonths($i)->month .'-'.
-        Carbon::now()->subMonths($i)->year;
+        $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
+        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
         $a .= '</a></li>';
     }
     $a .= '</ul>';

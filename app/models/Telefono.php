@@ -97,7 +97,8 @@ class Telefono extends \Eloquent {
 					INNER JOIN telefono f ON c.id = f.id_cliente
 					INNER JOIN total t ON f.id = t.id_telefono
 					WHERE c.id = ?
-					ORDER BY t.fecha DESC;', array(Session::get('ses_user_id')));
+					ORDER BY t.fecha DESC
+					LIMIT 10;', array(Session::get('ses_user_id')));
 	}
 
 }

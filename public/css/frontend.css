@@ -6328,6 +6328,9 @@ button.close {
   max-height: 165px;
   overflow: hidden;
 }
+.user-profile address {
+  margin-bottom: 5px;
+}
 /* * ------------------------------------------ */
 .topbar .menu-large {
   position: static !important;
@@ -6517,7 +6520,7 @@ footer .legal-terms p {
 *
 */
 .main {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 /* *
 *

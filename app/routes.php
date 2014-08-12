@@ -15,6 +15,7 @@
 Route::pattern('id', '[0-9]+');
 Route::pattern('type', '[a-z]+');
 Route::pattern('mes', '[0-9]+');
+Route::pattern('año', '[0-9]+');
 
 // ANTES O SIN AUTENTIFICARCE
 Route::group(array('after' => 'auth'), function() {
@@ -55,11 +56,11 @@ Route::group(array('before' => 'auth'), function() {
 
 	// CHARTS REQUESTS
 	// CLIENT
-	Route::post('/getChartPie/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+	Route::post('/getChartPie/{id}/{type?}/{mes?}/{año?}', 'GraffController@getChartPie');
 	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+	Route::post('/getChartPieEnt/{id}/{type?}/{mes?}/{año?}', 'GraffController@getChartPieEnt');
 	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
 
 
@@ -90,21 +91,17 @@ Route::group(array('before' => 'auth'), function() {
 		Func::printr(json_encode($b));
 	});
 
-	Route::get('test2', function(){
-		echo url('/formulario/1');
+	Route::get('/user/message', function(){
+		return View::make('message');
 	});
 });
 
-
-Route::get('question', function(){
+Route::get('/question', function(){
 	$preguntas  = Pregunta::where('estado','=','A')->get();
-	return View::make('perfil')->with('preguntas', $preguntas);
+	return View::make('question')->with('preguntas', $preguntas);
 });
-
-// Route::post('question', function(){
-// 	var_dump(Input::all());
-// });
-
+Route::get('/user/question', function(){
+	$preguntas  = Pregunta::where('estado','=','A')->get();
+	return View::make('question2')->with('preguntas', $preguntas);
+});
 Route::post('/question', 'PreguntasController@recibe');
-
-

@@ -6328,6 +6328,9 @@ button.close {
   max-height: 165px;
   overflow: hidden;
 }
+.user-profile address {
+  margin-bottom: 5px;
+}
 /* * ------------------------------------------ */
 .topbar .menu-large {
   position: static !important;

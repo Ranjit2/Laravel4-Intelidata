@@ -7,11 +7,15 @@
 	<div class="col-md-5 pull-right user-profile">
 		<div class="col-md-8 user-no-pad">
 			<h3>Bienvenido, <b>Michael Knight</b></h3>
-			<!-- <h4><span class="icon fa fa-check-circle-o"></span> San Antonio, TX</h4> -->
-			<!-- <h4><span class="icon fa fa-twitter"></span> CoolesOCool</h4> -->
 			<h5>11.111.111-1</h5>
-			<h6><span class="glyphicon glyphicon-earphone"></span> 2777 7777 <span class="glyphicon glyphicon-envelope"></span> michaelnightrider@gmail.com</h6>
-			<h6>Direccion, Calle, Edificio, Depto</br>Santiago, Chile.</h6>
+			<address>
+				<strong>Contacto</strong><br>
+				<abbr title="Teléfono"><span class="glyphicon glyphicon-earphone"></span>:</abbr> (123) 2777-7777<br>
+				<abbr title="Email"><span class="glyphicon glyphicon-envelope"></span>:</abbr> <a href="mailto:michaelnightrider@gmail.com">michaelnightrider@gmail.com</a><br>
+				<strong>Direccción</strong><br>
+				795 Folsom Ave, Suite 600, Santiago, Chile.<br>
+			</address>
+
 		</div>
 		<div class="col-md-4 pull-right image no-pad">
 			<img src="http://2.bp.blogspot.com/-eHwFBSrAMxA/TpRD6MDv5RI/AAAAAAAAA3g/XdZwVB9QXSE/s1600/michael%2Bknight.jpg" class="img-responsive">
@@ -81,8 +85,10 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user fa-fw"></span> Usuario<b class="caret"></b></a>
 					<ul class="dropdown-menu megamenu row">
-					<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-spin fa-fw"></span>Perfil</a></li>
-					<li><a href="{{ URL::to('/logout') }}"><span class="icon fa fa-sign-out fa-fw"></span>Salir</a></li>
+						<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-spin fa-fw"></span>Perfil</a></li>
+						<li><a href="{{ URL::to('/user/question') }}"><span class="icon fa fa-fw"></span>Contacto</a></li>
+						<li><a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-fw"></span>Mensajes</a></li>
+						<li><a href="{{ URL::to('/logout') }}"><span class="icon fa fa-sign-out fa-fw"></span>Salir</a></li>
 					</ul>
 				</li>
 			</ul>
