@@ -17,18 +17,11 @@
 			</div>
 			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
-
-				<!-- Single button -->
-				<div class="btn-group pull-right">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						TIPO <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
+					<select class="selectpicker show-tick">
 						@foreach ($titulares as $a)
-						<li><a href="#">{{$a->tipo}}</a></li>
+							<option>{{$a->tipo}}</option>
 						@endforeach
-					</ul>
-				</div>
+					</select>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
@@ -61,6 +54,7 @@
 <script type="text/javascript">
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
 	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/2014-08-25','post');
+	$('.selectpicker').selectpicker();
 </script>
 @stop
 

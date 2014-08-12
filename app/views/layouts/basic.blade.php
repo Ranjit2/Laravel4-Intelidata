@@ -17,6 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     {{ HTML::style('css/pe-icon-7-stroke.css') }}
     {{ HTML::style('css/helper.css') }}
+    {{ HTML::style('css/bootstrap-select.css') }}
     @yield('style')
 </head>
 <body>
@@ -81,6 +82,7 @@
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
     {{ HTML::script('js/frontend.min.js') }}
+    {{ HTML::script('js/bootstrap-select.js') }}
     @yield('script')
 </body>
 </html>
