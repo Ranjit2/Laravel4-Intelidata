@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.6.0 (http://silviomoreto.github.io/bootstrap-select/)
  *
  * Copyright 2013-2014 bootstrap-select
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
+=======
+>>>>>>> b82c4c138191edf401e36493d1eb2c7e2dbc2c92
 (function ($) {
 
   'use strict';

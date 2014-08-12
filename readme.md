@@ -24,4 +24,4 @@ http://www.laravelmy.com/
 ><https://github.com/jfelder/Laravel-OracleDB>
 ><https://github.com/yajra/laravel-oci8>
 
-<b>&copy; 2014 Intelidata</b>
+<b>&copy; 2014 Intelidata - IData</b>

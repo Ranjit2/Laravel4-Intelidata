@@ -1,33 +1,33 @@
-<?php namespace libs\Macros;
+<?php
 /*********************************************************************************************
  * Example usage (In view)
  * <div class="welcome">
-    <?php echo Form::open(array('route'=>'process','class'=>'form-horizontal'))?>
-    <?php echo Form::textField('first_name')?>
-    <?php echo Form::textField('last_name')?>
-    <?php echo Form::emailField('email')?>
-    <?php echo Form::passwordField('password')?>
-    <?php echo Form::selectField('select_one', array('1'=>'abc', '2'=>'def'))?>
-    <?php echo Form::selectMultipleField('select_many', array('1'=>'abc', '2'=>'def'))?>
-    <?php echo Form::checkboxGroup('enter name', array(
+    {{ Form::open(array('route'=>'process','class'=>'form-horizontal')) }}
+    {{ Form::textField('first_name') }}
+    {{ Form::textField('last_name') }}
+    {{ Form::emailField('email') }}
+    {{ Form::passwordField('password') }}
+    {{ Form::selectField('select_one', array('1'=>'abc', '2'=>'def')) }}
+    {{ Form::selectMultipleField('select_many', array('1'=>'abc', '2'=>'def')) }}
+    {{ Form::checkboxGroup('enter name', array(
                 array('name'=>'sal_gt_20k', 'display'=>'GT 20K', 'value'=>'1', 'checked'=>false),
                 array('name'=>'sal_lt_3k', 'display'=>'Blah', 'value'=>'1', 'checked'=>false)
                 ));
-    ?>
-    <?php echo Form::checkboxGroupTable('Languages known Please Check all that apply', 2,4,array(
+     }}
+    {{ Form::checkboxGroupTable('Languages known Please Check all that apply', 2,4,array(
                 array('name'=>'lang_c', 'display'=>'C', 'value'=>'1', 'checked'=>false),
                 array('name'=>'langc_plus', 'display'=>'C++', 'value'=>'1', 'checked'=>false),
                 array('name'=>'lang_java', 'display'=>'Java', 'value'=>'1', 'checked'=>false),
                 array('name'=>'lang_php', 'display'=>'PHP', 'value'=>'1', 'checked'=>false),
                 array('name'=>'lang_sql', 'display'=>'SQL', 'value'=>'1', 'checked'=>false),
                 ));
-    ?>
-    <?php echo Form::radioGroup('Sex',array(
+     }}
+    {{ Form::radioGroup('Sex',array(
             array('name'=>'sex', 'display'=>'Male','value'=>'m', 'checked'=>false),
             array('name'=>'sex', 'display'=>'Female','value'=>'f', 'checked'=>false)
                 ));
-    ?>
-    <?php echo Form::radioGroupTable('Pick an option',2,4,array(
+     }}
+    {{ Form::radioGroupTable('Pick an option',2,4,array(
             array('name'=>'option', 'display'=>'a','value'=>'a', 'checked'=>false),
             array('name'=>'option', 'display'=>'b','value'=>'b', 'checked'=>false),
             array('name'=>'option', 'display'=>'c','value'=>'c', 'checked'=>false),
@@ -36,39 +36,39 @@
             array('name'=>'option', 'display'=>'f','value'=>'f', 'checked'=>false),
             array('name'=>'option', 'display'=>'g','value'=>'g', 'checked'=>false),
             ));
-    ?>
+     }}
 
-    <?php echo Form::textareaField('comments')?>
-    <?php echo Form::submit('Submit', array('class'=>'col-sm-offset-2 btn btn-primary'))?>
-    <?php echo Form::star('rating_field',3)?>
+    {{ Form::textareaField('comments') }}
+    {{ Form::submit('Submit', array('class'=>'col-sm-offset-2 btn btn-primary')) }}
+    {{ Form::star('rating_field',3) }}
 
-    <?php echo Form::radioScale(array(
+    {{ Form::radioScale(array(
         'leftAnchor'=>'Extreme',
         'rightAnchor'=>'Minimal',
         'count'=>6,
         'name'=>'radioSlide1',
-    ))?>
+    )) }}
 
-    <?php echo Form::radioScale(array(
+    {{ Form::radioScale(array(
         'leftAnchor'=>'Minimal',
         'rightAnchor'=>'Extreme',
         'count'=>6,
         'name'=>'radioSlide2',
-        ), 'asc')?>
+        ), 'asc') }}
 
-    <?php echo Form::slider(array(
+    {{ Form::slider(array(
         'leftAnchor'=>'Too little',
         'rightAnchor'=>'Too much',
         'min'=>0,
         'max'=>100,
         'name'=>'slider1',
-    ))?>
+    )) }}
 
-    <?php echo Form::progress(5,10)?>
+    {{ Form::progress(5,10) }}
 
     ****HTML MACROS ******************
-    <?php echo HTML::progress(5,10)?>
-    <?php echo HTML::swfobject('filename')?>
+    {{ HTML::progress(5,10) }}
+    {{ HTML::swfobject('filename') }}
 </div>
  * ********************************************************************************************/
 Form::macro ( 'textField', function ($name, $label = null, $value = null, $attributes = array()) {
@@ -261,17 +261,17 @@ Form::macro ( 'radioScale', function ($data, $value = 0, $order = 'desc') {
     $str = '<div class="row">
     <div class="col-xs-1"><h4><span class="label label-success">' . $leftAnchor . '</span></h4></div>
     <div class="col-xs-3">';
-    if ($order == 'desc') {
-        for($index = $count; $index >= 1; $index --) {
-            $str .= radio ( $name, $index, $index, $index == $value ? true : false );
+        if ($order == 'desc') {
+            for($index = $count; $index >= 1; $index --) {
+                $str .= radio ( $name, $index, $index, $index == $value ? true : false );
+            }
+        } else if ($order = 'asc') {
+            for($index = 1; $index <= $count; $index ++) {
+                $str .= radio ( $name, $index, $index, $index == $value ? true : false );
+            }
         }
-    } else if ($order = 'asc') {
-        for($index = 1; $index <= $count; $index ++) {
-            $str .= radio ( $name, $index, $index, $index == $value ? true : false );
-        }
-    }
-    $str .= '</div>
-    <div class="col-xs-1"><h4><span class="label label-success">' . $rightAnchor . '</span></h4></div>
+        $str .= '</div>
+        <div class="col-xs-1"><h4><span class="label label-success">' . $rightAnchor . '</span></h4></div>
     </div>' . errorMessage ( $name );
     return $str;
 } );
@@ -368,8 +368,7 @@ if (! function_exists ( 'checkBox' )) {
             'id' => 'id-field-' . $name
             ), $attributes );
         $out .= '<label for="' . 'id-field-' . $name . '" class="checkbox-inline">';
-        $out .= '<input type="hidden" name="' . $name . '" value="0" />'; // spl handling for checkbox that is not checked
-                                                                          // $out .= Form::hidden($name, 0); //note that this does NOT work well!
+        $out .= '<input type="hidden" name="' . $name . '" value="0" />'; // spl handling for checkbox that is not checked // $out .= Form::hidden($name, 0); //note that this does NOT work well!
         $out .= Form::checkbox ( $name, $value, $checked, $attributes ) . ' ' . $displayName;
         $out .= '</label>';
 
@@ -496,15 +495,15 @@ HTML::macro ( 'progress', function ($current, $total) {
     $str = '';
     $str .= '<div class="row">
     <div class="col-xs-3">
-    <div id="progressbar"></div>
+        <div id="progressbar"></div>
     </div>
     <div class="col-xs-2">' . $pctValue . '% Complete</div>
-    </div>';
-    $str .= '<script type="text/javascript">
-    $(function(){';
-        $str .= '$("#progressbar").progressbar({
-            value: ' . $pctValue;
-            $str .= '});';
+</div>';
+$str .= '<script type="text/javascript">
+$(function(){';
+    $str .= '$("#progressbar").progressbar({
+        value: ' . $pctValue;
+        $str .= '});';
 $str .= '});
 </script>';
 return $str;
@@ -521,23 +520,61 @@ HTML::macro ( 'swfobject', function ($name) {
 
     $headScript = <<<HEADSCRIPT
     <script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.play = "true";
-    params.loop = "true";
-    params.allowfullscreen = "true";
-    var attributes = {};
-    swfobject.embedSWF("$swfPath", "myAlternativeContent", "640",
-        "480", "$version", "$expressInstallPath",
-        flashvars, params, attributes);
+        var flashvars = {};
+        var params = {};
+        params.play = "true";
+        params.loop = "true";
+        params.allowfullscreen = "true";
+        var attributes = {};
+        swfobject.embedSWF("$swfPath", "myAlternativeContent", "640",
+            "480", "$version", "$expressInstallPath",
+            flashvars, params, attributes);
 </script>
 <div id="myAlternativeContent">
-<a href="http://www.adobe.com/go/getflashplayer">
-<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
-alt="Get Adobe Flash player" />
-</a>
+    <a href="http://www.adobe.com/go/getflashplayer">
+        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+        alt="Get Adobe Flash player" />
+    </a>
 </div>
 HEADSCRIPT;
 
 return $headScript;
-} );
+});
+
+HTML::macro('tiny-timeline', function($url){
+    $a = '<ul class="list-inline">';
+    for ($i = 13; $i > 0; $i--) {
+        if (Carbon::now()->subMonths($i)->month == 1) {
+            $a .= '|';
+        }
+        $a .= '<li><a href="' . $url . '" data-timeline="1/';
+        $a .= Carbon::now()->subMonths($i)->month . '/';
+        $a .= Carbon::now()->subMonths($i)->year . '">';
+        $a .= Carbon::now()->subMonths($i)->month .'-'.
+        Carbon::now()->subMonths($i)->year;
+        $a .= '</a></li>';
+    }
+    $a .= '</ul>';
+    return $a;
+});
+
+HTML::macro('activeState', function($url) {
+    return Request::is($url) ? 'active' : '';
+});
+
+HTML::macro('timeline', function($data){
+    $a = array('', 'timeline-inverted');
+    $b = array('', 'success', 'warning', 'danger', 'info', '');
+    $c = array('glyphicon-check', 'glyphicon-thumbs-up', 'glyphicon-floppy-disk');
+    $d = '';
+    foreach ($data as $value) {
+        $d .= '<li class="' . $a[array_rand($a)] . '">';
+        $d .= '<div class="timeline-badge ' . $b[array_rand($b)] . '">';
+        $d .= '<i class="glyphicon ' . $c[array_rand($c)] . '"></i></div>';
+        $d .= '<div class="timeline-panel"><div class="timeline-heading">';
+        $d .= '<h4 class="timeline-title">MONTO TOTAL</h4>';
+        $d .= '<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fecha)) . '</small></p>';
+        $d .= '</div><div class="timeline-body"><p>$' . $value->monto_total . '</p></div></div></li>';
+    }
+    return $d;
+});

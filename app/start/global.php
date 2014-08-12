@@ -21,6 +21,8 @@ ClassLoader::addDirectories(array(
 
 ));
 
+include (app_path().'/libs/macros.php');
+
 /*
 |--------------------------------------------------------------------------
 | Application Error Logger

@@ -603,12 +603,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56"
+            "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d045d5a67590cefe348c034243fa18daf1c8cb56",
-            "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
+            "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
             "shasum": ""
         },
         "require": {
@@ -617,7 +617,7 @@
             "php": ">=5.3.0",
             "symfony/finder": "~2.3"
         },
-        "time": "2014-07-26 11:40:53",
+        "time": "2014-08-10 08:09:38",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -656,18 +656,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "b4895a0d6dc493f17fe9092db4debe44182d42ac"
+            "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/b4895a0d6dc493f17fe9092db4debe44182d42ac",
-            "reference": "b4895a0d6dc493f17fe9092db4debe44182d42ac",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
+            "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-08-06 02:28:22",
+        "time": "2014-08-08 19:23:55",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -859,69 +859,6 @@
                 "name": "Mike van Riel",
                 "email": "mike.vanriel@naenius.com"
             }
-        ]
-    },
-    {
-        "name": "barryvdh/laravel-ide-helper",
-        "version": "v1.10.0",
-        "version_normalized": "1.10.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-            "reference": "a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e",
-            "reference": "a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/console": "4.x",
-            "illuminate/filesystem": "4.x",
-            "illuminate/support": "4.x",
-            "php": ">=5.3.0",
-            "phpdocumentor/reflection-docblock": "2.0.x",
-            "symfony/class-loader": "~2.3"
-        },
-        "require-dev": {
-            "doctrine/dbal": "~2.3"
-        },
-        "suggest": {
-            "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
-        },
-        "time": "2014-06-29 14:07:17",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Barryvdh\\LaravelIdeHelper": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
-        "keywords": [
-            "autocomplete",
-            "codeintel",
-            "laravel",
-            "netbeans",
-            "phpdoc",
-            "phpstorm",
-            "sublime"
         ]
     },
     {
@@ -2635,5 +2572,70 @@
         ],
         "description": "Symfony ClassLoader Component",
         "homepage": "http://symfony.com"
+    },
+    {
+        "name": "barryvdh/laravel-ide-helper",
+        "version": "v1.11.1",
+        "version_normalized": "1.11.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-ide-helper.git",
+            "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/1b608fc44697e79e20ef060bc679ec5b519362cb",
+            "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "4.x",
+            "illuminate/filesystem": "4.x",
+            "illuminate/support": "4.x",
+            "php": ">=5.3.0",
+            "phpdocumentor/reflection-docblock": "2.0.x",
+            "symfony/class-loader": "~2.3"
+        },
+        "require-dev": {
+            "doctrine/dbal": "~2.3"
+        },
+        "suggest": {
+            "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+        },
+        "time": "2014-08-11 11:26:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.11-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Barryvdh\\LaravelIdeHelper\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+        "keywords": [
+            "autocomplete",
+            "codeintel",
+            "helper",
+            "ide",
+            "laravel",
+            "netbeans",
+            "phpdoc",
+            "phpstorm",
+            "sublime"
+        ]
     }
 ]

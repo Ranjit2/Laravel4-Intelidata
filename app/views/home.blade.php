@@ -2,13 +2,14 @@
 
 @section('title', 'Home')
 
-@section('header')
-<h2>Bienvenido {{ Session::get('ses_user_rut') }}</h2>
-@stop
-
 @section('content')
+<div class="page-header">
+	<h1 id="timeline">LINEA DE TIEMPO</h1>
+</div>
+<ul class="timeline">
+	{{ HTML::timeline($tline) }}
+</ul>
 @stop
-
 
 @section('aside')
 @parent

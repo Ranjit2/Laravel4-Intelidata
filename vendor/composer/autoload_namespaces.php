@@ -51,6 +51,5 @@ return array(
     'ClassPreloader' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Boris' => array($vendorDir . '/d11wtq/boris/lib'),
-    'Barryvdh\\LaravelIdeHelper' => array($vendorDir . '/barryvdh/laravel-ide-helper/src'),
     'Barryvdh\\Debugbar' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
 );

@@ -1,32 +1,91 @@
-<div class="container-fluid">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle"
-		data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	</button>
-	<a class="navbar-brand" href="{{ URL::to('/') }}"><span class="fa
-		fa-bar-chart-o"></span> <strong>Entel Empresa</strong></h3> Stadistics</a>
+<div class="row coralbg white">
+	<div class="col-md-3 logotipo">
+		<img src="holder.js/280x120" alt="" class="img-responsive">
+		<strong>LOGO EMPRESA</strong>
+		<p class="muted">slogan</p>
 	</div>
-	<div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav  col-md-offset-3 navbar-right profile">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle profile__name" data-toggle="dropdown">
-					<figure class="pull-left profile__img">
-						<img src="holder.js/40x40" class="img-circle" alt="">
-					</figure>
-					@if (Session::has('ses_user_rut'))
-					User <strong>{{ Session::get('ses_user_rut') }}</strong>
-					@endif
-					<span class="glyphicon glyphicon-chevron-down"></span>
-				</a>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="{{ URL::to('/profile') }}"> <span class="icon pe-7s-info"></span> Profile</a></li>
-					<li><a href="{{ URL::to('/logout') }}"><span class="icon pe-7s-close-circle"></span> Logout</a></li>
-				</ul>
-			</li>
-		</ul>
+	<div class="col-md-5 pull-right user-profile">
+		<div class="col-md-8 user-no-pad">
+			<h3>Bienvenido, <b>Michael Knight</b></h3>
+			<!-- <h4><span class="icon fa fa-check-circle-o"></span> San Antonio, TX</h4> -->
+			<!-- <h4><span class="icon fa fa-twitter"></span> CoolesOCool</h4> -->
+			<h5>11.111.111-1</h5>
+			<h6><span class="glyphicon glyphicon-earphone"></span> 2777 7777 <span class="glyphicon glyphicon-envelope"></span> michaelnightrider@gmail.com</h6>
+			<h6>Direccion, Calle, Edificio, Depto</br>Santiago, Chile.</h6>
+		</div>
+		<div class="col-md-4 pull-right image no-pad">
+			<img src="http://2.bp.blogspot.com/-eHwFBSrAMxA/TpRD6MDv5RI/AAAAAAAAA3g/XdZwVB9QXSE/s1600/michael%2Bknight.jpg" class="img-responsive">
+		</div>
 	</div>
 </div>
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="sr-only">
+				<a class="navbar-brand" href="http://www.wsnippets.com">iData</a>
+			</div>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="dropdown menu-large">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-fw"></span> Contactanos <b class="caret"></b></a>
+					<ul class="dropdown-menu megamenu row">
+						<li class="col-sm-3">
+							<ul>
+								<li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>
+								<li><a href="#">600 800 9000</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header">DESDE CELULARES</li>
+								<li><a href="#">02 - 2310 0200</a></li>
+							</ul>
+						</li>
+						<li class="col-sm-3">
+							<ul>
+								<li class="dropdown-header">CENTRO DE AYUDA ONLINE</li>
+								<li><a href="#">BANDA ANCHA</a></li>
+								<li><a href="#">TELEFON&Iacute;A CELUALR</a></li>
+								<li><a href="#">TELEFON&Iacute;A FIJA</a></li>
+								<li><a href="#">TELEVISI&Oacute;N POR CABLE</a></li>
+								<li><a href="#">TELEVISI&Oacute;N SATELITAL</a></li>
+							</ul>
+						</li>
+						<li class="col-sm-3">
+							<ul>
+								<li class="dropdown-header">SUCURSALES</li>
+								<li class="divider"></li>
+								<li class="dropdown-header">SUCURSAL VIRTUAL</li>
+								<li class="divider"></li>
+								<li class="dropdown-header">SERVICIOS</li>
+								<li><a href="#">servicio 1</a></li>
+								<li><a href="#">servicio 1</a></li>
+								<li><a href="#">servicio 1</a></li>
+							</ul>
+						</li>
+						<li class="col-sm-3">
+							<ul>
+								<li class="divider"></li>
+								<li>...</li>
+								<li class="divider"></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user fa-fw"></span> Usuario<b class="caret"></b></a>
+					<ul class="dropdown-menu megamenu row">
+					<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-spin fa-fw"></span>Perfil</a></li>
+					<li><a href="{{ URL::to('/logout') }}"><span class="icon fa fa-sign-out fa-fw"></span>Salir</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
