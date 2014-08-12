@@ -6,21 +6,14 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="tiny-timeline text-center">
-					<ul class="list-inline">
-						@for ($i = 13; $i > 0; $i--)
-						@if (Carbon::now()->subMonths($i)->month == 1)
-						|
-						@endif
-						<li><a href="#" data-timeline="1/{{ Carbon::now()->subMonths($i)->month }}/{{ Carbon::now()->subMonths($i)->year }}">{{ Carbon::now()->subMonths($i)->month }}-{{ Carbon::now()->subMonths($i)->year }}</a></li>
-						@endfor
-					</ul>
+					{{ HTML::timeline('#') }}
 				</div>
 				<h4>Title</h4>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
 				<div class="col-md-12">
-					<div id="legenddiv"></div>
+					<div id="legenddiv" style="min-height: 40px; margin: 0 auto;"></div>
 					<table id="lista" class="table table-condensed table-hover" style="display: none;">
 						<thead>
 							<tr style="font-size: 14px;">

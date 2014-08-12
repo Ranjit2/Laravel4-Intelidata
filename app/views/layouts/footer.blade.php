@@ -41,10 +41,10 @@
 	</div>
 </div>
 <div class="col-md-3 social-icons">
-	<a href="#" class=""><span class='symbol'>circlefacebook</span><span class="sr-only">Facebook</span></a>
-	<a href="#" class=""><span class='symbol'>circletwitterbird</span><span class="sr-only">Twitter</span></a>
-	<a href="#" class=""><span class='symbol'>circleyoutube</span><span class="sr-only">Youtube</span></a>
-	<a href="#" class=""><span class='symbol'>circleinstagram</span><span class="sr-only">Instagram</span></a>
+	<a href="#" class="fb"><span class='symbol'>circlefacebook</span><span class="sr-only">Facebook</span></a>
+	<a href="#" class="tw"><span class='symbol'>circletwitterbird</span><span class="sr-only">Twitter</span></a>
+	<a href="#" class="yt"><span class='symbol'>circleyoutube</span><span class="sr-only">Youtube</span></a>
+	<a href="#" class="in"><span class='symbol'>circleinstagram</span><span class="sr-only">Instagram</span></a>
 </div>
 <div class="col-md-3 legal-terms">
 	<img src="holder.js/280x120" alt="" class="img-responsive">

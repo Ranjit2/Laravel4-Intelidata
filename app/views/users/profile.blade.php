@@ -1,82 +1,85 @@
 @extends('layouts.basic')
 
-@section('breadcrumb')
-@parent
-<li>{{ HTML::link('/user', 'USER') }}</li>
-<li>{{ HTML::link('/profile', 'PROFILE') }}</li>
-<li class="active">DATA</li>
-@stop
-
 @section('content')
-<div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h3 class="panel-title">{{ Session::get('ses_user_rut', '') }}</h3>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-					<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-						<dl>
-							<dt>DEPARTMENT:</dt>
-							<dd>Administrator</dd>
-							<dt>HIRE DATE</dt>
-							<dd>11/12/2013</dd>
-							<dt>DATE OF BIRTH</dt>
-							<dd>11/12/2013</dd>
-							<dt>GENDER</dt>
-							<dd>Male</dd>
-						</dl>
+<div class="profile">
+	<form role="form">
+		<h2>Editar Perfil <small></small></h2>
+		<fieldset>
+		<legend class="text-right" class="text-right" class="text-right">Personal</legend class="text-right" class="text-right">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="form-group">
+						<input type="text" name="direccion" id="direccion" class="form-control input-lg" placeholder="Direcci&oacute;n" tabindex="1">
 					</div>
-					<div class=" col-md-9 col-lg-9 ">
-						<table class="table table-user-information">
-							<tbody>
-								<tr>
-									<td>Department:</td>
-									<td>Programming</td>
-								</tr>
-								<tr>
-									<td>Hire date:</td>
-									<td>06/23/2013</td>
-								</tr>
-								<tr>
-									<td>Date of Birth</td>
-									<td>01/24/1988</td>
-								</tr>
-								<tr>
-									<tr>
-										<td>Gender</td>
-										<td>Male</td>
-									</tr>
-									<tr>
-										<td>Home Address</td>
-										<td>Metro Manila,Philippines</td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td><a href="mailto:info@support.com">info@support.com</a></td>
-									</tr>
-									<td>Phone Number</td>
-									<td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<a href="#" class="btn btn-primary">My Sales Performance</a>
-						<a href="#" class="btn btn-primary">Team Sales Performance</a>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="fono" id="fono" class="form-control input-lg" placeholder="Tel&eacute;fono Fijo" tabindex="2">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="cel" id="cel" class="form-control input-lg" placeholder="Tel&eacute;fono Celular" tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="email" name="email" id="email" class="form-control input-lg" placeholder="E-mail" tabindex="4">
 					</div>
 				</div>
 			</div>
-			<div class="panel-footer">
-				<a data-original-title="Enviar mensaje" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-				<span class="pull-right">
-					<a href="#" data-original-title="Editar perfil " data-toggle="tooltip" type="button" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-					<a href="#" data-original-title="Eliminar perfil" data-toggle="tooltip" type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-remove"></i></a>
-				</span>
+		</fieldset>
+		<fieldset>
+			<legend class="text-right" class="text-right">Trabajo</legend>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="form-group">
+						<input type="text" name="direccion" id="direccion" class="form-control input-lg" placeholder="Direcci&oacute;n" tabindex="1">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="fono" id="fono" class="form-control input-lg" placeholder="Tel&eacute;fono Fijo" tabindex="2">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="cel" id="cel" class="form-control input-lg" placeholder="Tel&eacute;fono Celular" tabindex="3">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="email" name="email" id="email" class="form-control input-lg" placeholder="E-mail" tabindex="4">
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
+		</fieldset>
+		<fieldset>
+			<legend class="text-right">Redes Sociales</legend>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="fono" id="fono" class="form-control input-lg" placeholder="Twitter" tabindex="2">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="cel" id="cel" class="form-control input-lg" placeholder="Facebook" tabindex="3">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Skype" tabindex="4">
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<input type="submit" value="GUARDAR" class="btn btn-primary btn-lg col-md-4" tabindex="7">
+	</form>
 </div>
 @stop
 

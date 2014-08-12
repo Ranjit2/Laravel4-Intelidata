@@ -27,12 +27,12 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <aside class="col-md-2 sidebar">
+            <aside class="col-md-3 sidebar">
                 @section('aside')
                 @include('layouts.sidebar')
                 @show
             </aside>
-            <section class="col-md-10 main">
+            <section class="col-md-9 main">
                 @yield('content')
             </section>
         </div>

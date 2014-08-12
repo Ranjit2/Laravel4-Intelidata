@@ -88,27 +88,27 @@ $.graficoBroken = function (div, url, method) {
         chart.addListener("clickSlice", function (event) {
             if (event.dataItem.dataContext.id != undefined) {
                 selected = event.dataItem.dataContext.id;
-                b = parseInt(a+(a*0.15));
-                $('#chartdiv svg').css('min-height',b + 'px');
-                $('#chartdiv div:first-child').css('min-height',b + 'px');
-                chart.marginTop = 100;
-                chart.labelRadius = 2;
-// $('#legenddiv').empty().show();
-}
-else {
-    selected = undefined;
-    $('#chartdiv svg').css('min-height',a + 'px');
-    $('#chartdiv div:first-child').css('min-height',a + 'px');
-    chart.marginTop = 10;
-    chart.labelRadius = 20;
-    $('#legenddiv').show();
-}
-chart.dataProvider = $.generateChartData(types, selected);
-chart.validateData();
-});
+        // b = parseInt(a+(a*0.15));
+        // $('#chartdiv svg').css('min-height',b + 'px');
+        // $('#chartdiv div:first-child').css('min-height',b + 'px');
+        // chart.marginTop = 100;
+        // chart.labelRadius = 2;
+        // $('#legenddiv').empty().show();
+        }
+        else {
+            selected = undefined;
+        // $('#chartdiv svg').css('min-height',a + 'px');
+        // $('#chartdiv div:first-child').css('min-height',a + 'px');
+        // chart.marginTop = 10;
+        // chart.labelRadius = 20;
+        $('#legenddiv').show();
+        }
+        chart.dataProvider = $.generateChartData(types, selected);
+        chart.validateData();
+        });
         chart.write(div);
-        var a = $('#chartdiv svg').height();
-        var b = 0;
+        // var a = $('#chartdiv svg').height();
+        // var b = 0;
     });
 }
 

@@ -5,10 +5,10 @@
 		<p class="muted">slogan</p>
 	</div>
 	<div class="col-md-5 pull-right user-profile">
-		<div class="col-md-8">
+		<div class="col-md-8 user-no-pad">
 			<h3>Bienvenido, <b>Michael Knight</b></h3>
-			<!-- <h4><span class="fa fa-check-circle-o"></span> San Antonio, TX</h4> -->
-			<!-- <h4><span class="fa fa-twitter"></span> CoolesOCool</h4> -->
+			<!-- <h4><span class="icon fa fa-check-circle-o"></span> San Antonio, TX</h4> -->
+			<!-- <h4><span class="icon fa fa-twitter"></span> CoolesOCool</h4> -->
 			<h5>11.111.111-1</h5>
 			<h6><span class="glyphicon glyphicon-earphone"></span> 2777 7777 <span class="glyphicon glyphicon-envelope"></span> michaelnightrider@gmail.com</h6>
 			<h6>Direccion, Calle, Edificio, Depto</br>Santiago, Chile.</h6>
@@ -34,7 +34,7 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="dropdown menu-large">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-comments-o"></span> Contactanos <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-fw"></span> Contactanos <b class="caret"></b></a>
 					<ul class="dropdown-menu megamenu row">
 						<li class="col-sm-3">
 							<ul>
@@ -62,23 +62,29 @@
 								<li class="dropdown-header">SUCURSAL VIRTUAL</li>
 								<li class="divider"></li>
 								<li class="dropdown-header">SERVICIOS</li>
-								<li><a href="#">sevicio 1</a></li>
-								<li><a href="#">sevicio 1</a></li>
-								<li><a href="#">sevicio 1</a></li>
+								<li><a href="#">servicio 1</a></li>
+								<li><a href="#">servicio 1</a></li>
+								<li><a href="#">servicio 1</a></li>
 							</ul>
 						</li>
 						<li class="col-sm-3">
 							<ul>
 								<li class="divider"></li>
-								<li class="divider"></li>
+								<li>...</li>
 								<li class="divider"></li>
 							</ul>
 						</li>
 					</ul>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+			<ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user fa-fw"></span> Usuario<b class="caret"></b></a>
+					<ul class="dropdown-menu megamenu row">
+					<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-spin fa-fw"></span>Perfil</a></li>
+					<li><a href="{{ URL::to('/logout') }}"><span class="icon fa fa-sign-out fa-fw"></span>Salir</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>

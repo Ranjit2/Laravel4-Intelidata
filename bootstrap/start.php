@@ -25,7 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-    'local'      => array('Manuel_H-HP'),
+    'local'      => array('MAZE-PC'),
     'dev'        => array('DPINTO-HP'),
     'stagging'   => array('stag.name'),
     'production' => array('prod.name')

@@ -36,10 +36,13 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/logout', 'HomeController@doLogout');
 
 	// PROFILE
-	Route::get('/profile', function() { return View::make('users.profile'); });
+	Route::get('/user/profile', function() { return View::make('users.profile'); });
 
 	// HOME VIEW
-	Route::get('/home', function() { return View::make('home'); });
+	Route::get('/home', function() {
+		$t = Telefono::totales();
+		return View::make('home')->with('tline', $t);
+	});
 
 	// CHARTS VIEWS
 	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });

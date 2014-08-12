@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56"
+                "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d045d5a67590cefe348c034243fa18daf1c8cb56",
-                "reference": "d045d5a67590cefe348c034243fa18daf1c8cb56",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
+                "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
                 "shasum": ""
             },
             "require": {
@@ -55,20 +55,20 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-07-26 11:40:53"
+            "time": "2014-08-10 08:09:38"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v1.10.0",
+            "version": "v1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e"
+                "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e",
-                "reference": "a9dae91e4d82a4f7312f6b732baf8a5aa82fc73e",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/1b608fc44697e79e20ef060bc679ec5b519362cb",
+                "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb",
                 "shasum": ""
             },
             "require": {
@@ -88,12 +88,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Barryvdh\\LaravelIdeHelper": "src/"
+                "psr-4": {
+                    "Barryvdh\\LaravelIdeHelper\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -110,13 +110,15 @@
             "keywords": [
                 "autocomplete",
                 "codeintel",
+                "helper",
+                "ide",
                 "laravel",
                 "netbeans",
                 "phpdoc",
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2014-06-29 14:07:17"
+            "time": "2014-08-11 11:26:11"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -2460,12 +2462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "b4895a0d6dc493f17fe9092db4debe44182d42ac"
+                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/b4895a0d6dc493f17fe9092db4debe44182d42ac",
-                "reference": "b4895a0d6dc493f17fe9092db4debe44182d42ac",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
+                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
                 "shasum": ""
             },
             "replace": {
@@ -2503,7 +2505,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-06 02:28:22"
+            "time": "2014-08-08 19:23:55"
         }
     ],
     "packages-dev": [
