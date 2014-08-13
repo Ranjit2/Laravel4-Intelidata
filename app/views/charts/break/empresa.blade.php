@@ -8,7 +8,7 @@
 				<div class="tiny-timeline text-center">
 					{{ HTML::tiny_timeline('#') }}
 				</div>
-				<h4 class="text-center">Title</h4>
+				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
@@ -38,8 +38,17 @@
 
 @section('script')
 <script type="text/javascript">
-	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
+var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
+AmCharts.ready(function () {
 	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/{{ Carbon::now() }}','post');
+	$('.tiny-timeline a').on('click', function (e) {
+		e.preventDefault();
+		var d = $(this).attr('data-timeline');
+		var t = $(this).text();
+		$('h3.title-chart').text(t);
+		$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/'+d,'post');
+	});
+});
 </script>
 @stop
 

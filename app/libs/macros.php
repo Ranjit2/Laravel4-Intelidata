@@ -544,7 +544,7 @@ return $headScript;
 HTML::macro('tiny_timeline', function($url){
     $year = '';
     $a = '<ul class="list-inline">';
-    for ($i = 13; $i > 0; $i--) {
+    for ($i = 12; $i > -1; $i--) {
         if (Carbon::now()->subMonths($i)->month == 12 || ($year != '' && $year != Carbon::now()->subMonths($i)->year)) {
             $year = '';
             // $a .= '| ' . (Carbon::now()->subMonths($i)->year);

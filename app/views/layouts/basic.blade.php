@@ -19,17 +19,18 @@
     {{ HTML::style('css/mono-social-icons.css') }}
     {{ HTML::style('css/pe-icon-7-stroke.css') }}
     {{ HTML::style('css/helper.css') }}
+    {{ HTML::style('css/timeline.css') }}
     @yield('style')
 </head>
 <body>
     <header class="container-fluid topbar">
-        @include('layouts.topbar')
+        @include('sections.topbar')
     </header>
     <div class="container-fluid">
         <div class="row">
             <aside class="col-md-3 sidebar">
                 @section('aside')
-                @include('layouts.sidebar')
+                @include('sections.sidebar')
                 @show
             </aside>
             <section class="col-md-9 main">
@@ -39,7 +40,7 @@
     </div>
     <footer class="container-fluid">
         <div class="row">
-           @include('layouts.footer')
+           @include('sections.footer')
        </div>
    </footer>
    <!-- JQuery 1.11.1 -->

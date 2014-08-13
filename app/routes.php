@@ -38,12 +38,29 @@ Route::group(array('before' => 'auth'), function() {
 
 	// PROFILE
 	Route::get('/user/profile', function() { return View::make('users.profile'); });
+	Route::get('/user/message', function(){ return View::make('message'); });
+	Route::get('/question', function(){
+		$preguntas  = Pregunta::where('estado','=','A')->get();
+		return View::make('question')->with('preguntas', $preguntas);
+	});
+	Route::get('/user/question', function(){
+		$preguntas  = Pregunta::where('estado','=','A')->get();
+		return View::make('question2')->with('preguntas', $preguntas);
+	});
+	Route::post('/question', 'PreguntasController@recibe');
 
 	// HOME VIEW
 	Route::get('/home', function() {
 		$t = Telefono::totales();
 		return View::make('home')->with('tline', $t);
 	});
+
+	// HOME VIEW
+	Route::get('/home', function() {
+		$t = Telefono::totales();
+		return View::make('home')->with('tline', $t);
+	});
+
 
 	// CHARTS VIEWS
 	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });
@@ -91,17 +108,6 @@ Route::group(array('before' => 'auth'), function() {
 		Func::printr(json_encode($b));
 	});
 
-	Route::get('/user/message', function(){
-		return View::make('message');
-	});
 });
 
-Route::get('/question', function(){
-	$preguntas  = Pregunta::where('estado','=','A')->get();
-	return View::make('question')->with('preguntas', $preguntas);
-});
-Route::get('/user/question', function(){
-	$preguntas  = Pregunta::where('estado','=','A')->get();
-	return View::make('question2')->with('preguntas', $preguntas);
-});
-Route::post('/question', 'PreguntasController@recibe');
+Route::get('timeline', function(){ return View::make('timeline'); });
