@@ -111,3 +111,4 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::get('timeline', function(){ return View::make('timeline'); });
+Route::get('/charts/evolution', function(){ return View::make('evolution'); });

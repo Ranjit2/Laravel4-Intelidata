@@ -31,21 +31,31 @@
 					@endif
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/column') }}"><span class="icon pe-7s-graph3 fa-lg  fa-fw"></span>Columnbar charts</a>
+							<a href="{{ URL::to('/charts/column') }}"><span class="icon pe-7s-graph3 fa-lg  fa-fw"></span>Historico Facturado</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/stackbar') }}"><span class="icon pe-7s-graph2 fa-lg  fa-fw"></span>Stackbar Chart</a>
+							<a href="{{ URL::to('/charts/stackbar') }}"><span class="icon pe-7s-graph3 fa-lg  fa-fw"></span>Stackbar Chart</a>
 						</td>
 					</tr>
 					@if (Session::get('ses_user_tipo') === 'empresa')
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/breakchart') }}"><span class="icon pe-7s-help2 fa-lg  fa-fw"></span>Break Chart</a>
+							<a href="{{ URL::to('/charts/breakchart') }}"><span class="icon pe-7s-help2 fa-lg  fa-fw"></span>Detalle por Mes</a>
 						</td>
 					</tr>
 					@endif
+					<tr>
+						<td>
+							<a href="{{ URL::to('/charts/category') }}"><span class="icon pe-7s-help2 fa-lg  fa-fw"></span>Grafico por categoría</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-graph2 fa-lg  fa-fw"></span>Evolución de mis Gastos</a>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>
