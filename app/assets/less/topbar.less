@@ -1,3 +1,10 @@
+.user-profile {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 .no-pad {
   padding-right: 0;
   padding-left: 0;
@@ -6,29 +13,41 @@
   padding-right: 0;
 }
 .user-profile .image {
-  max-height: 165px;
+  max-height: 100px;
+  max-width: 100px;
   overflow: hidden;
 }
+
 
 .user-profile address {
   margin-bottom: 5px;
 }
+.user-profile #show-info {
+  position: relative;
+}
+.user-profile .optional-info, .user-profile .main-info {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 
 /* * ------------------------------------------ */
 .topbar .navbar-default {
-  // color: #fff;
-  // background-color: #39b3d7;
-  // border-color: #269abc;
+  color: #fff;
+  background-color: @brand-primary;
+  border-color: #269abc;
 }
 .topbar .navbar-default .navbar-nav > li > a {
-  // color: #fff;
+  color: #fff;
 }
 .topbar .navbar-default .navbar-nav > .dropdown > a .caret {
-  // border-top-color: #fff;
-  // border-bottom-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
 }
 .topbar .navbar-default .navbar-brand {
-  // color: #fff;
+  color: #fff;
 }
 .topbar .menu-large {
   position: static !important;
@@ -89,4 +108,9 @@
   .topbar .navbar-nav .open .dropdown-menu .dropdown-header {
     color: #fff;
   }
+}
+
+.navbar-right .dropdown-menu {
+  left: auto;
+  right: -15px;
 }

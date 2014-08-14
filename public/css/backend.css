@@ -1,4 +1,3 @@
-@import "timeline.css";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6318,6 +6317,13 @@ button.close {
 .jumbotron .full-width {
   background-color: #006d87;
 }
+.user-profile {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 .no-pad {
   padding-right: 0;
   padding-left: 0;
@@ -6326,13 +6332,40 @@ button.close {
   padding-right: 0;
 }
 .user-profile .image {
-  max-height: 165px;
+  max-height: 100px;
+  max-width: 100px;
   overflow: hidden;
 }
 .user-profile address {
   margin-bottom: 5px;
 }
+.user-profile #show-info {
+  position: relative;
+}
+.user-profile .optional-info,
+.user-profile .main-info {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 /* * ------------------------------------------ */
+.topbar .navbar-default {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #269abc;
+}
+.topbar .navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+.topbar .navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+.topbar .navbar-default .navbar-brand {
+  color: #fff;
+}
 .topbar .menu-large {
   position: static !important;
 }
@@ -6397,6 +6430,10 @@ button.close {
     color: #fff;
   }
 }
+.navbar-right .dropdown-menu {
+  left: auto;
+  right: -15px;
+}
 /* *
 *
 * SIDEBAR
@@ -6439,9 +6476,8 @@ button.close {
 * SOCIAL ICONS
 * */
 footer .social-icons {
-  font-size: 48px;
+  font-size: 58px;
   text-align: center;
-  display: inline-block;
   vertical-align: middle;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
@@ -6451,7 +6487,7 @@ footer .social-icons {
 }
 footer .social-icons a {
   color: #000;
-  margin: 0 5px;
+  margin: 0 auto;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   -o-transition: all ease 0.5s;
@@ -6477,6 +6513,12 @@ footer .social-icons a.in:hover,
 a.in:focus {
   text-decoration: none;
   color: #457499;
+}
+@media all and (min-width: 991px) and (max-width: 1343px) {
+  footer .social-icons {
+    font-size: 60px;
+    display: inline-flex;
+  }
 }
 /* *
 *

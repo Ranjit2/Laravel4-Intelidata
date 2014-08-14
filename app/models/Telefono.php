@@ -91,14 +91,14 @@ class Telefono extends \Eloquent {
 	// 	return ;
 	// }
 
-	public static function totales(){
-		return DB::select('SELECT c.numero_cliente, f.numero, t.fecha, FORMAT(t.monto_total,0) AS monto_total
-					FROM cliente c
-					INNER JOIN telefono f ON c.id = f.id_cliente
-					INNER JOIN total t ON f.id = t.id_telefono
-					WHERE c.id = ?
-					ORDER BY t.fecha DESC
-					LIMIT 10;', array(Session::get('ses_user_id')));
+	public static function fechas_importantes(){
+		return DB::select('SELECT c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
+			FROM cliente c
+			INNER JOIN telefono f ON c.id = f.id_cliente
+			INNER JOIN total t ON f.id = t.id_telefono
+			WHERE c.id = ?
+			ORDER BY t.fecha DESC
+			LIMIT 3;', array(Session::get('ses_user_id')));
 	}
 
 }

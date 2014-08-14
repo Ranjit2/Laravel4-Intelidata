@@ -8,6 +8,7 @@
 				<div class="tiny-timeline text-center">
 					{{ HTML::tiny_timeline('#') }}
 				</div>
+				<div class="clearfix"></div>
 				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>

@@ -1,4 +1,3 @@
-@import "timeline.css";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6318,6 +6317,13 @@ button.close {
 .jumbotron .full-width {
   background-color: #006d87;
 }
+.user-profile {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 .no-pad {
   padding-right: 0;
   padding-left: 0;
@@ -6326,13 +6332,40 @@ button.close {
   padding-right: 0;
 }
 .user-profile .image {
-  max-height: 165px;
+  max-height: 100px;
+  max-width: 100px;
   overflow: hidden;
 }
 .user-profile address {
   margin-bottom: 5px;
 }
+.user-profile #show-info {
+  position: relative;
+}
+.user-profile .optional-info,
+.user-profile .main-info {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 /* * ------------------------------------------ */
+.topbar .navbar-default {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #269abc;
+}
+.topbar .navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+.topbar .navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+.topbar .navbar-default .navbar-brand {
+  color: #fff;
+}
 .topbar .menu-large {
   position: static !important;
 }
@@ -6397,6 +6430,10 @@ button.close {
     color: #fff;
   }
 }
+.navbar-right .dropdown-menu {
+  left: auto;
+  right: -15px;
+}
 /* *
 *
 * SIDEBAR
@@ -6439,9 +6476,8 @@ button.close {
 * SOCIAL ICONS
 * */
 footer .social-icons {
-  font-size: 48px;
+  font-size: 58px;
   text-align: center;
-  display: inline-block;
   vertical-align: middle;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
@@ -6451,7 +6487,7 @@ footer .social-icons {
 }
 footer .social-icons a {
   color: #000;
-  margin: 0 5px;
+  margin: 0 auto;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   -o-transition: all ease 0.5s;
@@ -6478,6 +6514,12 @@ a.in:focus {
   text-decoration: none;
   color: #457499;
 }
+@media all and (min-width: 991px) and (max-width: 1343px) {
+  footer .social-icons {
+    font-size: 60px;
+    display: inline-flex;
+  }
+}
 /* *
 *
 * LEGAL TERMS
@@ -6486,5 +6528,144 @@ footer .legal-terms p {
   font-size: 12px;
 }
 /* *
+*
+* PROGRESS BAR
+* */
+.progress {
+  height: 2px;
+  position: absolute;
+}
+#progressbar {
+  display: none;
+  border-radius: 0;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #b91f1f;
+  border-radius: 10%;
+}
+#progressBar:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  opacity: 1;
+  width: 10%;
+  right: 0px;
+  height: 2px;
+  box-shadow: #b91f1f 1px 0 6px 2px;
+  border-radius: 50%;
+}
+/**
+*
+* MAIN
+*
+*/
+.main {
+  margin-bottom: 50px;
+}
+/* *
+*
+* CALENDAR
+* */
+.calendar {
+  vertical-align: middle;
+  margin-top: 5px;
+}
+.calendar .icon {
+  font-style: 18px;
+}
+/* *
+*
+* USER PROFILE
+* */
+.profile fieldset legend {
+  border-bottom: 0;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 15px;
+}
+.profile input[type="submit"] {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+/* *
+*
+* CHARTS
+* */
+.cont {
+  position: relative;
+}
+.donut-info {
+  display: table-cell;
+  height: 60px;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -80px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  vertical-align: middle;
+  width: 120px;
+}
+.donut-info h2 {
+  color: #444444;
+  font-size: 50px;
+  margin-top: 0;
+}
+.donut-info h3 {
+  color: #9a9a9a;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+#donut-legend {
+  position: relative;
+}
+#lista .progress {
+  margin: 0;
+  height: auto !important;
+  position: relative;
+}
+/* *
+*
+* USER PROFILE */
+.user-row {
+  margin-bottom: 14px;
+}
+.user-row:last-child {
+  margin-bottom: 0;
+}
+.dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+.dropdown-user:hover {
+  cursor: pointer;
+}
+.table-user-information > tbody > tr {
+  border-top: 1px solid #dddddd;
+}
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+/* *
 ============================================
 * */
+.tiny-timeline {
+  margin: 0 auto;
+  font-size: 10px;
+}
+.tiny-timeline li {
+  margin: 0;
+}
+.tiny-timeline .months {
+  border-bottom: 1px solid;
+}
+.tiny-timeline .years li {
+  margin: 0 5px;
+}

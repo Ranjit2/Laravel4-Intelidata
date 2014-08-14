@@ -40,13 +40,13 @@
 		</ul>
 	</div>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-3 social-icons text-center">
+<div class="col-xs-12 col-sm-6 col-md-3 social-icons text-center">
 	<a href="#" class="fb"><span class='symbol'>circlefacebook</span><span class="sr-only">Facebook</span></a>
 	<a href="#" class="tw"><span class='symbol'>circletwitterbird</span><span class="sr-only">Twitter</span></a>
 	<a href="#" class="yt"><span class='symbol'>circleyoutube</span><span class="sr-only">Youtube</span></a>
 	<a href="#" class="in"><span class='symbol'>circleinstagram</span><span class="sr-only">Instagram</span></a>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-3 legal-terms">
+<div class="col-xs-12 col-sm-6 col-md-3 legal-terms">
 	<div class="col-xs-7 col-sm-12 col-md-12">
 	<img src="holder.js/280x120" alt="" class="img-responsive">
 	<div class="clearfix"></div>

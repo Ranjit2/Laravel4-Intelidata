@@ -51,24 +51,18 @@ Route::group(array('before' => 'auth'), function() {
 
 	// HOME VIEW
 	Route::get('/home', function() {
-		$t = Telefono::totales();
-		return View::make('home')->with('tline', $t);
-	});
-
-	// HOME VIEW
-	Route::get('/home', function() {
-		$t = Telefono::totales();
-		return View::make('home')->with('tline', $t);
+		$f = Telefono::fechas_importantes();
+		return View::make('home')->with('tline', $f);
 	});
 
 
 	// CHARTS VIEWS
-	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
+	Route::get('/charts/pie', function(){ return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
+	Route::get('/charts/column', function(){ return View::make('charts.column.' . Session::get('ses_user_tipo')); });
+	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.' . Session::get('ses_user_tipo')); });
 	Route::get('/charts/breakchart', function(){
 		$titulares = Titular::select('tipo')->get();
-		return View::make('charts.break.'.Session::get('ses_user_tipo'))->with('titulares', $titulares);
+		return View::make('charts.break.' . Session::get('ses_user_tipo'))->with('titulares', $titulares);
 	});
 
 	// CHARTS REQUESTS
@@ -77,7 +71,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{mes?}/{año?}', 'GraffController@getChartPieEnt');
+	Route::post('/getChartPieEnt/{id}/{type?}/{fecha?}', 'GraffController@getChartPieEnt');
 	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
 
 
