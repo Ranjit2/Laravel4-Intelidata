@@ -108,3 +108,21 @@ Route::get('question', function(){
 Route::post('/question', 'PreguntasController@recibe');
 
 
+// Route::get('/majony', function(){
+// 	return PreguntaRespuesta::getIdPreguntaRespuesta(2,3);
+// });
+
+// Route::get('/majony', function(){
+// 	return PreguntaRespuesta::getPreguntaConRespuesta(1);
+// });
+
+
+// Route::get('majony', function(){
+// 	return cliente::find(7)->clientePreguntas;
+// });
+
+
+
+
+
+
