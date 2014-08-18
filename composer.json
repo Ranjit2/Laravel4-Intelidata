@@ -10,7 +10,8 @@
 		"barryvdh/laravel-debugbar": "1.*@dev",
 		"barryvdh/laravel-ide-helper": "1.*",
 		"doctrine/dbal": "~2.3",
-		"thujohn/pdf": "dev-master"
+		"thujohn/pdf": "dev-master",
+		"tzookb/tbmsg": "1.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*"

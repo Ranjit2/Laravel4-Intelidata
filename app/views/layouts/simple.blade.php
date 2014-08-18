@@ -34,7 +34,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- HOLDER.JS -->
     {{ HTML::script('js/holder.js') }}
-    {{ HTML::script('js/frontend.min.js') }}
+    {{ HTML::script('js/frontend.js') }}
     @yield('script')
 </body>
 </html>

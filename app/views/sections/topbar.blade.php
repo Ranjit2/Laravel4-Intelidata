@@ -105,9 +105,8 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user fa-lg fa-fw"></span> Usuario<b class="caret"></b></a>
 						<ul class="dropdown-menu megamenu row">
-							<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-spin fa-fw"></span>Perfil</a></li>
-							<li><a href="{{ URL::to('/user/question') }}"><span class="icon fa fa-fw"></span>Contacto</a></li>
-							<li><a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-fw"></span>Mensajes</a></li>
+							<li><a href="{{ URL::to('/user/profile') }}"><span class="icon fa fa-cog fa-fw"></span>Perfil</a></li>
+							<li><a href="{{ URL::to('/user/question') }}"><span class="icon fa fa-question fa-fw"></span>Contacto</a></li>
 							<li><a href="{{ URL::to('/logout') }}"><span class="icon fa fa-sign-out fa-fw"></span>Salir</a></li>
 						</ul>
 					</li>

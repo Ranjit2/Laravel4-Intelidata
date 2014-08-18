@@ -6659,13 +6659,25 @@ footer .legal-terms p {
 .tiny-timeline {
   margin: 0 auto;
   font-size: 10px;
+  width: 700px;
 }
 .tiny-timeline li {
   margin: 0;
 }
 .tiny-timeline .months {
+  padding-bottom: 1px;
+  margin-bottom: 1px;
   border-bottom: 1px solid;
 }
 .tiny-timeline .years li {
   margin: 0 5px;
+  margin-top: 0;
+}
+.tiny-timeline .divide-line {
+  margin-top: 1px;
+  padding: 0;
+  border-right: 1px solid;
+  height: 30px;
+  position: relative;
+  top: 20px;
 }

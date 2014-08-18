@@ -50,11 +50,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('/question', 'PreguntasController@recibe');
 
 	// HOME VIEW
-	Route::get('/home', function() {
-		$f = Telefono::fechas_importantes();
-		return View::make('home')->with('tline', $f);
-	});
-
+	Route::get('/home', function() { return View::make('home'); });
 
 	// CHARTS VIEWS
 	Route::get('/charts/pie', function(){ return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
@@ -104,5 +100,7 @@ Route::group(array('before' => 'auth'), function() {
 
 });
 
-Route::get('timeline', function(){ return View::make('timeline'); });
+Route::get('timeline', 'TimelineController@index');
+Route::post('timeline', 'TimelineController@index');
+
 Route::get('/charts/evolution', function(){ return View::make('evolution'); });

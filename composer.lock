@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4cf623dc143a2947688fc8dfd7caf62c",
+    "hash": "86a1bde8dcba7f65be7d6be0e732516e",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672"
+                "reference": "f088d868340b829a52a776aedd040e772825fedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
-                "reference": "6cbb9f58e488a7a9235d84f5a51bac774a1fd672",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/f088d868340b829a52a776aedd040e772825fedc",
+                "reference": "f088d868340b829a52a776aedd040e772825fedc",
                 "shasum": ""
             },
             "require": {
@@ -55,20 +55,20 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-08-10 08:09:38"
+            "time": "2014-08-15 11:57:42"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v1.11.1",
+            "version": "v1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb"
+                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/1b608fc44697e79e20ef060bc679ec5b519362cb",
-                "reference": "1b608fc44697e79e20ef060bc679ec5b519362cb",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/19aa77ac49ab4ea859196c692618c56de3bb7e01",
+                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2014-08-11 11:26:11"
+            "time": "2014-08-12 12:34:30"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "c48f30549b1ec508a74141a833757ca1e0d9ca53"
+                "reference": "667e37c3557134c1fbc1df158ec538e2206bc132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c48f30549b1ec508a74141a833757ca1e0d9ca53",
-                "reference": "c48f30549b1ec508a74141a833757ca1e0d9ca53",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/667e37c3557134c1fbc1df158ec538e2206bc132",
+                "reference": "667e37c3557134c1fbc1df158ec538e2206bc132",
                 "shasum": ""
             },
             "require": {
@@ -782,7 +782,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-07-17 07:25:43"
+            "time": "2014-08-18 16:08:59"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1253,16 +1253,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "0bca477a34baea39add016af90046f002a175619"
+                "reference": "38743b677965c48a637097b2746a281264ae2347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/0bca477a34baea39add016af90046f002a175619",
-                "reference": "0bca477a34baea39add016af90046f002a175619",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/38743b677965c48a637097b2746a281264ae2347",
+                "reference": "38743b677965c48a637097b2746a281264ae2347",
                 "shasum": ""
             },
             "require": {
@@ -1298,7 +1298,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2014-03-28 09:21:30"
+            "time": "2014-08-09 10:27:07"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2462,12 +2462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
+                "reference": "ea0e1606dc8f6a351c850a3e51889872c0f07c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ea0e1606dc8f6a351c850a3e51889872c0f07c31",
+                "reference": "ea0e1606dc8f6a351c850a3e51889872c0f07c31",
                 "shasum": ""
             },
             "replace": {
@@ -2505,7 +2505,51 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-08 19:23:55"
+            "time": "2014-08-17 23:08:49"
+        },
+        {
+            "name": "tzookb/tbmsg",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tzookb/tbmsg.git",
+                "reference": "8260c5b8a95d79a8abaa3de45a80eb4b25e77d8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tzookb/tbmsg/zipball/8260c5b8a95d79a8abaa3de45a80eb4b25e77d8e",
+                "reference": "8260c5b8a95d79a8abaa3de45a80eb4b25e77d8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tzookb\\TBMsg": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tzook Bar Noy",
+                    "email": "tzookb@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "users messaging system",
+            "homepage": "https://github.com/tzookb/tbmsg",
+            "keywords": [
+                "laravel",
+                "message-system",
+                "messaging",
+                "php"
+            ],
+            "time": "2014-07-06 08:11:47"
         }
     ],
     "packages-dev": [
@@ -2568,6 +2612,7 @@
         "barryvdh/laravel-debugbar": 20,
         "thujohn/pdf": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],

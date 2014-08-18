@@ -62,7 +62,7 @@
     <script type="text/javascript"
     src="http://www.amcharts.com/lib/3/themes/none.js"></script>
     <!-- Custom JS -->
-    {{ HTML::script('js/frontend.min.js') }}
+    {{ HTML::script('js/frontend.js') }}
     @yield('script')
 </body>
 </html>

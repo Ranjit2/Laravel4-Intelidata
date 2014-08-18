@@ -2,12 +2,8 @@ $('#nav-profile a').click(function (e) {
     e.preventDefault()
     $(this).tab('show')
 });
-// $('#nav-profile a').hover(function (e) {
-//     e.preventDefault()
-//     $(this).tab('show')
-// });
 
-AmCharts.loadJSON = function (url, method) {
+$.loadJSON = function (url, method) {
     try {
         return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
     } catch(err) {
@@ -22,7 +18,7 @@ $.loadChart = function (div, url, type, mes, method) {
     var method = typeof method !== 'undefined' ? method : 'POST';
     var url    = typeof url !== 'undefined' ? url+type+mes : '';
     try {
-        var data  = AmCharts.loadJSON(url, method);
+        var data  = $.loadJSON(url, method);
         AmCharts.ready(function(){
             var chart = AmCharts.makeChart(div, data);
         });
@@ -34,7 +30,7 @@ $.loadChart = function (div, url, type, mes, method) {
 $.graficoBroken = function (div, url, method) {
     var chart; var legend; var selected;
 
-    var types = AmCharts.loadJSON(url, method);
+    var types = $.loadJSON(url, method);
 
     chart      = new AmCharts.AmPieChart();
     var legend = new AmCharts.AmLegend();
@@ -173,45 +169,16 @@ $.progressbar = function (a) {
     return c;
 }
 
+$.fn.centerToWindow = function() {
+  var obj           = $(this);
+  var obj_width     = $(this).outerWidth(true);
+  var obj_height    = $(this).outerHeight(true);
+  var window_width  = window.innerWidth ? window.innerWidth : $(window).width();
+  var window_height = window.innerHeight ? window.innerHeight : $(window).height();
 
-
-$(document).ready(function() {
-    var panels = $('.user-infos');
-    var panelsButton = $('.dropdown-user');
-    panels.hide();
-
-    panelsButton.click(function() {
-        var dataFor = $(this).attr('data-for');
-        var idFor = $(dataFor);
-
-        var currentButton = $(this);
-        idFor.slideToggle(400, function() {
-            if(idFor.is(':visible')) {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            } else {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-            }
-        })
-    });
-    $('[data-toggle="tooltip"]').tooltip();
-});
-
-var loading = false;
-$(window).scroll(function(){
-    if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
-        if(loading == false){
-            loading = true;
-            $('#loadingbar').css("display","block");
-            $.get("load.php?start="+$('#loaded_max').val(), function(loaded){
-                $('body').append(loaded);
-                $('#loaded_max').val(parseInt($('#loaded_max').val())+50);
-                $('#loadingbar').css("display","none");
-                loading = false;
-            });
-        }
-    }
-});
-
-$(document).ready(function() {
-    $('#loaded_max').val(50);
-});
+  obj.css({
+    "position" : "fixed",
+    "top"      : ((window_height / 2) - (obj_height / 2))+"px",
+    "left"     : ((window_width / 2) - (obj_width / 2))+"px"
+  });
+}

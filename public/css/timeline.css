@@ -1,7 +1,14 @@
 .timeline {
     list-style: none;
-    padding: 20px 0 20px;
     position: relative;
+    /*padding: 20px 0 20px;*/
+    padding: 0;
+}
+
+#timeline-scroll {
+    height: 450px;
+    padding: 20px 0 20px;
+    overflow-y: scroll;
 }
 
 .timeline:before {
