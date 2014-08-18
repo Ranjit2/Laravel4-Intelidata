@@ -6494,6 +6494,13 @@ footer .social-icons a {
   -ms-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
+footer .social-icons a:hover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
 footer .social-icons a.fb:hover,
 a.fb:focus {
   text-decoration: none;
