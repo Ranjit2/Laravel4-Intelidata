@@ -100,7 +100,14 @@ Route::group(array('before' => 'auth'), function() {
 
 });
 
+<<<<<<< HEAD
 Route::get('timeline', 'TimelineController@index');
 Route::post('timeline', 'TimelineController@index');
 
+=======
+
+Route::post('/question', 'PreguntasController@recibe');
+Route::get('timeline', function(){ return View::make('timeline'); });
+>>>>>>> 709e0b90f1a8d4e12e0a80e2d80ca001bba1ab8c
 Route::get('/charts/evolution', function(){ return View::make('evolution'); });
+

@@ -7,4 +7,5 @@ class Pregunta extends \Eloquent {
 	public function respuestas(){
 			return $this->belongsToMany('Respuesta', 'pregunta_respuesta', 'id_pregunta', 'id_respuesta');
 	}
+
 }

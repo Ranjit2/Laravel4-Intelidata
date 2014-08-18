@@ -40,6 +40,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable   = array('id','numero_cliente','rut','clave');
 	protected $hidden     = array('numero_cliente', 'clave');
 
+	public function clientePreguntas()
+	{
+		return $this->hasMany('ClientePregunta','id_cliente');
+	}
+
 	public function getAuthIdentifier() {
 		return $this->getKey();
 	}
