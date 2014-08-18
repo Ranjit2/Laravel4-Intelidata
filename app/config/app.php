@@ -125,7 +125,7 @@ return array(
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Thujohn\Pdf\PdfServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Tzookb\TBMsg\TBMsgServiceProvider',
+		// 'Tzookb\TBMsg\TBMsgServiceProvider',
 		),
 
 	/*
@@ -195,7 +195,7 @@ return array(
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 		'Carbon'            => 'Carbon\Carbon',
 		'PDF'               => 'Thujohn\Pdf\PdfFacade',
-		'TBMsg'             => 'Tzookb\TBMsg\Facade\TBMsg',
+		// 'TBMsg'             => 'Tzookb\TBMsg\Facade\TBMsg',
 		),
 
 );
