@@ -24,6 +24,19 @@ Route::group(array('after' => 'auth'), function() {
 	// LOGIN
 	Route::get('/login', 'HomeController@showLogin');
 	Route::post('/login', 'HomeController@doLogin');
+	// Route::get('/question', function(){
+	// 	$preguntas  = Pregunta::where('estado','=','A')->get();
+	// 	return View::make('question')->with('preguntas', $preguntas);
+	// });
+	// Route::get('/user/question', function(){
+	// 	$preguntas  = Pregunta::where('estado','=','A')->get();
+	// 	return View::make('question2')->with('preguntas', $preguntas);
+	// });
+	Route::get('/question', function(){
+		$preguntas  = Pregunta::where('estado','=','A')->get();
+		return View::make('perfil')->with('preguntas', $preguntas);
+	});
+	Route::post('/question', 'PreguntasController@recibe');
 });
 
 // DESPUES DE AUTENTIFICARCE
@@ -38,19 +51,6 @@ Route::group(array('before' => 'auth'), function() {
 	// PROFILE
 	Route::get('/user/profile', function() { return View::make('users.profile'); });
 	Route::get('/user/message', function(){ return View::make('message'); });
-	Route::get('/question', function(){
-		$preguntas  = Pregunta::where('estado','=','A')->get();
-		return View::make('question')->with('preguntas', $preguntas);
-	});
-	Route::get('/user/question', function(){
-		$preguntas  = Pregunta::where('estado','=','A')->get();
-		return View::make('question2')->with('preguntas', $preguntas);
-	});
-	Route::get('/question', function(){
-		$preguntas  = Pregunta::where('estado','=','A')->get();
-		return View::make('perfil')->with('preguntas', $preguntas);
-	});
-	Route::post('/question', 'PreguntasController@recibe');
 
 	// HOME VIEW
 	Route::get('/home', function() { return View::make('home'); });
