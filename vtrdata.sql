@@ -46,8 +46,39 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'111-1','111-1','cliente','$2y$10$d91OdwfDpA/o.iHHr0EnyOk47O/bcnr3O5O73.zAeKJ0OV8oJiyji','SMmmPIUIJ1GWEhkKeyBDbrMnss8N2impjjvuIFcAARrNR4V4VbTiHZXJkmWe','0000-00-00 00:00:00','2014-08-06 18:13:32','0000-00-00 00:00:00'),(2,'222-2','222-2','cliente','$2y$10$Vz07kxHPgj9A8LHCfb5d1eQ.2V6dDEYnmqmResEbITM9X5R2G0SBm','VlCYg94tnTfU4D8QqWULd8ree4ZulyLD73YSmDajxD2hBvYVTpoDEJZhH8Vb','0000-00-00 00:00:00','2014-07-30 22:03:49','0000-00-00 00:00:00'),(3,'333-3','333-3','cliente','$2y$10$WppzLxIuuG7eLh5GECfuHeqPVV3pO5bcu89O95v91TafoeM54rdPS','27I2Op4RDpqkOitFy78mg6VNrk9EhEgqWwxXIlpeceQKn7ZuMWymsPkUhjnS','0000-00-00 00:00:00','2014-07-30 17:09:21','0000-00-00 00:00:00'),(4,'444-4','444-4','cliente','$2y$10$u.Isoz3Z6OW6bioynqFD0uKxegGAelNPA5iH6lDISV3JS7S5JP2pW','I7vIKSbVwzdF4cvmx1bq7UK4GR0HGJzSMrYOw7o03Xh5zC3Zn6Q0lzDg9sHx','0000-00-00 00:00:00','2014-08-01 17:29:46','0000-00-00 00:00:00'),(5,'555-5','555-5','cliente','$2y$10$/mNXbS9sQ.GnEeftc5hr1O9/S4bcnPMuJzYmeHzpRvdGZ2JF5XoZG',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,'666-6','666-6','cliente','$2y$10$osgMCARsLbClyBJ8UWYE7OuENtPYN66.tWjZ03ZKc3jCmXrXCjG7S',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,'11111-1','11111-1','empresa','$2y$10$OmK8HJZ71bK3TuF.wiRKxeSkoni6qgilvZG6JRCDqQm6ZbNSwiDRm','dYr2yRSMWdAWGZLcDxSOqRSR73ayPj3sDfn3nfQIbiuFIZUZBC7MTs5KC8Al','0000-00-00 00:00:00','2014-08-08 20:55:15','0000-00-00 00:00:00'),(8,'22222-2','22222-2','empresa','$2y$10$l1QvygDcR.sf3sMmjQYReurRP7Q.kzo.qPT37VoinqKXu3yQOMOsW',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `cliente` VALUES (1,'111-1','111-1','cliente','$2y$10$d91OdwfDpA/o.iHHr0EnyOk47O/bcnr3O5O73.zAeKJ0OV8oJiyji','1zryHMENGIYw5DuKWHjKM9ZuBKjSSm2mr3ERFT7PQGMXLFJett6uV7BSJh9G','0000-00-00 00:00:00','2014-08-12 15:48:44','0000-00-00 00:00:00'),(2,'222-2','222-2','cliente','$2y$10$Vz07kxHPgj9A8LHCfb5d1eQ.2V6dDEYnmqmResEbITM9X5R2G0SBm','VlCYg94tnTfU4D8QqWULd8ree4ZulyLD73YSmDajxD2hBvYVTpoDEJZhH8Vb','0000-00-00 00:00:00','2014-07-30 22:03:49','0000-00-00 00:00:00'),(3,'333-3','333-3','cliente','$2y$10$WppzLxIuuG7eLh5GECfuHeqPVV3pO5bcu89O95v91TafoeM54rdPS','27I2Op4RDpqkOitFy78mg6VNrk9EhEgqWwxXIlpeceQKn7ZuMWymsPkUhjnS','0000-00-00 00:00:00','2014-07-30 17:09:21','0000-00-00 00:00:00'),(4,'444-4','444-4','cliente','$2y$10$u.Isoz3Z6OW6bioynqFD0uKxegGAelNPA5iH6lDISV3JS7S5JP2pW','I7vIKSbVwzdF4cvmx1bq7UK4GR0HGJzSMrYOw7o03Xh5zC3Zn6Q0lzDg9sHx','0000-00-00 00:00:00','2014-08-01 17:29:46','0000-00-00 00:00:00'),(5,'555-5','555-5','cliente','$2y$10$/mNXbS9sQ.GnEeftc5hr1O9/S4bcnPMuJzYmeHzpRvdGZ2JF5XoZG',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,'666-6','666-6','cliente','$2y$10$osgMCARsLbClyBJ8UWYE7OuENtPYN66.tWjZ03ZKc3jCmXrXCjG7S',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,'11111-1','11111-1','empresa','$2y$10$OmK8HJZ71bK3TuF.wiRKxeSkoni6qgilvZG6JRCDqQm6ZbNSwiDRm','g3z1ZVdpzGijEsrSP3me7fENx0SN8iijzpnnxGqsa1NgkBlCmcvNYyxPqQOy','0000-00-00 00:00:00','2014-08-12 15:46:27','0000-00-00 00:00:00'),(8,'22222-2','22222-2','empresa','$2y$10$l1QvygDcR.sf3sMmjQYReurRP7Q.kzo.qPT37VoinqKXu3yQOMOsW',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cliente_preguntas`
+--
+
+DROP TABLE IF EXISTS `cliente_preguntas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente_preguntas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `id_pregunta_respuesta` int(11) NOT NULL,
+  `estado` varchar(20) COLLATE utf8_spanish2_ci DEFAULT 'A' COMMENT 'A = activo\r\nB = dado Baja',
+  `fecha_ingreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_telefono` (`id_cliente`),
+  KEY `id_pregunta_respuesta` (`id_pregunta_respuesta`),
+  CONSTRAINT `cliente_preguntas_fk1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
+  CONSTRAINT `telefono_preguntas_fk2` FOREIGN KEY (`id_pregunta_respuesta`) REFERENCES `pregunta_respuesta` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente_preguntas`
+--
+
+LOCK TABLES `cliente_preguntas` WRITE;
+/*!40000 ALTER TABLE `cliente_preguntas` DISABLE KEYS */;
+INSERT INTO `cliente_preguntas` VALUES (1,1,1,'A','2014-08-12 21:52:34'),(2,1,2,'A','2014-08-12 21:53:28');
+/*!40000 ALTER TABLE `cliente_preguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -139,6 +170,60 @@ INSERT INTO `migrations` VALUES ('2014_07_29_011005_create_users_table',1);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `pregunta_respuesta`
+--
+
+DROP TABLE IF EXISTS `pregunta_respuesta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pregunta_respuesta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pregunta` int(11) NOT NULL,
+  `id_respuesta` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_pregunta` (`id_pregunta`),
+  KEY `id_respuesta` (`id_respuesta`),
+  CONSTRAINT `pregunta_respuesta_fk2` FOREIGN KEY (`id_respuesta`) REFERENCES `respuestas` (`id`),
+  CONSTRAINT `pregunta_respuesta_fk1` FOREIGN KEY (`id_pregunta`) REFERENCES `preguntas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pregunta_respuesta`
+--
+
+LOCK TABLES `pregunta_respuesta` WRITE;
+/*!40000 ALTER TABLE `pregunta_respuesta` DISABLE KEYS */;
+INSERT INTO `pregunta_respuesta` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,2,1),(6,2,2),(7,2,3),(8,2,4),(9,3,1),(10,3,2),(11,3,3),(12,3,4);
+/*!40000 ALTER TABLE `pregunta_respuesta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `preguntas`
+--
+
+DROP TABLE IF EXISTS `preguntas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `preguntas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pregunta` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `estado` char(1) COLLATE utf8_spanish2_ci DEFAULT 'A' COMMENT 'A = activo\r\nB = Dado Baja',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `preguntas`
+--
+
+LOCK TABLES `preguntas` WRITE;
+/*!40000 ALTER TABLE `preguntas` DISABLE KEYS */;
+INSERT INTO `preguntas` VALUES (1,'¿Cómo te gustaría ser contactado para recibir información sobre promociones?','A'),(2,'¿Cómo te gustaría ser contactado para recibir información sobre cambio de planes?','A'),(3,'¿Cómo te gustaría ser contactado para recibir información sobre servicios de empresas?','A');
+/*!40000 ALTER TABLE `preguntas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `producto`
 --
 
@@ -163,6 +248,30 @@ LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
 INSERT INTO `producto` VALUES (1,'BAM','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,'MOVIL','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(3,'PLAN 1','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(4,'PLAN 2','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,'PLAN 3','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,'PLAN 4','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,'PLAN 5','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(8,'PLAN 6','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00'),(9,'PLAN 7','0000-00-00 00:00:00','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `respuestas`
+--
+
+DROP TABLE IF EXISTS `respuestas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `respuestas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `respuesta` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `respuestas`
+--
+
+LOCK TABLES `respuestas` WRITE;
+/*!40000 ALTER TABLE `respuestas` DISABLE KEYS */;
+INSERT INTO `respuestas` VALUES (1,'Vía telefónica'),(2,'Vía E-mail'),(3,'Correo postal'),(4,'Redes sociales');
+/*!40000 ALTER TABLE `respuestas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -374,4 +483,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-08-08 17:04:35
+-- Dump completed on 2014-08-12 18:46:39

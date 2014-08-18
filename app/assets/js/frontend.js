@@ -1,3 +1,12 @@
+$('#nav-profile a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+});
+// $('#nav-profile a').hover(function (e) {
+//     e.preventDefault()
+//     $(this).tab('show')
+// });
+
 AmCharts.loadJSON = function (url, method) {
     try {
         return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
@@ -27,91 +36,77 @@ $.graficoBroken = function (div, url, method) {
 
     var types = AmCharts.loadJSON(url, method);
 
-    AmCharts.ready(function () {
-        chart      = new AmCharts.AmPieChart();
-        var legend = new AmCharts.AmLegend();
-        legend.valueText = "";
-        chart.addLegend(legend, "legenddiv");
+    chart      = new AmCharts.AmPieChart();
+    var legend = new AmCharts.AmLegend();
+    legend.valueText = "";
+    chart.addLegend(legend, "legenddiv");
 
-        chart.dataProvider     = $.generateChartData(types, selected);
-        chart.titleField       = "<numero></numero>";
-        chart.valueField       = "percent";
-        chart.outlineColor     = "#FFFFFF";
-        chart.outlineAlpha     = 0.8;
-        chart.outlineThickness = 2;
-        chart.colorField       = "color";
-        chart.pulledField      = "pulled";
-        chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
-        chart.labelText        = "[[numero]]";
-        chart.radius           = "30%";
-        chart.exportConfig     =  exportConfig;
+    chart.dataProvider     = $.generateChartData(types, selected);
+    chart.titleField       = "<numero></numero>";
+    chart.valueField       = "percent";
+    chart.outlineColor     = "#FFFFFF";
+    chart.outlineAlpha     = 0.8;
+    chart.outlineThickness = 2;
+    chart.colorField       = "color";
+    chart.pulledField      = "pulled";
+    chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
+    chart.labelText        = "[[numero]]";
+    chart.radius           = "30%";
+    chart.exportConfig     =  exportConfig;
 
-        var exportConfig = {
-            menuTop: "30px",
-            menuBottom: "auto",
-            menuRight: "70px",
-            backgroundColor: "#efefef",
-            menuItems: [{
-                textAlign: 'center',
-                icon: 'http://www.amcharts.com/lib/3/images/export.png',
-                items: [{
-                    title: 'JPG',
-                    format: 'jpg'
-                }, {
-                    title: 'PNG',
-                    format: 'png'
-                }, {
-                    title: 'SVG',
-                    format: 'svg'
-                }, {
-                    title: 'PDF',
-                    format: 'pdf'
-                }]
+    var exportConfig = {
+        menuTop: "30px",
+        menuBottom: "auto",
+        menuRight: "70px",
+        backgroundColor: "#efefef",
+        menuItems: [{
+            textAlign: 'center',
+            icon: 'http://www.amcharts.com/lib/3/images/export.png',
+            items: [{
+                title: 'JPG',
+                format: 'jpg'
+            }, {
+                title: 'PNG',
+                format: 'png'
+            }, {
+                title: 'SVG',
+                format: 'svg'
+            }, {
+                title: 'PDF',
+                format: 'pdf'
             }]
-        };
+        }]
+    };
 
-        chart.dataProvider     = $.generateChartData(types, selected);
-        chart.titleField       = "type";
-        chart.valueField       = "percent";
-        chart.outlineColor     = ""; // "#FFFFFF";
-        chart.outlineAlpha     = 0.8;
-        chart.outlineThickness = 2;
-        chart.colorField       = "color";
-        chart.pulledField      = "pulled";
-        chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
-        chart.labelText        = "[[type]]";
-        chart.radius           = "30%";
-        chart.exportConfig     = exportConfig;
-        chart.depth3D          = 10;
-        chart.groupedPulled = true;
+    chart.dataProvider     = $.generateChartData(types, selected);
+    chart.titleField       = "type";
+    chart.valueField       = "percent";
+    chart.outlineColor     = ""; // "#FFFFFF";
+    chart.outlineAlpha     = 0.8;
+    chart.outlineThickness = 2;
+    chart.colorField       = "color";
+    chart.pulledField      = "pulled";
+    chart.balloonText      = "<b>$[[percent]] ([[percents]]%)</b>";
+    chart.labelText        = "[[type]]";
+    chart.radius           = "30%";
+    chart.exportConfig     = exportConfig;
+    chart.depth3D          = 10;
+    chart.groupedPulled = true;
 
-        chart.addListener("clickSlice", function (event) {
-            if (event.dataItem.dataContext.id != undefined) {
-                selected = event.dataItem.dataContext.id;
-        // b = parseInt(a+(a*0.15));
-        // $('#chartdiv svg').css('min-height',b + 'px');
-        // $('#chartdiv div:first-child').css('min-height',b + 'px');
-        // chart.marginTop = 100;
-        // chart.labelRadius = 2;
-        // $('#legenddiv').empty().show();
+    chart.addListener("clickSlice", function (event) {
+        if (event.dataItem.dataContext.id != undefined) {
+            selected = event.dataItem.dataContext.id;
         }
         else {
             selected = undefined;
-        // $('#chartdiv svg').css('min-height',a + 'px');
-        // $('#chartdiv div:first-child').css('min-height',a + 'px');
-        // chart.marginTop = 10;
-        // chart.labelRadius = 20;
-        $('#legenddiv').show();
+            $('#legenddiv').show();
         }
         chart.dataProvider = $.generateChartData(types, selected);
         chart.validateData();
-        });
-        chart.write(div);
-        // var a = $('#chartdiv svg').height();
-        // var b = 0;
     });
-}
+    chart.write(div);
 
+}
 
 $.generateChartData = function (types, selected) {
     $('#lista').hide();
@@ -124,7 +119,6 @@ $.generateChartData = function (types, selected) {
         if (types[i].subs.length > 0 && i == selected) {
             $('#legenddiv').hide();
             $('#lista').show();
-
             for (var x = 0; x < types[i].subs.length; x++) {
                 chartData.push({
                     type: types[i].subs[x].type,
@@ -179,6 +173,8 @@ $.progressbar = function (a) {
     return c;
 }
 
+
+
 $(document).ready(function() {
     var panels = $('.user-infos');
     var panelsButton = $('.dropdown-user');
@@ -198,4 +194,24 @@ $(document).ready(function() {
         })
     });
     $('[data-toggle="tooltip"]').tooltip();
+});
+
+var loading = false;
+$(window).scroll(function(){
+    if((($(window).scrollTop()+$(window).height())+250)>=$(document).height()){
+        if(loading == false){
+            loading = true;
+            $('#loadingbar').css("display","block");
+            $.get("load.php?start="+$('#loaded_max').val(), function(loaded){
+                $('body').append(loaded);
+                $('#loaded_max').val(parseInt($('#loaded_max').val())+50);
+                $('#loadingbar').css("display","none");
+                loading = false;
+            });
+        }
+    }
+});
+
+$(document).ready(function() {
+    $('#loaded_max').val(50);
 });

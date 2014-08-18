@@ -541,17 +541,46 @@ HEADSCRIPT;
 return $headScript;
 });
 
-HTML::macro('tiny-timeline', function($url){
-    $a = '<ul class="list-inline">';
-    for ($i = 13; $i > 0; $i--) {
-        if (Carbon::now()->subMonths($i)->month == 1) {
-            $a .= '|';
+HTML::macro('tiny_timeline', function($url){
+    $a = '<ul class="list-inline months">';
+    $c = 0;
+    $y = array();
+    for ($i = 12; $i > -1; $i--) {
+        $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
+        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
+        $a .= '</a></li>';
+        array_push($y, Carbon::now()->subMonths($i)->year);
+    }
+    $a .= '</ul>';
+    $a .= '<ul class="list-inline years">';
+    foreach (array_unique($y) as $value) {
+        if($c == 0) {
+            $a .= '<li class="pull-left"><b>' . $value . '</b></li>';
+            $c++;
+        } elseif($c == 1) {
+            $a .= '<li class="pull-right"><b>' . $value . '</b></li>';
         }
-        $a .= '<li><a href="' . $url . '" data-timeline="1/';
-        $a .= Carbon::now()->subMonths($i)->month . '/';
-        $a .= Carbon::now()->subMonths($i)->year . '">';
-        $a .= Carbon::now()->subMonths($i)->month .'-'.
-        Carbon::now()->subMonths($i)->year;
+    }
+    $a .= '</ul>';
+
+    return $a;
+});
+
+HTML::macro('tiny_timeline2', function($url){
+    $year = '';
+    $a = '<ul class="list-inline">';
+    for ($i = 12; $i > -1; $i--) {
+        if (Carbon::now()->subMonths($i)->month == 12 || ($year != '' && $year != Carbon::now()->subMonths($i)->year)) {
+            $year = '';
+            // $a .= '| ' . (Carbon::now()->subMonths($i)->year);
+        } else {
+            if($year == '') {
+                $a .= '<br><li class="year"><strong>' . Carbon::now()->subMonths($i)->year . '</strong> | </li>';
+            }
+            $year = Carbon::now()->subMonths($i)->year;
+        }
+        $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
+        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
         $a .= '</a></li>';
     }
     $a .= '</ul>';
@@ -565,16 +594,32 @@ HTML::macro('activeState', function($url) {
 HTML::macro('timeline', function($data){
     $a = array('', 'timeline-inverted');
     $b = array('', 'success', 'warning', 'danger', 'info', '');
-    $c = array('glyphicon-check', 'glyphicon-thumbs-up', 'glyphicon-floppy-disk');
+    $c = array('fa-info', 'fa-usd', 'fa-check');
     $d = '';
     foreach ($data as $value) {
-        $d .= '<li class="' . $a[array_rand($a)] . '">';
-        $d .= '<div class="timeline-badge ' . $b[array_rand($b)] . '">';
-        $d .= '<i class="glyphicon ' . $c[array_rand($c)] . '"></i></div>';
-        $d .= '<div class="timeline-panel"><div class="timeline-heading">';
-        $d .= '<h4 class="timeline-title">MONTO TOTAL</h4>';
-        $d .= '<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fecha)) . '</small></p>';
-        $d .= '</div><div class="timeline-body"><p>$' . $value->monto_total . '</p></div></div></li>';
-    }
-    return $d;
+     $d .= '<li class="' . $a[0] . '">';
+     $d .= '<div class="timeline-badge ' . $b[2] . '">';
+     $d .= '<i class="fa ' . $c[0] . '"></i></div>';
+     $d .= '<div class="timeline-panel"><div class="timeline-heading">';
+     $d .= '<h4 class="timeline-title">INFORMACI&Oacute;N AL</h4>';
+     $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->informacion_al)) . '</small></p>';
+     $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        // ---------------------
+     $d .= '<li class="' . $a[1] . '">';
+     $d .= '<div class="timeline-badge ' . $b[3] . '">';
+     $d .= '<i class="fa ' . $c[1] . '"></i></div>';
+     $d .= '<div class="timeline-panel"><div class="timeline-heading">';
+     $d .= '<h4 class="timeline-title">INICIO FACTURACI&Oacute;N</h4>';
+     $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->inicio_fac)) . '</small></p>';
+     $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        // ---------------------
+     $d .= '<li class="' . $a[0] . '">';
+     $d .= '<div class="timeline-badge ' . $b[1] . '">';
+     $d .= '<i class="fa ' . $c[2] . '"></i></div>';
+     $d .= '<div class="timeline-panel"><div class="timeline-heading">';
+     $d .= '<h4 class="timeline-title">FIN FACTURACI&Oacute;N</h4>';
+     $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fin_fac)) . '</small></p>';
+     $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+ }
+ return $d;
 });

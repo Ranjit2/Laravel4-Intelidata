@@ -15,6 +15,7 @@
 Route::pattern('id', '[0-9]+');
 Route::pattern('type', '[a-z]+');
 Route::pattern('mes', '[0-9]+');
+Route::pattern('año', '[0-9]+');
 
 // ANTES O SIN AUTENTIFICARCE
 Route::group(array('after' => 'auth'), function() {
@@ -37,29 +38,40 @@ Route::group(array('before' => 'auth'), function() {
 
 	// PROFILE
 	Route::get('/user/profile', function() { return View::make('users.profile'); });
+	Route::get('/user/message', function(){ return View::make('message'); });
+	Route::get('/question', function(){
+		$preguntas  = Pregunta::where('estado','=','A')->get();
+		return View::make('question')->with('preguntas', $preguntas);
+	});
+	Route::get('/user/question', function(){
+		$preguntas  = Pregunta::where('estado','=','A')->get();
+		return View::make('question2')->with('preguntas', $preguntas);
+	});
+	Route::post('/question', 'PreguntasController@recibe');
 
 	// HOME VIEW
 	Route::get('/home', function() {
-		$t = Telefono::totales();
-		return View::make('home')->with('tline', $t);
+		$f = Telefono::fechas_importantes();
+		return View::make('home')->with('tline', $f);
 	});
 
+
 	// CHARTS VIEWS
-	Route::get('/charts/pie', function(){ return View::make('charts.pie.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/column', function(){ return View::make('charts.column.'.Session::get('ses_user_tipo')); });
-	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.'.Session::get('ses_user_tipo')); });
+	Route::get('/charts/pie', function(){ return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
+	Route::get('/charts/column', function(){ return View::make('charts.column.' . Session::get('ses_user_tipo')); });
+	Route::get('/charts/stackbar', function(){ return View::make('charts.stackbar.' . Session::get('ses_user_tipo')); });
 	Route::get('/charts/breakchart', function(){
 		$titulares = Titular::select('tipo')->get();
-		return View::make('charts.break.'.Session::get('ses_user_tipo'))->with('titulares', $titulares);
+		return View::make('charts.break.' . Session::get('ses_user_tipo'))->with('titulares', $titulares);
 	});
 
 	// CHARTS REQUESTS
 	// CLIENT
-	Route::post('/getChartPie/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+	Route::post('/getChartPie/{id}/{type?}/{mes?}/{año?}', 'GraffController@getChartPie');
 	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{mes?}', 'GraffController@getChartPie');
+	Route::post('/getChartPieEnt/{id}/{type?}/{fecha?}', 'GraffController@getChartPieEnt');
 	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
 
 
@@ -90,39 +102,10 @@ Route::group(array('before' => 'auth'), function() {
 		Func::printr(json_encode($b));
 	});
 
-	Route::get('test2', function(){
-		echo url('/formulario/1');
-	});
 });
 
-
-Route::get('question', function(){
-	$preguntas  = Pregunta::where('estado','=','A')->get();
-	return View::make('perfil')->with('preguntas', $preguntas);
-});
-
-// Route::post('question', function(){
-// 	var_dump(Input::all());
-// });
 
 Route::post('/question', 'PreguntasController@recibe');
-
-
-// Route::get('/majony', function(){
-// 	return PreguntaRespuesta::getIdPreguntaRespuesta(2,3);
-// });
-
-// Route::get('/majony', function(){
-// 	return PreguntaRespuesta::getPreguntaConRespuesta(1);
-// });
-
-
-// Route::get('majony', function(){
-// 	return cliente::find(7)->clientePreguntas;
-// });
-
-
-
-
-
+Route::get('timeline', function(){ return View::make('timeline'); });
+Route::get('/charts/evolution', function(){ return View::make('evolution'); });
 
