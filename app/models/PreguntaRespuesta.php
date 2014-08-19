@@ -17,7 +17,4 @@ class PreguntaRespuesta extends \Eloquent {
 	public function clientePregunta(){
 			return $this->hasMany('ClientePregunta','id_pregunta_respuesta');
 	}
-
-
-
 }

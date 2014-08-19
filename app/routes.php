@@ -24,19 +24,6 @@ Route::group(array('after' => 'auth'), function() {
 	// LOGIN
 	Route::get('/login', 'HomeController@showLogin');
 	Route::post('/login', 'HomeController@doLogin');
-	// Route::get('/question', function(){
-	// 	$preguntas  = Pregunta::where('estado','=','A')->get();
-	// 	return View::make('question')->with('preguntas', $preguntas);
-	// });
-	// Route::get('/user/question', function(){
-	// 	$preguntas  = Pregunta::where('estado','=','A')->get();
-	// 	return View::make('question2')->with('preguntas', $preguntas);
-	// });
-	Route::get('/question', function(){
-		$preguntas  = Pregunta::where('estado','=','A')->get();
-		return View::make('perfil')->with('preguntas', $preguntas);
-	});
-	Route::post('/question', 'PreguntasController@recibe');
 });
 
 // DESPUES DE AUTENTIFICARCE
@@ -53,18 +40,20 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/user/message', function(){ return View::make('message'); });
 
 	// HOME VIEW
-
 	Route::get('/home', function() {
-		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
-		{
-			$f = Telefono::fechas_importantes();
-			return View::make('home')->with('tline', $f);
-		}
-		else
-		{
-			return Redirect::to('/question');	
+		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
+			return View::make('home');
+		} else {
+			return Redirect::to('/question');
 		}
 	});
+
+	// CONTACT QUESTIONS
+	Route::get('/question', function(){
+		$preguntas = Pregunta::scopeWhereNot(Session::get('ses_user_id'));
+		return View::make('perfil')->with('preguntas', $preguntas);
+	});
+	Route::post('/question', 'PreguntasController@recibe');
 
 	// CHARTS VIEWS
 	Route::get('/charts/pie', function(){ return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
@@ -92,26 +81,28 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('timeline', 'TimelineController@index');
 	Route::post('timeline', 'TimelineController@index');
 
-	// Route::get('/test', function() {
-	// 	$b = array();
-	// 	$c = array();
-	// 	foreach ($telefonos = Cliente::find(7)->numeros as $key => $value) {
-	// 		$id     = $value->id;
-	// 		$numero = $value->numero;
-	// 		array_push($b, array(
-	// 			'type' => $numero,
-	// 		// 'percent' => $value->,
-	// 			'subs' => array(),
-	// 			));
-	// 		foreach (Telefono::find($id)->servicios as $key => $value) {
-	// 			$c = array_add($c, $key, array(
-	// 				'type' => $value->tipo,
-	// 				'percent' => $value->precio_servicio,
-	// 				));
-	// 		}
-	// 		array_push($b[$key]['subs'], $c);
-	// 	}
-	// 	Func::printr(json_encode($b));
-	// });
+	Route::get('/test', function() {
+		$a = Pregunta::scopeWhereNot(Session::get('ses_user_id'))->toArray();
+		Func::printr($a);
+		// $b = array();
+		// $c = array();
+		// foreach ($telefonos = Cliente::find(7)->numeros as $key => $value) {
+		// 	$id     = $value->id;
+		// 	$numero = $value->numero;
+		// 	array_push($b, array(
+		// 		'type' => $numero,
+		// 	// 'percent' => $value->,
+		// 		'subs' => array(),
+		// 		));
+		// 	foreach (Telefono::find($id)->servicios as $key => $value) {
+		// 		$c = array_add($c, $key, array(
+		// 			'type' => $value->tipo,
+		// 			'percent' => $value->precio_servicio,
+		// 			));
+		// 	}
+		// 	array_push($b[$key]['subs'], $c);
+		// }
+		// Func::printr(json_encode($b));
+	});
 });
 

@@ -12,7 +12,6 @@ class PreguntasController extends \BaseController {
 		return preguntaRespuesta::where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->select('id')->get()[0]['id'];
 	}
 
-
 	public function preguntaRespondida($idPregunta)
 	{
 		//Session::get('ses_user_id')
@@ -32,6 +31,7 @@ class PreguntasController extends \BaseController {
 
 	public function recibe()
 	{
+
 		$variable = Input::except('_token');
 		$idCliente = Session::get('ses_user_id');
 		foreach ($variable as $pregunta => $respuesta)
@@ -57,6 +57,6 @@ class PreguntasController extends \BaseController {
 			$clientePregunta->id_pregunta_respuesta = $this->devuelvePreguntaRespuesta($pregunta, $respuesta);
 			$clientePregunta->save();
 		}
-		return Redirect::to('/home');	
+		return Redirect::to('/home');
 	}
 }

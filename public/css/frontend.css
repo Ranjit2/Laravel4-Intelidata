@@ -6282,40 +6282,33 @@ button.close {
 *
 * LOGIN STYLE
 * */
-.jumbotron {
-  text-align: center;
-  width: 30rem;
-  left: 0;
-  right: 0;
-  position: absolute;
-  margin: 4rem auto;
+.login {
   vertical-align: center;
-  background-color: #fff;
 }
-.jumbotron .container .fa-bar-chart-o {
-  font-size: 10rem;
-  margin-top: 3rem;
-  color: #f96145;
+.login div {
+  padding: 0;
 }
-.jumbotron input {
-  margin-bottom: 0.4rem;
+.login .form-group input {
+  width: 98%;
+  margin: 0;
+  margin-bottom: 1rem;
 }
-.jumbotron h2 {
+.login h2 {
   margin-bottom: 1rem;
   font-weight: bold;
   color: #ababab;
 }
-.jumbotron h2 span {
+.login h2 span {
   margin-bottom: 1rem;
   font-weight: bolder;
   color: #f96145;
 }
-.jumbotron .btn .glyphicon {
-  font-size: 3rem;
-  color: #fff;
+.login .btn {
+  width: 85%;
 }
-.jumbotron .full-width {
-  background-color: #006d87;
+.login .remember {
+  margin-bottom: 5px;
+  margin-right: 6px;
 }
 .user-profile {
   -webkit-transition: all ease 0.5s;
@@ -6493,13 +6486,6 @@ footer .social-icons a {
   -o-transition: all ease 0.5s;
   -ms-transition: all ease 0.5s;
   transition: all ease 0.5s;
-}
-footer .social-icons a:hover {
-  -moz-transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
 }
 footer .social-icons a.fb:hover,
 a.fb:focus {

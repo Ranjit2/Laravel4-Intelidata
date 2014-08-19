@@ -1,18 +1,41 @@
-@extends('layouts.login')
+@extends('layouts.two_column')
+
 @section('content')
-<div class="jumbotron">
-    <div class="container">
-        <span class="fa fa-bar-chart-o"></span>
-        <h2><span>i</span>Data</h2>
-        {{ $errors->first('rut'); }}<br>
-        {{ $errors->first('password') }}
-        {{ Form::open(array('url' => 'login','role'=>'form')) }}
-        {{ Form::label('rut','RUT ', array('class' => 'sr-only')) }}
-        {{ Form::text('rut',Input::old('rut'),array('placeholder' => 'RUT', 'class' => 'form-control')) }}
-        {{ Form::label('password','CONTRASEÑA ', array('class' => 'sr-only')) }}
-        {{ Form::password('password',array('placeholder' => 'CONTRASEÑA', 'class' => 'form-control')) }}
-        <button class="btn btn-default full-width btn-block"><span class="glyphicon glyphicon-ok"></span></button>
-        {{ Form::close() }}
+<h3 class="text-left">HOY COMIENZAS UNA NUEVA EXPERIENCIA DE ATENCIÓN DE CLIENTES</h3>
+<fieldset class="login">
+    <legend class="text-left">INICIA AHORA</legend>
+    {{ Form::open(array('url' => 'login','role'=>'form', 'class'=> '')); }}
+    <div class="form-group">
+        <div class="col-xs-6 col-md-6">
+            {{ Form::label('rut','Email o RUT', array('class' => '')); }}
+            {{ Form::text('rut',Input::old('rut'),array('placeholder' => 'Email o RUT', 'class' => 'form-control input-lg')); }}
+            <span class="help-block">{{ $errors->first('rut'); }}</span>
+        </div>
     </div>
-</div>
+    <div class="form-group">
+        <div class="col-xs-6 col-md-6">
+            {{ Form::label('password','Contraseña', array('class' => '')); }}
+            {{ Form::password('password',array('placeholder' => 'Contraseña', 'class' => 'form-control input-lg')); }}
+            <span class="help-block">{{ $errors->first('password'); }}</span>
+        </div>
+    </div>
+    <div class="remember text-right">
+        <a href="/user/forgot_password" class="">Olvidé mi contraseña</a>
+    </div>
+    <div class="col-md-6">
+        {{ Form::submit('INICIA SESIÓN', array('class' => 'btn btn-primary btn-lg')); }}
+    </div>
+    <div class="col-md-6">
+        {{ HTML::link('/user/signin', 'REGÍSTRATE', array('class' => 'btn btn-default btn-lg')); }}
+    </div>
+    {{ Form::close(); }}
+</fieldset>
+@stop
+
+@section('style')
+<style>
+    legend {
+        margin-bottom: 0;
+    }
+</style>
 @stop

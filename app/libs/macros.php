@@ -608,20 +608,20 @@ HTML::macro('timeline', function($data){
      $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->informacion_al)) . '</small></p>';
      $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
         // ---------------------
-     $d .= '<li class="' . $a[1] . '">';
-     $d .= '<div class="timeline-badge ' . $b[3] . '">';
-     $d .= '<i class="fa ' . $c[1] . '"></i></div>';
-     $d .= '<div class="timeline-panel"><div class="timeline-heading">';
-     $d .= '<h4 class="timeline-title">INICIO FACTURACI&Oacute;N</h4>';
-     $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->inicio_fac)) . '</small></p>';
-     $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
-        // ---------------------
      $d .= '<li class="' . $a[0] . '">';
      $d .= '<div class="timeline-badge ' . $b[1] . '">';
      $d .= '<i class="fa ' . $c[2] . '"></i></div>';
      $d .= '<div class="timeline-panel"><div class="timeline-heading">';
      $d .= '<h4 class="timeline-title">FIN FACTURACI&Oacute;N</h4>';
      $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fin_fac)) . '</small></p>';
+     $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        // ---------------------
+     $d .= '<li class="' . $a[1] . '">';
+     $d .= '<div class="timeline-badge ' . $b[3] . '">';
+     $d .= '<i class="fa ' . $c[1] . '"></i></div>';
+     $d .= '<div class="timeline-panel"><div class="timeline-heading">';
+     $d .= '<h4 class="timeline-title">INICIO FACTURACI&Oacute;N</h4>';
+     $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->inicio_fac)) . '</small></p>';
      $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
  }
  echo $d;

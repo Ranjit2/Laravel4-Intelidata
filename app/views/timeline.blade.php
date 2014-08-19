@@ -1,4 +1,4 @@
-@extends('layouts.basic')
+@extends('layouts.dashboard')
 
 @section('style')
 @stop

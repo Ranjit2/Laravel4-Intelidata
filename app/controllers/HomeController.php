@@ -43,6 +43,7 @@ class HomeController extends BaseController {
 		Auth::logout();
 		Session::forget('ses_user_id');
 		Session::forget('ses_user_rut');
+		Session::forget('ses_user_tipo');
 		return Redirect::to('login');
 	}
 
