@@ -3,7 +3,7 @@
 class HomeController extends BaseController {
 
 	public function showLogin() {
-		return View::make('index');
+			return View::make('index');
 	}
 
 	public function doLogin() {

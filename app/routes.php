@@ -51,8 +51,15 @@ Route::group(array('before' => 'auth'), function() {
 
 	// HOME VIEW
 	Route::get('/home', function() {
-		$f = Telefono::fechas_importantes();
-		return View::make('home')->with('tline', $f);
+		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
+		{
+			$f = Telefono::fechas_importantes();
+			return View::make('home')->with('tline', $f);
+		}
+		else
+		{
+			return Redirect::to('/question');	
+		}
 	});
 
 
@@ -108,4 +115,6 @@ Route::group(array('before' => 'auth'), function() {
 Route::post('/question', 'PreguntasController@recibe');
 Route::get('timeline', function(){ return View::make('timeline'); });
 Route::get('/charts/evolution', function(){ return View::make('evolution'); });
+
+
 

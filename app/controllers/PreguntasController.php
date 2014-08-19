@@ -131,13 +131,13 @@ class PreguntasController extends \BaseController {
 				//var_dump(ClientePregunta::find($idPreguntaRespuesta));
 				$clientePreguntaU 	 = ClientePregunta::find($idClientePregunta);
 				$clientePreguntaU->estado = 'B';
-			 	//$clientePreguntaU->save();
+			 	$clientePreguntaU->save();
 			}
 			$clientePregunta = new ClientePregunta;	
 			$clientePregunta->id_cliente = $idCliente;
 			$clientePregunta->id_pregunta_respuesta = $this->devuelvePreguntaRespuesta($pregunta, $respuesta);
-			//$clientePregunta->save();
+			$clientePregunta->save();
 		}
-		return Redirect::to('/question');	
+		return Redirect::to('/home');	
 	}
 }
