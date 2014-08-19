@@ -9,7 +9,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="{{ URL::to('/') }}"><span class="icon fa fa-clock-o fa-lg  fa-fw"></span>Linea de Tiempo</a>
+				<a href="{{ URL::to('/timeline') }}"><span class="icon fa fa-clock-o fa-lg  fa-fw"></span>Linea de Tiempo</a>
 			</h4>
 		</div>
 	</div>
@@ -63,7 +63,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="icon fa fa-envelope-o fa-lg  fa-fw"></span>Centro de Mensajes</a>
+				<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg  fa-fw"></span>Centro de Mensajes</a>
 			</h4>
 		</div>
 	</div>

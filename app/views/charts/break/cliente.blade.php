@@ -5,7 +5,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<h4>Title</h4>
+				<class="borde-titulo">Title</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<div id="chartdiv7" style="height: 400px;"></div>
 			</div>

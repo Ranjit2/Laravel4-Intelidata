@@ -4,11 +4,8 @@
 
 @section('content')
 <div class="page-header">
-	<h1 id="timeline">LINEA DE TIEMPO</h1>
+	<h1>INICIO</h1>
 </div>
-<ul class="timeline">
-	{{ HTML::timeline($tline) }}
-</ul>
 @stop
 
 @section('aside')

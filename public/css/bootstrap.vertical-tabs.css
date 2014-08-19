@@ -7,10 +7,10 @@
  */
 .tabs-left, .tabs-right {
   border-bottom: none;
-  padding-top: 2px;
+  padding-top: 14px;
 }
 .tabs-left {
-  padding-right: 30 px;
+  /*padding-right: 30px;*/
   border-right: 1px solid #ddd;
 }
 .tabs-right {

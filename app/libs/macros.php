@@ -541,11 +541,18 @@ HEADSCRIPT;
 return $headScript;
 });
 
+HTML::macro('activeState', function($url) {
+    return Request::is($url) ? 'active' : '';
+});
+
 HTML::macro('tiny_timeline', function($url){
     $a = '<ul class="list-inline months">';
     $c = 0;
     $y = array();
     for ($i = 12; $i > -1; $i--) {
+        if(Carbon::now()->subMonths($i)->month == 1){
+             $a .= '<li class="divide-line"></li>';
+         }
         $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
         $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
         $a .= '</a></li>';
@@ -566,30 +573,26 @@ HTML::macro('tiny_timeline', function($url){
     return $a;
 });
 
-HTML::macro('tiny_timeline2', function($url){
-    $year = '';
-    $a = '<ul class="list-inline">';
-    for ($i = 12; $i > -1; $i--) {
-        if (Carbon::now()->subMonths($i)->month == 12 || ($year != '' && $year != Carbon::now()->subMonths($i)->year)) {
-            $year = '';
-            // $a .= '| ' . (Carbon::now()->subMonths($i)->year);
-        } else {
-            if($year == '') {
-                $a .= '<br><li class="year"><strong>' . Carbon::now()->subMonths($i)->year . '</strong> | </li>';
-            }
-            $year = Carbon::now()->subMonths($i)->year;
-        }
-        $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
-        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
-        $a .= '</a></li>';
-    }
-    $a .= '</ul>';
-    return $a;
-});
-
-HTML::macro('activeState', function($url) {
-    return Request::is($url) ? 'active' : '';
-});
+// HTML::macro('tiny_timeline2', function($url){
+//     $year = '';
+//     $a = '<ul class="list-inline">';
+//     for ($i = 12; $i > -1; $i--) {
+//         if (Carbon::now()->subMonths($i)->month == 12 || ($year != '' && $year != Carbon::now()->subMonths($i)->year)) {
+//             $year = '';
+//             $a .= '| ' . (Carbon::now()->subMonths($i)->year);
+//         } else {
+//             if($year == '') {
+//                 $a .= '<br><li class="year"><strong>' . Carbon::now()->subMonths($i)->year . '</strong> | </li>';
+//             }
+//             $year = Carbon::now()->subMonths($i)->year;
+//         }
+//         $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
+//         $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
+//         $a .= '</a></li>';
+//     }
+//     $a .= '</ul>';
+//     return $a;
+// });
 
 HTML::macro('timeline', function($data){
     $a = array('', 'timeline-inverted');
@@ -621,5 +624,5 @@ HTML::macro('timeline', function($data){
      $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fin_fac)) . '</small></p>';
      $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
  }
- return $d;
+ echo $d;
 });
