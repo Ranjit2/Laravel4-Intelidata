@@ -53,7 +53,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/user/message', function(){ return View::make('message'); });
 
 	// HOME VIEW
-<<<<<<< HEAD
+
 	Route::get('/home', function() {
 		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
 		{
@@ -65,10 +65,6 @@ Route::group(array('before' => 'auth'), function() {
 			return Redirect::to('/question');	
 		}
 	});
-
-=======
-	Route::get('/home', function() { return View::make('home'); });
->>>>>>> 71c05be6515d5a970f011e885afb687b4ca15d39
 
 	// CHARTS VIEWS
 	Route::get('/charts/pie', function(){ return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
@@ -92,39 +88,6 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 	Route::post('/telefonosServicios/{idCliente}/{fecha?}', 'GraffController@getChartBroke');
 
-<<<<<<< HEAD
-	Route::get('/test', function() {
-		$b = array();
-		$c = array();
-		foreach ($telefonos = Cliente::find(7)->numeros as $key => $value) {
-			$id     = $value->id;
-			$numero = $value->numero;
-			array_push($b, array(
-				'type' => $numero,
-			// 'percent' => $value->,
-				'subs' => array(),
-				));
-			foreach (Telefono::find($id)->servicios as $key => $value) {
-				$c = array_add($c, $key, array(
-					'type' => $value->tipo,
-					'percent' => $value->precio_servicio,
-					));
-			}
-			array_push($b[$key]['subs'], $c);
-		}
-		Func::printr(json_encode($b));
-	});
-
-});
-
-
-Route::post('/question', 'PreguntasController@recibe');
-Route::get('timeline', function(){ return View::make('timeline'); });
-Route::get('/charts/evolution', function(){ return View::make('evolution'); });
-
-
-
-=======
 	// TIMELINE
 	Route::get('timeline', 'TimelineController@index');
 	Route::post('timeline', 'TimelineController@index');
@@ -151,4 +114,4 @@ Route::get('/charts/evolution', function(){ return View::make('evolution'); });
 	// 	Func::printr(json_encode($b));
 	// });
 });
->>>>>>> 71c05be6515d5a970f011e885afb687b4ca15d39
+

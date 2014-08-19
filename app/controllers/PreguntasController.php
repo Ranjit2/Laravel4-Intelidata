@@ -57,10 +57,6 @@ class PreguntasController extends \BaseController {
 			$clientePregunta->id_pregunta_respuesta = $this->devuelvePreguntaRespuesta($pregunta, $respuesta);
 			$clientePregunta->save();
 		}
-<<<<<<< HEAD
 		return Redirect::to('/home');	
-=======
-		return Redirect::to('/question');
->>>>>>> 71c05be6515d5a970f011e885afb687b4ca15d39
 	}
 }
