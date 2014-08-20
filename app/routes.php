@@ -40,22 +40,25 @@ Route::group(array('before' => 'auth'), function() {
 
 	// HOME VIEW
 	Route::get('/home', function() {
-<<<<<<< HEAD
-		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
-		{
-		 	return View::make('home');
-		}
-		else
-		{
-=======
 		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
 			return View::make('home');
 		} else {
->>>>>>> origin/dev
 			return Redirect::to('/question');
 		}
-		
 	});
+
+	Route::get('/user/question', function(){
+		$id_p = 1;
+		$id_r = 2;
+		$pc = new PreguntasController();
+		$pr = $pc->devuelvePreguntaRespuesta((int) $id_p, (int) $id_r);
+		$cp = ClientePregunta::whereIdPreguntaRespuesta($pr);
+		Func::printr($cp);
+		// d
+		// $p = Pregunta::where('estado', 'A')->get();
+		// return View::make('question2')->with('preguntas', $p);
+	});
+	Route::post('/user/question', 'PreguntasController@recibe');
 
 	// CONTACT QUESTIONS
 	Route::get('/question', function(){

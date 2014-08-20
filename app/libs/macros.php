@@ -607,3 +607,13 @@ HTML::macro('timeline', function($data){
     }
     unset($d);
 });
+
+HTML::macro('respondida', function($id_p, $id_r) {
+    $pc = new PreguntasController();
+    Func::printr(ClientePregunta::find($pc->devuelvePreguntaRespuesta((int) $id_p, (int) $id_r)));
+    // if($pc->devuelvePreguntaRespuesta($id_p, $id_r)) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+});

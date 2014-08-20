@@ -11,6 +11,7 @@ return array(
     'Way\\Generators' => array($vendorDir . '/way/generators/src'),
     'Tzookb\\TBMsg' => array($vendorDir . '/tzookb/tbmsg/src'),
     'Thujohn\\Pdf' => array($vendorDir . '/thujohn/pdf/src'),
+    'Thujohn\\Analytics' => array($vendorDir . '/thujohn/analytics/src'),
     'System' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\Component\\Security\\Core\\' => array($vendorDir . '/symfony/security-core'),

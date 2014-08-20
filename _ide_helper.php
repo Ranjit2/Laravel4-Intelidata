@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-08-18.
+ * Generated for Laravel 4.2.8 on 2014-08-20.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13391,6 +13391,16 @@ namespace {
         public static function getNumOfUnreadMsgs($user_id){
             return \Tzookb\TBMsg\TBMsg::getNumOfUnreadMsgs($user_id);
         }
+        
+    }
+
+
+    class 0 extends \Thujohn\Analytics\AnalyticsServiceProvider{
+        
+    }
+
+
+    class 1 extends \Thujohn\Analytics\AnalyticsServiceProvider{
         
     }
 

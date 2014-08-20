@@ -11,7 +11,9 @@
 		"barryvdh/laravel-ide-helper": "1.*",
 		"doctrine/dbal": "~2.3",
 		"thujohn/pdf": "dev-master",
-		"tzookb/tbmsg": "1.*"
+		"tzookb/tbmsg": "1.*",
+		"google/apiclient": "1.0.*@dev",
+		"thujohn/analytics": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "2.*"
