@@ -57,13 +57,13 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/home', function() {
 		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
 		{
-			$f = Telefono::fechas_importantes();
-			return View::make('home')->with('tline', $f);
+		 	return View::make('home');
 		}
 		else
 		{
-			return Redirect::to('/question');	
+			return Redirect::to('/question');
 		}
+		
 	});
 
 	// CHARTS VIEWS
@@ -114,4 +114,10 @@ Route::group(array('before' => 'auth'), function() {
 	// 	Func::printr(json_encode($b));
 	// });
 });
+
+Route::get('majony', function(){
+	return View::make('registro');
+});
+
+
 
