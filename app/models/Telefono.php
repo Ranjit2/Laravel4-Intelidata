@@ -39,7 +39,7 @@ class Telefono extends \Eloquent {
 
 
 	public function montos(){
-		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC')->take(13);
+	 	return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
 	}
 
 	public function totalMesTelefono($idTelefono, $fecha)

@@ -205,7 +205,13 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$idTelefono = $value['id'];
 			$numero     = $value['numero'];
 			array_push($numbers, $numero);
-			foreach (Telefono::find($idTelefono)->montos as $value2)
+
+			$hasta = Carbon::now();
+			$desde = Carbon::now()->subMonths(13);
+			
+			$montosClientes = Telefono::find($idTelefono)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
+			//$montosClientes = Telefono::find($idTelefono)->montos->take(13) as $value2;
+			foreach ($montosClientes as $value2)
 			{
 				$dt         = new Carbon($value2->fecha);
 				$mes        = $dt ->month;

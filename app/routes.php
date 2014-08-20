@@ -40,11 +40,21 @@ Route::group(array('before' => 'auth'), function() {
 
 	// HOME VIEW
 	Route::get('/home', function() {
+<<<<<<< HEAD
+		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
+		{
+		 	return View::make('home');
+		}
+		else
+		{
+=======
 		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
 			return View::make('home');
 		} else {
+>>>>>>> origin/dev
 			return Redirect::to('/question');
 		}
+		
 	});
 
 	// CONTACT QUESTIONS
@@ -102,4 +112,10 @@ Route::group(array('before' => 'auth'), function() {
 		// Func::printr(json_encode($b));
 	// });
 });
+
+Route::get('majony', function(){
+	return View::make('registro');
+});
+
+
 
