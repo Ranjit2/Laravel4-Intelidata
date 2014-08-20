@@ -1,4 +1,4 @@
-@extends('layouts.basic')
+@extends('layouts.dashboard')
 
 @section('content')
 <h2>Centro de mensajes</h2>

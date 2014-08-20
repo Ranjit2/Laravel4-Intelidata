@@ -209,11 +209,9 @@ Class Func {
 
 	//funcion que recibe el id del cliente y devuelve true si el cliente ya respondio la encuesta de como quiere ser contactado
 	// y false en caso contrario
-	public static function clienteRespondioEncuesta($idCliente)
-	{
-		$datos = ClientePregunta::where('id_cliente','=',$idCliente)->where('estado','=','A')->get();	
-		foreach ($datos as $value) 
-		{
+	public static function clienteRespondioEncuesta($idCliente) {
+		$datos = ClientePregunta::where('id_cliente','=',$idCliente)->where('estado','=','A')->get();
+		foreach ($datos as $value) {
 			return true;
 		}
 		return false;
