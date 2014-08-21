@@ -17,7 +17,7 @@
 				header('HTTP/1.1 500 Invalid number!');
 				exit();
 			}
-			Telefono::tl_paginate($group_number);
+			HTML::timeline(Telefono::tl_paginate($group_number));
 		} else {
 			$total_groups = Telefono::tl_total();
 			return View::make('timeline')->with('total_groups', $total_groups);

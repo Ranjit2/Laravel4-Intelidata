@@ -10,11 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 // PATTERNS
 Route::pattern('id', '[0-9]+');
 Route::pattern('type', '[a-z]+');
-Route::pattern('mes', '[0-9]+');
+Route::pattern('date', '/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/');
 
 // ANTES O SIN AUTENTIFICARCE
 Route::group(array('after' => 'auth'), function() {
@@ -48,6 +47,13 @@ Route::group(array('before' => 'auth'), function() {
 		}
 	});
 
+
+	Route::get('/user/question', function(){
+		$p = Pregunta::where('estado', 'A')->get();
+		return View::make('question2')->with('preguntas', $p);
+	});
+	Route::post('/user/question', 'PreguntasController@recibe');
+
 	// CONTACT QUESTIONS
 	Route::get('/question', function(){
 		$preguntas = Pregunta::scopeWhereNot(Session::get('ses_user_id'));
@@ -70,20 +76,18 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{fecha?}', 'GraffController@getChartPieEnt');
+	Route::post('/getChartPieEnt/{id}/{type?}/{date?}', 'GraffController@getChartPieEnt');
 	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
 	Route::get('/charts/evolution', function(){ return View::make('evolution'); });
 
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
-	Route::post('/telefonosServicios/{idCliente}/{fecha?}', 'GraffController@getChartBroke');
+	Route::post('/telefonosServicios/{idCliente}/{date?}', 'GraffController@getChartBroke');
 
 	// TIMELINE
 	Route::get('timeline', 'TimelineController@index');
 	Route::post('timeline', 'TimelineController@index');
 
-	Route::get('/test', function() {
-		$a = Pregunta::scopeWhereNot(Session::get('ses_user_id'))->toArray();
-		Func::printr($a);
+	// Route::get('/test', function() {
 		// $b = array();
 		// $c = array();
 		// foreach ($telefonos = Cliente::find(7)->numeros as $key => $value) {
@@ -103,6 +107,7 @@ Route::group(array('before' => 'auth'), function() {
 		// 	array_push($b[$key]['subs'], $c);
 		// }
 		// Func::printr(json_encode($b));
+<<<<<<< HEAD
 	});
 });
 
@@ -120,3 +125,7 @@ Route::get('majony', function(){
 });
 
 
+=======
+	// });
+});
+>>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875

@@ -10,6 +10,7 @@
  * @property \Carbon\Carbon $updated_at
  * @property string $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Respuesta[] $respuestas
+<<<<<<< HEAD
  * @method static \Illuminate\Database\Query\Builder|\Pregunta whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Pregunta wherePregunta($value)
  * @method static \Illuminate\Database\Query\Builder|\Pregunta whereEstado($value)
@@ -17,6 +18,15 @@
  * @method static \Illuminate\Database\Query\Builder|\Pregunta whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDeletedAt($value)
  * @method static \Pregunta whereNot()
+=======
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereId($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta wherePregunta($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereEstado($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereCreatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDeletedAt($value) 
+ * @method static \Pregunta whereNot() 
+>>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875
  */
 class Pregunta extends Eloquent {
 	protected $table = 'preguntas';

@@ -1,27 +1,28 @@
-@extends('layouts.basic')
+@extends('layouts.dashboard')
 
 @section('content')
-{{Form::open(array('url' => 'question', 'method' => 'POST'))}}
 <div class="sr-only">{{$cont = 1;}}</div>
-@foreach ($preguntas as $pregunta)
-<div class="row">
-<div class="col-md-10 pull-right">
-        <h4>{{$cont++.'.- '.$pregunta->pregunta}}</h4>
-        <div class="sr-only">{{ $respuestas = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get();}}</div>
-        @foreach ($respuestas as $respuesta)
-        <div class="input-group">
-            <span class="input-group-addon beautiful">
-                <input type="radio" name="{{$pregunta->id}}" value="{{$respuesta->id}}">
-            </span>
-            <label type="text" class="form-control">{{$respuesta->respuesta}}</label>
-        </div>
-        @endforeach
+<fieldset class="col-md-offset-1">
+    <legend>Contacto</legend>
+    {{Form::open()}}
+    @foreach ($preguntas as $pregunta)
+    <h4>{{$cont++.'.- '.$pregunta->pregunta}}</h4>
+    <div class="sr-only">{{ $respuestas = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get();
+     }}</div>
+    @foreach ($respuestas as $respuesta)
+    <div class="input-group col-md-7">
+        <span class="input-group-addon beautiful">
+            <input type="radio" name="{{$pregunta->id}}" value="{{$respuesta->id}}"
+            {{ HTML::respondida($pregunta->id, $respuesta->id) }}>
+        </span>
+        <label type="text" class="form-control">{{$respuesta->respuesta}}</label>
     </div>
-</div>
-@endforeach
-<br>
-<button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">Modificar</button>
-{{Form::close()}}
+    @endforeach
+    @endforeach
+    <br>
+    <button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">Modificar</button>
+    {{Form::close()}}
+</fieldset>
 @stop
 
 @section('aside')
@@ -35,19 +36,6 @@
 
 @section('style')
 <style type="text/css" media="screen">
-    /* CSS REQUIRED */
-    .state-icon {
-        left: -5px;
-    }
-    .list-group-item-primary {
-        color: rgb(255, 255, 255);
-        background-color: rgb(66, 139, 202);
-    }
-
-    /* DEMO ONLY - REMOVES UNWANTED MARGIN */
-    .well .list-group {
-        margin-bottom: 0px;
-    }
 </style>
 @stop
 

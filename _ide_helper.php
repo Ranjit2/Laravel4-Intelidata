@@ -13273,5 +13273,140 @@ namespace {
     }
 
 
+<<<<<<< HEAD
+=======
+    class TBMsg extends \Tzookb\TBMsg\Facade\TBMsg{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function __construct($tbmRepo){
+            \Tzookb\TBMsg\TBMsg::__construct($tbmRepo);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUserConversations($user_id){
+            return \Tzookb\TBMsg\TBMsg::getUserConversations($user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @param $conv_id
+         * @param $user_id
+         * @return \Tzookb\TBMsg\Conversation 
+         * @static 
+         */
+        public static function getConversationMessages($conv_id, $user_id, $newToOld = true){
+            return \Tzookb\TBMsg\TBMsg::getConversationMessages($conv_id, $user_id, $newToOld);
+        }
+        
+        /**
+         * 
+         *
+         * @param $userA_id
+         * @param $userB_id
+         * @return mixed -> id of conversation or false on not found
+         * @static 
+         */
+        public static function getConversationByTwoUsers($userA_id, $userB_id){
+            return \Tzookb\TBMsg\TBMsg::getConversationByTwoUsers($userA_id, $userB_id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addMessageToConversation($conv_id, $user_id, $content){
+            return \Tzookb\TBMsg\TBMsg::addMessageToConversation($conv_id, $user_id, $content);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $users_ids
+         * @throws Exceptions\NotEnoughUsersInConvException
+         * @return \Tzookb\TBMsg\ConversationEloquent 
+         * @static 
+         */
+        public static function createConversation($users_ids){
+            return \Tzookb\TBMsg\TBMsg::createConversation($users_ids);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function sendMessageBetweenTwoUsers($senderId, $receiverId, $content){
+            return \Tzookb\TBMsg\TBMsg::sendMessageBetweenTwoUsers($senderId, $receiverId, $content);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function markReadAllMessagesInConversation($conv_id, $user_id){
+            return \Tzookb\TBMsg\TBMsg::markReadAllMessagesInConversation($conv_id, $user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function deleteConversation($conv_id, $user_id){
+            return \Tzookb\TBMsg\TBMsg::deleteConversation($conv_id, $user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isUserInConversation($conv_id, $user_id){
+            return \Tzookb\TBMsg\TBMsg::isUserInConversation($conv_id, $user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUsersInConversation($conv_id){
+            return \Tzookb\TBMsg\TBMsg::getUsersInConversation($conv_id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getNumOfUnreadMsgs($user_id){
+            return \Tzookb\TBMsg\TBMsg::getNumOfUnreadMsgs($user_id);
+        }
+        
+    }
+
+
+    class 0 extends \Thujohn\Analytics\AnalyticsServiceProvider{
+        
+    }
+
+
+    class 1 extends \Thujohn\Analytics\AnalyticsServiceProvider{
+        
+    }
+
+
+>>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875
 }
 
