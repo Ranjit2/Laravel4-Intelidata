@@ -7,7 +7,7 @@ class PreguntasController extends \BaseController {
 		return preguntaRespuesta::find($idPreguntaRespuesta)->id_pregunta;
 	}
 
-	public function devuelveRespuesta($idPreguntaRespuesta)
+	public static function devuelveRespuesta($idPreguntaRespuesta)
 	{
 		return preguntaRespuesta::find($idPreguntaRespuesta)->id_respuesta;
 	}

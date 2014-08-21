@@ -609,11 +609,7 @@ HTML::macro('timeline', function($data){
 });
 
 HTML::macro('respondida', function($id_p, $id_r) {
-    $pc = new PreguntasController();
-    Func::printr(ClientePregunta::find($pc->devuelvePreguntaRespuesta((int) $id_p, (int) $id_r)));
-    // if($pc->devuelvePreguntaRespuesta($id_p, $id_r)) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
+    if(Respuesta::esCorrecta($id_p, $id_r)) {
+        echo "checked";
+    }
 });

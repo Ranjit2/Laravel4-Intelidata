@@ -47,16 +47,10 @@ Route::group(array('before' => 'auth'), function() {
 		}
 	});
 
+
 	Route::get('/user/question', function(){
-		$id_p = 1;
-		$id_r = 2;
-		$pc = new PreguntasController();
-		$pr = $pc->devuelvePreguntaRespuesta((int) $id_p, (int) $id_r);
-		$cp = ClientePregunta::whereIdPreguntaRespuesta($pr);
-		Func::printr($cp);
-		// d
-		// $p = Pregunta::where('estado', 'A')->get();
-		// return View::make('question2')->with('preguntas', $p);
+		$p = Pregunta::where('estado', 'A')->get();
+		return View::make('question2')->with('preguntas', $p);
 	});
 	Route::post('/user/question', 'PreguntasController@recibe');
 
@@ -115,10 +109,3 @@ Route::group(array('before' => 'auth'), function() {
 		// Func::printr(json_encode($b));
 	// });
 });
-
-Route::get('majony', function(){
-	return View::make('registro');
-});
-
-
-

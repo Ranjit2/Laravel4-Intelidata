@@ -13,7 +13,7 @@
     <div class="input-group col-md-7">
         <span class="input-group-addon beautiful">
             <input type="radio" name="{{$pregunta->id}}" value="{{$respuesta->id}}"
-            checked="{{ HTML::respondida($pregunta->id, $respuesta->id) }}">
+            {{ HTML::respondida($pregunta->id, $respuesta->id) }}>
         </span>
         <label type="text" class="form-control">{{$respuesta->respuesta}}</label>
     </div>
