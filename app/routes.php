@@ -41,21 +41,11 @@ Route::group(array('before' => 'auth'), function() {
 
 	// HOME VIEW
 	Route::get('/home', function() {
-<<<<<<< HEAD
-		if(Func::clienteRespondioEncuesta(Session::get('ses_user_id')))
-		{
-		 	return View::make('home');
-		}
-		else
-		{
-=======
 		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
 			return View::make('home');
 		} else {
->>>>>>> origin/dev
 			return Redirect::to('/question');
 		}
-		
 	});
 
 	// CONTACT QUESTIONS
@@ -116,9 +106,17 @@ Route::group(array('before' => 'auth'), function() {
 	});
 });
 
-Route::get('majony', function(){
+Route::get('registro', function(){
 	return View::make('registro');
 });
 
+Route::post('registro', 'registroController@grabarRegistro' );
+
+
+Route::get('majony', function(){
+	$valores = Cliente::find(8)->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',3)->where('estado','=','A')->select('id_pregunta_respuesta')->get()[0]['id_pregunta_respuesta'];
+	return PreguntasController::devuelveRespuesta($valores);
+
+});
 
 

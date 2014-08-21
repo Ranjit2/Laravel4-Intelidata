@@ -7,12 +7,28 @@ class PreguntasController extends \BaseController {
 		return preguntaRespuesta::find($idPreguntaRespuesta)->id_pregunta;
 	}
 
+	public static function devuelveRespuesta($idPreguntaRespuesta)
+	{
+		return preguntaRespuesta::find($idPreguntaRespuesta)->id_respuesta;
+	}
+
 	public function devuelvePreguntaRespuesta($idPregunta, $idRespuesta)
 	{
 		return preguntaRespuesta::where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->select('id')->get()[0]['id'];
 	}
 
 	public function preguntaRespondida($idPregunta)
+	{
+		//Session::get('ses_user_id')
+		$valores = Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->get();
+		foreach ($valores as $value)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public function getRespuestaPreguntaRespondida($idPregunta)
 	{
 		//Session::get('ses_user_id')
 		$valores = Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->get();

@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * PreguntaRespuesta
+ *
+ * @property integer $id
+ * @property integer $id_pregunta
+ * @property integer $id_respuesta
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\ClientePregunta[] $clientePregunta
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereIdPregunta($value)
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereIdRespuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereDeletedAt($value)
+ */
 class PreguntaRespuesta extends \Eloquent {
 	protected $table = 'pregunta_respuesta';
 	protected $primaryKey = 'id';

@@ -22,14 +22,19 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $delete_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $telefonos
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $numeros
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeleteAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeleteAt($value)
+ * @property string $deleted_at
+ * @property integer $id_persona
+ * @property-read \Illuminate\Database\Eloquent\Collection|\ClientePregunta[] $clientePreguntas
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value)
  */
 class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 

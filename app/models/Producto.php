@@ -12,9 +12,9 @@
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $deleted_at
- * @method static \Illuminate\Database\Query\Builder|\Producto whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Producto whereUpdatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Producto whereDeletedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Producto whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Producto whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Producto whereDeletedAt($value)
  */
 class Producto extends Eloquent {
 	protected $table = 'producto';

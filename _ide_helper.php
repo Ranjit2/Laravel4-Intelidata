@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-08-18.
+ * Generated for Laravel 4.2.8 on 2014-08-20.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13268,128 +13268,6 @@ namespace {
          */
         public static function clear(){
             return \Thujohn\Pdf\Pdf::clear();
-        }
-        
-    }
-
-
-    class TBMsg extends \Tzookb\TBMsg\Facade\TBMsg{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function __construct($tbmRepo){
-            \Tzookb\TBMsg\TBMsg::__construct($tbmRepo);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getUserConversations($user_id){
-            return \Tzookb\TBMsg\TBMsg::getUserConversations($user_id);
-        }
-        
-        /**
-         * 
-         *
-         * @param $conv_id
-         * @param $user_id
-         * @return \Tzookb\TBMsg\Conversation 
-         * @static 
-         */
-        public static function getConversationMessages($conv_id, $user_id, $newToOld = true){
-            return \Tzookb\TBMsg\TBMsg::getConversationMessages($conv_id, $user_id, $newToOld);
-        }
-        
-        /**
-         * 
-         *
-         * @param $userA_id
-         * @param $userB_id
-         * @return mixed -> id of conversation or false on not found
-         * @static 
-         */
-        public static function getConversationByTwoUsers($userA_id, $userB_id){
-            return \Tzookb\TBMsg\TBMsg::getConversationByTwoUsers($userA_id, $userB_id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function addMessageToConversation($conv_id, $user_id, $content){
-            return \Tzookb\TBMsg\TBMsg::addMessageToConversation($conv_id, $user_id, $content);
-        }
-        
-        /**
-         * 
-         *
-         * @param array $users_ids
-         * @throws Exceptions\NotEnoughUsersInConvException
-         * @return \Tzookb\TBMsg\ConversationEloquent 
-         * @static 
-         */
-        public static function createConversation($users_ids){
-            return \Tzookb\TBMsg\TBMsg::createConversation($users_ids);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function sendMessageBetweenTwoUsers($senderId, $receiverId, $content){
-            return \Tzookb\TBMsg\TBMsg::sendMessageBetweenTwoUsers($senderId, $receiverId, $content);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function markReadAllMessagesInConversation($conv_id, $user_id){
-            return \Tzookb\TBMsg\TBMsg::markReadAllMessagesInConversation($conv_id, $user_id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function deleteConversation($conv_id, $user_id){
-            return \Tzookb\TBMsg\TBMsg::deleteConversation($conv_id, $user_id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function isUserInConversation($conv_id, $user_id){
-            return \Tzookb\TBMsg\TBMsg::isUserInConversation($conv_id, $user_id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getUsersInConversation($conv_id){
-            return \Tzookb\TBMsg\TBMsg::getUsersInConversation($conv_id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getNumOfUnreadMsgs($user_id){
-            return \Tzookb\TBMsg\TBMsg::getNumOfUnreadMsgs($user_id);
         }
         
     }
