@@ -107,8 +107,8 @@ Route::group(array('before' => 'auth'), function() {
 		// 	array_push($b[$key]['subs'], $c);
 		// }
 		// Func::printr(json_encode($b));
-<<<<<<< HEAD
-	});
+
+	// });
 });
 
 Route::get('registro', function(){
@@ -125,7 +125,5 @@ Route::get('majony', function(){
 });
 
 
-=======
-	// });
-});
->>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875
+
+

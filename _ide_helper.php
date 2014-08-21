@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-08-20.
+ * Generated for Laravel 4.2.8 on 2014-08-21.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13273,8 +13273,6 @@ namespace {
     }
 
 
-<<<<<<< HEAD
-=======
     class TBMsg extends \Tzookb\TBMsg\Facade\TBMsg{
         
         /**
@@ -13407,6 +13405,5 @@ namespace {
     }
 
 
->>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875
 }
 

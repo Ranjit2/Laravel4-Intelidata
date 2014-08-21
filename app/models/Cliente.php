@@ -33,13 +33,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $deleted_at
  * @property integer $id_persona
  * @property-read \Illuminate\Database\Eloquent\Collection|\ClientePregunta[] $clientePreguntas
-<<<<<<< HEAD
  * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value)
-=======
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value) 
->>>>>>> 44b18e9f2c066a3501b24075431fb4c2bcf70875
  */
 class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
