@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f8f0af8f3d5b58c32f8501e87d49e84",
+    "hash": "4f2133de9aa8a10a0e5a7f4acfdf0c2b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -735,6 +735,52 @@
             "time": "2014-07-11 05:56:54"
         },
         {
+            "name": "freshwork/chilean-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/freshworkstudio/ChileanBundle.git",
+                "reference": "d27bcb24bd57dfd282a1ff8e64b33de10b57ba69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/freshworkstudio/ChileanBundle/zipball/d27bcb24bd57dfd282a1ff8e64b33de10b57ba69",
+                "reference": "d27bcb24bd57dfd282a1ff8e64b33de10b57ba69",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Freshwork\\ChileanBundle": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Gonzalo De Spirito | Freshwork Studio Chile",
+                    "email": "gonzalo@freshworkstudio.com"
+                }
+            ],
+            "description": "A PHP composer package with Chilean validations, common variables, etc. (RUT, IVA, ETC). Ready for Laravel 4. Grande chile ctm :)",
+            "keywords": [
+                "chile",
+                "freshwork",
+                "rut",
+                "tools",
+                "validation"
+            ],
+            "time": "2014-08-07 07:40:58"
+        },
+        {
             "name": "fzaninotto/faker",
             "version": "dev-master",
             "source": {
@@ -790,12 +836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "3c8f3ca7b688e8073ec3ba63f7aff9e80797edd1"
+                "reference": "0df848bc2ae9905257586574760b72423c3c11fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/3c8f3ca7b688e8073ec3ba63f7aff9e80797edd1",
-                "reference": "3c8f3ca7b688e8073ec3ba63f7aff9e80797edd1",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/0df848bc2ae9905257586574760b72423c3c11fe",
+                "reference": "0df848bc2ae9905257586574760b72423c3c11fe",
                 "shasum": ""
             },
             "require": {
@@ -827,7 +873,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2014-08-15 08:16:04"
+            "time": "2014-08-21 08:22:28"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2556,12 +2602,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "c95aa97c03fc676f7b53d002c7c8a3bb59fd6747"
+                "reference": "9efedf8f7b87222289c517d6fedde8cb401c1003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/c95aa97c03fc676f7b53d002c7c8a3bb59fd6747",
-                "reference": "c95aa97c03fc676f7b53d002c7c8a3bb59fd6747",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9efedf8f7b87222289c517d6fedde8cb401c1003",
+                "reference": "9efedf8f7b87222289c517d6fedde8cb401c1003",
                 "shasum": ""
             },
             "replace": {
@@ -2599,7 +2645,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-19 03:06:02"
+            "time": "2014-08-21 04:48:59"
         },
         {
             "name": "tzookb/tbmsg",
@@ -2706,9 +2752,9 @@
         "barryvdh/laravel-debugbar": 20,
         "thujohn/pdf": 20,
         "google/apiclient": 20,
-        "thujohn/analytics": 20
+        "thujohn/analytics": 20,
+        "freshwork/chilean-bundle": 20
     },
-    "prefer-stable": false,
     "platform": [
 
     ],

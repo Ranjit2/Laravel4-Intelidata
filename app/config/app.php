@@ -127,6 +127,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Tzookb\TBMsg\TBMsgServiceProvider',
 		'Thujohn\Analytics\AnalyticsServiceProvider',
+		'Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider'
 		),
 
 	/*

@@ -119,9 +119,11 @@ Route::post('registro', 'registroController@grabarRegistro' );
 
 
 Route::get('majony', function(){
-	$valores = Cliente::find(8)->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',3)->where('estado','=','A')->select('id_pregunta_respuesta')->get()[0]['id_pregunta_respuesta'];
-	return PreguntasController::devuelveRespuesta($valores);
-
+	var_dump(Rut::validate('15326912-5'));
+	var_dump(Rut::validate('15326912-2'));
+	var_dump(Rut::validate('15326912'));
+	var_dump(Rut::format('6-008.261-1'));
+	return "";
 });
 
 

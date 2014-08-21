@@ -22,6 +22,7 @@ ClassLoader::addDirectories(array(
 ));
 
 include (app_path().'/libs/macros.php');
+include (app_path().'/libs/customValidator.php');
 
 /*
 |--------------------------------------------------------------------------

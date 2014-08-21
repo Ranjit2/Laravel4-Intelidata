@@ -99,44 +99,40 @@ class RegistroController extends \BaseController {
 		return Cliente::whereRut($rut)->select('id')->get()[0]['id'];
 	}
 
-	public static function validarFormRegistro($data)
-	{
-		//validando
-		$rules = array(
-            'nombre'    => 'required|min:2|max:40',
-            'apellidos' => 'required|min:5|max:50',
-            'email'     => 'required|email|max:60',
-            'password'  => 'required|min:8'
-        );
-
-        $validator = Validator::make($data, $rules);
-        if($validator->fails())
-        {
-        	$mensajes = $validator->messages();
-		    return Redirect::to('/registro')->withErrors($validator)->withInput();
-        }
-        else
-        {
-        	return true;
-        }
-
-    }
-
 	public static function grabarRegistro()
 	{
 		$variable = Input::all();
-		if(registroController::validarFormRegistro($variable))
-		{
-			return "correcto";
-		}
-		else
-		{
 
-		return "falso";
-		}
 
-		if(registroController::existeCliente($variable['rut']))//si el rut del cliente existe en la tabla cliente se guarda como persona
-		{
+		$rules = array(
+            'nombre'    => 'required|min:3|max:40',
+            'apellidos' => 'required|min:3|max:50',
+            'email'     => 'required|email|max:60|unique:persona,email_personal',
+            'rut'       => 'required|min:9|max:10|validateRut|existeRutCliente',
+            'password'  => 'required|min:5',
+            'rePassword'=> 'same:password'
+        );
+
+        $messages = array(
+            'required' => 'El campo :attribute es obligatorio.',
+            'min'      => 'El campo :attribute no puede tener menos de :min carácteres.',
+            'email'    => 'El campo :attribute debe ser un email válido.',
+            'max'      => 'El campo :attribute no puede tener más de :min carácteres.',
+            'unique'   => 'El email ingresado ya existe en la base de datos',
+            'same'     => 'Contraseña y repita contraseña deben coincidir',
+            'validate_rut' => 'Rut inválido',
+            'existe_rut_cliente' => 'El rut ingresado no existe como cliente'
+        );
+
+
+
+        $validation = Validator::make($variable, $rules, $messages);
+        // return Func::printr($validation->messages());
+        if ($validation->fails())
+        {
+ 			return Redirect::to('registro')->withErrors($validation)->withInput();
+ 		}
+
 			//se ingresa nuevos datos de persona para el cliente
 			$persona                 = new Persona;
 			$persona->nombre         = $variable['nombre'];
@@ -146,14 +142,15 @@ class RegistroController extends \BaseController {
 			$insertedId = $persona->id;
 
 			//se actualiza la tabla de cliente con el password recien ingresado
-			$idCliente           = registroController::getIdCliente($variable['rut']); 
-			$clienteU 	         = Cliente::find($idCliente);
+			$idCliente            = registroController::getIdCliente($variable['rut']); 
+			$clienteU 	          = Cliente::find($idCliente);
 			$clienteU->clave      = Hash::make($variable['password']);
 			$clienteU->id_persona = $insertedId;
 			//$clienteU->save();
+
 			return "grabado correctamente";
-		}
-		return "El rut ingresado no existe como cliente";
+
+		
 	}
 
 }

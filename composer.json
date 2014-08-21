@@ -13,7 +13,8 @@
 		"thujohn/pdf": "dev-master",
 		"tzookb/tbmsg": "1.*",
 		"google/apiclient": "1.0.*@dev",
-		"thujohn/analytics": "dev-master"
+		"thujohn/analytics": "dev-master",
+		"freshwork/chilean-bundle": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "2.*"
