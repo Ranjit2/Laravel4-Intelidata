@@ -33,7 +33,7 @@
  * @method static \Illuminate\Database\Query\Builder|\Persona whereTwitter($value)
  * @method static \Illuminate\Database\Query\Builder|\Persona whereSkype($value)
  */
-class Persona extends \Eloquent {
+class Persona extends Eloquent {
 	protected $table      = 'persona';
 	protected $primaryKey = 'id';
 }

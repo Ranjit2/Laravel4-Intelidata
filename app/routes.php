@@ -34,9 +34,11 @@ Route::group(array('before' => 'auth'), function() {
 	// LOGOUT
 	Route::get('/logout', 'HomeController@doLogout');
 
-	// PROFILE
-	Route::get('/user/profile', function() { return View::make('users.profile'); });
+	// USER
 	Route::get('/user/message', function(){ return View::make('message'); });
+	Route::get('/user/profile', 'PersonaController@edit');
+	// Route::post('/user/profile/{id}', 'PersonaController@update');
+	Route::put('/user/profile/{id}', 'PersonaController@update');
 
 	// HOME VIEW
 	Route::get('/home', function() {
@@ -47,11 +49,7 @@ Route::group(array('before' => 'auth'), function() {
 		}
 	});
 
-
-	Route::get('/user/question', function(){
-		$p = Pregunta::where('estado', 'A')->get();
-		return View::make('question2')->with('preguntas', $p);
-	});
+	Route::get('/user/question', function(){ return View::make('question2')->with('preguntas', Pregunta::where('estado', 'A')->get()); });
 	Route::post('/user/question', 'PreguntasController@recibe');
 
 	// CONTACT QUESTIONS
@@ -126,6 +124,8 @@ Route::get('majony', function(){
 	return "";
 });
 
+Route::resource('nerds', 'PersonaController');
 
-
-
+Route::get('test', function(){
+	return Cliente::find(Session::get('ses_user_id'))->persona;
+});

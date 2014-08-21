@@ -1,69 +1,76 @@
 <?php
 
-class PreguntasController extends \BaseController {
+class PreguntasController extends BaseController {
 
+	/**
+	* [devuelvePregunta description]
+	* @param  [type] $idPreguntaRespuesta
+	* @return [type]
+	*/
 	public function devuelvePregunta($idPreguntaRespuesta)
 	{
 		return preguntaRespuesta::find($idPreguntaRespuesta)->id_pregunta;
 	}
 
-	public static function devuelveRespuesta($idPreguntaRespuesta)
-	{
+	/**
+	* [devuelveRespuesta description]
+	* @param  [type] $idPreguntaRespuesta
+	* @return [type]
+	*/
+	public static function devuelveRespuesta($idPreguntaRespuesta) {
 		return preguntaRespuesta::find($idPreguntaRespuesta)->id_respuesta;
 	}
 
-	public function devuelvePreguntaRespuesta($idPregunta, $idRespuesta)
-	{
-		return preguntaRespuesta::select('id')->where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->get()[0]['id'];
+	/**
+	* [devuelvePreguntaRespuesta description]
+	* @param  [type] $idPregunta
+	* @param  [type] $idRespuesta
+	* @return [type]
+	*/
+	public function devuelvePreguntaRespuesta($idPregunta, $idRespuesta) {
+		return preguntaRespuesta::select('id')->where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->first()->id;
 	}
 
-	public function preguntaRespondida($idPregunta)
-	{
-		$valores = Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->get();
-		foreach ($valores as $value)
-		{
-			return true;
-		}
-		return false;
+	/**
+	* [preguntaRespondida description]
+	* @param  [type] $idPregunta
+	* @return [type]
+	*/
+	public function preguntaRespondida($idPregunta) {
+		return Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'), $idPregunta)->where('estado','A')->first();
+		// if(Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'), $idPregunta)->where('estado','A')->first()) {
+		// 	return true;
+		// }
+		// return false;
 	}
 
-	public function getRespuestaPreguntaRespondida($idPregunta)
-	{
-		//Session::get('ses_user_id')
-		$valores = Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->get();
-		foreach ($valores as $value)
-		{
-			return true;
-		}
-		return false;
+	/**
+	* [devuelveIdClientePreguntaRespuesta description]
+	* @param  [type] $idCliente
+	* @param  [type] $idPregunta
+	* @return [type]
+	*/
+	public function devuelveIdClientePreguntaRespuesta($idCliente, $idPregunta) {
+		return ClientePregunta::where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->where('id_cliente','=',$idCliente)->select('id')->where('estado', 'A')->first()->id;
 	}
 
-	public function devuelveIdClientePreguntaRespuesta($idCliente, $idPregunta)
-	{
-		return ClientePregunta::where(DB::raw('return_pregunta(id_pregunta_respuesta)'),'=',$idPregunta)->where('id_cliente','=',$idCliente)->select('id')->get()[0]['id'];
-	}
-
-
-	public function recibe()
-	{
-		$variable = Input::except('_token');
-		$idCliente = Session::get('ses_user_id');
-		foreach ($variable as $pregunta => $respuesta) {
-			if($this->preguntaRespondida((int) $pregunta)) {
-				$idPreguntaRespuesta      = $this->devuelvePreguntaRespuesta((int) $pregunta, (int) $respuesta);
-				$idClientePregunta        = $this->devuelveIdClientePreguntaRespuesta($idCliente, (int) $pregunta);
-				$clientePreguntaU         = ClientePregunta::find($idClientePregunta);
-				$clientePreguntaU->estado = 'B';
-				$clientePreguntaU->save();
+	/**
+	* [recibe description]
+	* @return [type]
+	*/
+	public function recibe() {
+		foreach (Input::all() as $pregunta => $respuesta) {
+			if($a = $this->preguntaRespondida((int) $pregunta)) {
+				$a->estado = 'B';
+				$a->save();
 			}
 
-			$clientePregunta = new ClientePregunta;
-			$clientePregunta->id_cliente = $idCliente;
+			$clientePregunta                        = new ClientePregunta;
+			$clientePregunta->id_cliente            = Session::get('ses_user_id');
 			$clientePregunta->id_pregunta_respuesta = $this->devuelvePreguntaRespuesta((int) $pregunta, (int) $respuesta);
 			$clientePregunta->save();
 		}
 		return Redirect::to('/home');
 	}
-
 
 }

@@ -50,6 +50,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('ClientePregunta','id_cliente');
 	}
 
+	public function persona () {
+		return $this->hasOne('Persona','id', 'id_persona');
+	}
+
 	public function getAuthIdentifier() {
 		return $this->getKey();
 	}
@@ -213,7 +217,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
 			$hasta = Carbon::now();
 			$desde = Carbon::now()->subMonths(13);
-			
+
 			$montosClientes = Telefono::find($idTelefono)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
 			//$montosClientes = Telefono::find($idTelefono)->montos->take(13) as $value2;
 			foreach ($montosClientes as $value2)

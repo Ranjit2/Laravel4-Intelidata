@@ -1,13 +1,13 @@
-	<?php
+<?php
 
-	class TimelineController extends \BaseController {
+class TimelineController extends BaseController {
 
 	/**
 	* Display a big timeline.
 	* GET /timeline
 	* POST-AJAX /timeline
 	*
-	* @return Response
+	* @return data
 	*/
 	public function index()
 	{

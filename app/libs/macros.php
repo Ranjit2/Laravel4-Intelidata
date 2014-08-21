@@ -608,8 +608,29 @@ HTML::macro('timeline', function($data){
     unset($d);
 });
 
-HTML::macro('respondida', function($id_p, $id_r) {
-    if(Respuesta::esCorrecta($id_p, $id_r)) {
-        echo "checked";
+HTML::macro('genera_contacto', function($p) {
+    $cont = 1;
+    $a    = '';
+    $a .= '<fieldset class="col-md-offset-1"><legend>Contacto</legend>';
+    $a .= Form::open();
+    foreach ($p as $pregunta) {
+        $r = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get();
+        $a .= '<h4>' . $cont++ .'- '. $pregunta->pregunta . '</h4>';
+        foreach ($r as $respuesta) {
+            $a .= '<div class="input-group col-md-8"><span class="input-group-addon beautiful">';
+            $a .= '<input type="radio" name="' . $pregunta->id . '" value="' . $respuesta->id . '" ' . respondida($pregunta->id, $respuesta->id) . '></span>';
+            $a .= '<label type="text" class="form-control">' . $respuesta->respuesta . '</label></div>';
+        }
     }
+    $a .= '<button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">Modificar</button>';
+    $a .= Form::close();
+    $a .= '</fieldset>';
+
+    return $a;
 });
+
+function respondida($id_p, $id_r) {
+    if(Respuesta::esCorrecta($id_p, $id_r)) {
+        return "checked";
+    }
+}
