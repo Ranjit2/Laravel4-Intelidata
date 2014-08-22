@@ -634,3 +634,51 @@ function respondida($id_p, $id_r) {
         return "checked";
     }
 }
+
+HTML::macro('genera_telefonos_empresa', function(){
+    $numerosEmergencia = TelefonosContacto::whereIdEmpresa(1)->where('tipo',1)->get();//1 numeros de emergencia
+    $numerosCelulares  = TelefonosContacto::whereIdEmpresa(1)->where('tipo',2)->get();//2 numeros celulares
+    $b = '';
+    $b.= '<ul>';
+    $b.= '<li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>';
+    foreach($numerosEmergencia as $emergencia)
+    {
+        $b.= '<li><a href="#">'.$emergencia->numero.'</a></li>';
+    }
+    $b.= '<li class="divider"></li>';
+    $b.= '<li class="dropdown-header">DESDE CELULARES</li>';
+    foreach ($numerosCelulares as $celulares) {
+        $b.= '<li><a href="#">'.$celulares->numero.'</a></li>';
+    }
+
+    $b.= '</ul>';
+    return $b;
+});
+
+HTML::macro('genera_centro_ayuda', function(){
+    $productos = CentroDeAyuda::whereIdEmpresa(1)->get();
+    $c = '';
+    foreach ($productos as $producto) {
+        $c .='<li><a href="#">'.$producto->producto.'</a></li>';
+    }
+    return $c;
+});
+
+HTML::macro('genera_sucursales_empresa', function(){
+    $sucursales = Sucursales::whereIdEmpresa(1)->get();
+    $a = '';
+    foreach ($sucursales as $sucursal) {
+        //$a .= '<li><a href="#">'.$sucursal->nombre.' Atención: '.$sucursal->horario_atencion.'</a></li>';
+        $a .= '<li><a href="#">'.$sucursal->nombre.'<br> Atención: '.$sucursal->horario_atencion.'</a></li>';
+    }
+    return $a;
+});
+
+HTML::macro('genera_servicios_empresa', function(){
+    $sucursales = ServicioEmpresa::whereIdEmpresa(1)->get();
+    $a = '';
+    foreach ($sucursales as $sucursal) {
+        $a .= '<li><a href="#">'.$sucursal->nombre_servicio.'</a></li>';
+    }
+    return $a;
+});
