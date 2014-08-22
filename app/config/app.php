@@ -127,7 +127,9 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Tzookb\TBMsg\TBMsgServiceProvider',
 		'Thujohn\Analytics\AnalyticsServiceProvider',
-		'Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider'
+		'Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider',
+		'Watson\BootstrapForm\BootstrapFormServiceProvider',
+		'AdamWathan\BootForms\BootFormsServiceProvider',
 		),
 
 	/*
@@ -198,7 +200,9 @@ return array(
 		'Carbon'            => 'Carbon\Carbon',
 		'PDF'               => 'Thujohn\Pdf\PdfFacade',
 		'TBMsg'             => 'Tzookb\TBMsg\Facade\TBMsg',
-		'Thujohn\Analytics\AnalyticsServiceProvider',
+		'Analytics'         => 'Thujohn\Analytics\AnalyticsFacade',
+		'BootstrapForm'     => 'Watson\BootstrapForm\Facades\BootstrapForm',
+		'BootForm'          => 'AdamWathan\BootForms\Facades\BootForm',
 		),
 
 );

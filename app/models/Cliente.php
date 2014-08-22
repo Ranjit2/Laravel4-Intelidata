@@ -8,33 +8,32 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 /**
  * Cliente
  *
- * @property string $numero_cliente
- * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos
- * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos2
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereNumeroCliente($value)
  * @property integer $id
+ * @property string $numero_cliente
  * @property string $rut
  * @property string $tipo
  * @property string $clave
  * @property string $remember_token
+ * @property integer $id_persona
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property string $delete_at
+ * @property string $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\ClientePregunta[] $clientePreguntas
+ * @property-read \Persona $persona
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos2
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $telefonos
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $numeros
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeleteAt($value)
- * @property string $deleted_at
- * @property integer $id_persona
- * @property-read \Illuminate\Database\Eloquent\Collection|\ClientePregunta[] $clientePreguntas
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereNumeroCliente($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value) 
  */
 class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 

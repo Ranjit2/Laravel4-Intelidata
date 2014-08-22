@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-08-21.
+ * Generated for Laravel 4.2.8 on 2014-08-22.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13395,12 +13395,388 @@ namespace {
     }
 
 
-    class 0 extends \Thujohn\Analytics\AnalyticsServiceProvider{
+    class BootstrapForm extends \Watson\BootstrapForm\Facades\BootstrapForm{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function __construct($html, $form, $config, $session){
+            \Watson\BootstrapForm\BootstrapForm::__construct($html, $form, $config, $session);
+        }
+        
+        /**
+         * Open a form while passing a model and the routes for storing or updating
+         * the model. This will set the correct route along with the correct
+         * method.
+         *
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function open($options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::open($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function openStandard($options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::openStandard($options);
+        }
+        
+        /**
+         * Open an inline Bootstrap form.
+         *
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function openInline($options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::openInline($options);
+        }
+        
+        /**
+         * Open a horizontal Bootstrap form.
+         *
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function openHorizontal($options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::openHorizontal($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function staticField($name, $label = null, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::staticField($name, $label, $value, $options);
+        }
+        
+        /**
+         * Create a Bootstrap text field input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function text($name, $label = null, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::text($name, $label, $value, $options);
+        }
+        
+        /**
+         * Create a Bootstrap email field input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function email($name = 'email', $label = null, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::email($name, $label, $value, $options);
+        }
+        
+        /**
+         * Create a Bootstrap textarea field input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function textarea($name, $label = null, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::textarea($name, $label, $value, $options);
+        }
+        
+        /**
+         * Create a Bootstrap password field input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function password($name = 'password', $label = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::password($name, $label, $options);
+        }
+        
+        /**
+         * Create a Bootstrap checkbox input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param boolean $checked
+         * @param boolean $inline
+         * @param boolean $wrapper
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function checkbox($name, $label, $value, $checked = null, $inline = false, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::checkbox($name, $label, $value, $checked, $inline, $options);
+        }
+        
+        /**
+         * Create a collection of Bootstrap checkboxes.
+         *
+         * @param string $name
+         * @param string $label
+         * @param array $choices
+         * @param array $values
+         * @param array $checkedValues
+         * @param boolean $inline
+         * @param array $options
+         * @static 
+         */
+        public static function checkboxes($name, $label = null, $choices = array(), $checkedValues = array(), $inline = false, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::checkboxes($name, $label, $choices, $checkedValues, $inline, $options);
+        }
+        
+        /**
+         * Create a Bootstrap radio input.
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param boolean $checked
+         * @param boolean $inline
+         * @param boolean $wrapper
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function radio($name, $label, $value, $checked = null, $inline = false, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::radio($name, $label, $value, $checked, $inline, $options);
+        }
+        
+        /**
+         * Create a collection of Bootstrap radio inputs.
+         *
+         * @param string $name
+         * @param string $label
+         * @param array $choices
+         * @param array $values
+         * @param string $checkedValue
+         * @param boolean $inline
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function radios($name, $label = null, $choices = array(), $checkedValue = null, $inline = false, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::radios($name, $label, $choices, $checkedValue, $inline, $options);
+        }
+        
+        /**
+         * Create a Bootstrap label.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function label($name, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::label($name, $value, $options);
+        }
+        
+        /**
+         * Create a Boostrap submit button.
+         *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function submit($value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::submit($value, $options);
+        }
+        
+        /**
+         * Create the input group for an element with the correct classes for errors.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function input($type, $name, $label = null, $value = null, $options = array()){
+            return \Watson\BootstrapForm\BootstrapForm::input($type, $name, $label, $value, $options);
+        }
         
     }
 
 
-    class 1 extends \Thujohn\Analytics\AnalyticsServiceProvider{
+    class BootForm extends \AdamWathan\BootForms\Facades\BootForm{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function __construct($basicFormBuilder, $horizontalFormBuilder){
+            \AdamWathan\BootForms\BootForm::__construct($basicFormBuilder, $horizontalFormBuilder);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function open(){
+            return \AdamWathan\BootForms\BootForm::open();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function openHorizontal($labelWidth, $controlWidth){
+            return \AdamWathan\BootForms\BootForm::openHorizontal($labelWidth, $controlWidth);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function __call($method, $parameters){
+            return \AdamWathan\BootForms\BootForm::__call($method, $parameters);
+        }
+        
+    }
+
+
+    class Rut extends \Freshwork\ChileanBundle\Facades\Rut{
+        
+        /**
+         * Check if the $rut argument is a valid RUT
+         * 
+         * Devuelve true si el parámetro $rut es válido
+         *
+         * @param $rut
+         * @param null $dv
+         * @return bool 
+         * @static 
+         */
+        public static function isValid($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::isValid($rut, $dv);
+        }
+        
+        /**
+         * Alias of isValid($rut,$dv);
+         *
+         * @param $rut
+         * @param $dv
+         * @return bool 
+         * @static 
+         */
+        public static function validate($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::validate($rut, $dv);
+        }
+        
+        /**
+         * Returns the valid verification number that $rut has to have.
+         * 
+         * Devuelve el dígito verificador que debe tener el $rut ingresado.
+         * Si quieres pasarle el RUT completo, puedes 'setear' el último
+         * parámetro como true para que la función lo haga por ti
+         * 
+         * Fuente: http://www.dcc.uchile.cl/~mortega/microcodigos/validarrut/php.php
+         *
+         * @author Luis Dujovne
+         * @param $r
+         * @param bool $has_to_remove_last_char
+         * @return string 
+         * @static 
+         */
+        public static function getVerificationNumber($r, $has_to_remove_last_char = false){
+            return \Freshwork\ChileanBundle\Validations\Rut::getVerificationNumber($r, $has_to_remove_last_char);
+        }
+        
+        /**
+         * Splits the rut into rut and verification number.
+         * 
+         * Si no le pasas el $dv digito verificador, separa el rut del dígito verificador.
+         * Si le pasas el $dv digito verificador te devuelve ambos parámetros como array.
+         *
+         * @param $rut
+         * @param null $dv
+         * @return array [$rut,$dv]
+         * @static 
+         */
+        public static function split($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::split($rut, $dv);
+        }
+        
+        /**
+         * Escape the RUT
+         * Quita los carácteres ($scape_chars) que no queremos del RUT
+         *
+         * @param string $rut
+         * @return string 
+         * @static 
+         */
+        public static function normalize($rut){
+            return \Freshwork\ChileanBundle\Validations\Rut::normalize($rut);
+        }
+        
+        /**
+         * Format R.U.T
+         * Formatea el RUt en alguno de los 3 formatos disponibles.
+         *
+         * @param $rut
+         * @param null $dv
+         * @param int $format
+         * @return string 
+         * @static 
+         */
+        public static function format($rut, $dv = null, $format = 0){
+            return \Freshwork\ChileanBundle\Validations\Rut::format($rut, $dv, $format);
+        }
+        
+        /**
+         * Check if RUT has a valid format. If not, throws an Exception
+         *
+         * @param $rut
+         * @param null $dv
+         * @throws \Freshwork\ChileanBundle\Exceptions\InvalidFormatException
+         * @return bool 
+         * @static 
+         */
+        public static function hasValidFormat($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::hasValidFormat($rut, $dv);
+        }
+        
+        /**
+         * Join two parts of a RUT. Rut and verification number.
+         *
+         * @param $rut
+         * @param $dv
+         * @return string 
+         * @static 
+         */
+        public static function join($rut, $dv){
+            return \Freshwork\ChileanBundle\Validations\Rut::join($rut, $dv);
+        }
         
     }
 

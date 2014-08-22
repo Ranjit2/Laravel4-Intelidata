@@ -22,10 +22,19 @@ class Pregunta extends Eloquent {
 	protected $table = 'preguntas';
 	protected $primaryKey = 'id';
 
+	/**
+	 * [respuestas description]
+	 * @return [type] [description]
+	 */
 	public function respuestas() {
 		return $this->belongsToMany('Respuesta', 'pregunta_respuesta', 'id_pregunta', 'id_respuesta');
 	}
 
+	/**
+	 * [scopeWhereNot description]
+	 * @param  [type] $user_id [description]
+	 * @return [type]          [description]
+	 */
 	public static function scopeWhereNot($user_id) {
 		return Pregunta::whereNotIn('id', function($query) use ($user_id) {
 			$query->select('pregunta_respuesta.id_pregunta')

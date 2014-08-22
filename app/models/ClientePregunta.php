@@ -25,13 +25,21 @@ class ClientePregunta extends \Eloquent {
 	protected $table = 'cliente_preguntas';
 	protected $primaryKey = 'id';
 
-	public function preguntaRespuesta()
-	{
+	/**
+	 * [preguntaRespuesta description]
+	 * @return [type] [description]
+	 */
+	public function preguntaRespuesta() {
 		return $this->belongsTo('PreguntaRespuesta','id');
 	}
 
-	public static function getPreguntaRespondida($idCliente, $idPregunta)
-	{
+	/**
+	 * [getPreguntaRespondida description]
+	 * @param  [type] $idCliente  [description]
+	 * @param  [type] $idPregunta [description]
+	 * @return [type]             [description]
+	 */
+	public static function getPreguntaRespondida($idCliente, $idPregunta) {
 		return ClientePregunta::where('id_cliente','=',$idCliente)->get();
 	}
 

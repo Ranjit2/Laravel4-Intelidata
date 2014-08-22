@@ -89,25 +89,40 @@ class PersonaController extends BaseController {
 	*/
 	public function update($id)
 	{
-		dd($id);
 		$rules = array(
-			'name'       => 'required',
-			'email'      => 'required|email',
-			'nerd_level' => 'required|numeric'
+			'direccion_personal'     => '',
+			'telefono_fijo_personal' => '',
+			'celular_personal'       => '',
+			'email_personal'         => 'email',
+			'direccion_work'         => '',
+			'telefono_fijo_work'     => '',
+			'celular_work'           => '',
+			'email_work'             => 'email',
+			'twitter'                => '',
+			'facebook'               => '',
+			'skype'                  => '',
 			);
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Redirect::to('nerds/' . $id . '/edit')->withErrors($validator)->withInput(Input::except('password'));
+			return Redirect::to('/user/profile')->withErrors($validator)->withInput();
 		} else {
-			$nerd = Persona::find($id);
-			$nerd->name       = Input::get('name');
-			$nerd->email      = Input::get('email');
-			$nerd->nerd_level = Input::get('nerd_level');
-			$nerd->save();
+			$perso = Persona::find($id);
+			$perso->direccion_personal     = Input::get('direccion_personal');
+			$perso->telefono_fijo_personal = Input::get('telefono_fijo_personal');
+			$perso->celular_personal       = Input::get('celular_personal');
+			$perso->email_personal         = Input::get('email_personal');
+			$perso->direccion_work         = Input::get('direccion_work');
+			$perso->telefono_fijo_work     = Input::get('telefono_fijo_work');
+			$perso->celular_work           = Input::get('celular_work');
+			$perso->email_work             = Input::get('email_work');
+			$perso->twitter                = Input::get('twitter');
+			$perso->facebook               = Input::get('facebook');
+			$perso->skype                  = Input::get('skype');
+			$perso->save();
 
 			Session::flash('message', 'Successfully updated nerd!');
-			return Redirect::to('nerds');
+			return Redirect::to('/user/profile');
 		}
 	}
 

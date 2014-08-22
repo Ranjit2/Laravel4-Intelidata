@@ -21,14 +21,29 @@ class PreguntaRespuesta extends \Eloquent {
 	protected $table = 'pregunta_respuesta';
 	protected $primaryKey = 'id';
 
+	/**
+	 * [clientePregunta description]
+	 * @return [type] [description]
+	 */
 	public function clientePregunta() {
 		return $this->hasMany('ClientePregunta','id_pregunta_respuesta');
 	}
 
+	/**
+	 * [getIdPreguntaRespuesta description]
+	 * @param  [type] $idPregunta  [description]
+	 * @param  [type] $idRespuesta [description]
+	 * @return [type]              [description]
+	 */
 	public static function getIdPreguntaRespuesta($idPregunta, $idRespuesta) {
 		return PreguntaRespuesta::where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->select('id')->get();
 	}
 
+	/**
+	 * [getPreguntaConRespuesta description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public static function getPreguntaConRespuesta($id) {
 		return PreguntaRespuesta::where('id','=',$id)->select('id_pregunta','id_respuesta')->get();
 	}
