@@ -28,7 +28,10 @@
  * @method static \Illuminate\Database\Query\Builder|\Telefono whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Telefono whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Telefono whereDeletedAt($value)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a71964bc06bfcc990cf019ca60f86ec8126f5d7
  */
 class Telefono extends \Eloquent {
 	protected $table = 'telefono';

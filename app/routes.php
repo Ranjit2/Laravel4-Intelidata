@@ -130,3 +130,13 @@ Route::get('test', function(){
 	Cliente::evolutionChart(7);
 	return View::make('charts.line.empresa');
 });
+
+
+Route::get('majony', function(){
+	$hasta = Carbon::now();
+	$desde = Carbon::now()->subMonths(13);
+
+	return Cliente::find('11111-1')->telefonos;
+	//return $montosClientes = Telefono::find($idTelefono)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
+	return '';
+});

@@ -60,41 +60,44 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-lg fa-fw"></span> Contactanos <b class="caret"></b></a>
 					<ul class="dropdown-menu megamenu row">
 						<li class="col-sm-3">
-							<ul>
+							<!-- <ul>
 								<li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>
 								<li><a href="#">600 800 9000</a></li>
 								<li class="divider"></li>
 								<li class="dropdown-header">DESDE CELULARES</li>
 								<li><a href="#">02 - 2310 0200</a></li>
-							</ul>
+							</ul> -->
+							{{HTML::genera_telefonos_empresa()}}
 						</li>
 						<li class="col-sm-3">
 							<ul>
 								<li class="dropdown-header">CENTRO DE AYUDA ONLINE</li>
-								<li><a href="#">BANDA ANCHA</a></li>
+								<!-- <li><a href="#">BANDA ANCHA</a></li>
 								<li><a href="#">TELEFON&Iacute;A CELUALR</a></li>
 								<li><a href="#">TELEFON&Iacute;A FIJA</a></li>
 								<li><a href="#">TELEVISI&Oacute;N POR CABLE</a></li>
-								<li><a href="#">TELEVISI&Oacute;N SATELITAL</a></li>
+								<li><a href="#">TELEVISI&Oacute;N SATELITAL</a></li> -->
+								{{HTML::genera_centro_ayuda()}}
+							</ul>
+						</li>
+						<li class="col-sm-3" style="padding:0 10px">
+							<ul>
+								<li class="dropdown-header">SUCURSALES</li>
+									<!-- <li><a href="#">sucursal 1  Horario de Atencion1</a></li>
+									<li><a href="#">sucursal 2  Horario de Atencion2</a></li>
+									<li><a href="#">sucursal 3  Horario de Atencion3</a></li> -->
+								{{HTML::genera_sucursales_empresa()}}
 							</ul>
 						</li>
 						<li class="col-sm-3">
 							<ul>
-								<li class="dropdown-header">SUCURSALES</li>
-								<li class="divider"></li>
 								<li class="dropdown-header">SUCURSAL VIRTUAL</li>
 								<li class="divider"></li>
 								<li class="dropdown-header">SERVICIOS</li>
+								<!-- <li><a href="#">servicio 1</a></li>
 								<li><a href="#">servicio 1</a></li>
-								<li><a href="#">servicio 1</a></li>
-								<li><a href="#">servicio 1</a></li>
-							</ul>
-						</li>
-						<li class="col-sm-3">
-							<ul>
-								<li class="divider"></li>
-								<li>...</li>
-								<li class="divider"></li>
+								<li><a href="#">servicio 1</a></li> -->
+								{{HTML::genera_servicios_empresa()}}
 							</ul>
 						</li>
 					</ul>
