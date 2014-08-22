@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47630eb615912ef5dc21f745a7d882f6",
+    "hash": "86ed74f5519498568ef3c47ba02d63b2",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -867,12 +867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "d082b5f239597672e150a0b226fae8059edb8a33"
+                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d082b5f239597672e150a0b226fae8059edb8a33",
-                "reference": "d082b5f239597672e150a0b226fae8059edb8a33",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
+                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
                 "shasum": ""
             },
             "require": {
@@ -909,52 +909,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-08-20 14:08:29"
-        },
-        {
-            "name": "google/apiclient",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "0df848bc2ae9905257586574760b72423c3c11fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/0df848bc2ae9905257586574760b72423c3c11fe",
-                "reference": "0df848bc2ae9905257586574760b72423c3c11fe",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "src/"
-            ],
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Client library for Google APIs",
-            "homepage": "http://developers.google.com/api-client-library/php",
-            "keywords": [
-                "google"
-            ],
-            "time": "2014-08-21 08:22:28"
+            "time": "2014-08-22 14:04:52"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2591,28 +2546,30 @@
             "time": "2014-07-28 13:20:46"
         },
         {
-            "name": "thujohn/analytics",
+            "name": "tag-planet/universal-analytics",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thujohn/analytics-l4.git",
-                "reference": "b09a45b24b5fb32b3fe6b67de50702511cb5fafc"
+                "url": "https://github.com/TagPlanet/universal-analytics.git",
+                "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/analytics-l4/zipball/b09a45b24b5fb32b3fe6b67de50702511cb5fafc",
-                "reference": "b09a45b24b5fb32b3fe6b67de50702511cb5fafc",
+                "url": "https://api.github.com/repos/TagPlanet/universal-analytics/zipball/0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
+                "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
                 "shasum": ""
             },
             "require": {
-                "google/apiclient": "1.0.*@beta",
-                "illuminate/support": "4.x",
-                "php": ">=5.3.0"
+                "illuminate/support": "4.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.7.2"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Thujohn\\Analytics": "src/"
+                    "TagPlanet\\UniversalAnalytics": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2621,18 +2578,13 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Thuau",
-                    "email": "jonathan.thuau@gmail.com"
+                    "name": "Philip Lawrence",
+                    "email": "philip@misterphilip.com",
+                    "homepage": "http://misterphilip.com"
                 }
             ],
-            "description": "Google Analytics for Laravel 4",
-            "keywords": [
-                "analytics",
-                "google",
-                "laravel",
-                "laravel4"
-            ],
-            "time": "2014-06-10 09:11:13"
+            "description": "Provides an easy way to include Universal Analytics code with your Laravel 4 application",
+            "time": "2014-01-25 22:19:26"
         },
         {
             "name": "thujohn/pdf",
@@ -2881,8 +2833,7 @@
         "fzaninotto/faker": 20,
         "barryvdh/laravel-debugbar": 20,
         "thujohn/pdf": 20,
-        "google/apiclient": 20,
-        "thujohn/analytics": 20,
+        "tag-planet/universal-analytics": 20,
         "freshwork/chilean-bundle": 20,
         "watson/bootstrap-form": 20
     },

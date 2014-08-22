@@ -12,11 +12,10 @@
 		"doctrine/dbal": "~2.3",
 		"thujohn/pdf": "dev-master",
 		"tzookb/tbmsg": "1.*",
-		"google/apiclient": "1.0.*@dev",
-		"thujohn/analytics": "dev-master",
+		"tag-planet/universal-analytics": "dev-master",
 		"freshwork/chilean-bundle": "dev-master",
 		"watson/bootstrap-form": "dev-master",
-		 "adamwathan/bootforms": "v0.2"
+		"adamwathan/bootforms": "v0.2"
 	},
 	"require-dev": {
 		"way/generators": "2.*"

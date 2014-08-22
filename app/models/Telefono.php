@@ -17,17 +17,18 @@
  * @property-read \Illuminate\Database\Eloquent\Collection|\Servicio[] $servicios
  * @property-read \Illuminate\Database\Eloquent\Collection|\Total[] $montos
  * @property-read \Cliente $cliente
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereId($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdCliente($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdTitularAdicional($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdProducto($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereNumero($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereInformacionAl($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereInicioFac($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereFinFac($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereUpdatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Telefono whereDeletedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdCliente($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdTitularAdicional($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereIdProducto($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereNumero($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereInformacionAl($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereInicioFac($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereFinFac($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Telefono whereDeletedAt($value)
+
  */
 class Telefono extends \Eloquent {
 	protected $table = 'telefono';
@@ -37,15 +38,8 @@ class Telefono extends \Eloquent {
 		return $this->belongsToMany('Servicio', 'telefonos_servicios', 'id_telefono', 'id_servicio')->withpivot('precio_servicio','fecha')->select('id_telefono','tipo','precio_servicio');
 	}
 
-
 	public function montos(){
-	 	return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
-	}
-
-	public function totalMesTelefono($idTelefono, $fecha)
-	{
-		return $this->find($id);
-		//->productos()->_mes',$mes)->get()->toArray();
+		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
 	}
 
 	public function cliente(){

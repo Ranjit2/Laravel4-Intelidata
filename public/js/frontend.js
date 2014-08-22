@@ -181,4 +181,4 @@ $.fn.centerToWindow = function() {
     "top"      : ((window_height / 2) - (obj_height / 2))+"px",
     "left"     : ((window_width / 2) - (obj_width / 2))+"px"
   });
-}
+};

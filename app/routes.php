@@ -115,8 +115,8 @@ Route::get('registro', function(){
 
 Route::post('registro', 'registroController@grabarRegistro' );
 
-
 Route::get('majony', function(){
+
 	var_dump(Rut::validate('15326912-5'));
 	var_dump(Rut::validate('15326912-2'));
 	var_dump(Rut::validate('15326912'));
@@ -127,5 +127,6 @@ Route::get('majony', function(){
 Route::resource('nerds', 'PersonaController');
 
 Route::get('test', function(){
-	return Cliente::find(Session::get('ses_user_id'))->persona;
+	Cliente::evolutionChart(7);
+	return View::make('charts.line.empresa');
 });

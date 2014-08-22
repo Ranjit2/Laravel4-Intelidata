@@ -24,28 +24,25 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Producto[] $productos2
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $telefonos
  * @property-read \Illuminate\Database\Eloquent\Collection|\Telefono[] $numeros
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereNumeroCliente($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereNumeroCliente($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRut($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereTipo($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereClave($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdPersona($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereDeletedAt($value)
  */
 class Cliente extends Eloquent implements UserInterface, RemindableInterface {
-
 	use UserTrait, RemindableTrait;
-
 	protected $table      = 'cliente';
 	protected $primaryKey = 'id';
 	protected $fillable   = array('id','numero_cliente','rut','clave');
 	protected $hidden     = array('numero_cliente', 'clave');
 
-	public function clientePreguntas()
-	{
+	public function clientePreguntas() {
 		return $this->hasMany('ClientePregunta','id_cliente');
 	}
 
@@ -249,6 +246,33 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"valueField"  => $value,
 				);
 		}
+		return $config;
+	}
+
+	public static function evolutionChart($id_cliente, $from = 13) {
+		$config  = array();
+		$numbers = array();
+		$hasta   = Carbon::now();
+		$desde   = Carbon::now()->subMonths($from);
+		$ids     = Cliente::find($id_cliente)->numeros()->lists('id');
+		$montos  = Total::select('fecha', DB::raw('SUM(monto_total) AS monto_total'))->whereIn('id_telefono', $ids)->whereBetween('fecha', array($desde, $hasta))->groupBy(DB::raw('YEAR(fecha) ,MONTH(fecha)'))->orderBy('fecha')->get();
+
+		foreach ($montos as $value) {
+			$fecha      = $value->fecha;
+			$montoTotal = $value->monto_total;
+			$config['data'][] = array("fecha" => $fecha, 'value' => $montoTotal);
+		}
+
+		$config['graphs'][] = array(
+			"balloonText"       => "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+			"bullet"            => "round",
+			"bulletSize"        => 6,
+			"lineColor"         => "#d1655d",
+			"lineThickness"     => 2,
+			"negativeLineColor" => "#637bb6",
+			"type"              => "smoothedLine",
+			"valueField"        => "value"
+			);
 		return $config;
 	}
 

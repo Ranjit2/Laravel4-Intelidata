@@ -16,7 +16,6 @@
  * @method static \Illuminate\Database\Query\Builder|\Servicio whereDeletedAt($value)
  */
 class Servicio extends \Eloquent {
-
 	protected $table = 'servicio';
 	protected $primaryKey = 'id';
 

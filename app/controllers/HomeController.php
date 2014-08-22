@@ -26,8 +26,7 @@ class HomeController extends BaseController {
 				'password' => (string) Input::get('password'),
 				);
 			if (Auth::attempt($userdata)) {
-				if (Auth::check())
-				{
+				if (Auth::check()) {
 					Session::put('ses_user_id', Auth::user()->getId());
 					Session::put('ses_user_rut', Auth::user()->rut);
 					Session::put('ses_user_tipo', Auth::user()->tipo);
@@ -40,10 +39,10 @@ class HomeController extends BaseController {
 	}
 
 	public function doLogout() {
-		Auth::logout();
 		Session::forget('ses_user_id');
 		Session::forget('ses_user_rut');
 		Session::forget('ses_user_tipo');
+		Auth::logout();
 		return Redirect::to('login');
 	}
 }

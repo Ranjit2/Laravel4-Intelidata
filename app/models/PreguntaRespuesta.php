@@ -36,7 +36,7 @@ class PreguntaRespuesta extends \Eloquent {
 	 * @return [type]              [description]
 	 */
 	public static function getIdPreguntaRespuesta($idPregunta, $idRespuesta) {
-		return PreguntaRespuesta::where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->select('id')->get();
+		return PreguntaRespuesta::select('id')->where('id_pregunta','=',$idPregunta)->where('id_respuesta','=',$idRespuesta)->get();
 	}
 
 	/**
@@ -45,7 +45,7 @@ class PreguntaRespuesta extends \Eloquent {
 	 * @return [type]     [description]
 	 */
 	public static function getPreguntaConRespuesta($id) {
-		return PreguntaRespuesta::where('id','=',$id)->select('id_pregunta','id_respuesta')->get();
+		return PreguntaRespuesta::select('id_pregunta','id_respuesta')->where('id','=',$id)->get();
 	}
 
 }
