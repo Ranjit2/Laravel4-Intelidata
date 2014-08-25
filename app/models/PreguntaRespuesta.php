@@ -17,7 +17,7 @@
  * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\PreguntaRespuesta whereDeletedAt($value)
  */
-class PreguntaRespuesta extends \Eloquent {
+class PreguntaRespuesta extends Eloquent {
 	protected $table = 'pregunta_respuesta';
 	protected $primaryKey = 'id';
 

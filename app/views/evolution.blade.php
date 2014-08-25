@@ -5,22 +5,32 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<h3 class="title-chart text-center">Evolutivo</h3>
+				<h3 class="title-chart text-center">Evolución de mis gastos</h3>
 				<div class="col-md-12">
-					<div id="chartdiv" style="min-height: 350px !important;"></div>
+					<div id="chartdiv" style="min-height: 450px !important;"></div>
 				</div>
 				<div class="col-md-12">
 					<div id="legenddiv" style="min-height: 40px;"></div>
-					<table id="lista" class="table table-condensed table-hover" style="display: none;">
+					<!-- .col-md-12>table.data_general>(thead>tr>th*2)+(tbody>tr>th*2) -->
+					<table class="data_general table table-condensed table-hover">
 						<thead>
-							<tr style="font-size: 14px;">
-								<th>Servicio</th>
-								<th>Porcentaje</th>
-								<th>Monto</th>
+							<tr>
+								<th>Total</th>
+								<th>Promedio</th>
 							</tr>
 						</thead>
 						<tbody>
+							<tr>
+								<th>$2.500.000</th>
+								<th>54%</th>
+							</tr>
 						</tbody>
+						<tfoot>
+							<tr>
+								<th>ASD</th>
+								<th>FGH</th>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</div>
@@ -35,87 +45,97 @@
 
 @section('script')
 <script type="text/javascript">
+	var lineChartData = {{ $data }};
+	var year1 = {{ $year[0] }};
+	var year2 = {{ $year[1] }};
+	var year3 = {{ $year[2] }};
+
 	AmCharts.ready(function () {
-		var chartData = generateChartData();
-		var chart = AmCharts.makeChart("chartdiv", {
-			"type": "serial",
-			"theme": "none",
-			"language": "es",
-			"pathToImages": "http://www.amcharts.com/lib/3/images/",
-			"dataProvider": chartData,
-			"valueAxes": [{
-				"axisAlpha": 0.2,
-				"dashLength": 1,
-				"position": "left"
-			}],
-			"mouseWheelZoomEnabled":true,
-			"graphs": [{
-				"id":"g1",
-				"balloonText": "[[category]]<br /><b><span style='font-size:14px;'>Monto: $[[value]]</span></b>",
-				"bullet": "round",
-				"bulletBorderAlpha": 1,
-				"bulletColor":"#FFFFFF",
-				"hideBulletsCount": 50,
-				"title": "red line",
-				"valueField": "visits",
-				"useLineColorForBulletBorder":true
-			}],
-			"chartScrollbar": {
-				"autoGridCount": true,
-				"graph": "g1",
-				"scrollbarHeight": 40
-			},
-			"chartCursor": {
-				"cursorPosition": "mouse"
-			},
-			"categoryField": "date",
-			"categoryAxis": {
-				"parseDates": true,
-				"axisColor": "#DADADA",
-				"dashLength": 1,
-				"minorGridEnabled": true
-			},
-			"exportConfig":{
-				menuRight: '20px',
-				menuBottom: '30px',
-				menuItems: [{
-					icon: 'http://www.amcharts.com/lib/3/images/export.png',
-					format: 'png'
-				}]
-			}
-		});
+			var chart                    = new AmCharts.AmSerialChart();
+			chart.dataProvider           = lineChartData;
+			chart.pathToImages           = "http://www.amcharts.com/lib/3/images/";
+			chart.categoryField          = "date";
+			chart.language               = "es";
+			chart.numberFormatter        = [
+				decimalSeparator   = ",",
+				thousandsSeparator = ".",
+				precision          = -1,
+				];
+			chart.autoMargins            = false;
+			chart.marginRight            = 0;
+			chart.marginLeft             = 75;
+			chart.marginBottom           = 20;
+			chart.marginTop              = 20;
 
-chart.addListener("rendered", zoomChart);
-zoomChart();
+			var categoryAxis             = chart.categoryAxis;
+			categoryAxis.inside          = false;
+			categoryAxis.gridAlpha       = 0;
+			categoryAxis.tickLength      = 0;
+			categoryAxis.axisAlpha       = 0;
 
-function zoomChart() {
-	chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
-}
+			var valueAxis                = new AmCharts.ValueAxis();
+			valueAxis.dashLength         = 1;
+			valueAxis.axisColor          = "#DADADA";
+			valueAxis.axisAlpha          = 1;
+			valueAxis.unit               = "$";
+			valueAxis.unitPosition       = "left";
+			chart.addValueAxis(valueAxis);
 
-function generateChartData() {
-	var chartData = [];
-	var firstDate = new Date();
-	firstDate.setDate(firstDate.getDate() - 5);
+			var legend                   = new AmCharts.AmLegend();
+			legend.labelText             = "[[title]]";
+			legend.valueText             = "";
+			legend.useGraphSettings      = true;
+			chart.addLegend(legend, "legenddiv");
 
-	for (var i = 0; i < 1000; i++) {
+			var graph                    = new AmCharts.AmGraph();
+			graph.title                  = year1;
+			graph.balloonText            = "<strong>[[date]] - [[year1]]</strong> <br>Monto: $[[value]]";
+			graph.type                   = "line";
+			graph.valueField             = "val1";
+			graph.lineColor              = "#60c6cf";
+			graph.lineThickness          = 3;
+			graph.bullet                 = "round";
+			graph.bulletColor            = "#60c6cf";
+			graph.bulletBorderColor      = "#ffffff";
+			graph.bulletBorderAlpha      = 1;
+			graph.bulletBorderThickness  = 3;
+			graph.bulletSize             = 12;
+			chart.addGraph(graph);
 
-		var newDate = new Date(firstDate);
-		newDate.setDate(newDate.getDate() + i);
+			var graph1                   = new AmCharts.AmGraph();
+			graph1.title                 = year2;
+			graph1.balloonText           = "<strong>[[date]] - [[year2]]</strong> <br>Monto: $[[value]]";
+			graph1.type                  = "line";
+			graph1.valueField            = "val2";
+			graph1.lineColor             = "#f35958";
+			graph1.lineThickness         = 3;
+			graph1.bullet                = "round";
+			graph1.bulletColor           = "#f35958";
+			graph1.bulletBorderColor     = "#ffffff";
+			graph1.bulletBorderAlpha     = 1;
+			graph1.bulletBorderThickness = 3;
+			graph1.bulletSize            = 12;
+			chart.addGraph(graph1);
 
-		var visits = Math.round(Math.random() * (40 + i / 5)) + 20 + i;
+			var graph2                   = new AmCharts.AmGraph();
+			graph2.title                 = year3;
+			graph2.balloonText           = "<strong>[[date]] - [[year3]]</strong> <br>Monto: $[[value]]";
+			graph2.type                  = "line";
+			graph2.valueField            = "val3";
+			// graph2.lineColor          = "#f35958";
+			graph2.lineThickness         = 3;
+			graph2.bullet                = "round";
+			// graph2.bulletColor        = "#f35958";
+			graph2.bulletBorderColor     = "#ffffff";
+			graph2.bulletBorderAlpha     = 1;
+			graph2.bulletBorderThickness = 3;
+			graph2.bulletSize            = 12;
+			chart.addGraph(graph2);
 
-		chartData.push({
-			date: newDate,
-			visits: visits
-		});
-	}
-	return chartData;
-}
-});
+			var chartCursor              = new AmCharts.ChartCursor();
+		chart.addChartCursor(chartCursor);
+
+		chart.write("chartdiv");
+	});
 </script>
-@stop
-
-@section('style')
-<style type="text/css" media="screen">
-</style>
 @stop

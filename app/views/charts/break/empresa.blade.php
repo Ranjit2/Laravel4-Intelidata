@@ -39,9 +39,9 @@
 
 @section('script')
 <script type="text/javascript">
-var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
-AmCharts.ready(function () {
-	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/{{ Carbon::now() }}','post');
+	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
+	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/{{ Carbon::now()->toDateString() }}','post');
+
 	$('.tiny-timeline a').on('click', function (e) {
 		e.preventDefault();
 		var d = $(this).attr('data-timeline');
@@ -49,7 +49,6 @@ AmCharts.ready(function () {
 		$('h3.title-chart').text(t);
 		$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/'+d,'post');
 	});
-});
 </script>
 @stop
 

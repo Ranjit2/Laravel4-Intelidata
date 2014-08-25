@@ -29,55 +29,41 @@
  * @method static \Illuminate\Database\Query\Builder|\Telefono whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Telefono whereDeletedAt($value)
  */
-class Telefono extends \Eloquent {
+class Telefono extends Eloquent {
 	protected $table = 'telefono';
 	protected $primaryKey = 'id';
 
-	public function servicios(){
+	public function servicios() {
 		return $this->belongsToMany('Servicio', 'telefonos_servicios', 'id_telefono', 'id_servicio')->withpivot('precio_servicio','fecha')->select('id_telefono','tipo','precio_servicio');
 	}
 
-	public function montos(){
+	public function montos() {
 		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
 	}
 
-	public function cliente(){
+	public function cliente() {
 		return $this->belongsTo('Cliente');
 	}
 
-	public static function telefonosConServicios($nroCliente, $fecha)
-	{
-		$telefonos        = Cliente::find($nroCliente)->numeros;
-		$date             = new Carbon($fecha);
-		$month            = $date->month;
-		$year             = $date->year;
-		$arregloTelefonos = array();
-		$arregloTelefonos = array();
-		foreach ($telefonos as $value)
-		{
-			$telefono          = new stdClass();
-			$arregloServicios  = array();
-			$arregloSer        = array();
-			$arrayAux          = array();
-			$idTelefono        = $value['id'];
-			$numero            = $value['numero'];
-			$totalTelefono     = Telefono::find($idTelefono)->montos()->where(DB::raw('MONTH(fecha)'),'=',$month)->where(DB::raw('YEAR(fecha)'),'=',$year)->select('monto_total')->get()[0]['monto_total'];
-			$telefono->type    = $numero;
-			$telefono->percent = $totalTelefono;
-			foreach (Telefono::find($idTelefono)->servicios()->where(DB::raw('MONTH(fecha)'),'=',$month)->where(DB::raw('YEAR(fecha)'),'=',$year)->get() as $value2)
-			{
-				$subs          = new stdClass();
-				$subs->type    = $value2['tipo'];
-				$subs->percent = $value2['precio_servicio'];
-				$arrayAux[]    = $subs;
+	public static function telefonosConServicios($nroCliente, $fecha) {
+		$date = new Carbon($fecha);
+		$b = array(); $c = array();
+		foreach ($telefonos = Cliente::find(Session::get('ses_user_id'))->numeros as $k => $value) {
+			$id     = $value->id;
+			array_push($b, array(
+				'type' => $value->numero,
+				'percent' => Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total,
+				'subs' => array(),
+				));
+			foreach (Telefono::find($id)->servicios()->select('tipo', 'precio_servicio')->where(DB::raw('MONTH(fecha)'), $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->get() as $value) {
+				$c = array('type' => $value->tipo, 'percent' => $value->precio_servicio, );
+				array_push($b[$k]['subs'], $c);
 			}
-			$telefono->subs     = $arrayAux;
-			$arregloTelefonos[] = $telefono;
 		}
-		return Response::json($arregloTelefonos);
+		return Response::json($b);
 	}
 
-	public static function tl_total(){
+	public static function tl_total() {
 		$items_per_group = (int) 1;
 		$data = DB::select('SELECT f.id, c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
 			FROM cliente c

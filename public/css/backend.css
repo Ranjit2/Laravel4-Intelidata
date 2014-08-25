@@ -6450,10 +6450,13 @@ button.close {
   transition: all ease 0.5s;
 }
 .sidebar .panel-title a:hover,
-.panel-title a:focus {
+.sidebar .panel-title a:focus {
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
+}
+.sidebar .panel-title a:hover > span,
+.sidebar .panel-title a:focus span {
+  margin-right: 15px;
 }
 .sidebar .panel-body {
   padding: 0px;
@@ -6463,6 +6466,42 @@ button.close {
 }
 .sidebar .panel-body .table {
   margin-bottom: 0px;
+}
+/* CODIGO DE LA CAJA */
+.sombra_movil {
+  -webkit-transform: translateZ(0);
+}
+.sombra_movil:hover {
+  -webkit-transform: translateY(-6px);
+  -webkit-animation: 1.5s movercaja infinite;
+}
+@-webkit-keyframes movercaja {
+  50% {
+    -webkit-transform: translateY(-3px);
+  }
+}
+/* CODIGO DEL BEFORE */
+.sombra_movil:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+}
+.sombra_movil:hover:before {
+  opacity: 0.4;
+  -webkit-transform: translateY(6px);
+  -webkit-animation: 1.5s moversombra infinite;
+}
+@-webkit-keyframes moversombra {
+  50% {
+    -webkit-transform: translateY(3px);
+    opacity: 1;
+  }
 }
 /* *
 *
