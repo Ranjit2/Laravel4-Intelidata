@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c02d9087bcfeaca39fa1580e17dacd93",
+    "hash": "f58906f0af0d8f40c882a9b878827385",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -88,6 +88,48 @@
             "time": "2014-03-21 20:55:46"
         },
         {
+            "name": "artisaninweb/laravel-soap",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artisaninweb/laravel-soap.git",
+                "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+                "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Artisaninweb\\SoapWrapper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael van de Rijt",
+                    "email": "me@mvdrijt.com"
+                }
+            ],
+            "description": "A SoapClient wrapper integration for Laravel",
+            "keywords": [
+                "client",
+                "laravel",
+                "soap",
+                "wrapper"
+            ],
+            "time": "2014-08-08 07:05:19"
+        },
+        {
             "name": "barryvdh/laravel-debugbar",
             "version": "dev-master",
             "source": {
@@ -140,16 +182,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v1.11.2",
+            "version": "v1.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01"
+                "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/19aa77ac49ab4ea859196c692618c56de3bb7e01",
-                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
+                "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
                 "shasum": ""
             },
             "require": {
@@ -199,7 +241,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2014-08-12 12:34:30"
+            "time": "2014-08-26 08:54:34"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -867,12 +909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9"
+                "reference": "e49b9989b8687da7eedc5a33f7775a1562424765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
-                "reference": "4d60fc4b20c7da4f6646be4da6a72460c96b55f9",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e49b9989b8687da7eedc5a33f7775a1562424765",
+                "reference": "e49b9989b8687da7eedc5a33f7775a1562424765",
                 "shasum": ""
             },
             "require": {
@@ -909,7 +951,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-08-22 14:04:52"
+            "time": "2014-08-26 07:14:36"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1293,16 +1335,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "9b42a1aec56011c2ac4d75c0ddad0794762344fc"
+                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b42a1aec56011c2ac4d75c0ddad0794762344fc",
-                "reference": "9b42a1aec56011c2ac4d75c0ddad0794762344fc",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
+                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
                 "shasum": ""
             },
             "require": {
@@ -1335,7 +1377,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2014-07-18 03:44:47"
+            "time": "2014-08-26 03:18:44"
         },
         {
             "name": "nikic/php-parser",
@@ -2747,12 +2789,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "0140198699a41d299cd2d100e01c12c967b765e4"
+                "reference": "55dd964690380977cfbc71494e6030b70c17b949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0140198699a41d299cd2d100e01c12c967b765e4",
-                "reference": "0140198699a41d299cd2d100e01c12c967b765e4",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/55dd964690380977cfbc71494e6030b70c17b949",
+                "reference": "55dd964690380977cfbc71494e6030b70c17b949",
                 "shasum": ""
             },
             "replace": {
@@ -2790,7 +2832,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-23 20:46:28"
+            "time": "2014-08-25 19:38:53"
         },
         {
             "name": "tzookb/tbmsg",
@@ -2949,6 +2991,7 @@
         "freshwork/chilean-bundle": 20,
         "watson/bootstrap-form": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],

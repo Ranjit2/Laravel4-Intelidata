@@ -12,11 +12,11 @@ namespace Barryvdh\LaravelIdeHelper;
 
 class Alias
 {
-
     protected $alias;
     protected $facade;
     protected $extends = null;
     protected $classType = 'class';
+    protected $short;
     protected $namespace = '__root';
     protected $root = null;
     protected $classes = array();
@@ -42,7 +42,6 @@ class Alias
         $facade = '\\' . ltrim($facade, '\\');
         $this->facade = $facade;
 
-
         $this->detectRoot();
 
         if ((!$this->isTrait() && $this->root)) {
@@ -54,8 +53,10 @@ class Alias
         $this->addClass($this->root);
         $this->detectNamespace();
         $this->detectClassType();
-
-
+        
+        if($facade === '\Illuminate\Database\Eloquent\Model'){
+            $this->usedMethods = array('decrement', 'increment');
+        }
     }
 
     /**
@@ -115,6 +116,12 @@ class Alias
     }
 
     /**
+     * Return the short name (without namespace)
+     */
+    public function getShortName(){
+        return $this->short;
+    }
+    /**
      * Get the namespace from the alias
      *
      * @return string
@@ -145,6 +152,8 @@ class Alias
             $nsParts = explode('\\', $this->alias);
             $this->short = array_pop($nsParts);
             $this->namespace = implode('\\', $nsParts);
+        }else{
+            $this->short = $this->alias;
         }
     }
 
@@ -252,7 +261,7 @@ class Alias
                     if (!in_array($method->name, $this->usedMethods)) {
                         // Only add the methods to the output when the root is not the same as the class.
                         // And don't add the __*() methods
-                        if ($this->extends !== $class && $method->name !== '__clone') {
+                        if ($this->extends !== $class && substr($method->name, 0, 2) !== '__') {
                             $this->methods[] = new Method($method, $this->alias, $reflection, $method->name, $this->interfaces);
                         }
                         $this->usedMethods[] = $method->name;

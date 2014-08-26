@@ -16,7 +16,8 @@
 		"freshwork/chilean-bundle": "dev-master",
 		"watson/bootstrap-form": "dev-master",
 		"adamwathan/bootforms": "v0.2",
-		"maatwebsite/excel": "1.*"
+		"maatwebsite/excel": "1.*",
+		"artisaninweb/laravel-soap": "0.2.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*"

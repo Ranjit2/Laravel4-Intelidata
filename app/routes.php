@@ -1,4 +1,4 @@
-<?php
+// <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +74,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/charts/evolution', function() {
 		$count = 1;
 		$data = array();
+		$data2 = array();
 		$years = array(
 			Carbon::now()->subYears(2)->year,
 			Carbon::now()->subYears(1)->year,
@@ -82,7 +83,16 @@ Route::group(array('before' => 'auth'), function() {
 		$ids = Cliente::find(7)->numeros()->lists('id');
 		for ($i = 0; $i < 12; $i++) {
 			array_push($data, array(
-				'date' => Func::convNumberToMonth($count++),
+				'date' => Func::convNumberToMonth($count),
+				'year1' => $years[0],
+				'year2' => $years[1],
+				'year3' => $years[2],
+				));
+			array_push($data2, array(
+				'date' => Func::convNumberToMonth($count),
+				'val1' => 0,
+				'val2' => 0,
+				'val3' => 0,
 				'year1' => $years[0],
 				'year2' => $years[1],
 				'year3' => $years[2],
@@ -99,22 +109,26 @@ Route::group(array('before' => 'auth'), function() {
 				switch ($value->year) {
 					case $years[0]:
 					$data[$i] = array_add($data[$i], 'val1', $value->monto_total);
+					array_set($data2[$i], 'val1', $value->monto_total);
 					break;
 
 					case $years[1]:
 					$data[$i] = array_add($data[$i], 'val2', $value->monto_total);
+					array_set($data2[$i], 'val2', $value->monto_total);
 					break;
 
 					case $years[2]:
 					$data[$i] = array_add($data[$i], 'val3', $value->monto_total);
+					array_set($data2[$i], 'val3', $value->monto_total);
 					break;
 
 					default:
 					break;
 				}
 			}
+			$count++;
 		}
-		return View::make('evolution')->with('data', json_encode($data))->with('year', $years);
+		return View::make('evolution')->with('data', json_encode($data))->with('data2', json_encode($data2))->with('year', $years);
 	});
 
 	// CHARTS REQUESTS
@@ -142,6 +156,26 @@ Route::get('/charts/line', function() {
 Route::resource('nerds', 'PersonaController');
 
 Route::get('test', function(){
+	SoapWrapper::add(function ($service) {
+		$service->name('weather')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
+	});
+
+	$data = array(
+		'CountryName' => 'Chile',
+		'CityName'    => 'Santiago',
+		);
+	$func       = 'GetWeather';
+	$funcResult = $func . 'Result';
+	// $data       = Func::arrayToXML($data);
+
+	$result = SoapWrapper::service('weather', function($service) use ($data, $func, $funcResult) {
+		// var_dump($service->getFunctions());
+		return $service->call($func, $data)->$funcResult;
+	});
+	Func::printr($result);
+
+	die();
+
 	Cliente::evolutionChart(7);
 	return View::make('charts.line.empresa');
 });

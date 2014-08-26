@@ -265,5 +265,4 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
 		return $data;
 	}
-
 }

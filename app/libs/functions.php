@@ -60,22 +60,22 @@ Class Func {
 			return array();
 	}
 
-	// Usage:
+// Usage:
 
-	// //Fill an array with random test data
-	// define('MAX_ITEMS', 15);
-	// define('MAX_VAL', 20);
-	// for($i=0; $i < MAX_ITEMS; $i++)
-	//   $data[] = array('field1' => rand(1, MAX_VAL), 'field2' => rand(1, MAX_VAL), 'field3' => rand(1, MAX_VAL) );
+// //Fill an array with random test data
+// define('MAX_ITEMS', 15);
+// define('MAX_VAL', 20);
+// for($i=0; $i < MAX_ITEMS; $i++)
+//   $data[] = array('field1' => rand(1, MAX_VAL), 'field2' => rand(1, MAX_VAL), 'field3' => rand(1, MAX_VAL) );
 
-	// //Set the sort criteria (add as many fields as you want)
-	// $sortCriteria =
-	//   array('field1' => array(SORT_DESC, SORT_NUMERIC),
-	//        'field3' => array(SORT_DESC, SORT_NUMERIC)
-	//   );
+// //Set the sort criteria (add as many fields as you want)
+// $sortCriteria =
+//   array('field1' => array(SORT_DESC, SORT_NUMERIC),
+//        'field3' => array(SORT_DESC, SORT_NUMERIC)
+//   );
 
-	// //Call it like this:
-	// $sortedData = MultiSort($data, $sortCriteria, true);
+// //Call it like this:
+// $sortedData = MultiSort($data, $sortCriteria, true);
 	public static function MultiSort($data, $sortCriteria, $caseInSensitive = true)
 	{
 		if( !is_array($data) || !is_array($sortCriteria))
@@ -107,49 +107,49 @@ Class Func {
 
 	public static function postUpload ($input = '') {
 		if (Input::hasFile($input)) {
-            // Get file input
+// Get file input
 			$file = Input::file('file');
 			$name = time() . '-' . $file->getClientOriginalName();
-			// Check out the edit content on bottom of my answer for details on $storage
+// Check out the edit content on bottom of my answer for details on $storage
 			$path = storage_path() . '/uploads/CSV';
-			// Moves file to folder on server
+// Moves file to folder on server
 			$file->move($path, $name);
-            // Import the moved file to DB and return OK if there were rows affected
+// Import the moved file to DB and return OK if there were rows affected
 			return ($this->importCSV($path, $name) ? 'OK' : 'No rows affected' );
 		}
 	}
 
 	private static function importCSV ($path = '', $filename = '', $table = '') {
-        // CSV File
+// CSV File
 		$csv   = $path . $filename;
-		// Ofcourse you have to modify that with proper table and field names
+// Ofcourse you have to modify that with proper table and field names
 		$query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE %s FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' ESCAPED BY '\"' LINES TERMINATED BY '\\n' IGNORE 0 LINES (`filed_one`, `field_two`, `field_three`)", array(addslashes($csv),$table));
-		// Insert data into DB
+// Insert data into DB
 		return DB::connection()->getpdo()->exec($query);
 	}
 
-	// DATABASE FUNCTIONS
+// DATABASE FUNCTIONS
 	public static function convNumberToMonth ($number = 0) {
-        // Array with number => month
+// Array with number => month
 		$month = array('1' => 'enero', '2' => 'febrero', '3' => 'marzo', '4' => 'abril', '5' => 'mayo', '6' => 'junio', '7' => 'julio', '8' => 'agosto', '9' => 'septiembre', '10' => 'octubre', '11' => 'noviembre', '12' => 'diciembre');
-		// Get Month name into array
+// Get Month name into array
 		$month = array_get($month, $number, '');
-		// Convert name to CamelCase
+// Convert name to CamelCase
 		$month = studly_case($month);
 		return $month;
 	}
 
 	public static function convMonthToNumber ($month = '') {
-        // Array with month => number
+// Array with month => number
 		$number = array('enero' => '1', 'febrero' => '2', 'marzo' => '3', 'abril' => '4', 'mayo' => '5', 'junio' => '6', 'julio' => '7', 'agosto' => '8', 'septiembre' => '9', 'octubre' => '10', 'noviembre' => '11', 'diciembre' => '12');
-		// Convert name to lower case
+// Convert name to lower case
 		$month  = Str::lower($month);
-		// Get number into array
+// Get number into array
 		$number = array_get($number, $month, 0);
 		return $number;
 	}
 
-	//COLOR FUNCTIONS
+//COLOR FUNCTIONS
 	public static function rgb_hex($rgb) {
 		return sprintf("%06X", $rgb);
 	}
@@ -162,35 +162,35 @@ Class Func {
 	}
 
 	public static function oscurece_color($color,$cant) {
-		//voy a extraer las tres partes del color
+//voy a extraer las tres partes del color
 		$rojo = substr($color,1,2);
 		$verd = substr($color,3,2);
 		$azul = substr($color,5,2);
 
-		//voy a convertir a enteros los string, que tengo en hexadecimal
+//voy a convertir a enteros los string, que tengo en hexadecimal
 		$introjo = hexdec($rojo);
 		$intverd = hexdec($verd);
 		$intazul = hexdec($azul);
 
-		//ahora verifico que no quede como negativo y resto
+//ahora verifico que no quede como negativo y resto
 		if($introjo-$cant>=0) $introjo = $introjo-$cant;
 		if($intverd-$cant>=0) $intverd = $intverd-$cant;
 		if($intazul-$cant>=0) $intazul = $intazul-$cant;
 
-		//voy a convertir a hexadecimal, lo que tengo en enteros
+//voy a convertir a hexadecimal, lo que tengo en enteros
 		$rojo = dechex($introjo);
 		$verd = dechex($intverd);
 		$azul = dechex($intazul);
 
-		//voy a validar que los string hexadecimales tengan dos caracteres
+//voy a validar que los string hexadecimales tengan dos caracteres
 		if(strlen($rojo)<2) $rojo = "0".$rojo;
 		if(strlen($verd)<2) $verd = "0".$verd;
 		if(strlen($azul)<2) $azul = "0".$azul;
 
-		//voy a construir el color hexadecimal
+//voy a construir el color hexadecimal
 		$oscuridad = "#".$rojo.$verd.$azul;
 
-		//la función devuelve el valor del color hexadecimal resultante
+//la función devuelve el valor del color hexadecimal resultante
 		return Str::upper($oscuridad);
 	}
 
@@ -199,7 +199,7 @@ Class Func {
 		$g = mt_rand(1,255);
 		$b = mt_rand(1,255);
 
-		// Generamos el valor RGB para CSS
+// Generamos el valor RGB para CSS
 		$color = array(
 			'full' => 'rgba('.$r.','.$g.','.$b.',1)',
 			'75'   => 'rgba('.$r.','.$g.','.$b.',0.75)',
@@ -210,8 +210,8 @@ Class Func {
 		return $color;
 	}
 
-	//funcion que recibe el id del cliente y devuelve true si el cliente ya respondio la encuesta de como quiere ser contactado
-	// y false en caso contrario
+//funcion que recibe el id del cliente y devuelve true si el cliente ya respondio la encuesta de como quiere ser contactado
+// y false en caso contrario
 	public static function clienteRespondioEncuesta($idCliente) {
 		$datos = ClientePregunta::where('id_cliente','=',$idCliente)->where('estado','=','A')->get();
 		foreach ($datos as $value) {
@@ -225,5 +225,52 @@ Class Func {
 		$methods = $class->getMethods();
 		var_dump($methods);
 		// var_dump(get_class_methods($class));
+	}
+
+	/**
+	* [arrayToXML function for convert array to xml format]
+	* @param  [array] $array_in [description]
+	* @return [xml]           	 [description]
+	*/
+	public static function arrayToXML($array_in){
+		$return = "";
+		$attributes = array();
+		foreach($array_in as $k=>$v) {
+			if ($k[0] == "@") {
+				$attributes[str_replace("@","",$k)] = $v;
+			} else {
+				if (is_array($v)) {
+					$return .= Func::generateXML($k,arrayToXML($v),$attributes);
+					$attributes = array();
+				} else if (is_bool($v)) {
+					$return .= Func::generateXML($k,(($v==true)? "true" : "false"),$attributes);
+					$attributes = array();
+				} else {
+					$return .= Func::generateXML($k,$v,$attributes);
+					$attributes = array();
+				}
+			}
+		}
+		return $return;
+	}
+
+	/**
+	* [generateXML Generate ]
+	* @param  [type] $tag_in       [description]
+	* @param  string $value_in     [description]
+	* @param  string $attribute_in [description]
+	* @return [type]               [description]
+	*/
+	public static function generateXML($tag_in,$value_in="",$attribute_in="") {
+		$return         = "";
+		$attributes_out = "";
+		if (is_array($attribute_in)){
+			if (count($attribute_in) != 0){
+				foreach($attribute_in as $k=>$v):
+					$attributes_out .= " " . $k . "=\"" . $v . "\"";
+				endforeach;
+			}
+		}
+		return "<" . $tag_in . "" . $attributes_out . ((trim($value_in) == "") ? "/>" : ">" . $value_in . "</" . $tag_in . ">");
 	}
 }
