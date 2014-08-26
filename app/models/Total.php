@@ -21,4 +21,8 @@
 class Total extends Eloquent {
 	protected $table = 'total';
 	protected $primaryKey = 'id';
+
+	public function telefono(){
+		return $this->belongsTo('Telefono','id_telefono');
+	}
 }

@@ -132,11 +132,7 @@ Route::get('test', function(){
 });
 
 
-Route::get('majony', function(){
-	$hasta = Carbon::now();
-	$desde = Carbon::now()->subMonths(13);
+Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
 
-	return Cliente::find('11111-1')->telefonos;
-	//return $montosClientes = Telefono::find($idTelefono)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
-	return '';
-});
+
+

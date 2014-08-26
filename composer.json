@@ -15,7 +15,8 @@
 		"tag-planet/universal-analytics": "dev-master",
 		"freshwork/chilean-bundle": "dev-master",
 		"watson/bootstrap-form": "dev-master",
-		"adamwathan/bootforms": "v0.2"
+		"adamwathan/bootforms": "v0.2",
+		"maatwebsite/excel": "1.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*"

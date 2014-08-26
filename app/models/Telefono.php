@@ -41,6 +41,13 @@ class Telefono extends \Eloquent {
 		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
 	}
 
+	public static function getNumero($idTelefono)
+	{
+		return Telefono::find($idTelefono)->numero;
+	}
+
+
+
 	public function cliente(){
 		return $this->belongsTo('Cliente');
 	}
