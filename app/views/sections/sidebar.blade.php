@@ -48,7 +48,7 @@
 					@endif
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/category') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Grafico por categoría</a>
+							<a href="{{ URL::to('/charts/line') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Grafico por Lineas</a>
 						</td>
 					</tr>
 					<tr>

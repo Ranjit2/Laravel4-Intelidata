@@ -2,6 +2,14 @@
 
 class HomeController extends BaseController {
 
+	public function index() {
+		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
+			return View::make('home');
+		} else {
+			return Redirect::to('/question');
+		}
+	}
+
 	public function showLogin() {
 		return View::make('index');
 	}

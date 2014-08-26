@@ -10,7 +10,7 @@ class RegistroController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('registro');
 	}
 
 	/**
@@ -83,11 +83,11 @@ class RegistroController extends \BaseController {
 		//
 	}
 
-	
+
 	public static function existeCliente($rut)
 	{
 		$variable = Cliente::whereRut($rut)->get();
-		foreach ($variable as $value) 
+		foreach ($variable as $value)
 		{
 			return true;
 		}
@@ -142,7 +142,7 @@ class RegistroController extends \BaseController {
 			$insertedId = $persona->id;
 
 			//se actualiza la tabla de cliente con el password recien ingresado
-			$idCliente            = registroController::getIdCliente($variable['rut']); 
+			$idCliente            = registroController::getIdCliente($variable['rut']);
 			$clienteU 	          = Cliente::find($idCliente);
 			$clienteU->clave      = Hash::make($variable['password']);
 			$clienteU->id_persona = $insertedId;
@@ -150,7 +150,7 @@ class RegistroController extends \BaseController {
 
 			return "grabado correctamente";
 
-		
+
 	}
 
 }
