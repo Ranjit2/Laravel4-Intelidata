@@ -7,8 +7,8 @@
     <title>iDATA | @yield('title')</title>
     <!-- Latest compiled and minified CSS -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and
-    media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -60,7 +60,7 @@
     {{ HTML::script('js/amcharts/lang/es.js') }}
     {{ HTML::script('http://www.amcharts.com/lib/3/themes/none.js') }}
     <!-- CUSTOM JAVASCRIPT -->
-    {{ HTML::script('js/frontend.min.js') }}
+    {{ HTML::script('js/frontend.js') }}
     @yield('script')
 </body>
 </html>

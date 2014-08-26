@@ -22,7 +22,7 @@
     var total_groups = {{ $total_groups }};
     $('.animation_image').centerToWindow();
 
-    $('#results').load("timeline", {'page':track_load }, function() {
+    $('#results').load("/timeline", {'page':track_load }, function() {
         track_load++;
     });
 

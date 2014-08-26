@@ -260,20 +260,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		foreach ($montos as $value) {
 			$fecha      = $value->fecha;
 			$montoTotal = $value->monto_total;
-			$config['data'][] = array("fecha" => $fecha, 'value' => $montoTotal);
+			$data[] = array("fecha" => $fecha, 'value' => $montoTotal);
 		}
 
-		$config['graphs'][] = array(
-			"balloonText"       => "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
-			"bullet"            => "round",
-			"bulletSize"        => 6,
-			"lineColor"         => "#d1655d",
-			"lineThickness"     => 2,
-			"negativeLineColor" => "#637bb6",
-			"type"              => "smoothedLine",
-			"valueField"        => "value"
-			);
-		return $config;
+		return $data;
 	}
 
 }

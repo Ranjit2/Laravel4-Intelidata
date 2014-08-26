@@ -2,6 +2,9 @@
 
 Class Func {
 
+	public function __construct() {
+	}
+
 	public static function printr($a) {
 		echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
 	}
@@ -198,12 +201,12 @@ Class Func {
 
 		// Generamos el valor RGB para CSS
 		$color = array(
-		'full' => 'rgba('.$r.','.$g.','.$b.',1)',
-		'75'   => 'rgba('.$r.','.$g.','.$b.',0.75)',
-		'50'   => 'rgba('.$r.','.$g.','.$b.',0.5)',
-		'25'   => 'rgba('.$r.','.$g.','.$b.',0.25)',
-		'20'   => 'rgba('.$r.','.$g.','.$b.',0.2)',
-		);
+			'full' => 'rgba('.$r.','.$g.','.$b.',1)',
+			'75'   => 'rgba('.$r.','.$g.','.$b.',0.75)',
+			'50'   => 'rgba('.$r.','.$g.','.$b.',0.5)',
+			'25'   => 'rgba('.$r.','.$g.','.$b.',0.25)',
+			'20'   => 'rgba('.$r.','.$g.','.$b.',0.2)',
+			);
 		return $color;
 	}
 
@@ -215,5 +218,12 @@ Class Func {
 			return true;
 		}
 		return false;
+	}
+
+	public static function getMethods ($class) {
+		$class   = new ReflectionClass($class);
+		$methods = $class->getMethods();
+		var_dump($methods);
+		// var_dump(get_class_methods($class));
 	}
 }

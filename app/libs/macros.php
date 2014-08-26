@@ -493,17 +493,12 @@ HTML::macro ( 'progress', function ($current, $total) {
 
     $pctValue = number_format ( $current / $total * 100, 0 );
     $str = '';
-    $str .= '<div class="row">
-    <div class="col-xs-3">
-        <div id="progressbar"></div>
-    </div>
-    <div class="col-xs-2">' . $pctValue . '% Complete</div>
-</div>';
-$str .= '<script type="text/javascript">
-$(function(){';
-    $str .= '$("#progressbar").progressbar({
-        value: ' . $pctValue;
-        $str .= '});';
+    $str .= '<div class="row"><div class="col-xs-3"><div id="progressbar"></div></div><div class="col-xs-2">' . $pctValue . '% Complete</div></div>';
+    $str .= '<script type="text/javascript">
+    $(function(){';
+        $str .= '$("#progressbar").progressbar({
+            value: ' . $pctValue;
+            $str .= '});';
 $str .= '});
 </script>';
 return $str;
@@ -545,21 +540,17 @@ HTML::macro('activeState', function($url) {
     return Request::is($url) ? 'active' : '';
 });
 
-HTML::macro('tiny_timeline', function($url){
-    $a = '<ul class="list-inline months">';
-    $c = 0;
-    $y = array();
+HTML::macro('tiny_timeline', function() {
+    $a = '<ul class="list-inline months">'; $c = 0; $y = array();
     for ($i = 12; $i > -1; $i--) {
-        if(Carbon::now()->subMonths($i)->month == 1){
+        if(Carbon::now()->subMonths($i)->month == 1) {
             $a .= '<li class="divide-line"></li>';
         }
-        $a .= '<li><a class="text-uppercase" href="' . $url . '" data-timeline="' . Carbon::now()->subMonths($i)->year . '-' . Carbon::now()->subMonths($i)->month . '-1">';
-        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month);
-        $a .= '</a></li>';
+        $a .= '<li><a class="text-uppercase" href="#" data-timeline="' . Carbon::now()->subMonths($i)->toDateString() . '">';
+        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month) . '</a></li>';
         array_push($y, Carbon::now()->subMonths($i)->year);
     }
-    $a .= '</ul>';
-    $a .= '<ul class="list-inline years">';
+    $a .= '</ul><ul class="list-inline years">';
     foreach (array_unique($y) as $value) {
         if($c == 0) {
             $a .= '<li class="pull-left"><b>' . $value . '</b></li>';
@@ -569,7 +560,6 @@ HTML::macro('tiny_timeline', function($url){
         }
     }
     $a .= '</ul>';
-
     return $a;
 });
 
@@ -579,7 +569,7 @@ HTML::macro('timeline', function($data){
     $c = array('fa-info', 'fa-usd', 'fa-check');
     $d = '';
     foreach ($data as $value) {
-        // INFORMACION AL...
+// INFORMACION AL...
         $d .= '<li class="' . $a[0] . '">';
         $d .= '<div class="timeline-badge ' . $b[2] . '">';
         $d .= '<i class="fa ' . $c[0] . '"></i></div>';
@@ -587,7 +577,7 @@ HTML::macro('timeline', function($data){
         $d .= '<h4 class="timeline-title">INFORMACI&Oacute;N AL</h4>';
         $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->informacion_al)) . '</small></p>';
         $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
-        // FIN FACTURACIÓN
+// FIN FACTURACIÓN
         $d .= '<li class="' . $a[1] . '">';
         $d .= '<div class="timeline-badge ' . $b[1] . '">';
         $d .= '<i class="fa ' . $c[2] . '"></i></div>';
@@ -595,7 +585,7 @@ HTML::macro('timeline', function($data){
         $d .= '<h4 class="timeline-title">FIN FACTURACI&Oacute;N</h4>';
         $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fin_fac)) . '</small></p>';
         $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
-        // INICIO FACTURACIÓN
+// INICIO FACTURACIÓN
         $d .= '<li class="' . $a[0] . '">';
         $d .= '<div class="timeline-badge ' . $b[3] . '">';
         $d .= '<i class="fa ' . $c[1] . '"></i></div>';
@@ -611,8 +601,8 @@ HTML::macro('timeline', function($data){
 HTML::macro('genera_contacto', function($p) {
     $cont = 1;
     $a    = '';
-    $a .= '<fieldset class="col-md-offset-1"><legend>Contacto</legend>';
-    $a .= Form::open();
+    $a    .= '<fieldset class="col-md-offset-1"><legend>Contacto</legend>';
+    $a    .= Form::open();
     foreach ($p as $pregunta) {
         $r = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get();
         $a .= '<h4>' . $cont++ .'- '. $pregunta->pregunta . '</h4>';
@@ -625,60 +615,39 @@ HTML::macro('genera_contacto', function($p) {
     $a .= '<button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">Modificar</button>';
     $a .= Form::close();
     $a .= '</fieldset>';
-
     return $a;
 });
 
 function respondida($id_p, $id_r) {
-    if(Respuesta::esCorrecta($id_p, $id_r)) {
-        return "checked";
-    }
+    if(Respuesta::esCorrecta($id_p, $id_r)) { return "checked"; }
 }
 
 HTML::macro('genera_telefonos_empresa', function(){
-    $numerosEmergencia = TelefonosContacto::whereIdEmpresa(1)->where('tipo',1)->get();//1 numeros de emergencia
-    $numerosCelulares  = TelefonosContacto::whereIdEmpresa(1)->where('tipo',2)->get();//2 numeros celulares
+    $nu = TelefonosContacto::whereIdEmpresa(1)->where('tipo',1)->get();
+    $nc  = TelefonosContacto::whereIdEmpresa(1)->where('tipo',2)->get();
     $b = '';
-    $b.= '<ul>';
-    $b.= '<li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>';
-    foreach($numerosEmergencia as $emergencia)
-    {
-        $b.= '<li><a href="#">'.$emergencia->numero.'</a></li>';
-    }
-    $b.= '<li class="divider"></li>';
-    $b.= '<li class="dropdown-header">DESDE CELULARES</li>';
-    foreach ($numerosCelulares as $celulares) {
-        $b.= '<li><a href="#">'.$celulares->numero.'</a></li>';
-    }
-
+    $b.= '<ul><li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>';
+    foreach($nu as $e) { $b.= '<li><a href="#">' . $e->numero . '</a></li>'; }
+    $b.= '<li class="divider"></li><li class="dropdown-header">DESDE CELULARES</li>';
+    foreach ($nc as $c) { $b.= '<li><a href="#">' . $c->numero . '</a></li>'; }
     $b.= '</ul>';
     return $b;
 });
 
 HTML::macro('genera_centro_ayuda', function(){
-    $productos = CentroDeAyuda::whereIdEmpresa(1)->get();
-    $c = '';
-    foreach ($productos as $producto) {
-        $c .='<li><a href="#">'.$producto->producto.'</a></li>';
-    }
-    return $c;
+    $c = CentroDeAyuda::whereIdEmpresa(1)->get();
+    $a = '';
+    foreach ($c as $v) { $a .='<li><a href="#">' . $v->producto . '</a></li>'; } return $a;
 });
 
 HTML::macro('genera_sucursales_empresa', function(){
-    $sucursales = Sucursales::whereIdEmpresa(1)->get();
+    $ss = Sucursales::whereIdEmpresa(1)->get();
     $a = '';
-    foreach ($sucursales as $sucursal) {
-        //$a .= '<li><a href="#">'.$sucursal->nombre.' Atención: '.$sucursal->horario_atencion.'</a></li>';
-        $a .= '<li><a href="#">'.$sucursal->nombre.'<br> Atención: '.$sucursal->horario_atencion.'</a></li>';
-    }
-    return $a;
+    foreach ($ss as $s) { $a .= '<li><a href="#"><strong>' . $s->nombre . '</strong><br>Atención: ' . $s->horario_atencion . '</a></li>'; } return $a;
 });
 
 HTML::macro('genera_servicios_empresa', function(){
-    $sucursales = ServicioEmpresa::whereIdEmpresa(1)->get();
+    $ss = ServicioEmpresa::whereIdEmpresa(1)->get();
     $a = '';
-    foreach ($sucursales as $sucursal) {
-        $a .= '<li><a href="#">'.$sucursal->nombre_servicio.'</a></li>';
-    }
-    return $a;
+    foreach ($ss as $s) { $a .= '<li><a href="#">' . $s->nombre_servicio . '</a></li>'; } return $a;
 });
