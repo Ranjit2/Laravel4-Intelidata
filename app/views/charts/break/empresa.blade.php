@@ -8,7 +8,7 @@
 				<div class="tiny-timeline text-center">
 					{{ HTML::tiny_timeline('#') }}
 				</div>
-				<a href="#" class="generaexcel">Exporte a excel</a>
+				<a href="#" id="generaexcel"><i class="fa fa-file-excel-o fa-2x"></i></a>
 				<div class="clearfix"></div>
 				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
@@ -54,7 +54,7 @@
 		$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/'+d,'post');
 	});
 
-	$('.generaexcel').on('click', function (e) {
+	$('#generaexcel').on('click', function (e) {
 		$(this).attr({'href': '/excelMontosDetalle/'+id+'/'+d+'/'+t});
 	});
 
