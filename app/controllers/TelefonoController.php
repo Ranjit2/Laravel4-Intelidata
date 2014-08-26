@@ -121,7 +121,6 @@ class TelefonoController extends \BaseController {
 					$cont = 2;
 					for($x = 0; $x < count($arregloExcel[0]); $x++) 
 					{
-						
 						$fecha1 = new Carbon($fechas[$y]);
 						$fecha2 = new Carbon($arregloExcel[0][$x]);
 						if( ($fecha1->month) == ($fecha2->month) && ($fecha1->year) == ($fecha2->year) )
