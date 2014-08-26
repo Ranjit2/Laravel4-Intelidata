@@ -29,7 +29,7 @@
 			"bullet": "round",
 			"bulletSize": 6,
 			"lineThickness": 2,
-			"type": "smoothedLine",
+			"type": "line",
 			"valueField": "value"
 		}],
 		"chartCursor": {
