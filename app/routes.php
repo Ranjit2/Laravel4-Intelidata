@@ -147,3 +147,6 @@ Route::get('test', function(){
 });
 
 Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
+
+Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonosMontosDetalles');
+
