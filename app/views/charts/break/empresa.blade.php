@@ -8,6 +8,7 @@
 				<div class="tiny-timeline text-center">
 					{{ HTML::tiny_timeline('#') }}
 				</div>
+				<a href="#" class="generaexcel">Exporte a excel</a>
 				<div class="clearfix"></div>
 				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
@@ -40,15 +41,23 @@
 @section('script')
 <script type="text/javascript">
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
+	var d  = '{{ Carbon::now()->toDateString() }}';
+	var t  =  $('h3.title-chart').text();
+	
 	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/{{ Carbon::now()->toDateString() }}','post');
 
 	$('.tiny-timeline a').on('click', function (e) {
 		e.preventDefault();
-		var d = $(this).attr('data-timeline');
-		var t = $(this).text();
+		d = $(this).attr('data-timeline');
+		t = $(this).text();
 		$('h3.title-chart').text(t);
 		$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/'+d,'post');
 	});
+
+	$('.generaexcel').on('click', function (e) {
+		$(this).attr({'href': '/excelMontosDetalle/'+id+'/'+d+'/'+t});
+	});
+
 </script>
 @stop
 

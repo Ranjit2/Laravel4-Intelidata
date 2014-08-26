@@ -110,7 +110,7 @@ class TelefonoController extends \BaseController {
 			}
 		}
 		array_push($arregloExcel, $arregloFecha, $arregloTelefono, $arregloMonto);
-		Excel::create('laravel excel', function($excel)use($arregloExcel, $fechas)
+		Excel::create('dataMontosTelefonos', function($excel)use($arregloExcel, $fechas)
 		{
 			for($y=0; $y < count($fechas); $y++)
 			{
@@ -132,6 +132,39 @@ class TelefonoController extends \BaseController {
 					}
 				});
 			}
+		})->export('xls');
+	}
+
+	public function telefonosMontosDetalles($idCliente, $fecha, $mes)
+	{
+		$date = new Carbon($fecha);
+		$b = array();
+		foreach ($telefonos = Cliente::find($idCliente)->numeros as $k => $value) 
+		{
+			$telefono = new stdClass;
+			$id     = $value->id;
+			$telefono->numero = $value->numero; 
+			$telefono->total = Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total;
+
+			foreach (Telefono::find($id)->servicios()->select('tipo', 'precio_servicio')->where(DB::raw('MONTH(fecha)'), $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->get() as $value) 
+			{
+				$detalle = $value->tipo;
+				$precio  = $value->precio_servicio;
+				$telefono->$detalle = $precio;
+			}
+			array_push($b, $telefono);			
+		}
+
+		$data = array();
+		$data = json_decode(json_encode($b), true); //desde objeto a arreglo
+
+		//******************* GRAFICO *********************
+		Excel::create('detalladoPorMes', function($excel)use($data, $mes)
+		{
+			$excel->sheet($mes, function($sheet)use($data)
+			{
+				$sheet->fromArray($data);
+			});
 		})->export('xls');
 	}
 }
