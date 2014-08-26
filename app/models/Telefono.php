@@ -41,18 +41,11 @@ class Telefono extends Eloquent {
 		return $this->hasMany('Total', 'id_telefono')->orderBy('fecha', 'ASC');
 	}
 
-<<<<<<< HEAD
-	public static function getNumero($idTelefono)
-	{
+	public static function getNumero($idTelefono) {
 		return Telefono::find($idTelefono)->numero;
 	}
 
-
-
-	public function cliente(){
-=======
 	public function cliente() {
->>>>>>> origin/dev
 		return $this->belongsTo('Cliente');
 	}
 
@@ -97,7 +90,6 @@ class Telefono extends Eloquent {
 			WHERE c.id = ?
 			ORDER BY t.fecha DESC
 			LIMIT ?, ?;', array(Session::get('ses_user_id'), (int) $position, (int) $items_per_group));
-
 		if ($data) {
 			return $data;
 		} else {

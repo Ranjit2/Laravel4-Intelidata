@@ -142,16 +142,8 @@ Route::get('/charts/line', function() {
 Route::resource('nerds', 'PersonaController');
 
 Route::get('test', function(){
-<<<<<<< HEAD
 	Cliente::evolutionChart(7);
 	return View::make('charts.line.empresa');
 });
 
-
 Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
-
-
-
-=======
-});
->>>>>>> origin/dev
