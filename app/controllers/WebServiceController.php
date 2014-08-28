@@ -10,7 +10,15 @@ class WebServiceController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$name = 'weather';
+		$wsdl = 'http://www.webservicex.net/globalweather.asmx?WSDL';
+		$data = array(
+			'CountryName' => 'Chile',
+			'CityName'    => 'Santiago',
+			);
+		$a = new Soaper($name, $wsdl);
+		$result = $a->run('GetWeather', $data)->get()->toArray();
+		Func::printr($result);
 	}
 
 	/**
@@ -85,7 +93,11 @@ class WebServiceController extends \BaseController {
 
 	public function example() {
 		SoapWrapper::add(function ($service) {
-			$service->name('weather')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
+			$service->name('s12')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
+		});
+
+		SoapWrapper::add(function ($service) {
+			$service->name('s13')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
 		});
 
 		$data = array(
@@ -98,10 +110,8 @@ class WebServiceController extends \BaseController {
 
 		$result = SoapWrapper::service('weather', function($service) use ($data, $func, $funcResult) {
 			// var_dump($service->getFunctions());
-			return $service->call($func, $data)->$funcResult;
+			$service->call($func, $data)->$funcResult;
 		});
 		Func::printr($result);
-
-		die();
 	}
 }

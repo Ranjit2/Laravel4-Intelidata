@@ -22,7 +22,7 @@
     var total_groups = {{ $total_groups }};
     $('.animation_image').centerToWindow();
 
-    $('#results').load("/timeline", {'page':track_load }, function() {
+    $('#results').load("/idata/timeline", {'page':track_load }, function() {
         track_load++;
     });
 
@@ -32,7 +32,7 @@
                 loading = true;
                 $('.animation_image').show();
 
-                $.post('/timeline',{'group_no': track_load}, function(data) {
+                $.post('/idata/timeline',{'group_no': track_load}, function(data) {
                     $("#results").append(data);
                     $('.animation_image').hide();
 

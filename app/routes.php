@@ -1,6 +1,6 @@
 <?php
 
-/*
+q/*
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
@@ -96,3 +96,4 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::resource('nerds', 'PersonaController');
+Route::resource('webservice', 'WebServiceController');
