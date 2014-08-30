@@ -26,4 +26,5 @@ http://www.laravelmy.com/
 
 <b>&copy; 2014 Intelidata - IData</b>
 
-https://github.com/laracasts/PHP-Vars-To-Js-Transformer
+https://github.com/laracasts/PHP-Vars-To-Js-Transformer  
+http://dylanglockler.com/blog/?p=5  
