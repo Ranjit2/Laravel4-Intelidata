@@ -190,15 +190,7 @@ Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales')
 
 
 Route::get('prueba', function(){
-	$telefonos_id  = array();
-	$fecha    = new Carbon('2014-05-01');
-	$variable = Cliente::find(7)->categorias;
-	foreach ($variable as $value) {
-		$telefonos_id[] = $value->id;
-	}
-
-	/*
-
+		/*
 select t.id_producto, sum(tot.monto_total)  
 from cliente c,
      telefono t,
@@ -209,10 +201,18 @@ where c.id = t.id_cliente and
       MONTH(tot.fecha) = 5 and
       YEAR(tot.fecha) = 2014
 group by(t.id_producto)
-
 	*/
 
+	$telefonos_id  = array();
+	$fecha    = new Carbon('2014-05-01');
+	$variable = Cliente::find(7)->categorias;
+	foreach ($variable as $value) {
+		$telefonos_id[] = $value->id;
+	}
+
 	return Total::whereIn('id_telefono', $telefonos_id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->get();
+
+
 
 
 
