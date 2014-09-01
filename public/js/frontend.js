@@ -44,38 +44,256 @@ $.convMonthToNumber = function(m) {
   m = m.toLowerCase();
   var numbers = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12, };
   return numbers[m];
-};$.loadJSON = function (url, method) {
+};$.loadJSON = function (url) {
     try {
-        return JSON.parse($.ajax({type: method, url: url, async: false, cache: false, dataType: 'json' }).responseText);
+        var request = $.ajax({
+
+        });
+        $.ajax({
+            url: url,
+            type: "POST",
+            dataType: 'html',
+            async: false,
+            cache: false,
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+            console.log(JSON.stringify(jqXHR));
+            console.log(textStatus+': '+errorThrown);
+        })
+        .always(function() {
+            console.log("complete");
+        });
+
+        return request.responseJSON;
     } catch(err) {
         console.log('Error: ' + err);
     }
 };
 
-$.loadChart = function (div, url, type, mes, method) {
-    var div    = typeof div !== 'undefined' ? div : '#chartdiv';
-    var type   = typeof type !== 'undefined' && type.length != 0 ? '/'+type : '';
-    var mes    = typeof mes !== 'undefined' && mes.length != 0 ? '/'+mes : '';
-    var method = typeof method !== 'undefined' ? method : 'POST';
-    var url    = typeof url !== 'undefined' ? url+type+mes : '';
+$.loadChart = function (div, url, type, date) {
+    var div  = typeof div  !== 'undefined' ? div : 'chartdiv';
+    var date = typeof date !== 'undefined' && date.length != 0 ? '/'+date : '';
+    var type = typeof type !== 'undefined' && type.length != 0 ? type : 'column';
+    var url  = typeof url  !== 'undefined' ? url+date : '';
     try {
-        var data  = $.loadJSON(url, method);
+        var json  = $.loadJSON(url);
         AmCharts.ready(function(){
-            var chart = AmCharts.makeChart(div, data);
+            $.column(div, json);
         });
     } catch(err) {
         console.log('Error: ' + err);
     }
 };
 
-$.graficoBroken = function (div, url, method) {
-    var chart;
-    var legend;
-    var selected;
-    var types = $.loadJSON(url, method);
+// COLUMN CHART
+$.column = function (div, json) {
 
     // INIT
-    chart = new AmCharts.AmPieChart();
+    var chart                          = new AmCharts.AmSerialChart();
+    chart.dataProvider                 = json.data;
+    chart.graphs                       = json.graphs;
+    chart.gridAboveGraphs              = true;
+    chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
+    chart.categoryField                = "fecha";
+    chart.language                     = "es";
+    chart.numberFormatter              = formatNumber;
+
+    var formatNumber                   = {
+        decimalSeparator: ",",
+        thousandsSeparator: ".",
+        precision: -1,
+    };
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD",
+
+    // ANIMATION
+    chart.startDuration                = 0;
+    chart.startAlpha                   = 0;
+
+    // MARGIN
+    chart.autoMargins                  = false;
+    chart.marginRight                  = 0;
+    chart.marginLeft                   = 75;
+    chart.marginBottom                 = 20;
+    chart.marginTop                    = 20;
+
+    // AXIS X
+    var categoryAxis                   = chart.categoryAxis;
+    categoryAxis.inside                = false;
+    categoryAxis.axisAlpha             = 0;
+    categoryAxis.gridAlpha             = 0;
+    categoryAxis.tickLength            = 0;
+    categoryAxis.parseDates            = true;
+    categoryAxis.minPeriod             = "MM";
+
+    // VALUE AXIS X
+    var valueAxis                      = new AmCharts.ValueAxis();
+    valueAxis.dashLength               = 1;
+    valueAxis.axisColor                = "#DADADA";
+    valueAxis.axisAlpha                = 1;
+    valueAxis.unit                     = "$";
+    valueAxis.unitPosition             = "left";
+    chart.addValueAxis(valueAxis);
+
+    // LEGEND
+    var legend                         = new AmCharts.AmLegend();
+    legend.labelText                   = "[[title]]";
+    legend.valueText                   = "";
+    legend.useGraphSettings            = true;
+    chart.addLegend(legend);
+
+    // CURSORS
+    var chartCursor                    = new AmCharts.ChartCursor();
+    chartCursor.categoryBalloonEnabled = true;
+    chartCursor.cursorAlpha            = 0;
+    chartCursor.zoomable               = true;
+    chart.addChartCursor(chartCursor);
+
+    chart.exportConfig                 = exportConfig;
+    var exportConfig                   = {
+        menuTop: "30px",
+        menuBottom: "auto",
+        menuRight: "70px",
+        backgroundColor: "#efefef",
+        menuItems: [{
+            textAlign: 'center',
+            icon: 'http://www.amcharts.com/lib/3/images/export.png',
+            items: [{
+                title: 'JPG',
+                format: 'jpg'
+            }, {
+                title: 'PNG',
+                format: 'png'
+            }, {
+                title: 'SVG',
+                format: 'svg'
+            }, {
+                title: 'PDF',
+                format: 'pdf'
+            }]
+        }],
+    };
+
+    // WRITE
+    chart.write(div);
+}
+
+// STACK CHART
+$.stack = function (div, json) {
+
+    // INIT
+    var chart                          = new AmCharts.AmSerialChart();
+    chart.dataProvider                 = json.data;
+    chart.graphs                       = json.graphs;
+    chart.gridAboveGraphs              = true;
+    chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
+    chart.categoryField                = "fecha";
+    chart.language                     = "es";
+    chart.numberFormatter              = formatNumber;
+
+    var formatNumber                   = {
+        decimalSeparator: ",",
+        thousandsSeparator: ".",
+        precision: -1,
+    };
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD",
+
+    // ANIMATION
+    chart.startDuration                = 0;
+    chart.startAlpha                   = 0;
+
+    // MARGIN
+    chart.autoMargins                  = false;
+    chart.marginRight                  = 0;
+    chart.marginLeft                   = 75;
+    chart.marginBottom                 = 20;
+    chart.marginTop                    = 20;
+
+    // AXIS X
+    var categoryAxis                   = chart.categoryAxis;
+    categoryAxis.inside                = false;
+    categoryAxis.axisAlpha             = 0;
+    categoryAxis.gridAlpha             = 0;
+    categoryAxis.tickLength            = 0;
+    categoryAxis.parseDates            = true;
+    categoryAxis.minPeriod             = "MM";
+
+    // VALUE AXIS X
+    var valueAxis                      = new AmCharts.ValueAxis();
+    valueAxis.dashLength               = 1;
+    valueAxis.axisColor                = "#DADADA";
+    valueAxis.axisAlpha                = 1;
+    valueAxis.unit                     = "$";
+    valueAxis.unitPosition             = "left";
+    valueAxis.stackType                = "regular";
+    chart.addValueAxis(valueAxis);
+
+    // LEGEND
+    var legend                         = new AmCharts.AmLegend();
+    legend.labelText                   = "[[title]]";
+    legend.valueText                   = "";
+    legend.useGraphSettings            = true;
+    chart.addLegend(legend);
+
+    // CURSORS
+    var chartCursor                    = new AmCharts.ChartCursor();
+    chartCursor.categoryBalloonEnabled = true;
+    chartCursor.cursorAlpha            = 0;
+    chartCursor.zoomable               = true;
+    chart.addChartCursor(chartCursor);
+
+    chart.exportConfig                 = exportConfig;
+    var exportConfig                   = {
+        menuTop: "30px",
+        menuBottom: "auto",
+        menuRight: "70px",
+        backgroundColor: "#efefef",
+        menuItems: [{
+            textAlign: 'center',
+            icon: 'http://www.amcharts.com/lib/3/images/export.png',
+            items: [{
+                title: 'JPG',
+                format: 'jpg'
+            }, {
+                title: 'PNG',
+                format: 'png'
+            }, {
+                title: 'SVG',
+                format: 'svg'
+            }, {
+                title: 'PDF',
+                format: 'pdf'
+            }]
+        }],
+    };
+
+    // WRITE
+    chart.write(div);
+}
+
+// DONUT CHART
+$.donut = function (div, json) {}
+
+// LINE CHART
+$.linea = function (div, json) {}
+
+// PIE CHART
+$.pie = function (div, json) {}
+
+// BROKEN CHART
+$.broken = function (div, json) {
+    var selected;
+    var types = $.loadJSON(url);
+
+    // INIT
+    var chart = new AmCharts.AmPieChart();
 
     // LEGEND
     var legend = new AmCharts.AmLegend();

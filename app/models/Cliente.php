@@ -84,7 +84,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return Cliente::where('numero_cliente','=', $numeroCliente)->get()[0]['id'];
 	}
 
-	public function telefonosPorCliente($numero_cliente) {
+	public function postTelefonosPorCliente($numero_cliente) {
 		$idCliente = $this->devuelveIdCliente($numeroCliente);
 		return Cliente::find($idCliente)->telefonos;
 	}
@@ -101,7 +101,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
 
-	public static function getChartPie($id) {
+	public static function postChartPie($id) {
 		$data = array();
 		try {
 			$datos = ClienteController::devuelveTotales($id);
@@ -119,7 +119,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
+<<<<<<< HEAD
 	public static function getChartPieMonth($id, $fecha) {
+=======
+	public static function postChartPieMonth($id, $mes) {
+>>>>>>> origin/dev
 		$data = array();
 		try {
 			$datos = ClienteController::devuelveTotales($id, $fecha);
@@ -138,7 +142,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-	public static function getChartSerial($id = '') {
+	public static function postChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		$datos = ClienteController::devuelveTotales($id);
 		try {
@@ -172,7 +176,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $config;
 	}
 
-	public static function getChartStacked($id = '') {
+	public static function postChartStacked($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		try {
 			$datos = ClienteController::devuelveTotales($id);
@@ -217,7 +221,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return false;
 	}
 
-	public static function montoTotal($id) {
+	public static function postMontoTotal($id) {
 		$arreglo = array(); $config = array(); $numbers = array(); $count = 0;
 		foreach (Cliente::find($id)->telefonos as $value)
 		{
@@ -263,7 +267,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $config;
 	}
 
-	public static function evolutionChart($id_cliente, $from = 13) {
+	public static function postChartEvolution($id_cliente, $from = 13) {
 		$config  = array();
 		$numbers = array();
 		$hasta   = Carbon::now();
@@ -277,5 +281,69 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$data[] = array("fecha" => $fecha, 'value' => $montoTotal);
 		}
 		return $data;
+	}
+
+	public static function postChartComparative($id) {
+		$count = 1;
+		$data  = array(); // $data2 = array();
+		$years = array(
+			Carbon::now()->subYears(2)->year,
+			Carbon::now()->subYears(1)->year,
+			Carbon::now()->year,
+			);
+		$ids = Cliente::find($id)->numeros()->lists('id');
+
+		for ($i = 0; $i < 12; $i++) {
+			array_push($data, array(
+				'date' => Func::convNumberToMonth($count),
+				'year1' => $years[0],
+				'year2' => $years[1],
+				'year3' => $years[2],
+				));
+
+		// array_push($data2, array(
+		// 	'date' => Func::convNumberToMonth($count),
+		// 	'val1' => 0,
+		// 	'val2' => 0,
+		// 	'val3' => 0,
+		// 	'year1' => $years[0],
+		// 	'year2' => $years[1],
+		// 	'year3' => $years[2],
+		// 	));
+
+			$query = Total::select(DB::raw('YEAR(fecha) AS year, SUM(monto_total) AS monto_total'))
+			->whereIn('id_telefono', $ids)
+			->whereIn(DB::raw('YEAR(fecha)'), $years)
+			->where(DB::raw('MONTH(fecha)'), $i)
+			->groupBy(DB::raw('YEAR(fecha)'), DB::raw('MONTH(fecha)'))
+			->orderBy('fecha')
+			->get();
+
+			foreach ($query as $value) {
+				switch ($value->year) {
+					case $years[0]:
+					$data[$i] = array_add($data[$i], 'val1', $value->monto_total);
+				// array_set($data2[$i], 'val1', $value->monto_total);
+					break;
+
+					case $years[1]:
+					$data[$i] = array_add($data[$i], 'val2', $value->monto_total);
+				// array_set($data2[$i], 'val2', $value->monto_total);
+					break;
+
+					case $years[2]:
+					$data[$i] = array_add($data[$i], 'val3', $value->monto_total);
+				// array_set($data2[$i], 'val3', $value->monto_total);
+					break;
+
+					default:
+					break;
+				}
+			}
+			$count++;
+		}
+		$config['data']  = $data;
+		$config['years'] = $years;
+		return $config;
 	}
 }

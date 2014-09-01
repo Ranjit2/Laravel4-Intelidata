@@ -3,6 +3,23 @@
 class PreguntasController extends BaseController {
 
 	/**
+	 * [index description]
+	 * @return [type] [description]
+	 */
+	public function index() {
+		$preguntas = Pregunta::scopeWhereNot(Session::get('ses_user_id'));
+		return View::make('perfil')->with('preguntas', $preguntas);
+	}
+
+	/**
+	 * [index2 description]
+	 * @return [type] [description]
+	 */
+	public function index2 () {
+		return View::make('question2')->with('preguntas', Pregunta::where('estado', 'A')->get());
+	}
+
+	/**
 	* [devuelvePregunta description]
 	* @param  [type] $idPreguntaRespuesta
 	* @return [type]
