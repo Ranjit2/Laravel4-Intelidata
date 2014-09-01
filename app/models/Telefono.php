@@ -69,6 +69,24 @@ class Telefono extends Eloquent {
 		return Response::json($b);
 	}
 
+	public static function categoriasConServicios($nroCliente, $fecha) {
+		$date = new Carbon($fecha);
+		foreach ($telefonos = Cliente::find(Session::get('ses_user_id'))->categorias as $value) 
+		{
+			$categorias = new stdClass;
+			$categorias->nombre = Producto::find($value->id_producto)->nombre;
+			
+
+			// $id     = $value->id;
+			// array_push($b, array(
+			// 	'type' => $value->id_producto,
+			// 	'percent' => Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total,
+			// 	'subs' => array(),
+			// 	));
+		}
+		return Response::json($b);
+	}
+
 	public static function tl_total() {
 		$items_per_group = (int) 1;
 		$data = DB::select('SELECT f.id, c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac

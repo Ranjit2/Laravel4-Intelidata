@@ -4,8 +4,10 @@
 <div class="row">
 	<div class="col-md-4">
 		<article class="panel panel-default">
-			<div class="panel-body">
+			<div class="panel-heading">
 				<h4>Title</h4>
+			</div>
+			<div class="panel-body">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<figure class="cont">
 					<div class="donut-info">
@@ -62,10 +64,17 @@
 
 @section('script')
 <script type="text/javascript">
+<<<<<<< HEAD
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
 	$.loadChart('chartdiv', '/postChartPie/'+id, 'donut', 7, 'POST');
 	$.loadChart('chartdiv2', '/postChartPie/'+id, 'donut', 6, 'POST');
 	$.loadChart('chartdiv3', '/postChartPie/'+id, 'donut', 2, 'POST');
+=======
+	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1'}};
+	$.loadChart('chartdiv', '/getChartPie/'+id, 'donut', '2013-12-01', 'POST');
+	$.loadChart('chartdiv2', '/getChartPie/'+id, 'donut', '2014-03-01', 'POST');
+	$.loadChart('chartdiv3', '/getChartPie/'+id, 'donut', '2014-09-01', 'POST');
+>>>>>>> origin/dev
 </script>
 
 @stop

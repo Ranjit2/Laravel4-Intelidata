@@ -93,6 +93,7 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::resource('nerds', 'PersonaController');
+<<<<<<< HEAD
 Route::resource('webservice', 'WebServiceController');
 
 Route::get('test', function(){
@@ -105,3 +106,165 @@ Route::get('test', function(){
 		});
 	})->download('xls');
 });
+=======
+<<<<<<< HEAD
+
+Route::get('test', function(){
+	SoapWrapper::add(function ($service) {
+		$service->name('weather')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
+	});
+
+	$data = array(
+		'CountryName' => 'Chile',
+		'CityName'    => 'Santiago',
+		);
+	$func       = 'GetWeather';
+	$funcResult = $func . 'Result';
+	// $data       = Func::arrayToXML($data);
+
+	$result = SoapWrapper::service('weather', function($service) use ($data, $func, $funcResult) {
+		// var_dump($service->getFunctions());
+		return $service->call($func, $data)->$funcResult;
+	});
+	Func::printr($result);
+
+	die();
+
+	Cliente::evolutionChart(7);
+	return View::make('charts.line.empresa');
+});
+
+Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
+
+//Excel para graficos de columnas de empresas
+Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonosMontosDetalles');
+
+//excel para grafico de columna de cliente persona
+Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales');
+
+
+Route::get('prueba', function(){
+		/*
+select t.id_producto, sum(tot.monto_total)  
+from cliente c,
+     telefono t,
+     total tot
+where c.id = t.id_cliente and
+      tot.id_telefono = t.id and
+      c.id = 7 and
+      MONTH(tot.fecha) = 5 and
+      YEAR(tot.fecha) = 2014
+group by(t.id_producto)
+	*/
+
+	$telefonos_id  = array();
+	$fecha    = new Carbon('2014-05-01');
+	$variable = Cliente::find(7)->categorias;
+	foreach ($variable as $value) {
+		$telefonos_id[] = $value->id;
+	}
+
+	return Total::whereIn('id_telefono', $telefonos_id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->get();
+
+
+
+
+
+	return Total::whereIn('id_telefono', $telefonos_id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->get();
+
+	DB::table('name')->sum('column');
+
+
+	$variable = Cliente::find(7)->categorias;
+	foreach ($variable as $value) {
+		$variable2 = Total::whereIdTelefono($value->id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->first();
+		$producto = new stdClass;
+		$producto->nombre = $value->id_producto;
+		$producto->total  = $variable2->monto_total;
+		array_push($arreglo, $producto);
+		// $producto->total
+
+		// foreach ($variable2 as $value2) {
+		// 	var_dump($value2);
+		// };
+	};
+	return $arreglo;
+});
+
+
+
+
+
+// Route::get('insertando', function(){
+// 	$fecha = new Carbon('2013-05-01');
+// 	$contador = 0;
+// 	$aumento  = 0;
+// 	$arreglo = array();
+// 	for($x = 0; $x < 17; $x++) 
+// 	{
+// 		for($y = 37; $y <= 41; $y++)
+// 		{
+// 			$total = new Total;
+// 			$total->fecha = $fecha->toDateTimeString();
+// 			$total->id_telefono = $y;
+// 			$total->monto_total = 4000 + $aumento;
+// 			$aumento = $aumento + 1100;
+// 			$arreglo[$contador] = $total;
+// 			//$total->save();
+// 			$contador++;
+// 		}
+// 		$fecha = $fecha->addMonths(1);
+// 	}
+// 	return 'done';
+// });
+
+
+// Route::get('insertando', function(){
+// 	$arreglo = array();
+
+// 	for($tel = 1; $tel <= 9; $tel++)
+// 	{
+// 		if($tel == 1)
+// 			$lucas = 50000;
+// 		if($tel == 2)
+// 			$lucas = 60000;
+// 		if($tel == 3)
+// 			$lucas = 70000;
+// 		if($tel == 4)
+// 			$lucas = 80000;
+// 		if($tel == 5)
+// 			$lucas = 90000;
+// 		if($tel == 6)
+// 			$lucas = 100000;
+// 		if($tel == 7)
+// 			$lucas = 110000;
+// 		if($tel == 8)
+// 			$lucas = 120000;
+// 		if($tel == 9)
+// 			$lucas = 130000;
+
+// 		for($serv = 1; $serv <= 5; $serv++)
+// 		{
+// 			$ts = new TelefonoServicio;
+// 			$ts->id_telefono = $tel; //telefono
+// 			$ts->id_servicio = $serv; //servicio 1 al 5
+// 			if($serv == 5)
+// 			{
+// 				$ts->precio_servicio = -20000; //precio del servicio
+// 			}
+// 			else
+// 			{
+// 				$ts->precio_servicio = $lucas; //precio del servicio
+// 			}
+// 			$ts->fecha = '2014-09-01';
+// 			array_push($arreglo, $ts);
+// 			$lucas = $lucas + 10000;
+// 			$ts->save();
+// 		}
+// 	}
+// 	return $arreglo;
+// });
+=======
+Route::resource('webservice', 'WebServiceController');
+>>>>>>> origin/dev
+>>>>>>> origin/dev
