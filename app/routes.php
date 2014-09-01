@@ -1,6 +1,7 @@
 <?php
-
-q/*
+header('Content-Type: text/html; charset=UTF-8');
+mb_internal_encoding("UTF-8");
+/*
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
@@ -62,33 +63,29 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/pie', function() { return View::make('charts.pie.' . Session::get('ses_user_tipo')); });
 		Route::get('/column', function() { return View::make('charts.column.' . Session::get('ses_user_tipo')); });
 		Route::get('/stackbar', function() { return View::make('charts.stackbar.' . Session::get('ses_user_tipo')); });
-		Route::get('/breakchart', function() {
-			$titulares = Titular::select('tipo')->get();
-			return View::make('charts.break.' . Session::get('ses_user_tipo'))->with('titulares', $titulares);
-		});
-		Route::get('/evolution', 'GraffController@getChartEvolution');
-		Route::get('/line', function() {
-			$data = Cliente::evolutionChart(Session::get('ses_user_id'));
-			return View::make('charts.line.' . Session::get('ses_user_tipo'))->with('data', json_encode($data));
-		});
+		Route::get('/breakchart', function() { return View::make('charts.break.' . Session::get('ses_user_tipo')); });
+		Route::get('/evolution', function() { return View::make('charts.line.' . Session::get('ses_user_tipo')); });
+		Route::get('/comparative', function() { return View::make('charts.comparative'); });
 	});
 
 
 	// CHARTS REQUESTS
 	// CLIENT
-	Route::post('/getChartPie/{id}/{type?}/{date?}', 'GraffController@getChartPie');
-	Route::post('/getChartSerial/{id}/{type?}', 'GraffController@getChartSerial');
+	Route::post('/postChartPie/{id}/{type?}/{date?}', 'GraffController@postChartPie');
+	Route::post('/postChartSerial/{id}/{type?}', 'GraffController@postChartSerial');
 
 	// ENTERPRISE
-	Route::post('/getChartPieEnt/{id}/{type?}/{date?}', 'GraffController@getChartPieEnt');
-	Route::post('/getSerialChartEnt/{id}/{type?}', 'GraffController@getSerialChartEnt');
-	Route::post('/telefonosServicios/{id}/{date?}', 'GraffController@getChartBroke');
+	Route::post('/postChartPieEnt/{id}/{type?}/{date?}', 'GraffController@postChartPieEnt');
+	Route::post('/postSerialChartEnt/{id}/{type?}', 'GraffController@postSerialChartEnt');
+	Route::post('/postChartComparative/{id}', 'GraffController@postChartComparative');
+	Route::post('/postChartEvolution/{id}', 'GraffController@postChartEvolution');
+	Route::post('/postTelefonosConServicios/{id}/{date?}', 'GraffController@postTelefonosConServicios');
 
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
 	// TIMELINE
-	Route::get('timeline', 'TimelineController@index');
-	Route::post('timeline', 'TimelineController@index');
+	Route::get('/timeline', 'TimelineController@index');
+	Route::post('/timeline', 'TimelineController@index');
 
 	// EXCEL
 	Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
@@ -97,3 +94,14 @@ Route::group(array('before' => 'auth'), function() {
 
 Route::resource('nerds', 'PersonaController');
 Route::resource('webservice', 'WebServiceController');
+
+Route::get('test', function(){
+	$excel = App::make('excel');
+	Excel::create('XXXXXXXX', function($excel)
+	{
+		$excel->sheet('XXXXXXXX', function($sheet)
+		{
+
+		});
+	})->download('xls');
+});

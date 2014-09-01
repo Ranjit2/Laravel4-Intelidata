@@ -499,12 +499,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "e49b9989b8687da7eedc5a33f7775a1562424765"
+            "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e49b9989b8687da7eedc5a33f7775a1562424765",
-            "reference": "e49b9989b8687da7eedc5a33f7775a1562424765",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
+            "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
             "shasum": ""
         },
         "require": {
@@ -514,7 +514,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2014-08-26 07:14:36",
+        "time": "2014-08-29 13:13:16",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -551,12 +551,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "f088d868340b829a52a776aedd040e772825fedc"
+            "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/f088d868340b829a52a776aedd040e772825fedc",
-            "reference": "f088d868340b829a52a776aedd040e772825fedc",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5d77847610f9166d1cc0f541573ec1d98eac209b",
+            "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b",
             "shasum": ""
         },
         "require": {
@@ -565,7 +565,7 @@
             "php": ">=5.3.0",
             "symfony/finder": "~2.3"
         },
-        "time": "2014-08-15 11:57:42",
+        "time": "2014-08-27 10:12:04",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -604,18 +604,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "55dd964690380977cfbc71494e6030b70c17b949"
+            "reference": "59d7772daa8d09e13858ad83701bda767db71fc8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/55dd964690380977cfbc71494e6030b70c17b949",
-            "reference": "55dd964690380977cfbc71494e6030b70c17b949",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/59d7772daa8d09e13858ad83701bda767db71fc8",
+            "reference": "59d7772daa8d09e13858ad83701bda767db71fc8",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-08-25 19:38:53",
+        "time": "2014-08-30 03:08:49",
         "type": "library",
         "extra": {
             "branch-alias": {

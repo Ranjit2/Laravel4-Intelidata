@@ -20,8 +20,8 @@
 
 @section('script')
 <script type="text/javascript">
-	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : '111-1' }};
-	$.loadChart('chartdiv', '/getChartSerial/'+id, 'stackbar', '', 'POST');
+	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
+	$.loadChart('chartdiv', '/postChartSerial/'+id, 'stackbar', '', 'POST');
 </script>
 
 @stop

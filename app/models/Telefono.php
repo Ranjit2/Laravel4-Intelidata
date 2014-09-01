@@ -49,11 +49,13 @@ class Telefono extends Eloquent {
 		return $this->belongsTo('Cliente');
 	}
 
-	public static function telefonosConServicios($nroCliente, $fecha) {
+	public static function postTelefonosConServicios($nroCliente, $fecha) {
 		$date = new Carbon($fecha);
 		$b = array(); $c = array();
 		foreach ($telefonos = Cliente::find(Session::get('ses_user_id'))->numeros as $k => $value) {
 			$id     = $value->id;
+			$mt = Telefono::find($id)->montos()->select('monto_total')->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->get()->toArray();
+			$percent = array_get($mt, '0.monto_total');
 			array_push($b, array(
 				'type' => $value->numero,
 				'percent' => Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total,

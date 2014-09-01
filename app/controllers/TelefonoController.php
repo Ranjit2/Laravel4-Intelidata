@@ -97,7 +97,7 @@ class TelefonoController extends \BaseController {
 		foreach ($telefonosCliente as $numeros)
 		{
 			$telefonos = Telefono::find($numeros->id)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
-			foreach ($telefonos as $montos) 
+			foreach ($telefonos as $montos)
 			{
 				$arregloFecha[]    = $montos->fecha;
 				$arregloTelefono[] = Telefono::getNumero($montos->id_telefono);
@@ -119,7 +119,7 @@ class TelefonoController extends \BaseController {
 					$sheet->setOrientation('landscape');
 					$sheet->row(1, array('FECHA','NUMERO', 'MONTO'));
 					$cont = 2;
-					for($x = 0; $x < count($arregloExcel[0]); $x++) 
+					for($x = 0; $x < count($arregloExcel[0]); $x++)
 					{
 						$fecha1 = new Carbon($fechas[$y]);
 						$fecha2 = new Carbon($arregloExcel[0][$x]);
@@ -138,20 +138,20 @@ class TelefonoController extends \BaseController {
 	{
 		$date = new Carbon($fecha);
 		$b = array();
-		foreach ($telefonos = Cliente::find($idCliente)->numeros as $k => $value) 
+		foreach ($telefonos = Cliente::find($idCliente)->numeros as $k => $value)
 		{
 			$telefono = new stdClass;
 			$id     = $value->id;
-			$telefono->numero = $value->numero; 
+			$telefono->numero = $value->numero;
 			$telefono->total = Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total;
 
-			foreach (Telefono::find($id)->servicios()->select('tipo', 'precio_servicio')->where(DB::raw('MONTH(fecha)'), $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->get() as $value) 
+			foreach (Telefono::find($id)->servicios()->select('tipo', 'precio_servicio')->where(DB::raw('MONTH(fecha)'), $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->get() as $value)
 			{
 				$detalle = $value->tipo;
 				$precio  = $value->precio_servicio;
 				$telefono->$detalle = $precio;
 			}
-			array_push($b, $telefono);			
+			array_push($b, $telefono);
 		}
 
 		$data = array();
@@ -160,9 +160,13 @@ class TelefonoController extends \BaseController {
 		//******************* GRAFICO *********************
 		Excel::create('detalladoPorMes', function($excel)use($data, $mes)
 		{
-			$excel->sheet($mes, function($sheet)use($data)
+			$excel->sheet('Septiembre', function($sheet)use($data)
 			{
-				$sheet->fromArray($data);
+				$sheet->fromArray(array(
+					'asd' => 'asdasd',
+					'asd' => 'asdasd',
+					'asd' => 'asdasd',
+					));
 			});
 		})->export('xls');
 	}

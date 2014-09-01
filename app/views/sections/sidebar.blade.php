@@ -48,12 +48,12 @@
 					@endif
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/line') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Evolución de mis gastos</a>
+							<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Evolución de mis gastos</a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Gráfico comparativo</a>
+							<a href="{{ URL::to('/charts/comparative') }}"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Gráfico comparativo</a>
 						</td>
 					</tr>
 				</table>

@@ -5,9 +5,13 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<class="borde-titulo">Title</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
-				<div id="chartdiv7" style="height: 400px;"></div>
+				<h3 class="title-chart text-center">Gráfico comparativo</h3>
+				<div class="col-md-12">
+					<div id="chartdiv" style="min-height: 450px !important;"></div>
+				</div>
+				<div class="col-md-12">
+					<div id="legenddiv" style="min-height: 40px;"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -21,10 +25,6 @@
 @section('script')
 <script type="text/javascript">
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
+	$.loadChart('chartdiv','/postChartComparative/'+id, 'comparative');
 </script>
-@stop
-
-@section('style')
-<style type="text/css" media="screen">
-</style>
 @stop

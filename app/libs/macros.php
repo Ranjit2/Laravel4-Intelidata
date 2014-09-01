@@ -553,10 +553,10 @@ HTML::macro('tiny_timeline', function() {
     $a .= '</ul><ul class="list-inline years">';
     foreach (array_unique($y) as $value) {
         if($c == 0) {
-            $a .= '<li class="pull-left"><b>' . $value . '</b></li>';
+            $a .= '<li class="pull-left"><h6><b>' . $value . '</b></h6></li>';
             $c++;
         } elseif($c == 1) {
-            $a .= '<li class="pull-right"><b>' . $value . '</b></li>';
+            $a .= '<li class="pull-right"><h6><b>' . $value . '</b></h6></li>';
         }
     }
     $a .= '</ul>';

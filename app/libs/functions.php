@@ -1,4 +1,4 @@
-<?php
+<?php // namespace libs\Func;
 
 Class Func {
 

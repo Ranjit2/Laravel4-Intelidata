@@ -22,17 +22,26 @@
     var total_groups = {{ $total_groups }};
     $('.animation_image').centerToWindow();
 
-    $('#results').load("/idata/timeline", {'page':track_load }, function() {
+    $('#results').load("/timeline", {'page':track_load }, function() {
         track_load++;
     });
 
     $('#timeline-scroll').scroll(function() {
-        if(parseInt($('#timeline-scroll').scrollTop()+$('#timeline-scroll').height()) == $('#results').height()) {
+        var s_top   = parseInt($('#timeline-scroll').scrollTop());
+        var w_hei   = parseInt($('#timeline-scroll').outerHeight());
+        var res_hei = parseInt($('#timeline-scroll')[0].scrollHeight);
+        var tot     = parseInt(s_top+w_hei);
+
+        console.log("TOT: " + parseInt(tot));
+        console.log("RES_HEI: "+ parseInt($('#timeline-scroll')[0].scrollHeight));
+        console.log("-> (: "+  parseInt(-tot));
+
+        if(parseInt(res_hei - tot) == 0) {
             if(track_load <= total_groups && loading==false) {
                 loading = true;
                 $('.animation_image').show();
 
-                $.post('/idata/timeline',{'group_no': track_load}, function(data) {
+                $.post('/timeline',{'group_no': track_load}, function(data) {
                     $("#results").append(data);
                     $('.animation_image').hide();
 

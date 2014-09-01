@@ -43,15 +43,15 @@
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
 	var d  = '{{ Carbon::now()->toDateString() }}';
 	var t  =  $('h3.title-chart').text();
-	
-	$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/{{ Carbon::now()->toDateString() }}','post');
+
+	$.loadChart('chartdiv','/postTelefonosConServicios/'+id+'/{{ Carbon::now()->toDateString() }}','broken');
 
 	$('.tiny-timeline a').on('click', function (e) {
 		e.preventDefault();
 		d = $(this).attr('data-timeline');
 		t = $(this).text();
 		$('h3.title-chart').text(t);
-		$.graficoBroken('chartdiv','/telefonosServicios/'+id+'/'+d,'post');
+		$.loadChart('chartdiv','/postTelefonosConServicios/'+id+'/'+d,'broken');
 	});
 
 	$('#generaexcel').on('click', function (e) {
