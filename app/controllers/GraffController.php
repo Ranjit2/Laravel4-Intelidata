@@ -2,7 +2,7 @@
 
 class GraffController extends BaseController {
 
-	public function getChartPie($id = '', $type = 'pie', $fecha = NULL) {
+	public function postChartPie($id = '', $type = 'pie', $fecha = NULL) {
 		if(is_null($fecha))
 		{
 			$data = Cliente::getChartPie($id);
@@ -86,6 +86,24 @@ class GraffController extends BaseController {
 	public function postChartComparative($id) {
 		try {
 			$data = Cliente::postChartComparative($id);
+			return $data;
+		} catch(Exception $ex) {
+			return ($ex->getMessage());
+		}
+	}
+
+	public function postTelefonosPorProducto ($id = NULL, $id_producto = NULL, $date = NULL) {
+		if(!isset($id)) {
+			$id = Session::get('ses_user_id');
+		}
+		if(!isset($id_producto)) {
+			$id_producto = 1;
+		}
+		if(!isset($date)) {
+			$date = Carbon::now()->toDateString();
+		}
+		try {
+			$data = Producto::postTelefonosPorProducto($id, $id_producto, $date);
 			return $data;
 		} catch(Exception $ex) {
 			return ($ex->getMessage());

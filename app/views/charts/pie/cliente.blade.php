@@ -64,11 +64,10 @@
 
 @section('script')
 <script type="text/javascript">
-<<<<<<< HEAD
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
-	$.loadChart('chartdiv', '/postChartPie/'+id, 'donut', 7, 'POST');
-	$.loadChart('chartdiv2', '/postChartPie/'+id, 'donut', 6, 'POST');
-	$.loadChart('chartdiv3', '/postChartPie/'+id, 'donut', 2, 'POST');
+	$.loadChart('chartdiv', '/postChartPie/'+id, '2014-06-01', 'pie');
+	$.loadChart('chartdiv2', '/postChartPie/'+id, '2014-06-01', 'pie');
+	$.loadChart('chartdiv3', '/postChartPie/'+id, '2014-06-01', 'pie');
 </script>
 
 @stop

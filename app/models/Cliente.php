@@ -109,7 +109,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				array_push($data,array(
 					'producto' => $value->producto,
 					'numero'   => $value->numero,
-					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'fecha'    => $value->fecha,
 					'monto'    => $value->monto,
 					));
 			}
@@ -127,7 +127,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				array_push($data, array(
 					'producto' => $value->producto,
 					'numero'   => $value->numero,
-					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'fecha'    => $value->fecha,
 					'monto'    => $value->monto,
 					));
 			}
@@ -149,7 +149,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				if(isset($data[$value->fecha])) {
 					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->fecha] = array('mes' => Func::convNumberToMonth((new Carbon($value->fecha))->month), $value->numero => $value->monto);
+					$data[$value->fecha] = array('fecha' => $value->fecha, $value->numero => $value->monto);
 				}
 			}
 		} catch(PDOException $exception) {
@@ -181,7 +181,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				if(isset($data[$value->fecha])) {
 					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->fecha] = array( 'mes' => Func::convNumberToMonth($value->fecha), $value->numero => $value->monto, );
+					$data[$value->fecha] = array( 'fecha' => $value->fecha, $value->numero => $value->monto, );
 				}
 			}
 		} catch(PDOException $exception) {

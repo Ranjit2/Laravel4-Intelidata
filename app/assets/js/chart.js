@@ -109,6 +109,14 @@ $.loadChart = function (div, url, type, date) {
                 case 'stackbar':
                 $.stackbar(div, json);
                 break;
+
+                case 'historicoCategoria':
+                $.historicoCategoria(div, json);
+                break;
+
+                case 'producto':
+                $.hist_cat(div, json);
+                break;
             };
         }
     } catch(err) {
@@ -629,7 +637,7 @@ $.legend = function (chart, legenddiv) {
     legend.markerType       = "circle";
     legend.labelText        = "[[title]]";
     legend.valueText        = "";
-    legend.useGraphSettings = true;
+    legend.useGraphSettings = false;
     if(legenddiv) {
         chart.addLegend(legend, legenddiv);
     } else {

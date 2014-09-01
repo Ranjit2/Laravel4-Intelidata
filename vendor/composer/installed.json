@@ -499,12 +499,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa"
+            "reference": "eb28eb0187296a86f9cdc7743ebd6086b75c0e9b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
-            "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/eb28eb0187296a86f9cdc7743ebd6086b75c0e9b",
+            "reference": "eb28eb0187296a86f9cdc7743ebd6086b75c0e9b",
             "shasum": ""
         },
         "require": {
@@ -514,7 +514,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2014-08-29 13:13:16",
+        "time": "2014-09-01 13:51:21",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -545,77 +545,24 @@
         ]
     },
     {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5d77847610f9166d1cc0f541573ec1d98eac209b",
-            "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b",
-            "shasum": ""
-        },
-        "require": {
-            "laravel/framework": "~4.0",
-            "maximebf/debugbar": "~1.9",
-            "php": ">=5.3.0",
-            "symfony/finder": "~2.3"
-        },
-        "time": "2014-08-27 10:12:04",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.6-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Barryvdh\\Debugbar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
-    },
-    {
         "name": "twitter/bootstrap",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "59d7772daa8d09e13858ad83701bda767db71fc8"
+            "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/59d7772daa8d09e13858ad83701bda767db71fc8",
-            "reference": "59d7772daa8d09e13858ad83701bda767db71fc8",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fe896923fce4ec29f09055b4778ebc64eda8fccc",
+            "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-08-30 03:08:49",
+        "time": "2014-08-30 05:43:44",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2474,63 +2421,6 @@
         ]
     },
     {
-        "name": "maximebf/debugbar",
-        "version": "1.9.15",
-        "version_normalized": "1.9.15.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/maximebf/php-debugbar.git",
-            "reference": "5d08b313576056234d464bedbba8ce1b26bcd918"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5d08b313576056234d464bedbba8ce1b26bcd918",
-            "reference": "5d08b313576056234d464bedbba8ce1b26bcd918",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0",
-            "psr/log": "~1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "suggest": {
-            "kriswallsmith/assetic": "The best way to manage assets",
-            "monolog/monolog": "Log using Monolog",
-            "predis/predis": "Redis storage"
-        },
-        "time": "2014-08-20 15:25:30",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.9-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "DebugBar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Bouroumeau-Fuseau",
-                "email": "maxime.bouroumeau@gmail.com",
-                "homepage": "http://maximebf.com"
-            }
-        ],
-        "description": "Debug bar in the browser for php application",
-        "homepage": "https://github.com/maximebf/php-debugbar",
-        "keywords": [
-            "debug"
-        ]
-    },
-    {
         "name": "tzookb/tbmsg",
         "version": "v1.0.4",
         "version_normalized": "1.0.4.0",
@@ -2622,6 +2512,322 @@
             "rut",
             "tools",
             "validation"
+        ]
+    },
+    {
+        "name": "tag-planet/universal-analytics",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/TagPlanet/universal-analytics.git",
+            "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/TagPlanet/universal-analytics/zipball/0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
+            "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "4.*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.7.2"
+        },
+        "time": "2014-01-25 22:19:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "TagPlanet\\UniversalAnalytics": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Philip Lawrence",
+                "email": "philip@misterphilip.com",
+                "homepage": "http://misterphilip.com"
+            }
+        ],
+        "description": "Provides an easy way to include Universal Analytics code with your Laravel 4 application"
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2014-03-02 15:22:49",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://blog.rootslabs.net"
+            },
+            {
+                "name": "Erik Tilt"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "http://phpexcel.codeplex.com",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
+        "name": "nesbot/carbon",
+        "version": "1.11.0",
+        "version_normalized": "1.11.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/briannesbitt/Carbon.git",
+            "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
+            "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2014-08-26 03:18:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Carbon": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brian Nesbitt",
+                "email": "brian@nesbot.com",
+                "homepage": "http://nesbot.com"
+            }
+        ],
+        "description": "A simple API extension for DateTime.",
+        "homepage": "https://github.com/briannesbitt/Carbon",
+        "keywords": [
+            "date",
+            "datetime",
+            "time"
+        ]
+    },
+    {
+        "name": "artisaninweb/laravel-soap",
+        "version": "0.2",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/artisaninweb/laravel-soap.git",
+            "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+            "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2014-08-08 07:05:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Artisaninweb\\SoapWrapper": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael van de Rijt",
+                "email": "me@mvdrijt.com"
+            }
+        ],
+        "description": "A SoapClient wrapper integration for Laravel",
+        "keywords": [
+            "client",
+            "laravel",
+            "soap",
+            "wrapper"
+        ]
+    },
+    {
+        "name": "maatwebsite/excel",
+        "version": "v1.1.5",
+        "version_normalized": "1.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
+            "reference": "0c67aba8387726458d42461eae91a3415593bbc4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0c67aba8387726458d42461eae91a3415593bbc4",
+            "reference": "0c67aba8387726458d42461eae91a3415593bbc4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "phpoffice/phpexcel": "~1.8.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9",
+            "orchestra/testbench": "~2.2.0@dev",
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2014-07-10 09:06:07",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/Maatwebsite/Excel",
+                "tests/TestCase.php"
+            ],
+            "psr-0": {
+                "Maatwebsite\\Excel\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maatwebsite.nl",
+                "email": "patrick@maatwebsite.nl"
+            }
+        ],
+        "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
+        "keywords": [
+            "PHPExcel",
+            "batch",
+            "csv",
+            "excel",
+            "export",
+            "import",
+            "laravel"
+        ]
+    },
+    {
+        "name": "barryvdh/laravel-ide-helper",
+        "version": "v1.11.3",
+        "version_normalized": "1.11.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-ide-helper.git",
+            "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
+            "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "4.x",
+            "illuminate/filesystem": "4.x",
+            "illuminate/support": "4.x",
+            "php": ">=5.3.0",
+            "phpdocumentor/reflection-docblock": "2.0.x",
+            "symfony/class-loader": "~2.3"
+        },
+        "require-dev": {
+            "doctrine/dbal": "~2.3"
+        },
+        "suggest": {
+            "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+        },
+        "time": "2014-08-26 08:54:34",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.11-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Barryvdh\\LaravelIdeHelper\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+        "keywords": [
+            "autocomplete",
+            "codeintel",
+            "helper",
+            "ide",
+            "laravel",
+            "netbeans",
+            "phpdoc",
+            "phpstorm",
+            "sublime"
         ]
     },
     {
@@ -2761,252 +2967,94 @@
         "description": "Just a Formbuilder with some Bootstrap specific conveniences. Remembers old input, retrieves error messages and handles all your boilerplate Bootstrap markup automatically."
     },
     {
-        "name": "tag-planet/universal-analytics",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "maximebf/debugbar",
+        "version": "1.9.15",
+        "version_normalized": "1.9.15.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/TagPlanet/universal-analytics.git",
-            "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783"
+            "url": "https://github.com/maximebf/php-debugbar.git",
+            "reference": "5d08b313576056234d464bedbba8ce1b26bcd918"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/TagPlanet/universal-analytics/zipball/0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
-            "reference": "0b370fd8d20397e585a550d86f6fb9ccb9e1c783",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "4.*",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.7.2"
-        },
-        "time": "2014-01-25 22:19:26",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "TagPlanet\\UniversalAnalytics": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Philip Lawrence",
-                "email": "philip@misterphilip.com",
-                "homepage": "http://misterphilip.com"
-            }
-        ],
-        "description": "Provides an easy way to include Universal Analytics code with your Laravel 4 application"
-    },
-    {
-        "name": "phpoffice/phpexcel",
-        "version": "1.8.0",
-        "version_normalized": "1.8.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPOffice/PHPExcel.git",
-            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
-            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
-            "shasum": ""
-        },
-        "require": {
-            "ext-xml": "*",
-            "ext-xmlwriter": "*",
-            "php": ">=5.2.0"
-        },
-        "time": "2014-03-02 15:22:49",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "PHPExcel": "Classes/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Maarten Balliauw",
-                "homepage": "http://blog.maartenballiauw.be"
-            },
-            {
-                "name": "Mark Baker"
-            },
-            {
-                "name": "Franck Lefevre",
-                "homepage": "http://blog.rootslabs.net"
-            },
-            {
-                "name": "Erik Tilt"
-            }
-        ],
-        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
-        "homepage": "http://phpexcel.codeplex.com",
-        "keywords": [
-            "OpenXML",
-            "excel",
-            "php",
-            "spreadsheet",
-            "xls",
-            "xlsx"
-        ]
-    },
-    {
-        "name": "maatwebsite/excel",
-        "version": "v1.1.5",
-        "version_normalized": "1.1.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-            "reference": "0c67aba8387726458d42461eae91a3415593bbc4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0c67aba8387726458d42461eae91a3415593bbc4",
-            "reference": "0c67aba8387726458d42461eae91a3415593bbc4",
+            "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5d08b313576056234d464bedbba8ce1b26bcd918",
+            "reference": "5d08b313576056234d464bedbba8ce1b26bcd918",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0",
-            "phpoffice/phpexcel": "~1.8.0"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9",
-            "orchestra/testbench": "~2.2.0@dev",
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2014-07-10 09:06:07",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/Maatwebsite/Excel",
-                "tests/TestCase.php"
-            ],
-            "psr-0": {
-                "Maatwebsite\\Excel\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Maatwebsite.nl",
-                "email": "patrick@maatwebsite.nl"
-            }
-        ],
-        "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
-        "keywords": [
-            "PHPExcel",
-            "batch",
-            "csv",
-            "excel",
-            "export",
-            "import",
-            "laravel"
-        ]
-    },
-    {
-        "name": "nesbot/carbon",
-        "version": "1.11.0",
-        "version_normalized": "1.11.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
-            "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
+            "psr/log": "~1.0"
         },
         "require-dev": {
             "phpunit/phpunit": "~4.0"
-        },
-        "time": "2014-08-26 03:18:44",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Carbon": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Brian Nesbitt",
-                "email": "brian@nesbot.com",
-                "homepage": "http://nesbot.com"
-            }
-        ],
-        "description": "A simple API extension for DateTime.",
-        "homepage": "https://github.com/briannesbitt/Carbon",
-        "keywords": [
-            "date",
-            "datetime",
-            "time"
-        ]
-    },
-    {
-        "name": "barryvdh/laravel-ide-helper",
-        "version": "v1.11.3",
-        "version_normalized": "1.11.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-            "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
-            "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/console": "4.x",
-            "illuminate/filesystem": "4.x",
-            "illuminate/support": "4.x",
-            "php": ">=5.3.0",
-            "phpdocumentor/reflection-docblock": "2.0.x",
-            "symfony/class-loader": "~2.3"
-        },
-        "require-dev": {
-            "doctrine/dbal": "~2.3"
         },
         "suggest": {
-            "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+            "kriswallsmith/assetic": "The best way to manage assets",
+            "monolog/monolog": "Log using Monolog",
+            "predis/predis": "Redis storage"
         },
-        "time": "2014-08-26 08:54:34",
+        "time": "2014-08-20 15:25:30",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.11-dev"
+                "dev-master": "1.9-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Barryvdh\\LaravelIdeHelper\\": "src"
+            "psr-0": {
+                "DebugBar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Bouroumeau-Fuseau",
+                "email": "maxime.bouroumeau@gmail.com",
+                "homepage": "http://maximebf.com"
+            }
+        ],
+        "description": "Debug bar in the browser for php application",
+        "homepage": "https://github.com/maximebf/php-debugbar",
+        "keywords": [
+            "debug"
+        ]
+    },
+    {
+        "name": "barryvdh/laravel-debugbar",
+        "version": "v1.6.8",
+        "version_normalized": "1.6.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-debugbar.git",
+            "reference": "6668cf335a7b6461debbedc9ed95f2f3784eb537"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6668cf335a7b6461debbedc9ed95f2f3784eb537",
+            "reference": "6668cf335a7b6461debbedc9ed95f2f3784eb537",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "~4.0",
+            "maximebf/debugbar": "~1.9",
+            "php": ">=5.3.0",
+            "symfony/finder": "~2.3"
+        },
+        "time": "2014-08-27 08:56:54",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Barryvdh\\Debugbar": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3019,43 +3067,43 @@
                 "email": "barryvdh@gmail.com"
             }
         ],
-        "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+        "description": "PHP Debugbar integration for Laravel",
         "keywords": [
-            "autocomplete",
-            "codeintel",
-            "helper",
-            "ide",
+            "debug",
+            "debugbar",
             "laravel",
-            "netbeans",
-            "phpdoc",
-            "phpstorm",
-            "sublime"
+            "profiler",
+            "webprofiler"
         ]
     },
     {
-        "name": "artisaninweb/laravel-soap",
-        "version": "0.2",
-        "version_normalized": "0.2.0.0",
+        "name": "laracasts/utilities",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/artisaninweb/laravel-soap.git",
-            "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0"
+            "url": "https://github.com/laracasts/PHP-Vars-To-Js-Transformer.git",
+            "reference": "cdcee80cdbe5673f61f59df30979546e4f7fadd6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
-            "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+            "url": "https://api.github.com/repos/laracasts/PHP-Vars-To-Js-Transformer/zipball/cdcee80cdbe5673f61f59df30979546e4f7fadd6",
+            "reference": "cdcee80cdbe5673f61f59df30979546e4f7fadd6",
             "shasum": ""
         },
         "require": {
+            "illuminate/support": "~4.0",
             "php": ">=5.4.0"
         },
-        "time": "2014-08-08 07:05:19",
+        "require-dev": {
+            "phpspec/phpspec": "~2.0"
+        },
+        "time": "2014-04-24 21:43:55",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
-                "Artisaninweb\\SoapWrapper": "src/"
+                "Laracasts\\Utilities": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3064,16 +3112,14 @@
         ],
         "authors": [
             {
-                "name": "Michael van de Rijt",
-                "email": "me@mvdrijt.com"
+                "name": "Jeffrey Way",
+                "email": "jeffrey@laracasts.com"
             }
         ],
-        "description": "A SoapClient wrapper integration for Laravel",
+        "description": "Transform your PHP to JavaScript",
         "keywords": [
-            "client",
-            "laravel",
-            "soap",
-            "wrapper"
+            "javascript",
+            "laravel"
         ]
     }
 ]
