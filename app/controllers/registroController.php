@@ -102,8 +102,6 @@ class RegistroController extends \BaseController {
 	public static function grabarRegistro()
 	{
 		$variable = Input::all();
-
-
 		$rules = array(
             'nombre'    => 'required|min:3|max:40',
             'apellidos' => 'required|min:3|max:50',
@@ -123,7 +121,6 @@ class RegistroController extends \BaseController {
             'validate_rut' => 'Rut inválido',
             'existe_rut_cliente' => 'El rut ingresado no existe como cliente'
         );
-
 
 
         $validation = Validator::make($variable, $rules, $messages);
@@ -149,8 +146,6 @@ class RegistroController extends \BaseController {
 			//$clienteU->save();
 
 			return "grabado correctamente";
-
-		
 	}
 
 }

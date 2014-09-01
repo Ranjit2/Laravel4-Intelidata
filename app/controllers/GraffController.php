@@ -2,13 +2,15 @@
 
 class GraffController extends BaseController {
 
-	public function getChartPie($id = '', $type = 'pie', $mes = NULL) {
-		if(is_null($mes) OR !is_numeric($mes)){
-			$data = Cliente::getChartPie($id);
+	public function getChartPie($id = '', $type = 'pie', $fecha = NULL) {
+		if(is_null($fecha))
+		{
+		 	$data = Cliente::getChartPie($id);
 		} else {
-			$data = Cliente::getChartPieMonth($id, $mes);
+		 	$data = Cliente::getChartPieMonth($id, $fecha);
 		}
-		$titleF = 'mes';
+     	//$data = Cliente::getChartPie($id);
+		$titleF = 'numero';
 		$valueF = 'monto';
 		$chart = array(
 			"type"         => "pie",
@@ -17,18 +19,18 @@ class GraffController extends BaseController {
 			"depth3D"      => 10,
 			"angle"        => 10,
 			"dataProvider" => $data,
-			"labelText"    => "",
+			"labelText"    => "[[producto]]",
 			"titleField"   => $titleF,
 			"valueField"   => $valueF,
 			"balloonText" => "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>",
-			"legend" => array(
-				"align"      => "center",
-				"markerType" => "circle",
-				"horizontalGap"    => 0,
-				"position"         => "bottom",
-				"markerSize"       => 10,
-				// "divId" => "donut-legend",
-				),
+			// "legend" => array(
+			// 	"align"      => "center",
+			// 	"markerType" => "circle",
+			// 	"horizontalGap"    => 0,
+			// 	"position"         => "bottom",
+			// 	"markerSize"       => 10,
+			// 	// "divId" => "donut-legend",
+			// 	),
 			"numberFormatter" => array(
 				"decimalSeparator" => ",",
 				"thousandsSeparator" => ".",
@@ -49,14 +51,14 @@ class GraffController extends BaseController {
 			);
 		if ($type == 'donut') {
 			$chart = array_add($chart, "labelRadius", 5);
-			$chart = array_add($chart, "radius", "42%");
-			$chart = array_add($chart, "innerRadius", "60%");
+			$chart = array_add($chart, "radius", "35%");
+			$chart = array_add($chart, "innerRadius", "70%");
 		}
 		return Response::json($chart);
 	}
 
 	public function getChartSerial($id = '', $type = 'column') {
-		if(!Cache::has($type)) {
+		//if(!Cache::has($type)) {
 			if($type != 'column') {
 				$config = Cliente::getChartStacked($id);
 			} else {
@@ -71,14 +73,14 @@ class GraffController extends BaseController {
 				"language" => "es",
 				"depth3D"  => 20,
 				"angle"    => 10,
-				"legend" => array(
-					"horizontalGap"    => 10,
-					"position"         => "bottom",
-					"useGraphSettings" => true,
-					"markerSize"       => 10,
-					"markerType"       => "circle",
-					"align"            => "center",
-					),
+				// "legend" => array(
+				// 	"horizontalGap"    => 10,
+				// 	"position"         => "bottom",
+				// 	"useGraphSettings" => true,
+				// 	"markerSize"       => 10,
+				// 	"markerType"       => "circle",
+				// 	"align"            => "center",
+				// 	),
 				"dataProvider" => $data,
 				"graphs" => $graphs,
 				"categoryField" => $ejex,
@@ -128,10 +130,10 @@ class GraffController extends BaseController {
 					)
 				);
 			}
-			Cache::put($type, $chart, 20);
-		} else {
-			$chart = Cache::get($type);
-		}
+			//Cache::put($type, $chart, 20);
+		// } else {
+		// 	$chart = Cache::get($type);
+		// }
 		return Response::json($chart);
 	}
 

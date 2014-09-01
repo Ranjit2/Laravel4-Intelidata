@@ -35,4 +35,5 @@ class Producto extends Eloquent {
 	public function clientes(){
 		return $this->belongsToMany('Cliente', 'cliente_producto', 'id_producto', 'id_cliente')->withpivot('id');
 	}
+
 }

@@ -71,6 +71,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('Producto', 'cliente_producto', 'id_cliente', 'id_producto')->withpivot('monto','id_mes', 'numero_telefonico')->whereBetween('id_mes', array(Carbon::today()->subMonths(6)->month, Carbon::today()->month))->groupBy('id_mes','numero_telefonico')->orderBy('id_mes','ASC');
 	}
 
+	public function productos2Aux() {
+		return $this->hasMany('telefono', 'id_cliente');
+	}
+
 	public function telefonos() {
 		return $this->hasMany('Telefono', 'id_cliente');
 	}
@@ -89,6 +93,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Telefono', 'id_cliente')->select('id','numero');
 	}
 
+	public function categorias(){
+		return $this->hasMany('Telefono', 'id_cliente')->select('id','id_producto');	
+	}
+
 	public static function productosPorMes($id, $mes) {
 		return Cliente::find($id)->productos()->where('id_mes',$mes)->get()->toArray();
 	}
@@ -96,12 +104,13 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	public static function getChartPie($id) {
 		$data = array();
 		try {
-			foreach (Cliente::find($id)->productos2 as $value) {
+			$datos = ClienteController::devuelveTotales($id);
+			foreach ($datos as $value) {
 				array_push($data,array(
-					'producto' => $value->nombre,
-					'numero'   => $value->pivot->numero_telefonico,
-					'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
-					'monto'    => $value->pivot->monto,
+					'producto' => $value->producto,
+					'numero'   => $value->numero,
+					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'monto'    => $value->monto,
 					));
 			}
 		} catch(PDOException $exception) {
@@ -110,15 +119,16 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-	public static function getChartPieMonth($id, $mes) {
+	public static function getChartPieMonth($id, $fecha) {
 		$data = array();
 		try {
-			foreach (Cliente::find($id)->productos2()->where('id_mes',$mes)->get() as $value) {
-				array_push($data,array(
-					'producto' => $value->nombre,
-					'numero'   => $value->pivot->numero_telefonico,
-					'mes'      => Func::convNumberToMonth($value->pivot->id_mes),
-					'monto'    => $value->pivot->monto,
+			$datos = ClienteController::devuelveTotales($id, $fecha);
+			foreach ($datos as $value) {
+				array_push($data, array(
+					'producto' => $value->producto,
+					'numero'   => $value->numero,
+					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'monto'    => $value->monto,
 					));
 			}
 		}
@@ -130,13 +140,16 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
 	public static function getChartSerial($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
+		$datos = ClienteController::devuelveTotales($id);
 		try {
-			foreach (Cliente::find($id)->productos2 as $value) {
-				array_push($numbers, $value->pivot->numero_telefonico);
-				if(isset($data[$value->pivot->id_mes])) {
-					$data[$value->pivot->id_mes] = array_add($data[$value->pivot->id_mes], $value->pivot->numero_telefonico, $value->pivot->monto);
+			//foreach (Cliente::find($id)->productos2 as $value) 
+			foreach ($datos as $value) 
+			{
+				array_push($numbers, $value->numero);
+				if(isset($data[$value->fecha])) {
+					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->pivot->id_mes] = array( 'mes' => Func::convNumberToMonth($value->pivot->id_mes), $value->pivot->numero_telefonico => $value->pivot->monto, );
+					$data[$value->fecha] = array('mes' => Func::convNumberToMonth((new Carbon($value->fecha))->month), $value->numero => $value->monto);
 				}
 			}
 		} catch(PDOException $exception) {
@@ -162,12 +175,13 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	public static function getChartStacked($id = '') {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		try {
-			foreach (Cliente::find($id)->productos2 as $value) {
-				array_push($numbers, $value->pivot->numero_telefonico);
-				if(isset($data[$value->pivot->id_mes])) {
-					$data[$value->pivot->id_mes] = array_add($data[$value->pivot->id_mes], $value->pivot->numero_telefonico, $value->pivot->monto);
+			$datos = ClienteController::devuelveTotales($id);
+			foreach ($datos as $value) {
+				array_push($numbers, $value->numero);
+				if(isset($data[$value->fecha])) {
+					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->pivot->id_mes] = array( 'mes' => Func::convNumberToMonth($value->pivot->id_mes), $value->pivot->numero_telefonico => $value->pivot->monto, );
+					$data[$value->fecha] = array( 'mes' => Func::convNumberToMonth($value->fecha), $value->numero => $value->monto, );
 				}
 			}
 		} catch(PDOException $exception) {
@@ -262,7 +276,6 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$montoTotal = $value->monto_total;
 			$data[] = array("fecha" => $fecha, 'value' => $montoTotal);
 		}
-
 		return $data;
 	}
 }
