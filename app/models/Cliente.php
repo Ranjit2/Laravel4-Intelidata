@@ -94,7 +94,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	public function categorias(){
-		return $this->hasMany('Telefono', 'id_cliente')->select('id','id_producto');	
+		return $this->hasMany('Telefono', 'id_cliente')->select('id','id_producto');
 	}
 
 	public static function productosPorMes($id, $mes) {
@@ -119,11 +119,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-<<<<<<< HEAD
-	public static function getChartPieMonth($id, $fecha) {
-=======
-	public static function postChartPieMonth($id, $mes) {
->>>>>>> origin/dev
+	public static function postChartPieMonth($id, $fecha) {
 		$data = array();
 		try {
 			$datos = ClienteController::devuelveTotales($id, $fecha);
@@ -146,8 +142,8 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		$config = array(); $data = array(); $data2 = array(); $numbers = array(); $count = 0;
 		$datos = ClienteController::devuelveTotales($id);
 		try {
-			//foreach (Cliente::find($id)->productos2 as $value) 
-			foreach ($datos as $value) 
+			//foreach (Cliente::find($id)->productos2 as $value)
+			foreach ($datos as $value)
 			{
 				array_push($numbers, $value->numero);
 				if(isset($data[$value->fecha])) {

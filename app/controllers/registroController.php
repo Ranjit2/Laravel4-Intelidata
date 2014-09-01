@@ -103,54 +103,49 @@ class RegistroController extends \BaseController {
 	{
 		$variable = Input::all();
 		$rules = array(
-            'nombre'    => 'required|min:3|max:40',
-            'apellidos' => 'required|min:3|max:50',
-            'email'     => 'required|email|max:60|unique:persona,email_personal',
-            'rut'       => 'required|min:9|max:10|validateRut|existeRutCliente',
-            'password'  => 'required|min:5',
-            'rePassword'=> 'same:password'
-        );
+			'nombre'    => 'required|min:3|max:40',
+			'apellidos' => 'required|min:3|max:50',
+			'email'     => 'required|email|max:60|unique:persona,email_personal',
+			'rut'       => 'required|min:9|max:10|validateRut|existeRutCliente',
+			'password'  => 'required|min:5',
+			'rePassword'=> 'same:password'
+			);
 
-        $messages = array(
-            'required' => 'El campo :attribute es obligatorio.',
-            'min'      => 'El campo :attribute no puede tener menos de :min carácteres.',
-            'email'    => 'El campo :attribute debe ser un email válido.',
-            'max'      => 'El campo :attribute no puede tener más de :min carácteres.',
-            'unique'   => 'El email ingresado ya existe en la base de datos',
-            'same'     => 'Contraseña y repita contraseña deben coincidir',
-            'validate_rut' => 'Rut inválido',
-            'existe_rut_cliente' => 'El rut ingresado no existe como cliente'
-        );
+		$messages = array(
+			'required' => 'El campo :attribute es obligatorio.',
+			'min'      => 'El campo :attribute no puede tener menos de :min carácteres.',
+			'email'    => 'El campo :attribute debe ser un email válido.',
+			'max'      => 'El campo :attribute no puede tener más de :min carácteres.',
+			'unique'   => 'El email ingresado ya existe en la base de datos',
+			'same'     => 'Contraseña y repita contraseña deben coincidir',
+			'validate_rut' => 'Rut inválido',
+			'existe_rut_cliente' => 'El rut ingresado no existe como cliente'
+			);
 
 
-        $validation = Validator::make($variable, $rules, $messages);
+		$validation = Validator::make($variable, $rules, $messages);
         // return Func::printr($validation->messages());
-        if ($validation->fails())
-        {
- 			return Redirect::to('registro')->withErrors($validation)->withInput();
- 		}
+		if ($validation->fails())
+		{
+			return Redirect::to('registro')->withErrors($validation)->withInput();
+		}
 
 			//se ingresa nuevos datos de persona para el cliente
-			$persona                 = new Persona;
-			$persona->nombre         = $variable['nombre'];
-			$persona->apellidos      = $variable['apellidos'];
-			$persona->email_personal = $variable['email'];
+		$persona                 = new Persona;
+		$persona->nombre         = $variable['nombre'];
+		$persona->apellidos      = $variable['apellidos'];
+		$persona->email_personal = $variable['email'];
 			//$persona->save();
-			$insertedId = $persona->id;
+		$insertedId = $persona->id;
 
 			//se actualiza la tabla de cliente con el password recien ingresado
-			$idCliente            = registroController::getIdCliente($variable['rut']);
-			$clienteU 	          = Cliente::find($idCliente);
-			$clienteU->clave      = Hash::make($variable['password']);
-			$clienteU->id_persona = $insertedId;
+		$idCliente            = registroController::getIdCliente($variable['rut']);
+		$clienteU 	          = Cliente::find($idCliente);
+		$clienteU->clave      = Hash::make($variable['password']);
+		$clienteU->id_persona = $insertedId;
 			//$clienteU->save();
 
-			return "grabado correctamente";
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/dev
+		return "grabado correctamente";
 	}
 
 }

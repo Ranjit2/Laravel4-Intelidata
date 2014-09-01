@@ -93,7 +93,6 @@ Route::group(array('before' => 'auth'), function() {
 });
 
 Route::resource('nerds', 'PersonaController');
-<<<<<<< HEAD
 Route::resource('webservice', 'WebServiceController');
 
 Route::get('test', function(){
@@ -105,33 +104,6 @@ Route::get('test', function(){
 
 		});
 	})->download('xls');
-});
-=======
-<<<<<<< HEAD
-
-Route::get('test', function(){
-	SoapWrapper::add(function ($service) {
-		$service->name('weather')->wsdl('http://www.webservicex.net/globalweather.asmx?WSDL');
-	});
-
-	$data = array(
-		'CountryName' => 'Chile',
-		'CityName'    => 'Santiago',
-		);
-	$func       = 'GetWeather';
-	$funcResult = $func . 'Result';
-	// $data       = Func::arrayToXML($data);
-
-	$result = SoapWrapper::service('weather', function($service) use ($data, $func, $funcResult) {
-		// var_dump($service->getFunctions());
-		return $service->call($func, $data)->$funcResult;
-	});
-	Func::printr($result);
-
-	die();
-
-	Cliente::evolutionChart(7);
-	return View::make('charts.line.empresa');
 });
 
 Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
@@ -145,7 +117,7 @@ Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales')
 
 Route::get('prueba', function(){
 		/*
-select t.id_producto, sum(tot.monto_total)  
+select t.id_producto, sum(tot.monto_total)
 from cliente c,
      telefono t,
      total tot
@@ -191,16 +163,12 @@ group by(t.id_producto)
 	return $arreglo;
 });
 
-
-
-
-
 // Route::get('insertando', function(){
 // 	$fecha = new Carbon('2013-05-01');
 // 	$contador = 0;
 // 	$aumento  = 0;
 // 	$arreglo = array();
-// 	for($x = 0; $x < 17; $x++) 
+// 	for($x = 0; $x < 17; $x++)
 // 	{
 // 		for($y = 37; $y <= 41; $y++)
 // 		{
@@ -264,7 +232,3 @@ group by(t.id_producto)
 // 	}
 // 	return $arreglo;
 // });
-=======
-Route::resource('webservice', 'WebServiceController');
->>>>>>> origin/dev
->>>>>>> origin/dev
