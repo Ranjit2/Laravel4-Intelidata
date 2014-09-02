@@ -66,16 +66,17 @@ class Telefono extends Eloquent {
 				array_push($b[$k]['subs'], $c);
 			}
 		}
+		$b['data'] = $b;
 		return Response::json($b);
 	}
 
 	public static function categoriasConServicios($nroCliente, $fecha) {
 		$date = new Carbon($fecha);
-		foreach ($telefonos = Cliente::find(Session::get('ses_user_id'))->categorias as $value) 
+		foreach ($telefonos = Cliente::find(Session::get('ses_user_id'))->categorias as $value)
 		{
 			$categorias = new stdClass;
 			$categorias->nombre = Producto::find($value->id_producto)->nombre;
-			
+
 
 			// $id     = $value->id;
 			// array_push($b, array(
@@ -84,6 +85,7 @@ class Telefono extends Eloquent {
 			// 	'subs' => array(),
 			// 	));
 		}
+		$b['data'] = $b;
 		return Response::json($b);
 	}
 

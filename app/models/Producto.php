@@ -39,26 +39,28 @@ class Producto extends Eloquent {
 	public static function postTelefonosPorProducto ($id, $id_producto, $date) {
 		// $hasta = Carbon::now()->format('Y-m-d');
 		// $desde = Carbon::now()->subMonths(13)->format('Y-m-d');
-
+		$date = new Carbon($date);
+		$array = array();
 		$a = DB::table('telefono')
 		->select('total.fecha', 'telefono.id_producto', 'producto.nombre', 'telefono.numero', 'total.monto_total')
 		->join('producto', 'telefono.id_producto', '=', 'producto.id')
 		->join('total', 'telefono.id', '=', 'total.id_telefono')
 		->where('telefono.id_cliente', $id)
 		->where('telefono.id_producto', $id_producto)
-		->whereRaw('MONTH(total.fecha) = ' . 9  . ' AND YEAR(total.fecha) = ' . 2014)
+		->whereRaw('MONTH(total.fecha) = ' . $date->month  . ' AND YEAR(total.fecha) = ' . $date->year)
 		->orderBy('producto.nombre')
 		->get();
 
-		$array = array();
 		foreach ($a as $key => $value) {
 			$array[] = array(
+				'producto' => $value->nombre,
 				'fecha' => $value->fecha,
 				'numero' => $value->numero,
 				'monto' => $value->monto_total,
 				);
 		}
-		Func::printr($array);
+		// Func::printr($array);
+		return Response::json($array);
 
 	}
 }

@@ -99,3 +99,7 @@ Route::resource('webservice', 'WebServiceController');
 
 Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
+Route::get('test2', function(){
+	Func::printr(Cliente::postMontoTotal(7));
+});
+

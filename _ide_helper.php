@@ -13314,5 +13314,33 @@ namespace {
     }
 
 
+    class JavaScript extends \Laracasts\Utilities\JavaScript\Facades\JavaScript{
+        
+        /**
+         * Bind given array of variables to view
+         *
+         * @param array $vars
+         * @static 
+         */
+        public static function put($vars){
+            return \Laracasts\Utilities\JavaScript\PHPToJavaScriptTransformer::put($vars);
+        }
+        
+        /**
+         * Translate the array of PHP vars
+         * to JavaScript syntax.
+         *
+         * @param array $vars
+         * @internal param $js
+         * @return array 
+         * @static 
+         */
+        public static function buildJavaScriptSyntax($vars){
+            return \Laracasts\Utilities\JavaScript\PHPToJavaScriptTransformer::buildJavaScriptSyntax($vars);
+        }
+        
+    }
+
+
 }
 

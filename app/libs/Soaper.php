@@ -41,7 +41,7 @@ class Soaper extends SoapService {
 	* Static instance of this class
 	* @var [type]
 	*/
-	protected $instance;
+	private $instance;
 
 	/**
 	* [function_name description]
@@ -147,9 +147,8 @@ class Soaper extends SoapService {
 	 * @return [type] [description]
 	 */
 	public function get() {
-		$this->instance(new Static($this->name, $this->wsdl));
-		$this->instance->result($this->getResult()->{$this->getFunction_result()});
-		return $this->instance;
+		$this->result($this->getResult()->{$this->getFunction_result()});
+		return $this;
 	}
 
 	/**
@@ -160,7 +159,7 @@ class Soaper extends SoapService {
 		$xml   = preg_replace('/(<\?xml[^?]+?)utf-16/i', '$1utf-8', $this->getResult());
 		$xml   = new SimpleXMLElement(utf8_encode($xml));
 		$this->result(json_decode(json_encode((array) $xml), true));
-		$this->instance(NULL);
+		unset($this->instance);
 		return $this->getResult();
 	}
 
