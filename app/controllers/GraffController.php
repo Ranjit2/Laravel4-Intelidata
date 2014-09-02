@@ -106,7 +106,9 @@ class GraffController extends BaseController {
 		->where(DB::raw('YEAR(fecha)'), $fecha->year)
 		->groupBy('telefono.id_producto')
 		->get();
-		return $resultado;
+		 $config['data'] = $resultado;
+
+		return $config;
 	}
 
 	public function postTelefonosPorProducto ($id = NULL, $id_producto = NULL, $date = NULL) {

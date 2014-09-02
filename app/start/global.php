@@ -14,12 +14,12 @@
 ClassLoader::addDirectories(array(
 
 	app_path().'/commands',
-    app_path().'/controllers',
-    app_path().'/libs',
+	app_path().'/controllers',
+	app_path().'/libs',
 	app_path().'/models',
 	app_path().'/database/seeds',
 
-));
+	));
 
 include (app_path().'/libs/macros.php');
 include (app_path().'/libs/customValidator.php');
@@ -35,7 +35,7 @@ include (app_path().'/libs/customValidator.php');
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel_Error.log');
+Log::useFiles(storage_path().'/logs/app_log.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ App::error(function(Exception $exception, $code)
 });
 
 App::error(function(PDOException $exception, $code){
-    Log::error($exception);
-    Response::make("Error en la base de datos");
+	Log::error($exception);
+	Response::make("Error en la base de datos");
 });
 
 /*
@@ -88,5 +88,11 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path().'/libs/events.php';
 
-Event::listen('ahir.velocity', 'Ahir\Velocity\Velocity@handle');
+$path = storage_path().'/logs/logging.log';
+if (!File::exists($path))
+{
+	$log = 'ACTION | DATE | USER_ID | IP | BROWSER' . PHP_EOL;
+	File::append($path, $log);
+}

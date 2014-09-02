@@ -546,8 +546,9 @@ HTML::macro('tiny_timeline', function() {
         if(Carbon::now()->subMonths($i)->month == 1) {
             $a .= '<li class="divide-line"></li>';
         }
-        $a .= '<li><a class="text-uppercase" href="#" data-timeline="' . Carbon::now()->subMonths($i)->toDateString() . '">';
+        $a .= '<li><a class="text-uppercase" href="#" data-timeline="' . Carbon::now()->subMonths($i)->startOfMonth()->toDateString() . '">';
         $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month) . '</a></li>';
+        // $a .= substr(Func::convNumberToMonth(Carbon::now()->subMonths($i)->month), 0, 3) . '</a></li>';
         array_push($y, Carbon::now()->subMonths($i)->year);
     }
     $a .= '</ul><ul class="list-inline years">';

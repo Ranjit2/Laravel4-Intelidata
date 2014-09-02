@@ -65,7 +65,8 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/breakchart', function() { return View::make('charts.break.' . Session::get('ses_user_tipo')); });
 		Route::get('/evolution', function() { return View::make('charts.line.' . Session::get('ses_user_tipo')); });
 		Route::get('/comparative', function() { return View::make('charts.comparative'); });
-		Route::get('/grafHistoricoCategoria', function(){return View::make('charts.pie.historicoCategoria'); });
+		Route::get('/grafHistoricoCategoria', function(){ return View::make('charts.pie.historicoCategoria'); });
+		Route::get('/telefonosPorProducto', function(){ return View::make('charts.pie.telefonosPorProducto')->with('types', Producto::lists('nombre', 'id')); });
 	});
 
 
@@ -80,6 +81,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('/postChartComparative/{id}', 'GraffController@postChartComparative');
 	Route::post('/postChartEvolution/{id}', 'GraffController@postChartEvolution');
 	Route::post('/postTelefonosConServicios/{id}/{date?}', 'GraffController@postTelefonosConServicios');
+	Route::post('/postTelefonosPorProducto/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
@@ -125,8 +127,7 @@ Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoric
 
 //Grafico historico categoria empresa
 
-Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
-Route::get('test2', function(){
-	Func::printr(Cliente::postMontoTotal(7));
+Route::get('test', function() {
+	Producto::postTelefonosPorProducto(7,1,'2014-09-01');
 });

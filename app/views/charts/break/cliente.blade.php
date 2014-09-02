@@ -5,6 +5,12 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
+				<div class="col-md-7 col-md-offset-3">
+					<div class="tiny-timeline text-center">
+						{{ HTML::tiny_timeline('#') }}
+					</div>
+				</div>
+				<div class="clearfix"></div>
 				<class="borde-titulo">Title</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
 				<div id="chartdiv7" style="height: 400px;"></div>
