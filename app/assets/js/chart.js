@@ -165,15 +165,6 @@ $.column = function (div, json) {
     $.legend(chart);
 
 
-    // DATE
-    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
-
-    // ANIMATION
-    $.animation(chart, false);
-
-    // MARGIN
-    $.margin(chart);
-
     // CURSORS
     var chartCursor                    = new AmCharts.ChartCursor();
     chartCursor.categoryBalloonEnabled = true;
@@ -204,6 +195,15 @@ $.historicoCategoria = function (div, json) {
     chart.categoryField                = "nombre";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
+
+    // ANIMATION
+    $.animation(chart, false);
+
+    // MARGIN
+    $.margin(chart);
 
     // LEGEND
     $.legend(chart);
