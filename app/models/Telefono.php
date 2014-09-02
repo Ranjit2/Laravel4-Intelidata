@@ -49,6 +49,10 @@ class Telefono extends Eloquent {
 		return $this->belongsTo('Cliente');
 	}
 
+	public function totales(){
+		return $this->hasMany('total', 'id_telefono');
+	}
+
 	public static function postTelefonosConServicios($nroCliente, $fecha) {
 		$date = new Carbon($fecha);
 		$b = array(); $c = array();

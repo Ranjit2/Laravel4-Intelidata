@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
-mb_internal_encoding("UTF-8");
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -66,6 +64,7 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/breakchart', function() { return View::make('charts.break.' . Session::get('ses_user_tipo')); });
 		Route::get('/evolution', function() { return View::make('charts.line.' . Session::get('ses_user_tipo')); });
 		Route::get('/comparative', function() { return View::make('charts.comparative'); });
+		Route::get('/grafHistoricoCategoria', function(){return View::make('charts.pie.historicoCategoria'); });
 	});
 
 
@@ -114,54 +113,25 @@ Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonos
 //excel para grafico de columna de cliente persona
 Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales');
 
+//Grafico historico categoria empresa
+// Route::post('/historicoCategoria/{id}/{date}', function(){
+// 	$fecha    = new Carbon('2014-09-01');
+// 	$resultado = DB::table('cliente')
+// 				->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
+//                 ->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+//                 ->join('total', 'telefono.id', '=', 'total.id_telefono')
+//                 ->join('producto', 'producto.id','=','telefono.id_producto')
+//                 ->where('cliente.id','=',7)
+//                 ->where(DB::raw('MONTH(fecha)'), $fecha->month)
+//                 ->where(DB::raw('YEAR(fecha)'), $fecha->year)
+//                 ->groupBy('telefono.id_producto')
+//                 ->get();
+//     return $resultado;
+// });
+Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoricoCategoria');
 
-Route::get('prueba', function(){
-		/*
-select t.id_producto, sum(tot.monto_total)
-from cliente c,
-     telefono t,
-     total tot
-where c.id = t.id_cliente and
-      tot.id_telefono = t.id and
-      c.id = 7 and
-      MONTH(tot.fecha) = 5 and
-      YEAR(tot.fecha) = 2014
-group by(t.id_producto)
-	*/
+//Grafico historico categoria empresa
 
-	$telefonos_id  = array();
-	$fecha    = new Carbon('2014-05-01');
-	$variable = Cliente::find(7)->categorias;
-	foreach ($variable as $value) {
-		$telefonos_id[] = $value->id;
-	}
-
-	return Total::whereIn('id_telefono', $telefonos_id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->get();
-
-
-
-
-
-	return Total::whereIn('id_telefono', $telefonos_id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->get();
-
-	DB::table('name')->sum('column');
-
-
-	$variable = Cliente::find(7)->categorias;
-	foreach ($variable as $value) {
-		$variable2 = Total::whereIdTelefono($value->id)->where(DB::raw('MONTH(fecha)'), $fecha->month)->where(DB::raw('YEAR(fecha)'), $fecha->year)->first();
-		$producto = new stdClass;
-		$producto->nombre = $value->id_producto;
-		$producto->total  = $variable2->monto_total;
-		array_push($arreglo, $producto);
-		// $producto->total
-
-		// foreach ($variable2 as $value2) {
-		// 	var_dump($value2);
-		// };
-	};
-	return $arreglo;
-});
 
 // Route::get('insertando', function(){
 // 	$fecha = new Carbon('2013-05-01');
