@@ -194,14 +194,7 @@ $.column = function (div, json) {
     $.margin(chart);
 
     // AXIS X
-    var categoryAxis                   = chart.categoryAxis;
-    categoryAxis.inside                = false;
-    categoryAxis.axisAlpha             = 0;
-    categoryAxis.gridAlpha             = 0;
-    categoryAxis.tickLength            = 0;
-    categoryAxis.parseDates            = true;
-    categoryAxis.minPeriod             = "MM";
-    categoryAxis.equalSpacing = true;
+    $.categoryAxis(chart);
 
     // VALUE AXIS X
     var valueAxis                      = new AmCharts.ValueAxis();
@@ -243,7 +236,7 @@ $.stackbar = function (div, json) {
     chart.numberFormatter              = $.formatNumber();
 
     // DATE
-    chart.dataDateFormat               = "YYYY-MM-DD HH:NN:SS";
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
 
     // ANIMATION
     $.animation(chart, false);
@@ -252,13 +245,7 @@ $.stackbar = function (div, json) {
     $.margin(chart);
 
     // AXIS X
-    var categoryAxis                   = chart.categoryAxis;
-    categoryAxis.inside                = false;
-    categoryAxis.axisAlpha             = 0;
-    categoryAxis.gridAlpha             = 0;
-    categoryAxis.tickLength            = 0;
-    categoryAxis.parseDates            = false;
-    categoryAxis.minPeriod             = "MM";
+    $.categoryAxis(chart);
 
     // VALUE AXIS X
     var valueAxis                      = new AmCharts.ValueAxis();
@@ -351,11 +338,7 @@ $.comparative = function (div, json) {
     chart.dataDateFormat         = "YYYY-MM-DD HH:NN";
 
     // AXIS X
-    var categoryAxis             = chart.categoryAxis;
-    categoryAxis.inside          = false;
-    categoryAxis.gridAlpha       = 0;
-    categoryAxis.tickLength      = 0;
-    categoryAxis.axisAlpha       = 0;
+    $.categoryAxis(chart, false);
 
     // VALUE AXIS X
     var valueAxis                = new AmCharts.ValueAxis();
@@ -443,14 +426,8 @@ $.evolution = function (div, json) {
     // DATE
     chart.dataDateFormat         = "YYYY-MM-DD HH:NN";
 
-    // AXIS X
-    var categoryAxis             = chart.categoryAxis;
-    categoryAxis.inside          = false;
-    categoryAxis.gridAlpha       = 0;
-    categoryAxis.tickLength      = 0;
-    categoryAxis.axisAlpha       = 0;
-    categoryAxis.parseDates      = true;
-    categoryAxis.minPeriod       = "MM";
+     // AXIS X
+     $.categoryAxis(chart);
 
     // VALUE AXIS X
     var valueAxis                = new AmCharts.ValueAxis();
@@ -706,4 +683,18 @@ $.formatNumber = function() {
         precision: -1,
     };
     return formatNumber;
+};
+
+$.categoryAxis = function (chart, parse) {
+    parse = typeof parse !== 'undefined' && parse.length != 0 ? parse : true;
+    var categoryAxis                   = chart.categoryAxis;
+    categoryAxis.inside                = false;
+    categoryAxis.axisAlpha             = 0;
+    categoryAxis.gridAlpha             = 0;
+    categoryAxis.tickLength            = 0;
+    categoryAxis.minPeriod             = "MM";
+    categoryAxis.equalSpacing          = false;
+    if (parse) {
+        categoryAxis.parseDates        = true;
+    };
 };

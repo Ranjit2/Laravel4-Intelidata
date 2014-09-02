@@ -63,7 +63,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-				<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg fa-fw"></span>Centro de Mensajes</a>
+				<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg fa-fw"></span><span class="badge pull-right">42</span>Centro de Mensajes</a>
 			</h4>
 		</div>
 	</div>

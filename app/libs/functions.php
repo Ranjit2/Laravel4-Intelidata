@@ -2,9 +2,6 @@
 
 Class Func {
 
-	public function __construct() {
-	}
-
 	public static function printr($a) {
 		echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
 	}
@@ -230,7 +227,7 @@ Class Func {
 	/**
 	* [arrayToXML function for convert array to xml format]
 	* @param  [array] $array_in [description]
-	* @return [xml]           	 [description]
+	* @return [xml]           	[description]
 	*/
 	public static function arrayToXML($array_in){
 		$return = "";
@@ -273,4 +270,23 @@ Class Func {
 		}
 		return "<" . $tag_in . "" . $attributes_out . ((trim($value_in) == "") ? "/>" : ">" . $value_in . "</" . $tag_in . ">");
 	}
+
+	/**
+	* Escape any text to be used in a url
+	* @param {string} data
+	* @return {string} url safe string
+	*/
+	public static function base64urlEncode($data) {
+		return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+	}
+
+	/**
+	* Opposite to base64urlEncode
+	* @param {string} url safe string
+	* @param {string} data
+	*/
+	public static function base64urlDecode($data) {
+		return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
+	}
+
 }

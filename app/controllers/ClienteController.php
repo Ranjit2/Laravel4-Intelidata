@@ -87,29 +87,31 @@ class ClienteController extends \BaseController {
 	{
 		$arregloResultado = array();
 		$telefonosCliente = Cliente::find($id)->productos2Aux;
-		foreach ($telefonosCliente as $value) {
+		$desde = Carbon::now()->subMonths(6)->startOfMonth();
+		$hasta = Carbon::now()->startOfMonth();
+ 		foreach ($telefonosCliente as $value) {
 			$idTelefono = $value->id;
 			if(is_null($fechaVar))
 			{
-				$totalesPorTelefono = Total::whereIdTelefono($idTelefono)->whereBetween('fecha', array(Carbon::today()->subMonths(6), Carbon::today()))->orderBy('fecha')->get();
+				$totalesPorTelefono = Total::whereIdTelefono($idTelefono)->whereBetween('fecha', array($desde, $hasta))->orderBy('fecha')->get();
 			}
 			else
 			{
 				$year = (new Carbon($fechaVar))->year;
 				$mes  = (new Carbon($fechaVar))->month;
-				$totalesPorTelefono = Total::whereIdTelefono($idTelefono)->where(DB::raw('MONTH(fecha)'),  $mes)->where(DB::raw('YEAR(fecha)'), $year)->orderBy('fecha')->get();	
+				$totalesPorTelefono = Total::whereIdTelefono($idTelefono)->where(DB::raw('MONTH(fecha)'),  $mes)->where(DB::raw('YEAR(fecha)'), $year)->orderBy('fecha')->get();
 			}
 			foreach ($totalesPorTelefono as $value2) {
 				$telefonoClass = new stdClass;
 				$fecha = $value2->fecha;
 				$montoTotal = $value2->monto_total;
-				$telefonoClass->numero = $value->numero; 
+				$telefonoClass->numero = $value->numero;
 				$telefonoClass->fecha  = $fecha;
 				$telefonoClass->monto  = $montoTotal;
 				$producto = Producto::find($value->id_producto)->nombre;
 				$telefonoClass->producto = $producto;
 				array_push($arregloResultado, $telefonoClass);
-				
+
 			}
 		}
 		return $arregloResultado;

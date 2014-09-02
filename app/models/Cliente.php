@@ -217,7 +217,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return false;
 	}
 
-	public static function postMontoTotal($id) {
+	public static function postMontoTotal($id, $from = 12) {
 		$arreglo = array(); $config = array(); $numbers = array(); $count = 0;
 		foreach (Cliente::find($id)->telefonos as $value)
 		{
@@ -225,8 +225,8 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			$numero     = $value['numero'];
 			array_push($numbers, $numero);
 
-			$hasta = Carbon::now()->format('Y-m-d');
-			$desde = Carbon::now()->subMonths(12)->format('Y-m-d');
+			$hasta = Carbon::now()->startOfMonth();
+			$desde = Carbon::now()->subMonths($from)->startOfMonth();
 
 			$montosClientes = Telefono::find($idTelefono)
 			->montos()
@@ -271,8 +271,8 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	public static function postChartEvolution($id_cliente, $from = 12) {
 		$config  = array();
 		$numbers = array();
-		$hasta   = Carbon::now();
-		$desde   = Carbon::now()->subMonths($from);
+		$hasta   = Carbon::now()->startOfMonth();
+		$desde   = Carbon::now()->subMonths($from)->startOfMonth();
 		$ids     = Cliente::find($id_cliente)->numeros()->lists('id');
 		$montos  = Total::select('fecha', DB::raw('SUM(monto_total) AS monto_total'))->whereIn('id_telefono', $ids)->whereBetween('fecha', array($desde, $hasta))->groupBy(DB::raw('YEAR(fecha) ,MONTH(fecha)'))->orderBy('fecha')->get();
 

@@ -85,8 +85,8 @@ class TelefonoController extends \BaseController {
 
 	public function telefonoMontosTotales()
 	{
-		$hasta = Carbon::now();
-		$desde = Carbon::now()->subMonths(13);
+		$hasta = Carbon::now()->startOfMonth();
+		$desde = Carbon::now()->subMonths(12)->startOfMonth();
 		$telefonosCliente = Cliente::find(Session::get('ses_user_id'))->telefonos;
 		$arregloExcel  = array();
 		$arregloNumero = array();

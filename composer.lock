@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9c1188911ff7c0032b4c6e5be6aeeb0",
+    "hash": "c0dfc0c38394090a97e3dccbae126f03",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -2833,12 +2833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc"
+                "reference": "e37e06d73e8823c3e5fc062ae68d9d131c4c2bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fe896923fce4ec29f09055b4778ebc64eda8fccc",
-                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e37e06d73e8823c3e5fc062ae68d9d131c4c2bb4",
+                "reference": "e37e06d73e8823c3e5fc062ae68d9d131c4c2bb4",
                 "shasum": ""
             },
             "replace": {
@@ -2876,7 +2876,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-30 05:43:44"
+            "time": "2014-09-01 19:48:19"
         },
         {
             "name": "tzookb/tbmsg",
