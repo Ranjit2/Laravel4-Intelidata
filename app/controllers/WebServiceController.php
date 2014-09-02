@@ -1,6 +1,6 @@
 <?php
 
-class WebServiceController extends \BaseController {
+class WebServiceController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.

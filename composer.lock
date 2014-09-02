@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f58906f0af0d8f40c882a9b878827385",
+    "hash": "c9c1188911ff7c0032b4c6e5be6aeeb0",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -131,16 +131,16 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "dev-master",
+            "version": "v1.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b"
+                "reference": "6668cf335a7b6461debbedc9ed95f2f3784eb537"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5d77847610f9166d1cc0f541573ec1d98eac209b",
-                "reference": "5d77847610f9166d1cc0f541573ec1d98eac209b",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/6668cf335a7b6461debbedc9ed95f2f3784eb537",
+                "reference": "6668cf335a7b6461debbedc9ed95f2f3784eb537",
                 "shasum": ""
             },
             "require": {
@@ -178,7 +178,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-08-27 10:12:04"
+            "time": "2014-08-27 08:56:54"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -909,12 +909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa"
+                "reference": "eb28eb0187296a86f9cdc7743ebd6086b75c0e9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
-                "reference": "6486d8dc2ca6205d560ef62cfe5d6f1fb17385aa",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/eb28eb0187296a86f9cdc7743ebd6086b75c0e9b",
+                "reference": "eb28eb0187296a86f9cdc7743ebd6086b75c0e9b",
                 "shasum": ""
             },
             "require": {
@@ -951,7 +951,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-08-29 13:13:16"
+            "time": "2014-09-01 13:51:21"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1039,6 +1039,50 @@
                 "tokenizer"
             ],
             "time": "2013-10-09 04:20:00"
+        },
+        {
+            "name": "laracasts/utilities",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/PHP-Vars-To-Js-Transformer.git",
+                "reference": "cdcee80cdbe5673f61f59df30979546e4f7fadd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/PHP-Vars-To-Js-Transformer/zipball/cdcee80cdbe5673f61f59df30979546e4f7fadd6",
+                "reference": "cdcee80cdbe5673f61f59df30979546e4f7fadd6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Utilities": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Transform your PHP to JavaScript",
+            "keywords": [
+                "javascript",
+                "laravel"
+            ],
+            "time": "2014-04-24 21:43:55"
         },
         {
             "name": "laravel/framework",
@@ -2789,12 +2833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "59d7772daa8d09e13858ad83701bda767db71fc8"
+                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/59d7772daa8d09e13858ad83701bda767db71fc8",
-                "reference": "59d7772daa8d09e13858ad83701bda767db71fc8",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fe896923fce4ec29f09055b4778ebc64eda8fccc",
+                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc",
                 "shasum": ""
             },
             "replace": {
@@ -2832,7 +2876,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-30 03:08:49"
+            "time": "2014-08-30 05:43:44"
         },
         {
             "name": "tzookb/tbmsg",
@@ -2985,7 +3029,6 @@
     "stability-flags": {
         "twitter/bootstrap": 20,
         "fzaninotto/faker": 20,
-        "barryvdh/laravel-debugbar": 20,
         "thujohn/pdf": 20,
         "tag-planet/universal-analytics": 20,
         "freshwork/chilean-bundle": 20,

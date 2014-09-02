@@ -162,6 +162,12 @@ $.loadChart = function (div, url, type, date) {
                 $.historicoCategoria(div, json);
                 break;
 
+<<<<<<< HEAD
+=======
+                case 'producto':
+                $.hist_cat(div, json);
+                break;
+>>>>>>> origin/dev
             };
         }
     } catch(err) {
@@ -263,7 +269,7 @@ $.stackbar = function (div, json) {
     chart.numberFormatter              = $.formatNumber();
 
     // DATE
-    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN:SS";
 
     // ANIMATION
     $.animation(chart, false);
@@ -277,7 +283,7 @@ $.stackbar = function (div, json) {
     categoryAxis.axisAlpha             = 0;
     categoryAxis.gridAlpha             = 0;
     categoryAxis.tickLength            = 0;
-    categoryAxis.parseDates            = true;
+    categoryAxis.parseDates            = false;
     categoryAxis.minPeriod             = "MM";
 
     // VALUE AXIS X
@@ -454,7 +460,7 @@ $.evolution = function (div, json) {
 
     // INIT
     var chart                    = new AmCharts.AmSerialChart();
-    chart.dataProvider           = json;
+    chart.dataProvider           = json.data;
     chart.pathToImages           = "http://www.amcharts.com/lib/3/images/";
     chart.categoryField          = "fecha";
     chart.language               = "es";
@@ -561,7 +567,7 @@ $.pie = function (div, json) {
 // BROKEN CHART
 $.broken = function (div, json) {
     var selected;
-    var types                         = json;
+    var types                         = json.data;
     // console.log(json);
     // return;
 
@@ -703,7 +709,7 @@ $.legend = function (chart, legenddiv) {
     legend.markerType       = "circle";
     legend.labelText        = "[[title]]";
     legend.valueText        = "";
-    legend.useGraphSettings = true;
+    legend.useGraphSettings = false;
     if(legenddiv) {
         chart.addLegend(legend, legenddiv);
     } else {

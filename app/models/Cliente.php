@@ -102,32 +102,32 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	public static function postChartPie($id) {
-		$data = array();
+		$data['data'][] = array();
 		try {
 			$datos = ClienteController::devuelveTotales($id);
 			foreach ($datos as $value) {
-				array_push($data,array(
+				array_push($data['data'],array(
 					'producto' => $value->producto,
 					'numero'   => $value->numero,
-					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'fecha'    => $value->fecha,
 					'monto'    => $value->monto,
 					));
 			}
 		} catch(PDOException $exception) {
 			return Response::make('Database error! ' . $exception->getCode());
 		}
-		return $data;
+		return Response::json($data);
 	}
 
 	public static function postChartPieMonth($id, $fecha) {
-		$data = array();
+		$data['data'][] = array();
 		try {
 			$datos = ClienteController::devuelveTotales($id, $fecha);
 			foreach ($datos as $value) {
-				array_push($data, array(
+				array_push($data['data'], array(
 					'producto' => $value->producto,
 					'numero'   => $value->numero,
-					'mes'      => Func::convNumberToMonth((new Carbon($value->fecha))->month),
+					'fecha'    => $value->fecha,
 					'monto'    => $value->monto,
 					));
 			}
@@ -135,7 +135,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		catch(PDOException $exception) {
 			return Response::make('Database error! ' . $exception->getCode());
 		}
-		return $data;
+		return Response::json($data);
 	}
 
 	public static function postChartSerial($id = '') {
@@ -149,7 +149,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				if(isset($data[$value->fecha])) {
 					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->fecha] = array('mes' => Func::convNumberToMonth((new Carbon($value->fecha))->month), $value->numero => $value->monto);
+					$data[$value->fecha] = array('fecha' => $value->fecha, $value->numero => $value->monto);
 				}
 			}
 		} catch(PDOException $exception) {
@@ -169,7 +169,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"valueField"  => $value,
 				);
 		}
-		return $config;
+		return Response::json($config);
 	}
 
 	public static function postChartStacked($id = '') {
@@ -181,7 +181,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				if(isset($data[$value->fecha])) {
 					$data[$value->fecha] = array_add($data[$value->fecha], $value->numero, $value->monto);
 				} else {
-					$data[$value->fecha] = array( 'mes' => Func::convNumberToMonth($value->fecha), $value->numero => $value->monto, );
+					$data[$value->fecha] = array( 'fecha' => $value->fecha, $value->numero => $value->monto, );
 				}
 			}
 		} catch(PDOException $exception) {
@@ -201,7 +201,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"valueField"  => $value,
 				);
 		}
-		return $config;
+		return Response::json($config);
 	}
 
 	public static function existeFechaArreglo($arreglo, $year, $month) {
@@ -226,10 +226,15 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			array_push($numbers, $numero);
 
 			$hasta = Carbon::now()->format('Y-m-d');
-			$desde = Carbon::now()->subMonths(13)->format('Y-m-d');
+			$desde = Carbon::now()->subMonths(12)->format('Y-m-d');
 
-			$montosClientes = Telefono::find($idTelefono)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
-			//$montosClientes = Telefono::find($idTelefono)->montos->take(13) as $value2;
+			$montosClientes = Telefono::find($idTelefono)
+			->montos()
+			->whereBetween('fecha', array($desde, $hasta))
+			->orderBy('fecha', 'asc')
+			->get();
+
+			//$montosClientes = Telefono::find($idTelefono)->montos->take(12) as $value2;
 			foreach ($montosClientes as $value2)
 			{
 				$dt         = new Carbon($value2->fecha);
@@ -260,10 +265,10 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 				"valueField"  => $value,
 				);
 		}
-		return $config;
+		return Response::json($config);
 	}
 
-	public static function postChartEvolution($id_cliente, $from = 13) {
+	public static function postChartEvolution($id_cliente, $from = 12) {
 		$config  = array();
 		$numbers = array();
 		$hasta   = Carbon::now();
@@ -274,9 +279,9 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		foreach ($montos as $value) {
 			$fecha      = $value->fecha;
 			$montoTotal = $value->monto_total;
-			$data[] = array("fecha" => $fecha, 'value' => $montoTotal);
+			$data['data'][] = array("fecha" => $fecha, 'value' => $montoTotal);
 		}
-		return $data;
+		return Response::json($data);
 	}
 
 	public static function postChartComparative($id) {
@@ -340,6 +345,6 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		$config['data']  = $data;
 		$config['years'] = $years;
-		return $config;
+		return Response::json($config);
 	}
 }

@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -88,12 +92,16 @@ Route::group(array('before' => 'auth'), function() {
 
 	// EXCEL
 	Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
+	//Excel para graficos de columnas de empresas
 	Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonosMontosDetalles');
+	//Excel para grafico de columna de cliente persona
+	Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales');
 });
 
 Route::resource('nerds', 'PersonaController');
 Route::resource('webservice', 'WebServiceController');
 
+<<<<<<< HEAD
 Route::get('test', function(){
 	$excel = App::make('excel');
 	Excel::create('XXXXXXXX', function($excel)
@@ -132,73 +140,11 @@ Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoric
 
 //Grafico historico categoria empresa
 
+=======
+Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
-// Route::get('insertando', function(){
-// 	$fecha = new Carbon('2013-05-01');
-// 	$contador = 0;
-// 	$aumento  = 0;
-// 	$arreglo = array();
-// 	for($x = 0; $x < 17; $x++)
-// 	{
-// 		for($y = 37; $y <= 41; $y++)
-// 		{
-// 			$total = new Total;
-// 			$total->fecha = $fecha->toDateTimeString();
-// 			$total->id_telefono = $y;
-// 			$total->monto_total = 4000 + $aumento;
-// 			$aumento = $aumento + 1100;
-// 			$arreglo[$contador] = $total;
-// 			//$total->save();
-// 			$contador++;
-// 		}
-// 		$fecha = $fecha->addMonths(1);
-// 	}
-// 	return 'done';
-// });
+Route::get('test2', function(){
+	Func::printr(Cliente::postMontoTotal(7));
+});
+>>>>>>> origin/dev
 
-
-// Route::get('insertando', function(){
-// 	$arreglo = array();
-
-// 	for($tel = 1; $tel <= 9; $tel++)
-// 	{
-// 		if($tel == 1)
-// 			$lucas = 50000;
-// 		if($tel == 2)
-// 			$lucas = 60000;
-// 		if($tel == 3)
-// 			$lucas = 70000;
-// 		if($tel == 4)
-// 			$lucas = 80000;
-// 		if($tel == 5)
-// 			$lucas = 90000;
-// 		if($tel == 6)
-// 			$lucas = 100000;
-// 		if($tel == 7)
-// 			$lucas = 110000;
-// 		if($tel == 8)
-// 			$lucas = 120000;
-// 		if($tel == 9)
-// 			$lucas = 130000;
-
-// 		for($serv = 1; $serv <= 5; $serv++)
-// 		{
-// 			$ts = new TelefonoServicio;
-// 			$ts->id_telefono = $tel; //telefono
-// 			$ts->id_servicio = $serv; //servicio 1 al 5
-// 			if($serv == 5)
-// 			{
-// 				$ts->precio_servicio = -20000; //precio del servicio
-// 			}
-// 			else
-// 			{
-// 				$ts->precio_servicio = $lucas; //precio del servicio
-// 			}
-// 			$ts->fecha = '2014-09-01';
-// 			array_push($arreglo, $ts);
-// 			$lucas = $lucas + 10000;
-// 			$ts->save();
-// 		}
-// 	}
-// 	return $arreglo;
-// });

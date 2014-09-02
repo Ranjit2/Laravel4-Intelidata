@@ -328,7 +328,7 @@ The populator uses name and column type guessers to populate each column with re
 ```php
 <?php
 $populator->addEntity('Book', 5, array(
-  'ISBN' => function() use ($generator) { return $generator->randomNumber(13); }
+  'ISBN' => function() use ($generator) { return $generator->ean13(); }
 ));
 ```
 
@@ -423,7 +423,7 @@ class Book extends \Faker\Provider\Base
 
   public function ISBN()
   {
-    return $this->generator->randomNumber(13);
+    return $this->generator->ean13();
   }
 }
 ```
