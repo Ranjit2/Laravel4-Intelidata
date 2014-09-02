@@ -116,12 +116,9 @@ $.loadChart = function (div, url, type, date) {
                 $.historicoCategoria(div, json);
                 break;
 
-<<<<<<< HEAD
-=======
                 case 'producto':
                 $.hist_cat(div, json);
                 break;
->>>>>>> origin/dev
             };
         }
     } catch(err) {
@@ -167,6 +164,16 @@ $.column = function (div, json) {
     // LEGEND
     $.legend(chart);
 
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
+
+    // ANIMATION
+    $.animation(chart, false);
+
+    // MARGIN
+    $.margin(chart);
+
     // CURSORS
     var chartCursor                    = new AmCharts.ChartCursor();
     chartCursor.categoryBalloonEnabled = true;
@@ -183,7 +190,6 @@ $.column = function (div, json) {
 
 $.historicoCategoria = function (div, json) {
 
-
     // INIT
     chart                              = new AmCharts.AmPieChart();
     chart.dataProvider                 = json;
@@ -198,6 +204,13 @@ $.historicoCategoria = function (div, json) {
     chart.categoryField                = "nombre";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
+
+    // LEGEND
+    $.legend(chart);
+
+    // EXPORT
+    chart.exportConfig                 = $.export();
+
     // WRITE
     chart.write(div);
 };

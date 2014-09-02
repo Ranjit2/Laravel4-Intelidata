@@ -92,7 +92,7 @@ class GraffController extends BaseController {
 		}
 	}
 
-<<<<<<< HEAD
+
 	public function postHistoricoCategoria($id, $date)
 	{
 		$fecha    = new Carbon($date);
@@ -107,7 +107,8 @@ class GraffController extends BaseController {
 		->groupBy('telefono.id_producto')
 		->get();
 		return $resultado;
-=======
+	}
+
 	public function postTelefonosPorProducto ($id = NULL, $id_producto = NULL, $date = NULL) {
 		if(!isset($id)) {
 			$id = Session::get('ses_user_id');
@@ -124,6 +125,5 @@ class GraffController extends BaseController {
 		} catch(Exception $ex) {
 			return ($ex->getMessage());
 		}
->>>>>>> origin/dev
 	}
 }

@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/dev
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -101,18 +98,6 @@ Route::group(array('before' => 'auth'), function() {
 Route::resource('nerds', 'PersonaController');
 Route::resource('webservice', 'WebServiceController');
 
-<<<<<<< HEAD
-Route::get('test', function(){
-	$excel = App::make('excel');
-	Excel::create('XXXXXXXX', function($excel)
-	{
-		$excel->sheet('XXXXXXXX', function($sheet)
-		{
-
-		});
-	})->download('xls');
-});
-
 Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
 
 //Excel para graficos de columnas de empresas
@@ -140,11 +125,8 @@ Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoric
 
 //Grafico historico categoria empresa
 
-=======
 Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
 Route::get('test2', function(){
 	Func::printr(Cliente::postMontoTotal(7));
 });
->>>>>>> origin/dev
-
