@@ -92,6 +92,22 @@ class GraffController extends BaseController {
 		}
 	}
 
+<<<<<<< HEAD
+	public function postHistoricoCategoria($id, $date)
+	{
+		$fecha    = new Carbon($date);
+		$resultado = DB::table('cliente')
+		->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
+		->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+		->join('total', 'telefono.id', '=', 'total.id_telefono')
+		->join('producto', 'producto.id','=','telefono.id_producto')
+		->where('cliente.id','=',7)
+		->where(DB::raw('MONTH(fecha)'), $fecha->month)
+		->where(DB::raw('YEAR(fecha)'), $fecha->year)
+		->groupBy('telefono.id_producto')
+		->get();
+		return $resultado;
+=======
 	public function postTelefonosPorProducto ($id = NULL, $id_producto = NULL, $date = NULL) {
 		if(!isset($id)) {
 			$id = Session::get('ses_user_id');
@@ -108,5 +124,6 @@ class GraffController extends BaseController {
 		} catch(Exception $ex) {
 			return ($ex->getMessage());
 		}
+>>>>>>> origin/dev
 	}
 }

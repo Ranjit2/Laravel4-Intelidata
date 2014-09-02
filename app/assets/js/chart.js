@@ -49,6 +49,7 @@ $.loadJSON = function (url) {
 
 // LOAD DIFERENTS CHARTS
 $.loadChart = function (div, url, type, date) {
+
     // DIV ID
     var div  = typeof div  !== 'undefined' ? div : 'chartdiv';
     // DATE OF DATA
@@ -58,6 +59,7 @@ $.loadChart = function (div, url, type, date) {
     // URL TO GET DATA
     var url  = typeof url  !== 'undefined' ? url+date : '';
     // READY CHART
+    console.log(type);
     try {
         // GET DATA
         var json  = $.loadJSON(url);
@@ -114,9 +116,12 @@ $.loadChart = function (div, url, type, date) {
                 $.historicoCategoria(div, json);
                 break;
 
+<<<<<<< HEAD
+=======
                 case 'producto':
                 $.hist_cat(div, json);
                 break;
+>>>>>>> origin/dev
             };
         }
     } catch(err) {
@@ -172,6 +177,27 @@ $.column = function (div, json) {
     // EXPORT
     chart.exportConfig                 = $.export();
 
+    // WRITE
+    chart.write(div);
+};
+
+$.historicoCategoria = function (div, json) {
+
+
+    // INIT
+    chart                              = new AmCharts.AmPieChart();
+    chart.dataProvider                 = json;
+    chart.titleField                   = "nombre";
+    chart.valueField                   = "cantidad";
+    chart.outlineColor                 = "#FFFFFF";
+    chart.outlineAlpha                 = 0.8;
+    chart.outlineThickness             = 2;
+    chart.labelText                    = "[[nombre]]";
+    chart.balloonTex                   = "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>";
+    chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
+    chart.categoryField                = "nombre";
+    chart.language                     = "es";
+    chart.numberFormatter              = $.formatNumber();
     // WRITE
     chart.write(div);
 };

@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/dev
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -65,6 +68,7 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/breakchart', function() { return View::make('charts.break.' . Session::get('ses_user_tipo')); });
 		Route::get('/evolution', function() { return View::make('charts.line.' . Session::get('ses_user_tipo')); });
 		Route::get('/comparative', function() { return View::make('charts.comparative'); });
+		Route::get('/grafHistoricoCategoria', function(){return View::make('charts.pie.historicoCategoria'); });
 	});
 
 
@@ -97,9 +101,50 @@ Route::group(array('before' => 'auth'), function() {
 Route::resource('nerds', 'PersonaController');
 Route::resource('webservice', 'WebServiceController');
 
+<<<<<<< HEAD
+Route::get('test', function(){
+	$excel = App::make('excel');
+	Excel::create('XXXXXXXX', function($excel)
+	{
+		$excel->sheet('XXXXXXXX', function($sheet)
+		{
+
+		});
+	})->download('xls');
+});
+
+Route::get('telefonoMontos', 'TelefonoController@telefonoMontosTotales' );
+
+//Excel para graficos de columnas de empresas
+Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonosMontosDetalles');
+
+//excel para grafico de columna de cliente persona
+Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales');
+
+//Grafico historico categoria empresa
+// Route::post('/historicoCategoria/{id}/{date}', function(){
+// 	$fecha    = new Carbon('2014-09-01');
+// 	$resultado = DB::table('cliente')
+// 				->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
+//                 ->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+//                 ->join('total', 'telefono.id', '=', 'total.id_telefono')
+//                 ->join('producto', 'producto.id','=','telefono.id_producto')
+//                 ->where('cliente.id','=',7)
+//                 ->where(DB::raw('MONTH(fecha)'), $fecha->month)
+//                 ->where(DB::raw('YEAR(fecha)'), $fecha->year)
+//                 ->groupBy('telefono.id_producto')
+//                 ->get();
+//     return $resultado;
+// });
+Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoricoCategoria');
+
+//Grafico historico categoria empresa
+
+=======
 Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
 
 Route::get('test2', function(){
 	Func::printr(Cliente::postMontoTotal(7));
 });
+>>>>>>> origin/dev
 
