@@ -70,8 +70,10 @@ class Telefono extends Eloquent {
 				array_push($b[$k]['subs'], $c);
 			}
 		}
-		$b['data'] = $b;
-		return Response::json($b);
+		$a['data'] = $b;
+		// Func::printr($a);
+		// die();
+		return Response::json($a);
 	}
 
 	public static function categoriasConServicios($nroCliente, $fecha) {

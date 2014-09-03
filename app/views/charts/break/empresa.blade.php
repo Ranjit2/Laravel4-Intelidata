@@ -5,10 +5,12 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div class="tiny-timeline text-center">
-					{{ HTML::tiny_timeline('#') }}
-				</div>
 				<a href="#" id="generaexcel"><i class="fa fa-file-excel-o fa-2x"></i></a>
+				<div class="col-md-7 col-md-offset-3">
+					<div class="tiny-timeline text-center">
+						{{ HTML::tiny_timeline('#') }}
+					</div>
+				</div>
 				<div class="clearfix"></div>
 				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
@@ -44,11 +46,7 @@
 	var d  = '{{ Carbon::now()->toDateString() }}';
 	var t  =  $('h3.title-chart').text();
 
-	$.loadChart('chartdiv','/postTelefonosConServicios/'+id+'/{{ Carbon::now()->toDateString() }}','broken');
-	
-	//$.loadChart('chartdiv','/prueba/'+id+'/{{ Carbon::now()->toDateString() }}','historicoCategoria');
-	
-
+	$.loadChart('chartdiv','/postTelefonosConServicios/'+id,'broken', '{{ Carbon::now()->toDateString() }}');
 
 	$('.tiny-timeline a').on('click', function (e) {
 		e.preventDefault();

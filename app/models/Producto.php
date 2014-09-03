@@ -52,15 +52,13 @@ class Producto extends Eloquent {
 		->get();
 
 		foreach ($a as $key => $value) {
-			$array[] = array(
+			$array['data'][] = array(
 				'producto' => $value->nombre,
 				'fecha' => $value->fecha,
 				'numero' => $value->numero,
 				'monto' => $value->monto_total,
 				);
 		}
-		// Func::printr($array);
 		return Response::json($array);
-
 	}
 }

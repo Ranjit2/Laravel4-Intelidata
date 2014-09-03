@@ -35,9 +35,7 @@ class HomeController extends BaseController {
 				);
 			if (Auth::attempt($userdata)) {
 				if (Auth::check()) {
-					Session::put('ses_user_id', Auth::user()->getId());
-					Session::put('ses_user_rut', Auth::user()->rut);
-					Session::put('ses_user_tipo', Auth::user()->tipo);
+					Event::fire('laravel.auth: login', array(Auth::user()));
 					return Redirect::to('/home');
 				}
 			} else {
@@ -47,9 +45,7 @@ class HomeController extends BaseController {
 	}
 
 	public function doLogout() {
-		Session::forget('ses_user_id');
-		Session::forget('ses_user_rut');
-		Session::forget('ses_user_tipo');
+		Event::fire('laravel.auth: logout', array(Auth::user()));
 		Auth::logout();
 		return Redirect::to('login');
 	}
