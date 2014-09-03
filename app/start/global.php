@@ -90,14 +90,11 @@ App::down(function()
 require app_path().'/filters.php';
 require app_path().'/libs/events.php';
 
-<<<<<<< HEAD
-Event::listen('ahir.velocity', 'Ahir\Velocity\Velocity@handle');
 
-=======
 $path = storage_path().'/logs/logging.log';
 if (!File::exists($path))
 {
 	$log = 'ACTION | DATE | USER_ID | IP | BROWSER' . PHP_EOL;
 	File::append($path, $log);
 }
->>>>>>> origin/dev
+

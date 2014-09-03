@@ -63,11 +63,14 @@
 					</tr>
 					<tr>
 						<td>
-<<<<<<< HEAD
+
 							<a href="{{ URL::to('/charts/grafHistoricoMes') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por mes</a>
-=======
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<a href="{{ URL::to('/charts/telefonosPorProducto') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Tel&eacute;fonos por productos</a>
->>>>>>> origin/dev
+
 						</td>
 					</tr>
 				</table>
