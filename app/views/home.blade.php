@@ -3,8 +3,14 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="page-header">
-	<h1>INICIO</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+               <h1>INICIO</h1>
+           </div>
+       </div>
+   </div>
 </div>
 @stop
 

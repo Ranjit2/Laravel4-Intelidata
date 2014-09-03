@@ -12,32 +12,34 @@
 				<li><a href="#profile" data-toggle="tab"><i class="fa fa-arrow-right"></i></a></li>
 			</ul>
 		</div>
-		<div class="col-xs-7 col-sm-7 col-md-7 user-no-pad">
-			<div class="main-info">
-				<div class="tab-content">
-					<div class="tab-pane fade in active" id="home">
-						<h3>Bienvenido, <b>Michael Knight</b></h3>
-						<small>Aquí podrás revisar tus gastos, extraer graficos y realizar los pagos de tus servicios contratados</small>
-					</div>
-					<div class="tab-pane fade" id="profile">
-						<div class="optional-info">
-							<h3>Informaci&oacute;n Personal</h3>
-							<h5><b>RUN:</b> 11.111.111-1</h5>
-							<address>
-								<strong>Contacto</strong><br>
-								<abbr title="Teléfono"><span class="glyphicon glyphicon-earphone"></span>:</abbr> (123) 2777-7777&nbsp;<abbr title="Email"><span class="glyphicon glyphicon-envelope"></span>:</abbr> <a href="mailto:michaelnightrider@gmail.com">michaelnightrider@gmail.com</a><br>
-								<strong>Direccción</strong><br>
-								795 Folsom Ave, Suite 600, Santiago, Chile.<br>
-							</address>
-							<div class="clearfix"></div>
+		<div class="col-xs-10 col-sm-10 col-md-10 user-no-pad move">
+			<div class="col-xs-9 col-sm-9 col-md-9 user-no-pad">
+				<div class="main-info">
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<h3>Bienvenido, <b>Michael Knight</b></h3>
+							<small>Aquí podrás revisar tus gastos, extraer graficos y realizar los pagos de tus servicios contratados</small>
+						</div>
+						<div class="tab-pane fade" id="profile">
+							<div class="optional-info">
+								<h3>Informaci&oacute;n Personal</h3>
+								<h5><b>RUN:</b> 11.111.111-1</h5>
+								<address>
+									<strong>Contacto</strong><br>
+									<abbr title="Teléfono"><span class="glyphicon glyphicon-earphone"></span>:</abbr> (123) 2777-7777&nbsp;<abbr title="Email"><span class="glyphicon glyphicon-envelope"></span>:</abbr> <a href="mailto:michaelnightrider@gmail.com">michaelnightrider@gmail.com</a><br>
+									<strong>Direccción</strong><br>
+									795 Folsom Ave, Suite 600, Santiago, Chile.<br>
+								</address>
+								<div class="clearfix"></div>
+							</div>
 						</div>
 					</div>
+					<div class="clearfix"></div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
-		</div>
-		<div class="col-xs-3 col-sm-3 col-md-3 pull-right image no-pad">
-			<img src="http://2.bp.blogspot.com/-eHwFBSrAMxA/TpRD6MDv5RI/AAAAAAAAA3g/XdZwVB9QXSE/s1600/michael%2Bknight.jpg" class="img-responsive">
+			<div class="col-xs-3 col-sm-3 col-md-3 pull-right image no-pad">
+				<img src="http://2.bp.blogspot.com/-eHwFBSrAMxA/TpRD6MDv5RI/AAAAAAAAA3g/XdZwVB9QXSE/s1600/michael%2Bknight.jpg" class="img-responsive">
+			</div>
 		</div>
 	</div>
 </div>
@@ -86,14 +88,14 @@
 									<!-- <li><a href="#">sucursal 1  Horario de Atencion1</a></li>
 									<li><a href="#">sucursal 2  Horario de Atencion2</a></li>
 									<li><a href="#">sucursal 3  Horario de Atencion3</a></li> -->
-								{{HTML::genera_sucursales_empresa()}}
-							</ul>
-						</li>
-						<li class="col-sm-3">
-							<ul>
-								<li class="dropdown-header">SUCURSAL VIRTUAL</li>
-								<li class="divider"></li>
-								<li class="dropdown-header">SERVICIOS</li>
+									{{HTML::genera_sucursales_empresa()}}
+								</ul>
+							</li>
+							<li class="col-sm-3">
+								<ul>
+									<li class="dropdown-header">SUCURSAL VIRTUAL</li>
+									<li class="divider"></li>
+									<li class="dropdown-header">SERVICIOS</li>
 								<!-- <li><a href="#">servicio 1</a></li>
 								<li><a href="#">servicio 1</a></li>
 								<li><a href="#">servicio 1</a></li> -->

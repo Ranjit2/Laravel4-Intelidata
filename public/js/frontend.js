@@ -227,7 +227,7 @@ $.historicoCategoria = function (div, json) {
     chart.balloonTex                   = "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>";
     chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
     chart.categoryField                = "nombre";
-    chart.radius                       = "30%";
+    chart.radius                       = "35%";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
 
@@ -320,7 +320,7 @@ $.donut = function (div, json) {
 
     // EXTRAS
     chart.labelRadius                  = 5;
-    chart.radius                       = "42%";
+    chart.radius                       = "35%";
     chart.innerRadius                  = "60%";
 
     // DATE
@@ -539,7 +539,7 @@ $.telefonosPorProducto = function (div, json) {
     chart.balloonTex                   = "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>";
     chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
     chart.categoryField                = "numero" //"nombre";
-    chart.radius                       = "30%";
+    chart.radius                       = "35%";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
 
@@ -576,7 +576,7 @@ $.broken = function (div, json) {
     chart.pulledField                 = "pulled";
     chart.balloonText                 = "<b>$[[percent]] ([[percents]]%)</b>";
     chart.labelText                   = "[[type]]";
-    chart.radius                      = "30%";
+    chart.radius                      = "35%";
     chart.depth3D                     = 0;
     chart.groupedPulled               = true;
 
