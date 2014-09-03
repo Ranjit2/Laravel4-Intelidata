@@ -86,6 +86,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('/postChartEvolution/{id}', 'GraffController@postChartEvolution');
 	Route::post('/postTelefonosConServicios/{id}/{date?}', 'GraffController@postTelefonosConServicios');
 	Route::post('/postTelefonosPorProducto/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorProducto');
+	Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoricoCategoria');
 
 	Route::get('/verClientes/{id}', 'GraffController@telefonosPorCliente');
 
@@ -107,7 +108,6 @@ Route::resource('webservice', 'WebServiceController');
 
 Route::get('excelHistoricoCategoria/{id}/{fecha}/{mes}', 'ProductoController@generaExcelHistoricoCategoria');
 
-Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoricoCategoria');
 
 //Grafico historico categoria empresa
 
@@ -149,13 +149,13 @@ Route::get('prueba', function(){
 			$productos[] = $value->producto;
 		}
 		$data[] = $objecto;
-		
+
 	}
 	$productos = array_unique($productos);
 
 	return Func::printr($data);
 });
 Route::get('test', function() {
-	Producto::postTelefonosPorProducto(7,1,'2014-09-01');
+	Func::printr(GraffController::postHistoricoCategoria(7));
 
 });

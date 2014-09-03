@@ -16,12 +16,9 @@
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
-<<<<<<< HEAD
-=======
 				<div class="col-md-12">
 					<div id="legenddiv" style="min-height: 40px;"></div>
 				</div>
->>>>>>> origin/dev
 			</div>
 		</div>
 	</div>
@@ -47,15 +44,8 @@
 		$('h3.title-chart').text(t);
 		$.loadChart('chartdiv','/grafHistoricoCategoria/'+id+'/'+d,'historicoCategoria');
 	});
-<<<<<<< HEAD
-	$('#generaexcel').on('click', function () {
-		//e.preventDefault();
-		$(this).attr({'href': '/excelHistoricoCategoria/'+id+'/'+d+'/'+t});
-=======
-
 	$('#generaexcel').on('click', function (e) {
 		$(this).attr({'href': '/excelMontosDetalle/'+id+'/'+d+'/'+t});
->>>>>>> origin/dev
 	});
 
 </script>

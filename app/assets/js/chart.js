@@ -251,10 +251,6 @@ $.historicoCategoria = function (div, json) {
     // EXPORT
     chart.exportConfig                 = $.export();
 
-    // CURSOR
-    var chartCursor              = new AmCharts.ChartCursor();
-    chart.addChartCursor(chartCursor);
-
     // WRITE
     chart.write(div);
 };
@@ -501,7 +497,7 @@ $.evolution = function (div, json) {
 
 // PIE CHART
 $.pie = function (div, json) {
-
+    console.log(json);
     // INIT
     chart                              = new AmCharts.AmPieChart();
     chart.dataProvider                 = json.data;

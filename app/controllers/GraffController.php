@@ -93,12 +93,12 @@ class GraffController extends BaseController {
 	}
 
 
-	public function postHistoricoCategoria($id, $date = null)
+	public static function postHistoricoCategoria($id, $date = null)
 	{
 		if(!is_null($date))
 		{
 			$fecha    = new Carbon($date);
-			$resultado = DB::table('cliente')
+			$config['data'] = DB::table('cliente')
 			->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
 			->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
 			->join('total', 'telefono.id', '=', 'total.id_telefono')
@@ -108,6 +108,7 @@ class GraffController extends BaseController {
 			->where(DB::raw('YEAR(fecha)'), $fecha->year)
 			->groupBy('telefono.id_producto')
 			->get();
+			$resultado = $config;
 		}
 		else
 		{
