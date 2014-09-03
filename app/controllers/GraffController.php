@@ -93,19 +93,63 @@ class GraffController extends BaseController {
 	}
 
 
-	public function postHistoricoCategoria($id, $date)
+	public function postHistoricoCategoria($id, $date = null)
 	{
-		$fecha    = new Carbon($date);
-		$resultado = DB::table('cliente')
-		->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
-		->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
-		->join('total', 'telefono.id', '=', 'total.id_telefono')
-		->join('producto', 'producto.id','=','telefono.id_producto')
-		->where('cliente.id','=',7)
-		->where(DB::raw('MONTH(fecha)'), $fecha->month)
-		->where(DB::raw('YEAR(fecha)'), $fecha->year)
-		->groupBy('telefono.id_producto')
-		->get();
+		if(!is_null($date))
+		{
+			$fecha    = new Carbon($date);
+			$resultado = DB::table('cliente')
+			->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
+			->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+			->join('total', 'telefono.id', '=', 'total.id_telefono')
+			->join('producto', 'producto.id','=','telefono.id_producto')
+			->where('cliente.id','=',$id)
+			->where(DB::raw('MONTH(fecha)'), $fecha->month)
+			->where(DB::raw('YEAR(fecha)'), $fecha->year)
+			->groupBy('telefono.id_producto')
+			->get();
+		}
+		else
+		{
+			$fecha = Carbon::now()->subMonths(12)->startOfMonth();
+			$data = array();
+			$config = array();
+			$productos = array();
+			for($x = 0; $x <= 12; $x++)
+			{
+				$resultado = DB::table('cliente')
+				->select('producto.nombre as producto', DB::raw('SUM(total.monto_total) as total'))
+				->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+				->join('total', 'telefono.id', '=', 'total.id_telefono')
+				->join('producto', 'producto.id','=','telefono.id_producto')
+				->where('cliente.id','=',$id)
+				->where(DB::raw('MONTH(fecha)'), $fecha->month)
+				->where(DB::raw('YEAR(fecha)'), $fecha->year)
+				->groupBy('telefono.id_producto')
+				->get();
+				$data[] = $resultado;
+				$fecha = $fecha->addMonth(1);
+			}
+			//$config['data'][] = $resultado;
+			foreach ($data as $value) { $config['data'][] = $value; $productos[] = $value;}
+
+			/******* DATOS DE GRAFICO *************/
+			
+			for($y = 0; $y <= $x; $y++)
+			{	
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "producto ". 7 . " - " . $y,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $y,
+					);	
+			}
+			$resultado = $config;
+		}
 		return $resultado;
 	}
 

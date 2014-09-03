@@ -14,20 +14,6 @@
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
-				<div class="col-md-12">
-					<div id="legenddiv" style="min-height: 40px;"></div>
-					<table id="lista" class="table table-condensed table-hover" style="display: none;">
-						<thead>
-							<tr style="font-size: 14px;">
-								<th>Servicio</th>
-								<th>Porcentaje</th>
-								<th>Monto</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -43,6 +29,7 @@
 	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
 	var d  = '{{ Carbon::now()->toDateString() }}';
 	var t  =  $('h3.title-chart').text();
+
 	$.loadChart('chartdiv','/grafHistoricoCategoria/'+id+'/{{ Carbon::now()->toDateString() }}','historicoCategoria');
 
 	$('.tiny-timeline a').on('click', function (e) {
@@ -50,82 +37,12 @@
 		d = $(this).attr('data-timeline');
 		t = $(this).text();
 		$('h3.title-chart').text(t);
-		console.log(d);
 		$.loadChart('chartdiv','/grafHistoricoCategoria/'+id+'/'+d,'historicoCategoria');
 	});
-
-	$('#generaexcel').on('click', function (e) {
-		$(this).attr({'href': '/excelMontosDetalle/'+id+'/'+d+'/'+t});
+	$('#generaexcel').on('click', function () {
+		//e.preventDefault();
+		$(this).attr({'href': '/excelHistoricoCategoria/'+id+'/'+d+'/'+t});
 	});
-
-</script>
-@stop
-
-@section('style')
-<style type="text/css" media="screen">
-</style>
-@stop
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@extends('layouts.dashboard')
-
-@section('content')
-<div id="chartdiv" style="min-height: 350px !important;"></div>
-@stop
-
-@section('aside')
-@parent
-@stop
-
-@section('script')
-<script type="text/javascript">
-	var id = {{ Session::has('ses_user_id') ? Session::get('ses_user_id') : 'NULL' }};
-
-	var d  = '{{ Carbon::now()->toDateString() }}';
-	var t  =  $('h3.title-chart').text();
-
-	$.loadChart('chartdiv','/prueba/'+id+'/{{ Carbon::now()->toDateString() }}','historicoCategoria');
-
-	$('.tiny-timeline a').on('click', function (e) {
-		e.preventDefault();
-		d = $(this).attr('data-timeline');
-		t = $(this).text();
-		$('h3.title-chart').text(t);
-		$.loadChart('chartdiv','/prueba/'+id+'/{{ Carbon::now()->toDateString() }}','historicoCategoria');
-	});
-
 
 </script>
 @stop

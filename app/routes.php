@@ -66,6 +66,7 @@ Route::group(array('before' => 'auth'), function() {
 		Route::get('/evolution', function() { return View::make('charts.line.' . Session::get('ses_user_tipo')); });
 		Route::get('/comparative', function() { return View::make('charts.comparative'); });
 		Route::get('/grafHistoricoCategoria', function(){return View::make('charts.pie.historicoCategoria'); });
+		route::get('/grafHistoricoMes', function(){return View::make('charts.column.historicoMesEmpresa'); });
 	});
 
 
@@ -106,21 +107,8 @@ Route::get('excelMontosDetalle/{id}/{date}/{mes}', 'TelefonoController@telefonos
 //excel para grafico de columna de cliente persona
 Route::get('excelTotales/{id}/{fecha?}', 'ClienteController@generaExcelTotales');
 
-//Grafico historico categoria empresa
-// Route::post('/historicoCategoria/{id}/{date}', function(){
-// 	$fecha    = new Carbon('2014-09-01');
-// 	$resultado = DB::table('cliente')
-// 				->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
-//                 ->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
-//                 ->join('total', 'telefono.id', '=', 'total.id_telefono')
-//                 ->join('producto', 'producto.id','=','telefono.id_producto')
-//                 ->where('cliente.id','=',7)
-//                 ->where(DB::raw('MONTH(fecha)'), $fecha->month)
-//                 ->where(DB::raw('YEAR(fecha)'), $fecha->year)
-//                 ->groupBy('telefono.id_producto')
-//                 ->get();
-//     return $resultado;
-// });
+Route::get('excelHistoricoCategoria/{id}/{fecha}/{mes}', 'ProductoController@generaExcelHistoricoCategoria');
+
 Route::post('/grafHistoricoCategoria/{id}/{date}', 'GraffController@postHistoricoCategoria');
 
 //Grafico historico categoria empresa
@@ -129,4 +117,43 @@ Route::get('test/{id?}/{product?}/{date?}', 'GraffController@postTelefonosPorPro
 
 Route::get('test2', function(){
 	Func::printr(Cliente::postMontoTotal(7));
+});
+
+
+Route::post('/grafHistoricoMes/{id}', 'GraffController@postHistoricoCategoria');
+
+Route::get('prueba', function(){
+	$fecha = Carbon::now()->subMonths(12)->startOfMonth();
+	$data = array();
+	$config = array();
+	$productos = array();
+	for($x = 0; $x <= 12; $x++)
+	{
+		$resultado = DB::table('cliente')
+		->select('total.fecha','producto.nombre as producto', DB::raw('SUM(total.monto_total) as total'))
+		->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
+		->join('total', 'telefono.id', '=', 'total.id_telefono')
+		->join('producto', 'producto.id','=','telefono.id_producto')
+		->where('cliente.id','=',7)
+		->where(DB::raw('MONTH(fecha)'), $fecha->month)
+		->where(DB::raw('YEAR(fecha)'), $fecha->year)
+		->groupBy('telefono.id_producto')
+		->get();
+		$fecha = $fecha->addMonth(1);
+
+		// $data[] = $resultado;
+
+		$objecto = new stdClass;
+		$objecto->mes = Func::convNumberToMonth($fecha->month);
+		foreach ($resultado as $value) {
+			$prod = $value->producto;
+			$objecto->$prod = $value->total;
+			$productos[] = $value->producto;
+		}
+		$data[] = $objecto;
+		
+	}
+	$productos = array_unique($productos);
+
+	return Func::printr($data);
 });

@@ -61,6 +61,11 @@
 							<a href="{{ URL::to('/charts/grafHistoricoCategoria') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por categorías</a>
 						</td>
 					</tr>
+					<tr>
+						<td>
+							<a href="{{ URL::to('/charts/grafHistoricoMes') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por mes</a>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>

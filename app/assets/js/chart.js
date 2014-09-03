@@ -59,7 +59,6 @@ $.loadChart = function (div, url, type, date) {
     // URL TO GET DATA
     var url  = typeof url  !== 'undefined' ? url+date : '';
     // READY CHART
-    console.log(type);
     try {
         // GET DATA
         var json  = $.loadJSON(url);
@@ -119,6 +118,10 @@ $.loadChart = function (div, url, type, date) {
                 case 'producto':
                 $.hist_cat(div, json);
                 break;
+
+                case 'grafHistoricoMes':
+                $.historicoMes(div, json);
+                break;
             };
         }
     } catch(err) {
@@ -137,6 +140,56 @@ $.column = function (div, json) {
     chart.gridAboveGraphs              = true;
     chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
     chart.categoryField                = "fecha";
+    chart.language                     = "es";
+    chart.numberFormatter              = $.formatNumber();
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
+
+    // ANIMATION
+    $.animation(chart, false);
+
+    // MARGIN
+    $.margin(chart);
+
+    // AXIS X
+    $.categoryAxis(chart);
+
+    // VALUE AXIS X
+    var valueAxis                      = new AmCharts.ValueAxis();
+    valueAxis.dashLength               = 1;
+    valueAxis.axisColor                = "#DADADA";
+    valueAxis.axisAlpha                = 1;
+    valueAxis.unit                     = "$";
+    valueAxis.unitPosition             = "left";
+    chart.addValueAxis(valueAxis);
+
+    // LEGEND
+    $.legend(chart);
+
+
+    // CURSORS
+    var chartCursor                    = new AmCharts.ChartCursor();
+    chartCursor.categoryBalloonEnabled = true;
+    chartCursor.cursorAlpha            = 0;
+    chartCursor.zoomable               = true;
+    chart.addChartCursor(chartCursor);
+
+    // EXPORT
+    chart.exportConfig                 = $.export();
+
+    // WRITE
+    chart.write(div);
+};
+
+$.historicoMes = function (div, json) {
+    // INIT
+    var chart                          = new AmCharts.AmSerialChart();
+    chart.dataProvider                 = json.data;
+    chart.graphs                       = json.graphs;
+    chart.gridAboveGraphs              = true;
+    chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
+    chart.categoryField                = "producto";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
 

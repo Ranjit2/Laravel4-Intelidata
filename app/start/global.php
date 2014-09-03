@@ -90,3 +90,4 @@ App::down(function()
 require app_path().'/filters.php';
 
 Event::listen('ahir.velocity', 'Ahir\Velocity\Velocity@handle');
+
