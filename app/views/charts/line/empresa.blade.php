@@ -5,8 +5,21 @@
 @stop
 
 @section('content')
-<h2 class="text-center">Evolución de mis gastos</h2>
-<div id="chartdiv" style="with: 100%; height: 500px;"></div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="title-chart text-center">Evolución de mis gastos</h3>
+				<div class="col-md-12">
+					<div id="chartdiv" style="min-height: 450px !important;"></div>
+				</div>
+				<div class="col-md-12">
+					<div id="legenddiv" style="min-height: 40px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @stop
 
 @section('script')

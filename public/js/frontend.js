@@ -1,3 +1,5 @@
+var url_developer = '';
+
 $('#nav-profile a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
@@ -48,7 +50,7 @@ $.convMonthToNumber = function(m) {
 $.loadJSON = function (url) {
     try {
         var request = $.ajax({
-            url: url,
+            url: url_developer+url,
             type: "POST",
             async: false,
             cache: false,

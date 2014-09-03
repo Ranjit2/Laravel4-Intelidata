@@ -1,11 +1,9 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-3 logotipo">
-		<img src="holder.js/280x100" alt="" class="img-responsive">
-		<!-- <strong>LOGO EMPRESA</strong> -->
-		<!-- <p class="muted">slogan</p> -->
+		{{ HTML::image('/images/logo-home.png','',array('class' => '')) }}
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-5 pull-right user-profile">
-		<div class="col-xs-2 col-sm-2 col-md-2"> <!-- required for floating -->
+		<div class="col-xs-2 col-sm-2 col-md-2 tabs"> <!-- required for floating -->
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs tabs-left" id="nav-profile">
 				<li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-arrow-right"></i></a></li>
@@ -34,7 +32,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="clearfix"></div>
 				</div>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 pull-right image no-pad">
@@ -43,25 +40,26 @@
 		</div>
 	</div>
 </div>
-
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<div class="sr-only">
-				<a class="navbar-brand" href="http://www.wsnippets.com">iData</a>
+<div class="row">
+	<hr class="borde-vtr">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="sr-only">
+					<a class="navbar-brand" href="http://www.wsnippets.com">iData</a>
+				</div>
 			</div>
-		</div>
-		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="dropdown menu-large">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-lg fa-fw"></span> Contactanos <b class="caret"></b></a>
-					<ul class="dropdown-menu megamenu row">
-						<li class="col-sm-3">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown menu-large">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-lg fa-fw"></span> Contactanos <b class="caret"></b></a>
+						<ul class="dropdown-menu megamenu row">
+							<li class="col-sm-3">
 							<!-- <ul>
 								<li class="dropdown-header">TEL&Eacute;FONOS DE EMERGENCIA</li>
 								<li><a href="#">600 800 9000</a></li>
@@ -119,3 +117,4 @@
 			</div>
 		</div>
 	</nav>
+</div>

@@ -1,39 +1,59 @@
-/* *
+ /* *
 *
 * SIDEBAR
 * */
-.sidebar .icon {
+.sidebar .panel {
+	position: relative;
+	outline: medium none;
+	-moz-outline-style: none;
+	border: 0px;
+	margin: 15px 0;
+	top: 0;
+}
+.sidebar .panel:focus {
+	outline: medium none;
+	-moz-outline-style: none;
+}
+.sidebar .panel .icon {
 	margin-right: 5px;
 }
-.sidebar .panel-title {
-	font-size: 14px;
+.sidebar .panel .badge {
+	color: @idata-bg-content;
+}
+
+.sidebar .panel .panel-heading {
+	box-shadow: 0 0 0 1px #428bca inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #357ebd, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar .panel .panel-title {
 	-webkit-transition: all ease 0.5s;
 	-moz-transition: all ease 0.5s;
 	-o-transition: all ease 0.5s;
 	-ms-transition: all ease 0.5s;
 	transition: all ease 0.5s;
 }
-.sidebar .panel-title a {
+.sidebar .panel .panel-title a {
 	-webkit-transition: all ease 0.5s;
 	-moz-transition: all ease 0.5s;
 	-o-transition: all ease 0.5s;
 	-ms-transition: all ease 0.5s;
 	transition: all ease 0.5s;
 }
-.sidebar .panel-title a:hover, .sidebar .panel-title a:focus {
-	// text-decoration: none;
-	// font-weight: bold;
-	// font-size: 16px;
-}
-.sidebar .panel-title a:hover > span, .sidebar .panel-title a:focus span {
-	// margin-right: 15px;
+
+.sidebar .panel  .panel-body a {
+	color: #000;
 }
 .sidebar .panel-body {
 	padding: 0px;
+	padding-top: 15px;
 }
 .sidebar .panel-body table tr td {
 	padding-left: 15px
 }
-.sidebar .panel-body .table {
+.sidebar .panel-body table {
 	margin-bottom: 0px;
+}
+.sidebar .panel .panel-collapse .in {
+	box-shadow: none;
+	top: 9px;
 }

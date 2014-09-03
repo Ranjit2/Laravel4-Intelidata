@@ -1,9 +1,20 @@
+header {
+  background-color: @idata-bg-header;
+}
+header .logotipo {
+  padding: 20px 0;
+}
+// =================================================
+
 .user-profile {
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
   -o-transition: all ease 0.5s;
   -ms-transition: all ease 0.5s;
   transition: all ease 0.5s;
+  // padding: 20px 0;
+  min-height: 140px;
+  overflow: hidden;
 }
 
 .user-profile > div {
@@ -16,7 +27,7 @@
 .user-no-pad {
   background-color: @idata-bg-content;
   padding-right: 0;
-  padding-left: 0;
+  // padding-left: 0;
 }
 .user-profile .image {
   max-height: 100px;
@@ -37,23 +48,18 @@
   transition: all ease 0.5s;
 }
 
-// .move {
-//   left: 15px;
-//   padding-right: 15px;
-// }
-
-// .move > .user-no-pad {
-//   padding-right: 15px;
-// }
-// padding-right: 0px;
-// right: -20px;
-
+.user-profile .tabs {
+  padding-right: 0;
+}
 .tabs-left > li.active a  {
   background-color: @idata-bg-content;
+  padding-right: 0;
 }
 
 /* * ------------------------------------------ */
+
 .topbar .navbar-default {
+  margin-bottom: 0;
   color: #fff;
   background-color: @brand-primary;
   border-color: #269abc;

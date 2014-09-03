@@ -85,15 +85,15 @@ class TelefonoController extends \BaseController {
 
 	public function telefonoMontosTotales()
 	{
-		$hasta = Carbon::now()->startOfMonth();
-		$desde = Carbon::now()->subMonths(12)->startOfMonth();
+		$hasta            = Carbon::now()->startOfMonth();
+		$desde            = Carbon::now()->subMonths(12)->startOfMonth();
 		$telefonosCliente = Cliente::find(Session::get('ses_user_id'))->telefonos;
-		$arregloExcel  = array();
-		$arregloNumero = array();
-		$arregloMonto  = array();
-		$arregloFecha  = array();
-		$fechas = array();
-		$ingreso = false;
+		$arregloExcel     = array();
+		$arregloNumero    = array();
+		$arregloMonto     = array();
+		$arregloFecha     = array();
+		$fechas           = array();
+		$ingreso          = false;
 		foreach ($telefonosCliente as $numeros)
 		{
 			$telefonos = Telefono::find($numeros->id)->montos()->whereBetween('fecha', array($desde, $hasta))->get();
@@ -110,6 +110,7 @@ class TelefonoController extends \BaseController {
 			}
 		}
 		array_push($arregloExcel, $arregloFecha, $arregloTelefono, $arregloMonto);
+
 		Excel::create('dataMontosTelefonos', function($excel)use($arregloExcel, $fechas)
 		{
 			for($y=0; $y < count($fechas); $y++)

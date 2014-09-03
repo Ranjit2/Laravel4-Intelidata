@@ -1,6 +1,7 @@
 @idata-bg-header:  					    #000;
 @idata-bg-content:                      #fff;
-@idata-bg-footer:                       #7f7f7f;
+@idata-bg-footer:                       #000;
+@idata-bg-footer2:                      #7f7f7f;
 @idata-bg-sidebar:                      #000;
 @idata-bg-topbar:                       #000;
 
@@ -15,12 +16,12 @@
 // @idata-borderBlue:      				#0086ac;
 // @idata-borderGrey: 						#b8b8b8;
 
-@gray-base:                             #fff;
-@gray-darker:                           darken(@gray-base, 13.5%); // #222
-@gray-dark:                             darken(@gray-base, 20%);   // #333
-@gray:                                  darken(@gray-base, 33.5%); // #555
-@gray-light:                            darken(@gray-base, 46.7%); // #777
-@gray-lighter:                          darken(@gray-base, 93.5%); // #eee
+@gray-base:                             #000;
+@gray-darker:                           lighten(@gray-base, 13.5%); // #222
+@gray-dark:                             lighten(@gray-base, 20%);   // #333
+@gray:                                  lighten(@gray-base, 33.5%); // #555
+@gray-light:                            lighten(@gray-base, 46.7%); // #777
+@gray-lighter:                          lighten(@gray-base, 93.5%); // #eee
 
 @brand-primary:                         #0086ac;
 @brand-success:                         #5cb85c;
@@ -29,7 +30,7 @@
 @brand-danger:                          #d9534f;
 
 //** Background color for `<body>`.
-@body-bg:               #000;
+@body-bg:               #e2e2e2;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -41,6 +42,8 @@
 @border-radius-small:       0px;
 
 @panel-bg:                    #fff;
+@panel-inner-border:          #ddd;
 @panel-body-padding:          5px;
 @panel-default-heading-bg:    @brand-primary;
 
+@badge-bg:                    @gray-light;

@@ -155,7 +155,8 @@ Route::get('prueba', function(){
 
 	return Func::printr($data);
 });
-Route::get('test', function() {
-	Func::printr(GraffController::postHistoricoCategoria(7));
 
+Route::get('/test', function() {
+	// Func::printr(GraffController::postHistoricoCategoria(7));
+	return View::make('test');
 });

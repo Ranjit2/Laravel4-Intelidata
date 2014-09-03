@@ -30,12 +30,10 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <aside class="col-md-3 sidebar">
-                @section('aside')
+            <aside class="col-xs-12 col-sm-12 col-md-3 col-lg-3 sidebar">
                 @include('sections.sidebar')
-                @show
             </aside>
-            <section class="col-md-9 main">
+            <section class="col-xs-12 col-sm-12 col-md-9 col-lg-9 main">
                 @yield('content')
             </section>
         </div>

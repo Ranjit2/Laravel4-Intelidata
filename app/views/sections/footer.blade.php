@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row footer2">
 	<div class="col-md-6">
 		<div class="col-xs-3 col-sm-3 col-md-3">
 			<h5 class="text-uppercase"><strong>Productos</strong></h5>
@@ -42,31 +42,25 @@
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3 social-icons text-center">
-		<a href="#" class="fb"><span class='symbol'>circlefacebook</span><span class="sr-only">Facebook</span></a>
+		{{ HTML::image('', '', '') }}
+		{{ HTML::image('', '', '') }}
+		{{ HTML::image('', '', '') }}
+		{{ HTML::image('', '', '') }}
+		<!-- <a href="#" class="fb"><span class='symbol'>circlefacebook</span><span class="sr-only">Facebook</span></a>
 		<a href="#" class="tw"><span class='symbol'>circletwitterbird</span><span class="sr-only">Twitter</span></a>
 		<a href="#" class="yt"><span class='symbol'>circleyoutube</span><span class="sr-only">Youtube</span></a>
-		<a href="#" class="in"><span class='symbol'>circleinstagram</span><span class="sr-only">Instagram</span></a>
+		<a href="#" class="in"><span class='symbol'>circleinstagram</span><span class="sr-only">Instagram</span></a> -->
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3 legal-terms">
 		<div class="col-xs-7 col-sm-12 col-md-12">
-			<img src="holder.js/280x120" alt="" class="img-responsive">
+			{{ HTML::image('/images/logo-footer.png', '', array('class' => 'img-responsive pull-right')) }}
 			<div class="clearfix"></div>
-		</div>
-		<div class="col-xs-5 col-sm-12 col-md-12 text-right">
-			<h5><strong>> 600 800 9000</strong></h5>
-			<h6>Desde celulares</h6>
-			<h5><strong>> 02 - 2310 0200</strong></h5>
 		</div>
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12 col-md-12 col-lg-12 ">
-		<section class="legal-content">
-			<div class="container">
-				<div class="row">
-					<p class="muted"><strong>{{ Carbon::now()->year }} &copy; Intelidata. Todos los derechos reservados</strong></p>
-				</div>
-			</div>
-		</section>
+	<hr class="borde-vtr">
+	<div class="col-xs-12 col-md-12 col-lg-12 legal-content">
+		<p class="muted"><strong>{{ Carbon::now()->year }} &copy; Intelidata. Todos los derechos reservados</strong></p>
 	</div>
 </div>

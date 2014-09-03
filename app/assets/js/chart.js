@@ -2,7 +2,7 @@
 $.loadJSON = function (url) {
     try {
         var request = $.ajax({
-            url: url,
+            url: url_developer+url,
             type: "POST",
             async: false,
             cache: false,

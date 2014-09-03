@@ -1,8 +1,8 @@
 <div class="panel-group" id="accordion">
 	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-				<a href="{{ URL::to('/') }}"><span class="icon fa fa-home fa-lg fa-fw"></span>Home</a>
+		<div class="panel-heading active">
+			<h4 class="panel-title active">
+				<a href="{{ URL::to('/') }}"  class="active"><span class="icon fa fa-home fa-lg fa-fw"></span>Home</a>
 			</h4>
 		</div>
 	</div>

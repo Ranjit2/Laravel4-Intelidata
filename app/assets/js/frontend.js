@@ -1,3 +1,5 @@
+var url_developer = '';
+
 $('#nav-profile a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')

@@ -2,6 +2,15 @@
 *
 * SOCIAL ICONS
 * */
+footer {
+    color: @idata-bg-content;
+}
+
+.footer2 {
+   background-color: @idata-bg-footer;
+   padding: 20px 0;
+}
+
 footer .social-icons {
     font-size: 58px;
     text-align: center;
@@ -12,6 +21,7 @@ footer .social-icons {
     -ms-transition: all ease 0.5s;
     transition: all ease 0.5s;
 }
+
 footer .social-icons a {
     color: #000;
     margin: 0 auto;
@@ -21,47 +31,60 @@ footer .social-icons a {
     -ms-transition: all ease 0.5s;
     transition: all ease 0.5s;
 }
+
 footer .social-icons a.fb:hover, a.fb:focus {
     text-decoration: none;
     color: #3b5998;
 }
+
 footer .social-icons a.tw:hover, a.tw:focus {
     text-decoration: none;
     color: #55acee;
 }
+
 footer .social-icons a.yt:hover, a.yt:focus {
     text-decoration: none;
     color: #cc181e;
 }
+
 footer .social-icons a.in:hover, a.in:focus {
     text-decoration: none;
     color: #457499;
 }
+
 @media all and  (min-width: 991px) and (max-width: 1343px) {
     // 991px
     footer .social-icons {
-    font-size: 60px;
-    display: inline-flex;
+        font-size: 60px;
+        display: inline-flex;
+    }
 }
-}
+
 footer .legal-content {
-    background-color: @idata-bg-footer;
-    // bottom: 0;
+    background-color: @idata-bg-footer2;
     height: 60px;
-    // position: absolute;
-    // width: 100%;
+    width: 100%;
 }
+
+footer .legal-content .muted {
+    margin-left: 15px;
+}
+
+.fixed_bottom {
+    bottom: 0;
+    position: absolute;
+    clear: both;
+    overflow: hidden;
+}
+
 footer .legal-content p {
 	margin-top: 20px;
 }
-@media (max-width: @screen-xs-max) {
-}
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-}
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-}
-@media (min-width: @screen-lg-min) {
-}
+
+@media (max-width: @screen-xs-max) {}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {}
+@media (min-width: @screen-lg-min) {}
 /* *
 *
 * LEGAL TERMS
