@@ -95,7 +95,6 @@ class GraffController extends BaseController {
 
 	public function postHistoricoCategoria($id, $date = null)
 	{
-<<<<<<< HEAD
 		if(!is_null($date))
 		{
 			$fecha    = new Carbon($date);
@@ -135,9 +134,9 @@ class GraffController extends BaseController {
 			foreach ($data as $value) { $config['data'][] = $value; $productos[] = $value;}
 
 			/******* DATOS DE GRAFICO *************/
-			
+
 			for($y = 0; $y <= $x; $y++)
-			{	
+			{
 				$config['graphs'][] = array(
 					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
 					"fillAlphas"  => 1,
@@ -147,27 +146,11 @@ class GraffController extends BaseController {
 					"type"        => "column",
 					"color"       => "#000000",
 					"valueField"  => $y,
-					);	
+					);
 			}
 			$resultado = $config;
 		}
 		return $resultado;
-=======
-		$fecha    = new Carbon($date);
-		$resultado = DB::table('cliente')
-		->select('producto.nombre', DB::raw('SUM(total.monto_total) as cantidad'))
-		->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
-		->join('total', 'telefono.id', '=', 'total.id_telefono')
-		->join('producto', 'producto.id','=','telefono.id_producto')
-		->where('cliente.id','=',7)
-		->where(DB::raw('MONTH(fecha)'), $fecha->month)
-		->where(DB::raw('YEAR(fecha)'), $fecha->year)
-		->groupBy('telefono.id_producto')
-		->get();
-		 $config['data'] = $resultado;
-
-		return $config;
->>>>>>> origin/dev
 	}
 
 	public function postTelefonosPorProducto ($id = NULL, $id_producto = NULL, $date = NULL) {
