@@ -54,36 +54,29 @@ $.loadJSON = function (url) {
             cache: false,
         });
         request.done(function() {
-            console.log("success");
+            // console.log("success");
         });
         request.fail(function() {
-            console.log("Error:\n" + JSON.stringify(jqXHR) + '\n' + textStatus + ': ' + errorThrown + '\n');
+            // console.log("Error:\n" + JSON.stringify(jqXHR) + '\n' + textStatus + ': ' + errorThrown + '\n');
         });
         request.always(function() {
-            console.log("complete");
+            // console.log("complete");
         });
         request.error(function (jqXHR, exception) {
             if (jqXHR.status === 0) {
-                alert('Not connect.n Verify Network.');
-                console.log('Not connect.n Verify Network.');
+                // console.log('Not connect.n Verify Network.');
             } else if (jqXHR.status == 404) {
-                alert('Requested page not found. [404]');
-                console.log('Requested page not found. [404]');
+                // console.log('Requested page not found. [404]');
             } else if (jqXHR.status == 500) {
-                alert('Internal Server Error [500].');
-                console.log('Internal Server Error [500].');
+                // console.log('Internal Server Error [500].');
             } else if (exception === 'parsererror') {
-                alert('Requested JSON parse failed.');
-                console.log('Requested JSON parse failed.');
+                // console.log('Requested JSON parse failed.');
             } else if (exception === 'timeout') {
-                alert('Time out error.');
-                console.log('Time out error.');
+                // console.log('Time out error.');
             } else if (exception === 'abort') {
-                alert('Ajax request aborted.');
-                console.log('Ajax request aborted.');
+                // console.log('Ajax request aborted.');
             } else {
-                alert('Uncaught Error.n' + jqXHR.responseText);
-                console.log('Uncaught Error.n' + jqXHR.responseText);
+                // console.log('Uncaught Error.n' + jqXHR.responseText);
             }
         });
         // RETURN DATA
@@ -110,7 +103,7 @@ $.loadChart = function (div, url, type, date) {
         var json  = $.loadJSON(url);
         json = typeof json !== 'undefined' && json.length != 0 ? json : 'NULL';
         if(json == 'NULL') {
-            console.log("No hay datos disponibles.");
+            // console.log("No hay datos disponibles.");
         } else {
             // SWITCH CHART DEPENDS VAR "TYPE"
             switch(type) {
@@ -161,8 +154,8 @@ $.loadChart = function (div, url, type, date) {
                 $.historicoCategoria(div, json);
                 break;
 
-                case 'producto':
-                $.hist_cat(div, json);
+                case 'telefonosPorProducto':
+                $.telefonosPorProducto(div, json);
                 break;
 
                 case 'grafHistoricoMes':
@@ -172,7 +165,7 @@ $.loadChart = function (div, url, type, date) {
         }
     } catch(err) {
         // SHOW ERRORS
-        console.log('Error:\n' + err);
+        // console.log('Error:\n' + err);
     }
 };
 
@@ -213,13 +206,9 @@ $.column = function (div, json) {
     // LEGEND
     $.legend(chart);
 
-
-    // CURSORS
-    var chartCursor                    = new AmCharts.ChartCursor();
-    chartCursor.categoryBalloonEnabled = true;
-    chartCursor.cursorAlpha            = 0;
-    chartCursor.zoomable               = true;
-    chart.addChartCursor(chartCursor);
+     // CURSOR
+     var chartCursor              = new AmCharts.ChartCursor();
+     chart.addChartCursor(chartCursor);
 
     // EXPORT
     chart.exportConfig                 = $.export();
@@ -282,7 +271,7 @@ $.historicoCategoria = function (div, json) {
 
     // INIT
     chart                              = new AmCharts.AmPieChart();
-    chart.dataProvider                 = json;
+    chart.dataProvider                 = json.data;
     chart.titleField                   = "nombre";
     chart.valueField                   = "cantidad";
     chart.outlineColor                 = "#FFFFFF";
@@ -292,6 +281,7 @@ $.historicoCategoria = function (div, json) {
     chart.balloonTex                   = "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>";
     chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
     chart.categoryField                = "nombre";
+    chart.radius                       = "35%";
     chart.language                     = "es";
     chart.numberFormatter              = $.formatNumber();
 
@@ -301,14 +291,15 @@ $.historicoCategoria = function (div, json) {
     // ANIMATION
     $.animation(chart, false);
 
-    // MARGIN
-    $.margin(chart);
-
     // LEGEND
     $.legend(chart);
 
     // EXPORT
     chart.exportConfig                 = $.export();
+
+    // CURSOR
+    var chartCursor              = new AmCharts.ChartCursor();
+    chart.addChartCursor(chartCursor);
 
     // WRITE
     chart.write(div);
@@ -352,12 +343,9 @@ $.stackbar = function (div, json) {
     // LEGEND
     $.legend(chart);
 
-    // CURSORS
-    var chartCursor                    = new AmCharts.ChartCursor();
-    chartCursor.categoryBalloonEnabled = true;
-    chartCursor.cursorAlpha            = 0;
-    chartCursor.zoomable               = true;
-    chart.addChartCursor(chartCursor);
+     // CURSOR
+     var chartCursor              = new AmCharts.ChartCursor();
+     chart.addChartCursor(chartCursor);
 
     // EXPORT
     chart.exportConfig                 = $.export();
@@ -386,7 +374,7 @@ $.donut = function (div, json) {
 
     // EXTRAS
     chart.labelRadius                  = 5;
-    chart.radius                       = "42%";
+    chart.radius                       = "35%";
     chart.innerRadius                  = "60%";
 
     // DATE
@@ -395,18 +383,12 @@ $.donut = function (div, json) {
     // ANIMATION
     $.animation(chart, false);
 
-    // MARGIN
-    $.margin(chart);
-
     // LEGEND
     $.legend(chart);
 
-    // CURSORS
-    var chartCursor                    = new AmCharts.ChartCursor();
-    chartCursor.categoryBalloonEnabled = true;
-    chartCursor.cursorAlpha            = 0;
-    chartCursor.zoomable               = true;
-    chart.addChartCursor(chartCursor);
+     // CURSOR
+     var chartCursor              = new AmCharts.ChartCursor();
+     chart.addChartCursor(chartCursor);
 
     // EXPORT
     chart.exportConfig                 = $.export();
@@ -460,7 +442,7 @@ $.comparative = function (div, json) {
     graph.bulletBorderColor      = "#ffffff";
     graph.bulletBorderAlpha      = 1;
     graph.bulletBorderThickness  = 3;
-    graph.bulletSize             = 15   ;
+    graph.bulletSize             = 15;
     chart.addGraph(graph);
 
     // GRAPH 2
@@ -587,18 +569,42 @@ $.pie = function (div, json) {
     // ANIMATION
     $.animation(chart, false);
 
-    // MARGIN
-    $.margin(chart);
-
     // LEGEND
     $.legend(chart);
 
-    // CURSORS
-    var chartCursor                    = new AmCharts.ChartCursor();
-    chartCursor.categoryBalloonEnabled = true;
-    chartCursor.cursorAlpha            = 0;
-    chartCursor.zoomable               = true;
-    chart.addChartCursor(chartCursor);
+     // EXPORT
+     chart.exportConfig                 = $.export();
+
+    // WRITE
+    chart.write(div);
+};
+
+$.telefonosPorProducto = function (div, json) {
+
+    // INIT
+    chart                              = new AmCharts.AmPieChart();
+    chart.dataProvider                 = json.data;
+    chart.titleField                   = "numero" // "nombre";
+    chart.valueField                   = "monto" // "cantidad";
+    chart.outlineColor                 = "#FFFFFF";
+    chart.outlineAlpha                 = 0.8;
+    chart.outlineThickness             = 2;
+    chart.labelText                    = "[[numero]]" // "[[nombre]]";
+    chart.balloonTex                   = "[[title]]<br><span style='font-size:11px'><b>[[value]]</b> ([[percents]]%)</span>";
+    chart.pathToImages                 = "http://www.amcharts.com/lib/3/images/";
+    chart.categoryField                = "numero" //"nombre";
+    chart.radius                       = "35%";
+    chart.language                     = "es";
+    chart.numberFormatter              = $.formatNumber();
+
+    // DATE
+    chart.dataDateFormat               = "YYYY-MM-DD HH:NN";
+
+    // ANIMATION
+    $.animation(chart, false);
+
+    // LEGEND
+    $.legend(chart);
 
     // EXPORT
     chart.exportConfig                 = $.export();
@@ -611,8 +617,6 @@ $.pie = function (div, json) {
 $.broken = function (div, json) {
     var selected;
     var types                         = json.data;
-    // console.log(json);
-    // return;
 
     // INIT
     var chart                         = new AmCharts.AmPieChart();
@@ -626,7 +630,7 @@ $.broken = function (div, json) {
     chart.pulledField                 = "pulled";
     chart.balloonText                 = "<b>$[[percent]] ([[percents]]%)</b>";
     chart.labelText                   = "[[type]]";
-    chart.radius                      = "30%";
+    chart.radius                      = "35%";
     chart.depth3D                     = 0;
     chart.groupedPulled               = true;
 
@@ -640,7 +644,7 @@ $.broken = function (div, json) {
     chart.exportConfig                = $.export();
 
     // LEGEND
-    $.legend(chart, "legenddiv");
+    $.legend(chart, 'legenddiv', 'Producto: [[title]]');
 
     // LISTENERS
     chart.addListener("clickSlice", function (event) {
@@ -746,17 +750,24 @@ $.export = function () {
     return exportConfig;
 };
 
-$.legend = function (chart, legenddiv) {
+$.legend = function (chart, legenddiv, text) {
+    legenddiv = typeof legenddiv !== 'undefined' && legenddiv.length != 0 ? legenddiv : false;
+    text      = typeof text !== 'undefined' && text.length != 0 ? text : false;
+
     var legend              = new AmCharts.AmLegend();
     legend.align            = "center";
     legend.markerType       = "circle";
-    legend.labelText        = "[[title]]";
     legend.valueText        = "";
     legend.useGraphSettings = false;
-    if(legenddiv) {
-        chart.addLegend(legend, legenddiv);
+    if (!text) {
+        legend.labelText        = "[[title]]";
     } else {
+        legend.labelText        = text;
+    };
+    if(!legenddiv) {
         chart.addLegend(legend);
+    } else {
+        chart.addLegend(legend, legenddiv);
     }
 };
 

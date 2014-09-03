@@ -36,7 +36,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/stackbar') }}"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Stackbar Chart</a>
+							<a href="{{ URL::to('/charts/stackbar') }}"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Hisórico Acumulado</a>
 						</td>
 					</tr>
 					@if (Session::get('ses_user_tipo') === 'empresa')
@@ -48,7 +48,7 @@
 					@endif
 					<tr>
 						<td>
-							<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Evolución de mis gastos</a>
+							<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Evolución de mis gastos</a>
 						</td>
 					</tr>
 					<tr>
@@ -63,7 +63,11 @@
 					</tr>
 					<tr>
 						<td>
+<<<<<<< HEAD
 							<a href="{{ URL::to('/charts/grafHistoricoMes') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por mes</a>
+=======
+							<a href="{{ URL::to('/charts/telefonosPorProducto') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Tel&eacute;fonos por productos</a>
+>>>>>>> origin/dev
 						</td>
 					</tr>
 				</table>
@@ -73,7 +77,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-				<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg fa-fw"></span><span class="badge pull-right">42</span>Centro de Mensajes</a>
+				<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg fa-fw"></span><span class="badge pull-right">4</span>Centro de Mensajes</a>
 			</h4>
 		</div>
 	</div>

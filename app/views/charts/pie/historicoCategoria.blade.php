@@ -6,14 +6,22 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<a href="#" id="generaexcel"><i class="fa fa-file-excel-o fa-2x"></i></a>
-				<div class="tiny-timeline text-center">
-					{{ HTML::tiny_timeline('#') }}
+				<div class="col-md-7 col-md-offset-3">
+					<div class="tiny-timeline text-center">
+						{{ HTML::tiny_timeline('#') }}
+					</div>
 				</div>
 				<div class="clearfix"></div>
 				<h3 class="title-chart text-center">{{ Func::convNumberToMonth(Carbon::now()->month) }}</h3>
 				<div class="col-md-12">
 					<div id="chartdiv" style="min-height: 350px !important;"></div>
 				</div>
+<<<<<<< HEAD
+=======
+				<div class="col-md-12">
+					<div id="legenddiv" style="min-height: 40px;"></div>
+				</div>
+>>>>>>> origin/dev
 			</div>
 		</div>
 	</div>
@@ -39,9 +47,15 @@
 		$('h3.title-chart').text(t);
 		$.loadChart('chartdiv','/grafHistoricoCategoria/'+id+'/'+d,'historicoCategoria');
 	});
+<<<<<<< HEAD
 	$('#generaexcel').on('click', function () {
 		//e.preventDefault();
 		$(this).attr({'href': '/excelHistoricoCategoria/'+id+'/'+d+'/'+t});
+=======
+
+	$('#generaexcel').on('click', function (e) {
+		$(this).attr({'href': '/excelMontosDetalle/'+id+'/'+d+'/'+t});
+>>>>>>> origin/dev
 	});
 
 </script>
