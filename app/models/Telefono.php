@@ -50,7 +50,7 @@ class Telefono extends Eloquent {
 	}
 
 	public function totales(){
-		return $this->hasMany('total', 'id_telefono');
+		return $this->hasMany('Total', 'id_telefono');
 	}
 
 	public static function postTelefonosConServicios($nroCliente, $fecha) {
@@ -71,8 +71,6 @@ class Telefono extends Eloquent {
 			}
 		}
 		$a['data'] = $b;
-		// Func::printr($a);
-		// die();
 		return Response::json($a);
 	}
 
@@ -83,13 +81,6 @@ class Telefono extends Eloquent {
 			$categorias = new stdClass;
 			$categorias->nombre = Producto::find($value->id_producto)->nombre;
 
-
-			// $id     = $value->id;
-			// array_push($b, array(
-			// 	'type' => $value->id_producto,
-			// 	'percent' => Telefono::find($value->id)->montos()->where(DB::raw('MONTH(fecha)'),  $date->month)->where(DB::raw('YEAR(fecha)'), $date->year)->first()->monto_total,
-			// 	'subs' => array(),
-			// 	));
 		}
 		$b['data'] = $b;
 		return Response::json($b);

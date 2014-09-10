@@ -89,7 +89,7 @@ class ClienteController extends \BaseController {
 		$telefonosCliente = Cliente::find($id)->productos2Aux;
 		$desde = Carbon::now()->subMonths(6)->startOfMonth();
 		$hasta = Carbon::now()->startOfMonth();
- 		foreach ($telefonosCliente as $value) {
+		foreach ($telefonosCliente as $value) {
 			$idTelefono = $value->id;
 			if(is_null($fechaVar))
 			{
@@ -120,6 +120,19 @@ class ClienteController extends \BaseController {
 	public static function generaExcelTotales($id, $fecha = null)
 	{
 		$data =  json_decode(json_encode(ClienteController::devuelveTotales($id, $fecha)), true);
+		Excel::create('TotalPorMes', function($excel)use($data)
+		{
+			$excel->sheet('sheet', function($sheet)use($data)
+			{
+				$sheet->fromArray($data);
+			});
+		})->export('xls');
+	}
+
+	public static function generaExcelEvolucionTotalMensual($id)
+	{
+		$data = array();
+		$data = Cliente::postChartEvolutionForExcel($id);
 		Excel::create('TotalPorMes', function($excel)use($data)
 		{
 			$excel->sheet('sheet', function($sheet)use($data)

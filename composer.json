@@ -7,7 +7,7 @@
 		"laravel/framework": "4.2.*",
 		"twitter/bootstrap": "3.2.*@dev",
 		"fzaninotto/faker": "1.5.*@dev",
-		"barryvdh/laravel-debugbar": "1.*",
+		"barryvdh/laravel-debugbar": "1.*@dev",
 		"barryvdh/laravel-ide-helper": "1.*",
 		"doctrine/dbal": "~2.3",
 		"thujohn/pdf": "dev-master",
@@ -17,8 +17,7 @@
 		"watson/bootstrap-form": "dev-master",
 		"adamwathan/bootforms": "v0.2",
 		"maatwebsite/excel": "1.*",
-		"artisaninweb/laravel-soap": "0.2.*",
-		"laracasts/utilities": "~1.0"
+		"artisaninweb/laravel-soap": "0.2.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*"

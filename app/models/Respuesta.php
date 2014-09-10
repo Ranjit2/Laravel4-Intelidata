@@ -15,9 +15,9 @@
  * @method static \Illuminate\Database\Query\Builder|\Respuesta whereDeleteAt($value)
  */
 class Respuesta extends Eloquent {
-	protected $table = 'respuestas';
-	protected $primaryKey = 'id';
-
+    protected $table      = 'respuestas';
+    protected $primaryKey = 'id';
+ 
     /**
      * [correcta description]
      * @param  [type] $id_p

@@ -536,31 +536,81 @@ HEADSCRIPT;
 return $headScript;
 });
 
-HTML::macro('activeState', function($url) {
-    return Request::is($url) ? 'active' : '';
+HTML::macro('liLinkRoute', function($name, $title = null, $parameters = array(), $attributes = array()){
+    $active = ( URL::current() == URL::route($name, $parameters) ) ? ' class="active"':'';
+    return '<li'.$active.'>' . HTML::linkRoute($name, $title, $parameters, $attributes) . '</li>';
 });
 
-HTML::macro('tiny_timeline', function() {
-    $a = '<ul class="list-inline months">'; $c = 0; $y = array();
+HTML::macro('activeLink', function($url) {
+    return Request::is($url) ? 'active current' : '';
+});
+
+HTML::macro('activeState', function($urls = array()) {
+    if (count($urls) > 0) {
+        for($i=0;$i<count($urls);$i++){
+            if(Request::path() == $urls[$i]) {
+                echo "active";
+            }
+        }
+    }
+});
+
+HTML::macro('clever_link', function($route, $text) {
+    if( Request::path() == $route ) {
+        $active = "class = 'active'";
+    }
+    else {
+        $active = '';
+    }
+
+    return HTML::decode('<li ' . $active . '>' . link_to($route, $text) . '</li>');
+});
+
+HTML::macro('tiny_timeline_xs', function() {
+    $c = 0; $d = array(); $y = array();
+    for ($i = 12; $i > -1; $i--) {
+        $y = array_add($y, Carbon::now()->subMonths($i)->year, array());
+        $y[Carbon::now()->subMonths($i)->year] = array_add($y[Carbon::now()->subMonths($i)->year], Carbon::now()->subMonths($i)->startOfMonth()->toDateString(), Func::convNumberToMonth(Carbon::now()->subMonths($i)->month));
+    }
+    $a =  Form::select('dates', $y, '', array('class' => 'dates selectpicker'));
+    return $a;
+});
+
+HTML::macro('tiny_timeline_lg', function() {
+    $c = 0; $y = array();
+    $a = '<div class="visible-md visible-lg">';
+    $a .= '<div class="tiny-timeline text-center">';
+    $a .= '<ul class="nav nav-pills nav-justified months">';
     for ($i = 12; $i > -1; $i--) {
         if(Carbon::now()->subMonths($i)->month == 1) {
-            $a .= '<li class="divide-line"></li>';
+            $a .= '<li class="divide-line"><span></span></li>';
         }
-        $a .= '<li><a class="text-uppercase" href="#" data-timeline="' . Carbon::now()->subMonths($i)->startOfMonth()->toDateString() . '">';
-        $a .= Func::convNumberToMonth(Carbon::now()->subMonths($i)->month) . '</a></li>';
-        // $a .= substr(Func::convNumberToMonth(Carbon::now()->subMonths($i)->month), 0, 3) . '</a></li>';
+        $a .= '<li><a class="text-uppercase" href="#" data-name="' . Func::convNumberToMonth(Carbon::now()->subMonths($i)->month) . '" data-timeline="' . Carbon::now()->subMonths($i)->toDateString() . '">';
+        $a .= substr(Func::convNumberToMonth(Carbon::now()->subMonths($i)->month), 0, 3) . '</a></li>';
         array_push($y, Carbon::now()->subMonths($i)->year);
     }
     $a .= '</ul><ul class="list-inline years">';
     foreach (array_unique($y) as $value) {
         if($c == 0) {
-            $a .= '<li class="pull-left"><h6><b>' . $value . '</b></h6></li>';
+            $a .= '<li class="pull-left"><b>' . $value . '</b></li>';
             $c++;
         } elseif($c == 1) {
-            $a .= '<li class="pull-right"><h6><b>' . $value . '</b></h6></li>';
+            $a .= '<li class="pull-right"><b>' . $value . '</b></li>';
         }
     }
-    $a .= '</ul>';
+    $a .= '</ul></div></div>';
+    // dd($a);
+    return $a;
+});
+
+HTML::macro('tiny_timeline', function() {
+    $a = '<div class="visible-xs visible-sm">';
+    $a .= '<div class="clearfix"></div>';
+    $a .= '<p><h5 class="col-xs-3">Fecha:</h5> <span class="col-">'.  HTML::tiny_timeline_xs('#') . '</span></p>';
+    $a .= '</div>';
+    $a .= '<div class="visible-md visible-lg">';
+    $a .= HTML::tiny_timeline_lg('#');
+    $a .= '</div>';
     return $a;
 });
 
@@ -570,30 +620,33 @@ HTML::macro('timeline', function($data){
     $c = array('fa-info', 'fa-usd', 'fa-check');
     $d = '';
     foreach ($data as $value) {
+        $date_cont = new Carbon($value->informacion_al);
+        $date_fin = new Carbon($value->fin_fac);
+        $date_ini = new Carbon($value->inicio_fac);
 // INFORMACION AL...
         $d .= '<li class="' . $a[0] . '">';
         $d .= '<div class="timeline-badge ' . $b[2] . '">';
         $d .= '<i class="fa ' . $c[0] . '"></i></div>';
         $d .= '<div class="timeline-panel"><div class="timeline-heading">';
-        $d .= '<h4 class="timeline-title">INFORMACI&Oacute;N AL</h4>';
-        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->informacion_al)) . '</small></p>';
-        $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        $d .= '<h4 class="timeline-title">CONTENIDO AL</h4>';
+        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' .  $date_cont->toDateString() . '</small></p>';
+        $d .= '</div><div class="timeline-body"><a href="pdf" target="_blank" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
 // FIN FACTURACIÓN
         $d .= '<li class="' . $a[1] . '">';
         $d .= '<div class="timeline-badge ' . $b[1] . '">';
         $d .= '<i class="fa ' . $c[2] . '"></i></div>';
         $d .= '<div class="timeline-panel"><div class="timeline-heading">';
         $d .= '<h4 class="timeline-title">FIN FACTURACI&Oacute;N</h4>';
-        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->fin_fac)) . '</small></p>';
-        $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' .  $date_fin->toDateString() . '</small></p>';
+        $d .= '</div><div class="timeline-body"><a href="pdf" target="_blank" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
 // INICIO FACTURACIÓN
         $d .= '<li class="' . $a[0] . '">';
         $d .= '<div class="timeline-badge ' . $b[3] . '">';
         $d .= '<i class="fa ' . $c[1] . '"></i></div>';
         $d .= '<div class="timeline-panel"><div class="timeline-heading">';
         $d .= '<h4 class="timeline-title">INICIO FACTURACI&Oacute;N</h4>';
-        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' . Carbon::createFromTimeStamp(strtotime($value->inicio_fac)) . '</small></p>';
-        $d .= '</div><div class="timeline-body"><a href="#" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        $d .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' .  $date_ini->toDateString() . '</small></p>';
+        $d .= '</div><div class="timeline-body"><a href="pdf" target="_blank" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
         echo $d;
     }
     unset($d);
@@ -613,7 +666,7 @@ HTML::macro('genera_contacto', function($p) {
             $a .= '<label type="text" class="form-control">' . $respuesta->respuesta . '</label></div>';
         }
     }
-    $a .= '<button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">Modificar</button>';
+    $a .= '<button class="btn3d btn btn-primary btn-lg pull-right" id="botonRegistrar">MODIFICAR</button>';
     $a .= Form::close();
     $a .= '</fieldset>';
     return $a;

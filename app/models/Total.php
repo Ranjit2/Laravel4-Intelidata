@@ -23,6 +23,6 @@ class Total extends Eloquent {
 	protected $primaryKey = 'id';
 
 	public function telefono(){
-		return $this->belongsTo('telefono','id_telefono');
+		return $this->belongsTo('Telefono','id_telefono');
 	}
 }

@@ -288,14 +288,15 @@ Class Func {
 	public static function base64urlDecode($data) {
 		return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
 	}
-	
-	
+
+
 	//recibe objeto y lo devuelve arreglo
 	public static function objectToArray($objeto)
 	{
 		return json_decode(json_encode($objeto), true);
 	}
 
+	
 
 	function getRealIP()
 	{
@@ -344,6 +345,7 @@ Class Func {
 		return $client_ip;
 
 	}
+
 	public static function server_data() {
 		$data['IP'] = $_SERVER['REMOTE_ADDR'];
 		if (preg_match('/'."Netscape" .'/', $_SERVER["HTTP_USER_AGENT"]))

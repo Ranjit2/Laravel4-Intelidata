@@ -35,7 +35,7 @@ include (app_path().'/libs/customValidator.php');
 |
 */
 
-Log::useFiles(storage_path().'/logs/app_log.log');
+Log::useFiles(storage_path().'/logs/app.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ App::error(function(PDOException $exception, $code){
 
 App::down(function()
 {
-	return Response::make("Be right back!", 503);
+	return Response::make("Pronto volvemos!", 503);
 });
 
 /*
@@ -94,7 +94,7 @@ require app_path().'/libs/events.php';
 $path = storage_path().'/logs/logging.log';
 if (!File::exists($path))
 {
-	$log = 'ACTION | DATE | USER_ID | IP | BROWSER' . PHP_EOL;
+	$log = 'ACTION | DATETIME | USER_ID | IP ADDRESS | BROWSER' . PHP_EOL;
 	File::append($path, $log);
 }
 

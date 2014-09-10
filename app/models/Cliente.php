@@ -72,11 +72,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	public function productos2Aux() {
-		return $this->hasMany('telefono', 'id_cliente');
+		return $this->hasMany('Telefono', 'id_cliente');
 	}
 
 	public function telefonos() {
-		return $this->hasMany('telefono', 'id_cliente');
+		return $this->hasMany('Telefono', 'id_cliente');
 	}
 
 
@@ -157,18 +157,32 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		foreach ($data as $value) { $config['data'][] = $value; }
 		foreach (array_unique($numbers) as $value) {
-			$config['graphs'][] = array(
-				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-				"fillAlphas"  => 1,
-				"labelText"   => "",
-				"labelRotation" => 45,
-				"lineAlpha"   => 1,
-				"title"       => "Numero ". ++$count . " - " . $value,
-				"type"        => "column",
-				"color"       => "#000000",
-				"valueField"  => $value,
-				);
+			if ($count > 2) {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					"hidden" => true,
+					);
+			} else {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					);
+			}
 		}
+
 		return Response::json($config);
 	}
 
@@ -189,18 +203,32 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		foreach ($data as $value) { $config['data'][] = $value; }
 		foreach (array_unique($numbers) as $value) {
-			$config['graphs'][] = array(
-				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-				"fillAlphas"  => 1,
-				"labelText"   => "$[[value]]",
-				"labelRotation" => 45,
-				"lineAlpha"   => 1,
-				"title"       => "Numero ". ++$count . " - " . $value,
-				"type"        => "column",
-				"color"       => "#000000",
-				"valueField"  => $value,
-				);
+			if ($count > 2) {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					"hidden" => true,
+					);
+			} else {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					);
+			}
 		}
+
 		return Response::json($config);
 	}
 
@@ -234,7 +262,6 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			->orderBy('fecha', 'asc')
 			->get();
 
-			//$montosClientes = Telefono::find($idTelefono)->montos->take(12) as $value2;
 			foreach ($montosClientes as $value2)
 			{
 				$dt         = new Carbon($value2->fecha);
@@ -254,17 +281,32 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		foreach ($arreglo as $value) { $config['data'][] = $value; }
 
 		foreach (array_unique($numbers) as $value) {
-			$config['graphs'][] = array(
-				"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-				"fillAlphas"  => 1,
-				"labelText"   => "",
-				"lineAlpha"   => 1,
-				"title"       => "Numero ". ++$count . " - " . $value,
-				"type"        => "column",
-				"color"       => "#000000",
-				"valueField"  => $value,
-				);
+			if ($count > 2) {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					"hidden" => true,
+					);
+			} else {
+				$config['graphs'][] = array(
+					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+					"fillAlphas"  => 1,
+					"labelText"   => "",
+					"lineAlpha"   => 1,
+					"title"       => "Numero ". ++$count . " - " . $value,
+					"type"        => "column",
+					"color"       => "#000000",
+					"valueField"  => $value,
+					);
+			}
 		}
+
 		return Response::json($config);
 	}
 
@@ -284,6 +326,22 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return Response::json($data);
 	}
 
+	public static function postChartEvolutionForExcel($id_cliente, $from = 12) {
+		$config  = array();
+		$numbers = array();
+		$hasta   = Carbon::now()->startOfMonth();
+		$desde   = Carbon::now()->subMonths($from)->startOfMonth();
+		$ids     = Cliente::find($id_cliente)->numeros()->lists('id');
+		$montos  = Total::select('fecha', DB::raw('SUM(monto_total) AS monto_total'))->whereIn('id_telefono', $ids)->whereBetween('fecha', array($desde, $hasta))->groupBy(DB::raw('YEAR(fecha) ,MONTH(fecha)'))->orderBy('fecha')->get();
+
+		foreach ($montos as $value) {
+			$fecha      = new Carbon($value->fecha);
+			$montoTotal = $value->monto_total;
+			$data[] = array("MES" => Func::convNumberToMonth($fecha->month), "PERIODO" => $fecha->year,  'TOTAL' => $montoTotal);
+		}
+		return $data;
+	}
+
 	public static function postChartComparative($id) {
 		$count = 1;
 		$data  = array(); // $data2 = array();
@@ -296,7 +354,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
 		for ($i = 0; $i < 12; $i++) {
 			array_push($data, array(
-				'date' => Func::convNumberToMonth($count),
+				'date' => substr(Func::convNumberToMonth($count), 0, 3),
 				'year1' => $years[0],
 				'year2' => $years[1],
 				'year3' => $years[2],

@@ -2,7 +2,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-3 logotipo">
 		{{ HTML::image('/images/logo-home.png','',array('class' => '')) }}
 	</div>
-	<div class="col-xs-12 col-sm-12 col-md-5 pull-right user-profile">
+	<div class="col-xs-12 col-sm-12 col-md-6 pull-right user-profile">
 		<div class="col-xs-2 col-sm-2 col-md-2 tabs"> <!-- required for floating -->
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs tabs-left" id="nav-profile">
@@ -11,12 +11,12 @@
 			</ul>
 		</div>
 		<div class="col-xs-10 col-sm-10 col-md-10 user-no-pad move">
-			<div class="col-xs-9 col-sm-9 col-md-9 user-no-pad">
+			<div class="col-xs-9 col-sm-9 col-md-9 texto">
 				<div class="main-info">
 					<div class="tab-content">
 						<div class="tab-pane fade in active" id="home">
 							<h3>Bienvenido, <b>Michael Knight</b></h3>
-							<small>Aquí podrás revisar tus gastos, extraer graficos y realizar los pagos de tus servicios contratados</small>
+							<small>Aqu&iacute; podr&aacute;s revisar tus gastos, extraer gr&aacute;ficos y realizar los pagos de tus servicios contratados</small>
 						</div>
 						<div class="tab-pane fade" id="profile">
 							<div class="optional-info">
@@ -25,7 +25,7 @@
 								<address>
 									<strong>Contacto</strong><br>
 									<abbr title="Teléfono"><span class="glyphicon glyphicon-earphone"></span>:</abbr> (123) 2777-7777&nbsp;<abbr title="Email"><span class="glyphicon glyphicon-envelope"></span>:</abbr> <a href="mailto:michaelnightrider@gmail.com">michaelnightrider@gmail.com</a><br>
-									<strong>Direccción</strong><br>
+									<strong>Direcci&oacute;n</strong><br>
 									795 Folsom Ave, Suite 600, Santiago, Chile.<br>
 								</address>
 								<div class="clearfix"></div>
@@ -57,7 +57,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="dropdown menu-large">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-lg fa-fw"></span> Contactanos <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon fa fa-comments-o fa-lg fa-fw"></span> Cont&aacute;ctanos <b class="caret"></b></a>
 						<ul class="dropdown-menu megamenu row">
 							<li class="col-sm-3">
 							<!-- <ul>

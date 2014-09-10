@@ -1,7 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
-{{ HTML::genera_contacto($preguntas) }}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{ HTML::genera_contacto($preguntas) }}
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('aside')

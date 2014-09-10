@@ -115,8 +115,8 @@ Each of the generator properties (like `name`, `address`, and `lorem`) are calle
     postcode                // '17916'
     address                 // '8888 Cummings Vista Apt. 101, Susanbury, NY 95473'
     country                 // 'Falkland Islands (Malvinas)'
-    latitude                // '77.147489'
-    longitude               // '86.211205'
+    latitude                // 77.147489
+    longitude               // 86.211205
 
 ### `Faker\Provider\en_US\PhoneNumber`
 
@@ -386,6 +386,19 @@ echo $faker->name; // 'Jess Mraz I';
 > $faker->dateTime(); // equivalent to $faker->dateTime($max = 'now')
 > // make sure you fix the $max parameter
 > $faker->dateTime('2014-02-25 08:37:17'); // will return always the same date when seeded
+> ```
+> 
+> **Tip**: Formatters won't reproduce the same fake data if you use the `rand()` php function. Use `$faker` or `mt_rand()` instead:
+>
+> ```php
+> <?php
+> // bad
+> $faker->realText(rand(10,20));
+> // good
+> $faker->realText($faker->numberBetween(10,20));
+> ```
+
+
 
 ## Faker Internals: Understanding Providers
 
@@ -719,10 +732,6 @@ echo $faker->siren; // 082 250 104
 
 // Generates a random SIRET number
 echo $faker->siret; // 347 355 708 00224
-
-// Generates a random SIRET number (controlling the number of sequential digits)
-echo $faker->siret(3); // 438 472 611 01513
-
 ```
 
 ### `Faker\Provider\fr_FR\Address`
@@ -875,6 +884,7 @@ echo $faker->personalIdentityNumber('female') // '950910-0781'
 * [FakerServiceProvider](https://github.com/EmanueleMinotto/FakerServiceProvider): Faker Service Provider for Silex
 * [faker-cli](https://github.com/bit3/faker-cli): Command Line Tool for the Faker PHP library
 * [AliceFixturesBundle](https://github.com/h4cc/AliceFixturesBundle): A Symfony2 bundle for using Alice and Faker with data fixtures. Abled to use Doctrine ORM as well as Doctrine MongoDB ODM.
+* [Factory Muffin](https://github.com/thephpleague/factory-muffin): enable the rapid creation of objects (PHP port of factory-girl)
 * [CompanyNameGenerator](https://github.com/fzaninotto/CompanyNameGenerator): Generate names for English tech companies with class
 * [datalea](https://github.com/spyrit/datalea) A highly customizable random test data generator web app
 * [newage-ipsum](https://github.com/frequenc1/newage-ipsum): A new aged ipsum provider for the faker library inspired by http://sebpearce.com/bullshit/

@@ -132,7 +132,6 @@ return array(
 		'AdamWathan\BootForms\BootFormsServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'Artisaninweb\SoapWrapper\ServiceProvider',
-		'Laracasts\Utilities\UtilitiesServiceProvider',
 		),
 
 	/*

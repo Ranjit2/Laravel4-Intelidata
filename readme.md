@@ -25,6 +25,3 @@ http://www.laravelmy.com/
 ><https://github.com/yajra/laravel-oci8>
 
 <b>&copy; 2014 Intelidata - IData</b>
-
-https://github.com/laracasts/PHP-Vars-To-Js-Transformer  
-http://dylanglockler.com/blog/?p=5  

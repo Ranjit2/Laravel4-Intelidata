@@ -112,14 +112,16 @@ class GraffController extends BaseController {
 		}
 		else
 		{
-			$fecha = Carbon::now()->subMonths(12)->startOfMonth();
+			$rangoMes = 12;
+			$fecha = Carbon::now()->subMonths($rangoMes)->startOfMonth();
 			$data = array();
 			$config = array();
 			$productos = array();
-			for($x = 0; $x <= 12; $x++)
+			$count = 0;
+			for($x = 0; $x <= $rangoMes; $x++)
 			{
 				$resultado = DB::table('cliente')
-				->select('producto.nombre as producto', DB::raw('SUM(total.monto_total) as total'))
+				->select('total.fecha','producto.nombre as producto', DB::raw('SUM(total.monto_total) as total'))
 				->join('telefono', 'cliente.id', '=', 'telefono.id_cliente')
 				->join('total', 'telefono.id', '=', 'total.id_telefono')
 				->join('producto', 'producto.id','=','telefono.id_producto')
@@ -128,26 +130,51 @@ class GraffController extends BaseController {
 				->where(DB::raw('YEAR(fecha)'), $fecha->year)
 				->groupBy('telefono.id_producto')
 				->get();
-				$data[] = $resultado;
+
+				$objecto = new stdClass;
+				$objecto->fecha = $fecha->toDateString();
+				foreach ($resultado as $value) {
+					$prod = $value->producto;
+					$objecto->$prod = $value->total;
+					$productos[] = $value->producto;
+				}
+				$data[] = $objecto;
+
 				$fecha = $fecha->addMonth(1);
 			}
-			//$config['data'][] = $resultado;
-			foreach ($data as $value) { $config['data'][] = $value; $productos[] = $value;}
+			$productos = array_unique($productos);
+
+			foreach ($data as $value) { $config['data'][] = $value;}
 
 			/******* DATOS DE GRAFICO *************/
 
-			for($y = 0; $y <= $x; $y++)
+			foreach ($productos as $value)
 			{
-				$config['graphs'][] = array(
-					"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
-					"fillAlphas"  => 1,
-					"labelText"   => "",
-					"lineAlpha"   => 1,
-					"title"       => "producto ". 7 . " - " . $y,
-					"type"        => "column",
-					"color"       => "#000000",
-					"valueField"  => $y,
-					);
+				if ($count > 4) {
+					$config['graphs'][] = array(
+						"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+						"fillAlphas"  => 1,
+						"labelText"   => "",
+						"lineAlpha"   => 1,
+						"title"       => "Numero ". ++$count . " - " . $value,
+						"type"        => "column",
+						"color"       => "#000000",
+						"valueField"  => $value,
+						"hidden" => true,
+						);
+				} else {
+					$config['graphs'][] = array(
+						"balloonText" => "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+						"fillAlphas"  => 1,
+						"labelText"   => "",
+						"lineAlpha"   => 1,
+						"title"       => "Numero ". ++$count . " - " . $value,
+						"type"        => "column",
+						"color"       => "#000000",
+						"valueField"  => $value,
+						);
+				}
+				$count++;
 			}
 			$resultado = $config;
 		}

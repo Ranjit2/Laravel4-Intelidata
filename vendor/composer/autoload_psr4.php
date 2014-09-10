@@ -9,5 +9,6 @@ return array(
     'Watson\\BootstrapForm\\' => array($vendorDir . '/watson/bootstrap-form/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Barryvdh\\LaravelIdeHelper\\' => array($vendorDir . '/barryvdh/laravel-ide-helper/src'),
+    'Barryvdh\\Debugbar\\' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
     'Acme\\' => array($baseDir . '/app/libs/Acme'),
 );

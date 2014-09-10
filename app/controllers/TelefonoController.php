@@ -163,11 +163,7 @@ class TelefonoController extends \BaseController {
 		{
 			$excel->sheet('Septiembre', function($sheet)use($data)
 			{
-				$sheet->fromArray(array(
-					'asd' => 'asdasd',
-					'asd' => 'asdasd',
-					'asd' => 'asdasd',
-					));
+				$sheet->fromArray($data);
 			});
 		})->export('xls');
 	}

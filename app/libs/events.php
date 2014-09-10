@@ -48,23 +48,24 @@ Event::listen('illuminate.query', function($sql, $bindings, $time) {
 
 Event::listen('laravel.auth: login', function($user)
 {
-	$path = storage_path().'/logs/logging.log';
-
+	$path             = storage_path().'/logs/logging.log';
+	$info_server      = Func::server_data();
 	$user->last_login = Carbon::now();
 	$user->save();
 	Session::put('ses_user_id', $user->id);
 	Session::put('ses_user_rut', $user->rut);
 	Session::put('ses_user_tipo', $user->tipo);
-	$log = 'Login | ' . Carbon::now() . ' | ' . $user->id . ' | ' . array_get(Func::server_data(), 'IP') . ' | ' . array_get(Func::server_data(), 'BROWSER') . PHP_EOL;
+	$log = 'Login | ' . Carbon::now() . ' | ' . $user->id . ' | ' . array_get($info_server, 'IP') . ' | ' . array_get($info_server, 'BROWSER') . PHP_EOL;
 	File::append($path, $log);
 });
 
 Event::listen('laravel.auth: logout', function($user)
 {
+	$info_server = Func::server_data();
 	Session::forget('ses_user_id');
 	Session::forget('ses_user_rut');
 	Session::forget('ses_user_tipo');
 	$path = storage_path().'/logs/logging.log';
-	$log = 'Logout | ' . Carbon::now() . ' | ' . $user->id . ' | ' . array_get(Func::server_data(), 'IP') . ' | ' . array_get(Func::server_data(), 'BROWSER') . PHP_EOL;
+	$log = 'Logout | ' . Carbon::now() . ' | ' . $user->id . ' | ' . array_get($info_server, 'IP') . ' | ' . array_get($info_server, 'BROWSER') . PHP_EOL;
 	File::append($path, $log);
 });

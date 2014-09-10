@@ -14,6 +14,12 @@
 						<h3>Julio</h3>
 						<h2>-26%</h2>
 					</div>
+					<div id="error" style="display: none;">
+						<div class="alert alert-danger">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Ops!</strong> No hay datos disponibles ...
+						</div>
+					</div>
 					<div id="chartdiv" style="height: 362px;"></div>
 				</figure>
 				<div id="donut-legend"></div>
@@ -32,6 +38,12 @@
 						<h3>Junio</h3>
 						<h2>+36%</h2>
 					</div>
+					<div id="error" style="display: none;">
+						<div class="alert alert-danger">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Ops!</strong> No hay datos disponibles ...
+						</div>
+					</div>
 					<div id="chartdiv2" style="height: 362px;"></div>
 				</figure>
 			</div>
@@ -48,6 +60,12 @@
 					<div class="donut-info centrar">
 						<h3>Febrero</h3>
 						<h2>+43%</h2>
+					</div>
+					<div id="error" style="display: none;">
+						<div class="alert alert-danger">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Ops!</strong> No hay datos disponibles ...
+						</div>
 					</div>
 					<div id="chartdiv3" style="height: 362px;"></div>
 				</figure>

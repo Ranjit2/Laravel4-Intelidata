@@ -1,6 +1,10 @@
 @extends('layouts.two_column')
 
 @section('content')
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
 <h3 class="text-left">HOY COMIENZAS UNA NUEVA EXPERIENCIA DE ATENCIÓN DE CLIENTES</h3>
 <fieldset class="login">
     <legend class="text-left">INICIA AHORA</legend>
@@ -23,13 +27,17 @@
         <a href="/user/forgot_password" class="">Olvidé mi contraseña</a>
     </div>
     <div class="col-md-6">
-        {{ HTML::link('/user/signin', 'REGÍSTRATE', array('class' => 'btn3d btn btn-primary btn-lg')); }}
+        {{ HTML::link('/registro', 'REGÍSTRATE', array('class' => 'btn3d btn btn-primary btn-lg')); }}
     </div>
     <div class="col-md-6">
         {{ Form::submit('INICIA SESIÓN', array('class' => 'btn3d btn btn-primary btn-lg')); }}
     </div>
     {{ Form::close(); }}
 </fieldset>
+</div>
+</div>
+</div>
+</div>
 @stop
 
 @section('style')

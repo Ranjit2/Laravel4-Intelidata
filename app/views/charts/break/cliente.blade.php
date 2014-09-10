@@ -5,14 +5,18 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div class="col-md-7 col-md-offset-3">
-					<div class="tiny-timeline text-center">
-						{{ HTML::tiny_timeline('#') }}
-					</div>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					{{ HTML::tiny_timeline('#') }}
 				</div>
 				<div class="clearfix"></div>
 				<class="borde-titulo">Title</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, mollitia incidunt ipsa unde alias assumenda laboriosam delectus qui eos iure.</p>
+				<div id="error" style="display: none;">
+					<div class="alert alert-danger">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Ops!</strong> No hay datos disponibles ...
+					</div>
+				</div>
 				<div id="chartdiv7" style="height: 400px;"></div>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <?php
 
-class ArrayToXML {
+class ArrayToXML
+{
 /**
 * The main function for converting to an XML document.
 * Pass in a multi dimensional array and this recrusively loops through and builds up an XML document.
@@ -14,17 +15,17 @@ class ArrayToXML {
 public static function toXml($data, $rootNodeName = 'data', &$xml=null)
 {
 // turn off compatibility mode as simple xml throws a wobbly if you don't.
-	if (ini_get('zend.ze1_compatibility_mode') == 1) ini_set ('zend.ze1_compatibility_mode', 0);
-	if (is_null($xml)) {
+	if ( ini_get('zend.ze1_compatibility_mode') == 1 ) ini_set ( 'zend.ze1_compatibility_mode', 0 );
+	if ( is_null( $xml ) ) {
 		$xml = simplexml_load_string(stripslashes("<?xml version='1.0' encoding='utf-8'?><root xmlns:example='http://example.namespace.com' version='1.0'></root>"));
 	}
 
 // loop through the data passed in.
-	foreach($data as $key => $value) {
+	foreach( $data as $key => $value ) {
 
 // no numeric keys in our xml please!
 		$numeric = false;
-		if (is_numeric($key)) {
+		if ( is_numeric( $key ) ) {
 			$numeric = 1;
 			$key = $rootNodeName;
 		}
@@ -35,8 +36,8 @@ public static function toXml($data, $rootNodeName = 'data', &$xml=null)
 		$attrs = false;
 
 //if there are attributes in the array (denoted by attr_**) then add as XML attributes
-		if (is_array($value)) {
-			foreach($value as $i => $v) {
+		if ( is_array( $value ) ) {
+			foreach($value as $i => $v ) {
 				$attr_start = false;
 				$attr_start = stripos($i, 'attr_');
 				if ($attr_start === 0) {
@@ -45,14 +46,14 @@ public static function toXml($data, $rootNodeName = 'data', &$xml=null)
 			}
 		}
 // if there is another array found recursively call this function
-		if (is_array($value)) {
+		if ( is_array( $value ) ) {
 
-			if (ArrayToXML::is_assoc($value) || $numeric) {
+			if ( ArrayToXML::is_assoc( $value ) || $numeric ) {
 
 // older SimpleXMLElement Libraries do not have the addChild Method
 				if (method_exists('SimpleXMLElement','addChild'))
 				{
-					$node = $xml->addChild($key, null, 'http://www.lcc.arts.ac.uk/');
+					$node = $xml->addChild( $key, null, 'http://www.lcc.arts.ac.uk/' );
 					if ($attrs) {
 						foreach($attrs as $key => $attribute) {
 							$node->addAttribute($key, $attribute);
@@ -65,14 +66,14 @@ public static function toXml($data, $rootNodeName = 'data', &$xml=null)
 			}
 
 // recrusive call.
-			if ($numeric) $key = 'anon';
-			ArrayToXML::toXml($value, $key, $node);
+			if ( $numeric ) $key = 'anon';
+			ArrayToXML::toXml( $value, $key, $node );
 		} else {
 
 // older SimplXMLElement Libraries do not have the addChild Method
 			if (method_exists('SimpleXMLElement','addChild'))
 			{
-				$childnode = $xml->addChild($key, $value, 'http://www.lcc.arts.ac.uk/');
+				$childnode = $xml->addChild( $key, $value, 'http://www.lcc.arts.ac.uk/' );
 				if ($attrs) {
 					foreach($attrs as $key => $attribute) {
 						$childnode->addAttribute($key, $attribute);
@@ -88,7 +89,7 @@ public static function toXml($data, $rootNodeName = 'data', &$xml=null)
 // if you want the XML to be formatted, use the below instead to return the XML
 	$doc = new DOMDocument('1.0');
 	$doc->preserveWhiteSpace = false;
-	@$doc->loadXML(ArrayToXML::fixCDATA($xml->asXML()));
+	@$doc->loadXML( ArrayToXML::fixCDATA($xml->asXML()) );
 	$doc->formatOutput = true;
 //return $doc->saveXML();
 	return $doc->save('data.xml');
@@ -111,18 +112,18 @@ public static function fixCDATA($string) {
 * @param string $xml - XML document - can optionally be a SimpleXMLElement object
 * @return array ARRAY
 */
-public static function toArray($xml) {
-	if (is_string($xml)) $xml = new SimpleXMLElement($xml);
+public static function toArray( $xml ) {
+	if ( is_string( $xml ) ) $xml = new SimpleXMLElement( $xml );
 	$children = $xml->children();
-	if (!$children) return (string) $xml;
+	if ( !$children ) return (string) $xml;
 	$arr = array();
-	foreach ($children as $key => $node) {
-		$node = ArrayToXML::toArray($node);
+	foreach ( $children as $key => $node ) {
+		$node = ArrayToXML::toArray( $node );
 // support for 'anon' non-associative arrays
-		if ($key == 'anon') $key = count($arr);
+		if ( $key == 'anon' ) $key = count( $arr );
 // if the node is already set, put it into an array
-		if (isset($arr[$key])) {
-			if (!is_array($arr[$key]) || $arr[$key][0] == null) $arr[$key] = array($arr[$key]);
+		if ( isset( $arr[$key] ) ) {
+			if ( !is_array( $arr[$key] ) || $arr[$key][0] == null ) $arr[$key] = array( $arr[$key] );
 			$arr[$key][] = $node;
 		} else {
 			$arr[$key] = $node;
@@ -131,7 +132,7 @@ public static function toArray($xml) {
 	return $arr;
 }
 // determine if a variable is an associative array
-public static function is_assoc($array) {
+public static function is_assoc( $array ) {
 	return (is_array($array) && 0 !== count(array_diff_key($array, array_keys(array_keys($array)))));
 }
 }

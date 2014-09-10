@@ -61,4 +61,31 @@ class Producto extends Eloquent {
 		}
 		return Response::json($array);
 	}
+
+	public static function postTelefonosPorProductoForExcel($id, $id_producto, $date) {
+		// $hasta = Carbon::now()->format('Y-m-d');
+		// $desde = Carbon::now()->subMonths(13)->format('Y-m-d');
+		$date = new Carbon($date);
+		$array = array();
+		$a = DB::table('telefono')
+		->select('total.fecha', 'telefono.id_producto', 'producto.nombre', 'telefono.numero', 'total.monto_total')
+		->join('producto', 'telefono.id_producto', '=', 'producto.id')
+		->join('total', 'telefono.id', '=', 'total.id_telefono')
+		->where('telefono.id_cliente', $id)
+		->where('telefono.id_producto', $id_producto)
+		->whereRaw('MONTH(total.fecha) = ' . $date->month  . ' AND YEAR(total.fecha) = ' . $date->year)
+		->orderBy('producto.nombre')
+		->get();
+
+		foreach ($a as $key => $value) {
+			$array[] = array(
+				//'producto' => $value->nombre,
+				//'mes'      => (new Carbon($value->fecha))->month,
+				//'periodo'  => (new Carbon($value->fecha))->year,
+				'numero'   => $value->numero,
+				'monto'    => $value->monto_total,
+				);
+		}
+		return $array;
+	}
 }

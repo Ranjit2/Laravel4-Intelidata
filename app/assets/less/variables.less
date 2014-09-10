@@ -1,25 +1,26 @@
 @idata-bg-header:  					    #000;
-@idata-bg-content:                      #fff;
-@idata-bg-footer:                       #000;
-@idata-bg-footer2:                      #7f7f7f;
-@idata-bg-sidebar:                      #000;
-@idata-bg-topbar:                       #000;
+@idata-bg-content:                                                   #fff;
+@idata-bg-footer:                                                      #000;
+@idata-bg-footer2:                                                    #7f7f7f;
+@idata-bg-sidebar:                                                   #000;
+@idata-bg-topbar:                                                     #000;
 
-// @idata-asidebar: 						#f9f9f9;
-// @idata-topbar:      					#252525;
-// @idata-dropdown: 						#252525;
-// @idata-dropdown-a: 						#9a9a9a;
-// @idata-dropdown-a-hover: 				#ffffff;
-// @idata-dropdown-a-hover-background: 	rgba(255,255,255,0.05);
-// @idata-botonblue: 						#006d87;
-// @idata-botonblue-hover:   				#004d5f;
-// @idata-borderBlue:      				#0086ac;
-// @idata-borderGrey: 						#b8b8b8;
+@idata-asidebar: 						#f9f9f9;
+@idata-topbar:      					#252525;
+@idata-dropdown: 						#252525;
+@idata-dropdown-a: 						#9a9a9a;
+@idata-dropdown-a-hover: 				#ffffff;
+@idata-dropdown-a-hover-background: 	rgba(255,255,255,0.05);
+@idata-botonblue: 						#006d87;
+@idata-botonblue-hover:   				#004d5f;
+@idata-borderBlue:      				#0086ac;
+@idata-borderGrey: 						#b8b8b8;
 
 @gray-base:                             #000;
 @gray-darker:                           lighten(@gray-base, 13.5%); // #222
 @gray-dark:                             lighten(@gray-base, 20%);   // #333
-@gray:                                  lighten(@gray-base, 33.5%); // #555
+@gray
+:                                  lighten(@gray-base, 33.5%); // #555
 @gray-light:                            lighten(@gray-base, 46.7%); // #777
 @gray-lighter:                          lighten(@gray-base, 93.5%); // #eee
 
@@ -30,20 +31,26 @@
 @brand-danger:                          #d9534f;
 
 //** Background color for `<body>`.
-@body-bg:               #e2e2e2;
+@body-bg:                                #bababa; // #e2e2e2;
 
 //** Global textual link color.
-@link-color:            @brand-primary;
+@link-color:                              @brand-primary;
 
-@font-size-base:              13px;
+@font-size-base:                     14px;
 
-@border-radius-base:        0px;
-@border-radius-large:       0px;
-@border-radius-small:       0px;
+@border-radius-base:             5px;
+@border-radius-large:             5px;
+@border-radius-small:            5px;
+@input-border-radius-small:            5px;
+@input-border-radius-large:            5px;
 
-@panel-bg:                    #fff;
-@panel-inner-border:          #ddd;
-@panel-body-padding:          5px;
-@panel-default-heading-bg:    @brand-primary;
+@panel-bg:                              #fff;
+@panel-inner-border:              #ddd;
+@panel-body-padding:            5px;
+@panel-default-heading-bg:    @gray-lighter;
 
-@badge-bg:                    @gray-light;
+@badge-bg:                             @gray-light;
+
+@font-family-body:                   "Questrial", Helvetica, Arial, sans-serif;
+@font-family-titles:                   "Questrial", Helvetica, Arial, sans-serif;
+@font-family-base:                  @font-family-body;
