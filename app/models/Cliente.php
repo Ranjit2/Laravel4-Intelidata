@@ -405,4 +405,71 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		$config['years'] = $years;
 		return Response::json($config);
 	}
+
+	public static function postChartComparative2($id,  $from = 12) {
+		$count = 1;
+		$data  = array(); // $data2 = array();
+		$years = array(
+			Carbon::now()->subYears(2)->year,
+			Carbon::now()->subYears(1)->year,
+			Carbon::now()->year,
+			);
+		$ids 	= Cliente::find($id)->numeros()->lists('id');
+		$hasta	= Carbon::now()->startOfMonth();
+		$desde	= Carbon::now()->subMonths($from)->startOfMonth();
+
+		// for ($i = 0; $i < 12; $i++) {
+		// 	array_push($data, array(
+		// 		'date' => substr(Func::convNumberToMonth($count), 0, 3),
+		// 		'year1' => $years[0],
+		// 		'year2' => $years[1],
+		// 		'year3' => $years[2],
+		// 		));
+		// }
+		// array_push($data2, array(
+		// 	'date' => Func::convNumberToMonth($count),
+		// 	'val1' => 0,
+		// 	'val2' => 0,
+		// 	'val3' => 0,
+		// 	'year1' => $years[0],
+		// 	'year2' => $years[1],
+		// 	'year3' => $years[2],
+		// 	));
+
+		$query = Total::select(DB::raw('YEAR(fecha) AS year, SUM(monto_total) AS monto_total'))
+		->whereIn('id_telefono', $ids)
+		->whereIn(DB::raw('YEAR(fecha)'), $years)
+		// ->where(DB::raw('MONTH(fecha)'), $i)
+		->whereBetween('fecha', array($desde, $hasta))
+		->groupBy(DB::raw('YEAR(fecha)'), DB::raw('MONTH(fecha)'))
+		->orderBy('fecha')
+		->get();
+
+		// foreach ($query as $value) {
+		// 	switch ($value->year) {
+		// 		case $years[0]:
+		// 		$data[$i] = array_add($data[$i], 'val1', $value->monto_total);
+		// 		// array_set($data2[$i], 'val1', $value->monto_total);
+		// 		break;
+
+		// 		case $years[1]:
+		// 		$data[$i] = array_add($data[$i], 'val2', $value->monto_total);
+		// 		// array_set($data2[$i], 'val2', $value->monto_total);
+		// 		break;
+
+		// 		case $years[2]:
+		// 		$data[$i] = array_add($data[$i], 'val3', $value->monto_total);
+		// 		// array_set($data2[$i], 'val3', $value->monto_total);
+		// 		break;
+
+		// 		default:
+		// 		break;
+		// 	}
+
+		// 	$count++;
+		// }
+		// $config['data']  = $data;
+		// $config['years'] = $years;
+		// return Response::json($config);
+	}
 }

@@ -117,11 +117,6 @@ Route::resource('webservice', 'WebServiceController');
 
 
 //Grafico historico categoria empresa
-
-Route::get('test2', function(){
-	Func::printr(Cliente::postMontoTotal(7));
-});
-
 Route::post('grafHistoricoMes/{id}', 'GraffController@postHistoricoCategoria');
 
 Route::get('prueba', function(){
@@ -160,8 +155,7 @@ Route::get('prueba', function(){
 
 
 Route::get('test', function() {
-	echo HTML::activeState(array('timeline','test','home'));
-	HTML::activeState(array('timeline','home','test'));
+	Func::printr(Cliente::postChartComparative(7));
 });
 
 Route::get('excel', function (){
@@ -185,3 +179,5 @@ Route::get('pdf', function(){
 		return Response::make($content, 200, array('content-type'=>'application/pdf'));
 	}
 });
+
+Route::post('edit-marks', 'HomeController@postEditMarks');

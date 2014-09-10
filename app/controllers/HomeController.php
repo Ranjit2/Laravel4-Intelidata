@@ -49,4 +49,16 @@ class HomeController extends BaseController {
 		Auth::logout();
 		return Redirect::to('login');
 	}
+
+	public function postEditMarks() {
+		// dd(Input::all());
+		$studentId = Input::get('pk');
+		$newMarks = Input::get('value');
+		$studentData = Persona::whereId($studentId)->first();
+		$studentData->nombre = $newMarks;
+		if($studentData->save())
+			return Response::json(array('status'=>1));
+		else
+			return Response::json(array('status'=>0));
+	}
 }

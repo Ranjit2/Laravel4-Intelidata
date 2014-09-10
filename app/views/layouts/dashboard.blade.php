@@ -28,6 +28,7 @@
 	<!--  -->
 	{{ HTML::style('css/hover-min.css') }}
 	@yield('style')
+	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 </head>
 <body>
 	<header class="container-fluid topbar">
@@ -66,6 +67,7 @@
 	{{ HTML::script('js/amcharts/lang/es.js') }}
 	<!-- CUSTOM JAVASCRIPT -->
 	{{ HTML::script('js/frontend.js') }}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 	@yield('script')
 </body>
 </html>
