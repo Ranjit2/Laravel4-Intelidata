@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             },
             frontend: {
                 files: {
-                    '<%= paths.js %>frontend.min.js': '<%= paths.assets.js %>frontend.js',
+                    '<%= paths.js %>frontend.min.js': '<%= paths.js %>frontend.js',
                 }
             },
             backend: {

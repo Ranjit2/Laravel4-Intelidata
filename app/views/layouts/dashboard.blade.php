@@ -66,7 +66,7 @@
 	{{ HTML::script('http://www.amcharts.com/lib/3/exporting/amexport_combined.js') }} -->
 	{{ HTML::script('js/amcharts/lang/es.js') }}
 	<!-- CUSTOM JAVASCRIPT -->
-	{{ HTML::script('js/frontend.js') }}
+	{{ HTML::script('js/frontend.min.js') }}
 	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 	@yield('script')
 </body>

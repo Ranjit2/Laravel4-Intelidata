@@ -153,9 +153,8 @@ Route::get('prueba', function(){
 	return Func::printr($data);
 });
 
-
 Route::get('test', function() {
-	Func::printr(Cliente::postChartComparative(7));
+	Cliente::postChartComparative(7);
 });
 
 Route::get('excel', function (){

@@ -506,8 +506,8 @@ chart.addGraph(graph2);
 chart.exportConfig           = $.export();
 
 // CURSOR
-// var chartCursor              = new AmCharts.ChartCursor();
-// chart.addChartCursor(chartCursor);
+var chartCursor              = new AmCharts.ChartCursor();
+chart.addChartCursor(chartCursor);
 
 // WRITE
 chart.write(div);
@@ -565,8 +565,9 @@ chart.addGraph(graph);
 chart.exportConfig           = $.export();
 
 // CURSOR
-// var chartCursor              = new AmCharts.ChartCursor();
-// chart.addChartCursor(chartCursor);
+var chartCursor              = new AmCharts.ChartCursor();
+categoryBalloonDateFormat = 'MMM, YYYY '
+chart.addChartCursor(chartCursor);
 
 // WRITE
 chart.write(div);
@@ -850,7 +851,9 @@ $.categoryAxis = function (chart, parse) {
     categoryAxis.gridAlpha    = 0;
     categoryAxis.tickLength   = 0;
     categoryAxis.minPeriod    = "MM";
-    categoryAxis.equalSpacing = false;
+    // categoryAxis.equalSpacing = false;
+    categoryAxis.equalSpacing = true;
+    categoryAxis.boldPeriodBeginning = true;
     if (parse) {
         categoryAxis.parseDates        = true;
         categoryAxis.dateFormats = [{

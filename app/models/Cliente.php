@@ -342,7 +342,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return $data;
 	}
 
-	public static function postChartComparative($id) {
+	public static function postChartComparative2($id) {
 		$count = 1;
 		$data  = array(); // $data2 = array();
 		$years = array(
@@ -406,8 +406,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 		return Response::json($config);
 	}
 
-	public static function postChartComparative2($id,  $from = 12) {
-		$count = 1;
+	public static function postChartComparative($id,  $from = 11) {
 		$data  = array(); // $data2 = array();
 		$years = array(
 			Carbon::now()->subYears(2)->year,
@@ -416,60 +415,63 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			);
 		$ids 	= Cliente::find($id)->numeros()->lists('id');
 		$hasta	= Carbon::now()->startOfMonth();
-		$desde	= Carbon::now()->subMonths($from)->startOfMonth();
+		$desde	= Carbon::now()->subYears(1)->subMonths($from)->startOfMonth();
+		$count  = $desde->month;
 
-		// for ($i = 0; $i < 12; $i++) {
-		// 	array_push($data, array(
-		// 		'date' => substr(Func::convNumberToMonth($count), 0, 3),
-		// 		'year1' => $years[0],
-		// 		'year2' => $years[1],
-		// 		'year3' => $years[2],
-		// 		));
-		// }
-		// array_push($data2, array(
-		// 	'date' => Func::convNumberToMonth($count),
-		// 	'val1' => 0,
-		// 	'val2' => 0,
-		// 	'val3' => 0,
-		// 	'year1' => $years[0],
-		// 	'year2' => $years[1],
-		// 	'year3' => $years[2],
-		// 	));
+		for ($i = 1; $i < 13; $i++) {
+			if($count == 13) {
+				$count = 1;
+			}
+			$data[$count] = array(
+				'date' => '',
+				'year1' => $years[0],
+				'year2' => $years[1],
+				'year3' => $years[2],
+				);
+			$count++;
+		}
+		// dd($data);
+		// die();
 
-		$query = Total::select(DB::raw('YEAR(fecha) AS year, SUM(monto_total) AS monto_total'))
+		$query = Total::select(DB::raw('MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total'))
 		->whereIn('id_telefono', $ids)
 		->whereIn(DB::raw('YEAR(fecha)'), $years)
-		// ->where(DB::raw('MONTH(fecha)'), $i)
 		->whereBetween('fecha', array($desde, $hasta))
 		->groupBy(DB::raw('YEAR(fecha)'), DB::raw('MONTH(fecha)'))
 		->orderBy('fecha')
 		->get();
 
-		// foreach ($query as $value) {
-		// 	switch ($value->year) {
-		// 		case $years[0]:
-		// 		$data[$i] = array_add($data[$i], 'val1', $value->monto_total);
-		// 		// array_set($data2[$i], 'val1', $value->monto_total);
-		// 		break;
+		foreach ($query as $value) {
+			array_set($data, $value->month.'.date', substr(Func::convNumberToMonth($value->month), 0, 3));
 
-		// 		case $years[1]:
-		// 		$data[$i] = array_add($data[$i], 'val2', $value->monto_total);
-		// 		// array_set($data2[$i], 'val2', $value->monto_total);
-		// 		break;
+			// echo $value->month . '<br>';
+			switch ($value->year) {
 
-		// 		case $years[2]:
-		// 		$data[$i] = array_add($data[$i], 'val3', $value->monto_total);
-		// 		// array_set($data2[$i], 'val3', $value->monto_total);
-		// 		break;
+				case $years[0]:
+				$data[$value->month]['val1'] = $value->monto_total;
+				break;
 
-		// 		default:
-		// 		break;
-		// 	}
+				case $years[1]:
+				$data[$value->month]['val2'] = $value->monto_total;
+				break;
 
-		// 	$count++;
-		// }
-		// $config['data']  = $data;
-		// $config['years'] = $years;
-		// return Response::json($config);
+				case $years[2]:
+				$data[$value->month]['val3'] = $value->monto_total;
+				break;
+
+				default:
+				break;
+			}
+
+			// $count++;
+		}
+
+		foreach ($data  as $value) {
+			$temp[] = $value;
+		}
+		$config['data']  = $temp;
+		$config['years'] = $years;
+		// Func::printr($config);
+		return Response::json($config);
 	}
 }
