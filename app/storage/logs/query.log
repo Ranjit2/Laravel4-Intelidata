@@ -1,0 +1,42 @@
+
+=| GET test2 |=
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+
+=| GET survey |=
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+
+=| GET / |=
+
+=| GET login |=
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+
+=| POST login |=
+2014-09-12 13:45:51 | select * from `cliente` where `rut` = 11111-1 limit 1 | 63ms
+2014-09-12 13:45:51 | update `cliente` set `last_login` = 2014-09-12 13:45:51, `updated_at` = 2014-09-12 13:45:51 where `id` = 7 | 40ms
+
+=| GET home |=
+2014-09-12 13:45:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-12 13:45:52 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 7) and `estado` = A group by `id` | 159.01ms
+2014-09-12 13:45:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 42ms
+2014-09-12 13:45:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-12 13:45:52 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 53ms
+2014-09-12 13:45:52 | select * from `sucursales` where `id_empresa` = 1 | 52ms
+2014-09-12 13:45:52 | select * from `servicio_empresa` where `id_empresa` = 1 | 46ms
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+
+=| POST edit-marks |=
+2014-09-12 13:45:59 | select * from `persona` where `id` = 1 limit 1 | 28ms
+
+=| GET _debugbar/open |=

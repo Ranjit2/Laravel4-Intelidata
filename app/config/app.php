@@ -207,6 +207,7 @@ return array(
 		'View'               => 'Illuminate\Support\Facades\View',
 		'Debugbar'           => 'Barryvdh\Debugbar\Facade',
 		'UniversalAnalytics' => 'TagPlanet\UniversalAnalytics\UniversalAnalyticsFacade',
+		'Faker' => 'Faker\Factory',
 		),
 
 );
