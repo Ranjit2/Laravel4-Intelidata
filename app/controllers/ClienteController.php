@@ -142,4 +142,63 @@ class ClienteController extends \BaseController {
 		})->export('xls');
 	}
 
+	public static function estaRegistrado($id)
+	{
+		$existe = Cliente::whereId($id)->where('persona_id','<>',1)->get();
+		if(empty($existe[0]))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	public static function existeDatoCliente($id, $dato)
+	{
+		// if( is_null(Cliente::find(7)->persona->direccion_personal) )
+		// 	return "no tiene";
+		// else
+		// 	return "tiene";
+		$devuelve = "false";
+		switch($dato)
+		{
+			case "email":
+				!is_null(Cliente::find($id)->persona->email_personal)&& 
+				(Cliente::find($id)->persona->email_personal != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "correoPostal":
+				( !is_null(Cliente::find($id)->persona->direccion_personal) )&&
+				(Cliente::find($id)->persona->direccion_personal != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "telefono":
+				!is_null(Cliente::find($id)->persona->telefono_fijo_personal)&&
+				(Cliente::find($id)->persona->telefono_fijo_personal != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "direccion":
+				!is_null(Cliente::find($id)->persona->direccion_personal)&&
+				(Cliente::find($id)->persona->direccion_personal != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "celular":
+				!is_null(Cliente::find($id)->persona->celular_personal)&&
+				(Cliente::find($id)->persona->celular_personal != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "facebook":
+				!is_null(Cliente::find($id)->persona->facebook)&&
+				(Cliente::find($id)->persona->facebook != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "twitter":
+				!is_null(Cliente::find($id)->persona->twitter)&&
+				(Cliente::find($id)->persona->twitter != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+			case "skype":
+				!is_null(Cliente::find($id)->persona->skype)&&
+				(Cliente::find($id)->persona->skype != "") ? $devuelve = "true": $devuelve = "false";
+				break;
+		}
+		return $devuelve;
+
+	}
+
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
   <component name="Behat">
     <behat_settings>
       <BehatSettings />
@@ -14,6 +16,7 @@
       <PhpUnitSettings />
     </phpunit_settings>
   </component>
+>>>>>>> origin/dev
   <component name="ProjectRootManager" version="2" />
 </project>
 

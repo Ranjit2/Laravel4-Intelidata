@@ -1,9 +1,0 @@
-ACTION | DATETIME | USER_ID | IP ADDRESS | BROWSER
-Login | 2014-09-12 13:45:51 | 7 | ::1 | FireFox
-Login | 2014-09-15 18:07:54 | 7 | ::1 | Chrome
-Login | 2014-09-15 18:35:21 | 7 | ::1 | FireFox
-Login | 2014-09-16 10:54:52 | 7 | ::1 | FireFox
-Login | 2014-09-16 14:32:43 | 7 | ::1 | Chrome
-Login | 2014-09-16 14:32:44 | 7 | ::1 | Chrome
-Login | 2014-09-16 14:58:42 | 7 | ::1 | Microsoft IE
-Login | 2014-09-17 11:46:25 | 7 | ::1 | FireFox
