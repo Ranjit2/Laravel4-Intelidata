@@ -23,6 +23,27 @@
 				<div class="col-md-12">
 					<div id="legenddiv" style="min-height: 40px;"></div>
 				</div>
+			    <div class="col-md-12 table-responsive">
+			        <table class="table">
+			            <caption>Estadistica</caption>
+			            <thead>
+			                <tr>
+			                    <th></th>
+			                    <th>2013</th>
+			                    <th>2014</th>
+			                    <th>Variación</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			               <tr>
+                                <th></th>
+                                <th>b</th>
+                                <th>c</th>
+                                <th>d</th>
+                            </tr>
+			            </tbody>
+			        </table>
+			    </div>
 			</div>
 		</div>
 	</div>

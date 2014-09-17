@@ -733,6 +733,7 @@
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 10:59:40 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 10:59:40 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -792,11 +793,17 @@
 2014-09-16 11:34:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 11:34:55 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:34:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| GET _debugbar/open |=
+
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:35:25 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:35:25 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -862,11 +869,23 @@
 2014-09-16 11:36:45 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:36:45 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:36:45 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| GET / |=
+
+=| GET login |=
+
+=| GET _debugbar/assets/javascript |=
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 11:37:17 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:37:17 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -895,11 +914,15 @@
 2014-09-16 11:37:18 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
 2014-09-16 11:37:18 | select * from `sucursales` where `id_empresa` = 1 | 0ms
 2014-09-16 11:37:18 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 11:37:51 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:37:51 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 1ms
@@ -916,11 +939,15 @@
 2014-09-16 11:37:51 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:37:51 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:37:51 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 11:38:28 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:38:28 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -949,11 +976,15 @@
 2014-09-16 11:38:29 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 10ms
 2014-09-16 11:38:29 | select * from `sucursales` where `id_empresa` = 1 | 36ms
 2014-09-16 11:38:29 | select * from `servicio_empresa` where `id_empresa` = 1 | 20ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 11:38:46 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:38:46 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 1ms
@@ -970,11 +1001,15 @@
 2014-09-16 11:38:46 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:38:46 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:38:46 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:39:17 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:39:17 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -986,11 +1021,15 @@
 2014-09-16 11:39:17 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:39:17 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:39:17 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:39:38 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:39:38 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1002,11 +1041,15 @@
 2014-09-16 11:39:38 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:39:38 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:39:38 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:39:51 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:39:51 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1018,11 +1061,15 @@
 2014-09-16 11:39:51 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:39:51 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:39:51 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 11:40:51 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:40:51 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -1051,11 +1098,15 @@
 2014-09-16 11:40:52 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
 2014-09-16 11:40:52 | select * from `sucursales` where `id_empresa` = 1 | 0ms
 2014-09-16 11:40:52 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 11:41:08 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:41:08 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 0ms
@@ -1072,11 +1123,15 @@
 2014-09-16 11:41:08 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 11:41:08 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:41:08 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET survey |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:41:48 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:41:48 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1104,11 +1159,17 @@
 2014-09-16 11:44:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:44:52 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:44:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET logout |=
+
+=| GET login |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:47:09 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:47:09 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1136,11 +1197,26 @@
 2014-09-16 11:47:35 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:47:35 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:47:35 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST login |=
+2014-09-15 18:07:54 | select * from `cliente` where `rut` = 11111-1 limit 1 | 53ms
+2014-09-15 18:07:54 | update `cliente` set `last_login` = 2014-09-15 18:07:54, `updated_at` = 2014-09-15 18:07:54 where `id` = 7 | 33ms
+
+=| GET home |=
+2014-09-15 18:07:55 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:07:55 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 7) and `estado` = A group by `id` | 124.01ms
+2014-09-15 18:07:55 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 58ms
+2014-09-15 18:07:55 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:07:55 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 41ms
+2014-09-15 18:07:55 | select * from `sucursales` where `id_empresa` = 1 | 49ms
+2014-09-15 18:07:55 | select * from `servicio_empresa` where `id_empresa` = 1 | 42ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:49:22 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:49:22 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1152,11 +1228,27 @@
 2014-09-16 11:49:22 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 11:49:22 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:49:22 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| GET timeline |=
+2014-09-15 18:08:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:08:02 | SELECT f.id, c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
+			FROM cliente c
+			INNER JOIN telefono f ON c.id = f.id_cliente
+			INNER JOIN total t ON f.id = t.id_telefono
+			WHERE c.id = 7
+			ORDER BY t.fecha DESC; | 118.01ms
+2014-09-15 18:08:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:08:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:08:02 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:08:02 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:08:02 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:53:52 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:53:52 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1184,11 +1276,33 @@
 2014-09-16 11:54:06 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:54:06 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:54:06 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST timeline |=
+2014-09-15 18:08:03 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:08:03 | SELECT c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
+			FROM cliente c
+			INNER JOIN telefono f ON c.id = f.id_cliente
+			INNER JOIN total t ON f.id = t.id_telefono
+			WHERE c.id = 7
+			ORDER BY t.fecha DESC
+			LIMIT 0, 1; | 1ms
+
+=| GET _debugbar/open |=
+
+=| GET charts/comparative |=
+2014-09-15 18:08:09 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:08:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:08:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:08:09 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:08:09 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:08:09 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:54:29 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:54:29 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1216,11 +1330,27 @@
 2014-09-16 11:55:06 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 11:55:06 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:55:06 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:08:10 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:08:10 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:08:10 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:08:10 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 21ms
+
+=| GET charts/comparative |=
+2014-09-15 18:12:45 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:12:45 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:12:45 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:12:45 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:12:45 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:12:45 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:56:08 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 11:56:08 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1252,11 +1382,27 @@
 2014-09-16 11:58:05 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 11:58:05 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 11:58:05 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:12:46 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:12:46 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:12:46 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:12:46 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:12:58 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:12:58 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:12:58 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:12:58 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:12:58 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:12:58 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 11:58:38 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 11:58:38 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1284,11 +1430,33 @@
 2014-09-16 11:58:53 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 11:58:53 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 11:58:53 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:12:59 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:12:59 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:12:59 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:12:59 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| POST postChartComparative/7 |=
+2014-09-15 18:15:34 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:15:34 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:15:34 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:15:34 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:15:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:15:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:15:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:15:36 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:15:36 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:15:36 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:02:22 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:02:22 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1316,11 +1484,27 @@
 2014-09-16 12:03:58 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:03:58 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 12:03:58 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:15:37 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:15:37 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:15:37 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:15:37 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:16:18 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:16:18 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:16:18 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:16:18 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:16:18 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:16:18 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:04:46 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:04:46 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1348,11 +1532,27 @@
 2014-09-16 12:07:44 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:07:44 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:07:44 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:16:19 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:16:19 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:16:19 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:16:19 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:16:47 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:16:47 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:16:47 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:16:47 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:16:47 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:16:47 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:08:06 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:08:06 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1402,11 +1602,27 @@
 2014-09-16 12:09:12 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:09:12 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:09:12 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:16:48 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:16:48 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:16:48 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:16:48 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET js/bootstrap-select.js.map |=
+
+=| GET / |=
+
+=| GET login |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:09:57 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:09:57 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1438,11 +1654,26 @@
 2014-09-16 12:11:15 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:11:15 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:11:15 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST login |=
+2014-09-15 18:35:21 | select * from `cliente` where `rut` = 11111-1 limit 1 | 0ms
+2014-09-15 18:35:21 | update `cliente` set `last_login` = 2014-09-15 18:35:21, `updated_at` = 2014-09-15 18:35:21 where `id` = 7 | 52ms
+
+=| GET home |=
+2014-09-15 18:35:21 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:35:21 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 7) and `estado` = A group by `id` | 1ms
+2014-09-15 18:35:21 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:35:21 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:35:21 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:35:21 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:35:21 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:12:18 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:12:18 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1456,11 +1687,21 @@
 2014-09-16 12:12:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:12:18 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:12:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| GET charts/comparative |=
+2014-09-15 18:35:29 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:35:29 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:35:29 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:35:29 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:35:29 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:35:29 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:13:25 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:13:25 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1510,11 +1751,45 @@
 2014-09-16 12:14:58 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:14:58 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:14:58 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:35:30 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:35:30 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:35:30 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:35:30 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 3ms
+
+=| GET charts/comparative |=
+2014-09-15 18:35:40 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:35:40 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:35:40 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:35:40 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:35:40 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:35:40 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+
+=| GET _debugbar/assets/javascript |=
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| POST postChartComparative/7 |=
+2014-09-15 18:35:42 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:35:42 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:35:42 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:35:42 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:37:03 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:37:03 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:37:03 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:37:03 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:37:03 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:37:03 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:15:12 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:15:12 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1546,11 +1821,29 @@
 2014-09-16 12:16:08 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:16:08 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 12:16:08 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET js/bootstrap-select.js.map |=
+
+=| POST postChartComparative/7 |=
+2014-09-15 18:37:04 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:37:04 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:37:04 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:37:04 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:37:05 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:37:05 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:37:05 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:37:05 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:37:05 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:37:05 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:19:49 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:19:49 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1582,11 +1875,27 @@
 2014-09-16 12:20:37 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:20:37 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:20:37 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:37:07 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:37:07 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:37:07 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:37:07 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:45:59 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:46:00 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:46:00 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:46:00 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 2ms
+2014-09-15 18:46:00 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:46:00 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:21:31 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:21:31 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1618,11 +1927,27 @@
 2014-09-16 12:21:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:21:55 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:21:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:46:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:46:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:46:01 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:46:01 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:46:15 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:46:15 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:46:15 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:46:15 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:46:15 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:46:15 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:22:10 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:22:10 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1654,11 +1979,27 @@
 2014-09-16 12:23:28 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:23:28 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:23:28 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:46:17 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:46:17 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:46:17 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:46:17 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:46:28 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:46:28 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:46:28 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:46:28 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:46:28 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:46:28 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:25:58 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:25:58 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1688,11 +2029,27 @@
 2014-09-16 12:26:28 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:26:28 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:26:28 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:46:29 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:46:29 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:46:29 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:46:29 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:48:47 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:48:47 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 2ms
+2014-09-15 18:48:47 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:48:47 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:48:47 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:48:47 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:26:56 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:26:56 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1720,11 +2077,27 @@
 2014-09-16 12:28:10 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:28:10 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 12:28:10 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:48:48 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:48:48 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:48:48 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:48:48 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:49:22 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:49:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:49:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:49:23 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:49:23 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:49:23 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:28:34 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:28:34 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1752,11 +2125,27 @@
 2014-09-16 12:28:50 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:28:50 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:28:50 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:49:24 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:49:24 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:49:24 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:49:24 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:50:28 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:50:28 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:50:28 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:50:28 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:50:28 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:50:28 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:29:11 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:29:11 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1786,11 +2175,27 @@
 2014-09-16 12:30:23 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:30:23 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:30:23 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:50:30 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:50:30 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:50:30 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:50:30 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:50:44 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:50:44 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:50:44 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:50:44 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:50:44 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 18:50:44 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:30:54 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:30:54 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1822,11 +2227,27 @@
 2014-09-16 12:34:03 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:34:03 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:34:03 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:50:46 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:50:46 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:50:46 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:50:46 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:52:09 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:52:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:52:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:52:09 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:52:09 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:52:09 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 12:34:11 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:34:11 | select * from `cliente` where `id` = 2 limit 1 | 1ms
@@ -1884,11 +2305,27 @@
 2014-09-16 12:35:09 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:35:09 | select * from `preguntas` where `id` = 7 limit 1 | 10ms
 2014-09-16 12:35:09 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:52:11 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:52:11 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:52:11 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:52:11 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:52:32 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:52:32 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:52:32 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:52:32 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:52:32 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:52:32 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:35:43 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:35:43 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1920,11 +2357,27 @@
 2014-09-16 12:36:05 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:36:05 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:36:05 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:52:33 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:52:33 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:52:33 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:52:33 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:52:51 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:52:51 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:52:51 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:52:51 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:52:51 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:52:51 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:36:42 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:36:42 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -1956,11 +2409,27 @@
 2014-09-16 12:37:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 12:37:18 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 12:37:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:52:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:52:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:52:52 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:52:52 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:54:09 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:54:09 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:54:09 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:54:09 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:54:09 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:44:44 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 12:44:44 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -1996,11 +2465,27 @@
 2014-09-16 12:50:32 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:50:32 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 12:50:32 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:54:11 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:54:11 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:11 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:54:11 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 18:54:23 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 18:54:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 18:54:23 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 18:54:23 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:54:23 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:55:35 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:55:35 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -2040,11 +2525,27 @@
 2014-09-16 12:56:25 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 12:56:25 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 12:56:25 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:54:24 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:24 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:54:24 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 18:54:24 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 18:54:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 18:54:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 18:54:36 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 18:54:36 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 18:54:36 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 12:57:58 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 12:57:58 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -2084,11 +2585,21 @@
 2014-09-16 13:00:32 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:00:32 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:00:32 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 18:54:37 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 18:54:37 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 18:54:37 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 18:54:37 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET postChartComparative/7 |=
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 13:14:27 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:14:27 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -2116,11 +2627,21 @@
 2014-09-16 13:14:27 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:14:27 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 13:14:27 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| GET charts/comparative |=
+2014-09-15 19:01:10 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:01:10 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:01:10 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:01:10 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:01:10 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:01:10 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 13:22:24 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:22:24 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -2180,11 +2701,27 @@
 2014-09-16 13:22:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:22:55 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 13:22:55 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:01:11 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:01:11 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:01:11 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:01:11 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:03:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:01 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:03:01 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:03:01 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:01 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:03:01 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:23:12 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:23:12 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -2250,11 +2787,27 @@
 2014-09-16 13:24:54 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:24:54 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:24:54 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:03:02 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:02 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:03:02 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:03:02 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:03:14 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:14 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:03:14 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:03:14 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:14 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:14 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:25:06 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:25:06 | select * from `cliente` where `id` = 2 limit 1 | 1ms
@@ -2320,11 +2873,27 @@
 2014-09-16 13:26:25 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 13:26:25 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:26:25 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:03:15 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:15 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:15 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:03:15 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:03:24 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:24 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:03:24 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:03:24 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:24 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:24 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:26:36 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:26:36 | select * from `cliente` where `id` = 2 limit 1 | 1ms
@@ -2361,11 +2930,27 @@
 =| GET majony |=
 2014-09-16 13:33:14 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:33:14 | select * from `persona` where `persona`.`id` = 8 limit 1 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:03:25 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:03:25 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:03:25 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:03:25 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:03:33 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:34 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:03:34 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:03:34 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:34 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:34 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET majony |=
 2014-09-16 13:33:24 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:33:24 | select * from `persona` where `persona`.`id` = 8 limit 1 | 1ms
@@ -2377,11 +2962,27 @@
 =| GET majony |=
 2014-09-16 13:33:39 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:33:39 | select * from `persona` where `persona`.`id` = 8 limit 1 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:03:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:36 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:03:36 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:03:36 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:03:59 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:03:59 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:03:59 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:03:59 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:03:59 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:03:59 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 13:34:57 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:34:57 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 1ms
@@ -2446,11 +3047,27 @@
 2014-09-16 13:39:04 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 13:39:04 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:39:04 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:04:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:01 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:01 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:04:01 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:04:21 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:21 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:04:21 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:04:21 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 19:04:21 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:04:21 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 13:40:34 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:40:34 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 0ms
@@ -2510,11 +3127,27 @@
 2014-09-16 13:40:39 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:40:39 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:40:39 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:04:23 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:23 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:23 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:04:23 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:04:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:04:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:04:36 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:04:36 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:04:36 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:40:51 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:40:51 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -2543,11 +3176,27 @@
 2014-09-16 13:40:52 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
 2014-09-16 13:40:52 | select * from `sucursales` where `id_empresa` = 1 | 1ms
 2014-09-16 13:40:52 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:04:37 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:04:37 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:04:37 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:04:37 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:04:48 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:48 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:04:48 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:04:48 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:04:48 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:04:48 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 13:41:14 | select * from `cliente` where `id` = 2 limit 1 | 41ms
 2014-09-16 13:41:14 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 1ms
@@ -2610,11 +3259,27 @@
 2014-09-16 13:45:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:45:31 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 13:45:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:04:50 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:04:50 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:04:50 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:04:50 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:06:02 | select * from `cliente` where `id` = 7 limit 1 | 4ms
+2014-09-15 19:06:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:06:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:06:02 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:06:02 | select * from `sucursales` where `id_empresa` = 1 | 2ms
+2014-09-15 19:06:02 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:45:43 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:45:43 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -2678,11 +3343,27 @@
 2014-09-16 13:46:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 13:46:31 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:46:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:06:03 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:06:03 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:06:03 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:06:03 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:07:19 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:07:19 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:07:19 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:07:19 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:07:19 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:07:19 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:46:43 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:46:43 | select * from `cliente` where `id` = 2 limit 1 | 1ms
@@ -2746,11 +3427,27 @@
 2014-09-16 13:49:15 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:49:15 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:49:15 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:07:21 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:07:21 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:07:21 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:07:21 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:08:56 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:08:56 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:08:56 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:08:56 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:08:56 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:08:56 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:49:28 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:49:28 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -2814,11 +3511,27 @@
 2014-09-16 13:50:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 13:50:31 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 13:50:31 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:08:57 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:08:57 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:08:57 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:08:57 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:09:35 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:09:35 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:09:35 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:09:35 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 19:09:35 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:09:35 | select * from `servicio_empresa` where `id_empresa` = 1 | 2ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:50:52 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:50:52 | select * from `cliente` where `id` = 2 limit 1 | 1ms
@@ -2847,11 +3560,27 @@
 2014-09-16 13:50:53 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
 2014-09-16 13:50:53 | select * from `sucursales` where `id_empresa` = 1 | 0ms
 2014-09-16 13:50:53 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:09:36 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:09:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:09:36 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:09:36 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:09:49 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:09:49 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 9ms
+2014-09-15 19:09:49 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:09:49 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:09:49 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:09:49 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET home |=
 2014-09-16 13:52:15 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:52:15 | select * from `cliente` where `id` = 2 and `persona_id` <> 1 | 0ms
@@ -2916,11 +3645,27 @@
 2014-09-16 13:53:21 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 1ms
 2014-09-16 13:53:21 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 13:53:21 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:09:50 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:09:50 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:09:50 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:09:50 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:10:02 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:10:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:10:02 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:10:02 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:10:02 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:10:02 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET question |=
 2014-09-16 13:53:45 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:53:45 | select * from `preguntas` where `id` not in (select `pregunta_respuesta`.`id_pregunta` from `pregunta_respuesta` inner join `cliente_preguntas` on `pregunta_respuesta`.`id` = `cliente_preguntas`.`id_pregunta_respuesta` where cliente_preguntas.id_cliente = 2) and `estado` = A group by `id` | 1ms
@@ -2978,11 +3723,27 @@
 2014-09-16 13:55:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 13:55:18 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
 2014-09-16 13:55:18 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:10:04 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:10:04 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:10:04 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:10:04 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:10:06 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:10:06 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:10:06 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:10:06 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
+2014-09-15 19:10:06 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:10:06 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST question |=
 2014-09-16 13:55:34 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 13:55:34 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -3011,11 +3772,27 @@
 2014-09-16 13:55:35 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
 2014-09-16 13:55:35 | select * from `sucursales` where `id_empresa` = 1 | 0ms
 2014-09-16 13:55:35 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:10:07 | select * from `cliente` where `id` = 7 limit 1 | 60ms
+2014-09-15 19:10:07 | select * from `cliente` where `id` = 7 limit 1 | 2ms
+2014-09-15 19:10:07 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:10:07 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:11:16 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:11:16 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:11:16 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:11:16 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:11:16 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:11:16 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET user/question |=
 2014-09-16 13:57:17 | select * from `cliente` where `id` = 2 limit 1 | 55ms
 2014-09-16 13:57:17 | select * from `preguntas` where `estado` = A | 9ms
@@ -3074,21 +3851,53 @@
 2014-09-16 13:57:20 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
 2014-09-16 13:57:20 | select * from `sucursales` where `id_empresa` = 1 | 1ms
 2014-09-16 13:57:20 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:11:17 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:11:17 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:17 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:11:17 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:11:36 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:11:36 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:11:36 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:11:36 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:11:36 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET logout |=
 2014-09-16 13:59:04 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 13:59:04 | update `cliente` set `remember_token` = mVethMpheAcm11MZreYSTA3IDv957jcCOuwcYecvsM8IWtHAgSLNmc6zTHgm, `updated_at` = 2014-09-16 13:59:04 where `id` = 2 | 86ms
 
 =| GET login |=
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:11:37 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:37 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:37 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:11:37 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 4ms
+
+=| GET charts/comparative |=
+2014-09-15 19:11:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:11:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:11:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:11:52 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:11:52 | select * from `sucursales` where `id_empresa` = 1 | 0ms
+2014-09-15 19:11:52 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| POST login |=
 2014-09-16 14:00:09 | select * from `cliente` where `rut` = 222-2 limit 1 | 1ms
 2014-09-16 14:00:10 | update `cliente` set `last_login` = 2014-09-16 14:00:09, `updated_at` = 2014-09-16 14:00:09 where `id` = 2 | 98.01ms
@@ -3185,11 +3994,27 @@
 2014-09-16 14:01:29 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
 2014-09-16 14:01:29 | select * from `preguntas` where `id` = 7 limit 1 | 1ms
 2014-09-16 14:01:29 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:11:53 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:53 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:11:53 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:11:53 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:12:16 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:12:16 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:12:16 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:12:16 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:16 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:16 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET / |=
 2014-09-16 14:01:48 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 
@@ -3233,11 +4058,27 @@
 2014-09-16 14:01:57 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 2014-09-16 14:01:57 | select * from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 2 and return_pregunta(id_pregunta_respuesta) = 1 and `estado` = A limit 1 | 1ms
 2014-09-16 14:01:57 | select `id` from `pregunta_respuesta` where `id_pregunta` = 1 and `id_respuesta` = 3 limit 1 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:12:18 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:12:18 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:12:18 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:12:18 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:12:23 | select * from `cliente` where `id` = 7 limit 1 | 2ms
+2014-09-15 19:12:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:12:23 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:12:23 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:23 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:23 | select * from `servicio_empresa` where `id_empresa` = 1 | 2ms
+>>>>>>> origin/dev
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+<<<<<<< HEAD
 =| GET / |=
 2014-09-16 14:03:29 | select * from `cliente` where `id` = 2 limit 1 | 1ms
 
@@ -3304,11 +4145,45 @@
 2014-09-16 14:03:39 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
 2014-09-16 14:03:39 | select * from `sucursales` where `id_empresa` = 1 | 0ms
 2014-09-16 14:03:39 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:12:26 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:12:26 | select * from `cliente` where `id` = 7 limit 1 | 2ms
+2014-09-15 19:12:26 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:12:26 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 1ms
+
+=| GET charts/comparative |=
+2014-09-15 19:12:42 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:12:42 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:12:42 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:12:42 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:42 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:12:42 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
 
+=| POST postChartComparative/7 |=
+2014-09-15 19:12:43 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:12:43 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:12:43 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 0ms
+2014-09-15 19:12:43 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:16:30 | select * from `cliente` where `id` = 7 limit 1 | 2ms
+2014-09-15 19:16:30 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:16:30 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 1ms
+2014-09-15 19:16:30 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:16:30 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:16:30 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+
+<<<<<<< HEAD
 =| GET logout |=
 2014-09-16 14:03:44 | select * from `cliente` where `id` = 2 limit 1 | 0ms
 2014-09-16 14:03:44 | update `cliente` set `remember_token` = LLyYYsBG5zJEelFAR8Kt7wKlgdzH0UUZ82wOSGAy6V1KEnx3grJuccFZ6IKn, `updated_at` = 2014-09-16 14:03:44 where `id` = 2 | 47ms
@@ -3332,10 +4207,95 @@
 2014-09-16 14:09:34 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 0ms
 2014-09-16 14:09:34 | select * from `sucursales` where `id_empresa` = 1 | 1ms
 2014-09-16 14:09:34 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
+=======
+=| POST postChartComparative/7 |=
+2014-09-15 19:16:31 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:16:31 | select * from `cliente` where `id` = 7 limit 1 | 2ms
+2014-09-15 19:16:31 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:16:31 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET charts/comparative |=
+2014-09-15 19:16:40 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:16:40 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 1ms
+2014-09-15 19:16:40 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 5ms
+2014-09-15 19:16:40 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:16:40 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:16:40 | select * from `servicio_empresa` where `id_empresa` = 1 | 0ms
 
 =| GET _debugbar/assets/stylesheets |=
 
 =| GET _debugbar/assets/javascript |=
+
+=| POST postChartComparative/7 |=
+2014-09-15 19:16:42 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:16:42 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:16:42 | select `id`, `numero` from `telefono` where `telefono`.`id_cliente` = 7 | 1ms
+2014-09-15 19:16:42 | select MONTH(fecha) AS month, YEAR(fecha) AS year, SUM(monto_total) AS monto_total from `total` where `id_telefono` in (1, 2, 3, 4, 5, 6, 7, 8, 9) and YEAR(fecha) in (2012, 2013, 2014) and `fecha` between 2012-10-01 00:00:00 and 2014-09-01 00:00:00 group by YEAR(fecha), MONTH(fecha) order by `fecha` asc | 2ms
+
+=| GET user/question |=
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `preguntas` where `estado` = A | 1ms
+2014-09-15 19:36:52 | select * from `preguntas` where `id` = 1 limit 1 | 1ms
+2014-09-15 19:36:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 1 | 64ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 1 and `estado` = A limit 1 | 81.01ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 3 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 1 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 3 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 1 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 3 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 1 and `estado` = A limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 3 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `preguntas` where `id` = 2 limit 1 | 1ms
+2014-09-15 19:36:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 2 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 2 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 6 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 2 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 6 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 2 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 6 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 2 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 6 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `preguntas` where `id` = 3 limit 1 | 0ms
+2014-09-15 19:36:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 3 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 3 and `estado` = A limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 10 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 3 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 10 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 3 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 10 limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 3 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 10 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `preguntas` where `id` = 7 limit 1 | 0ms
+2014-09-15 19:36:52 | select `respuesta`, `respuestas`.*, `pregunta_respuesta`.`id_pregunta` as `pivot_id_pregunta`, `pregunta_respuesta`.`id_respuesta` as `pivot_id_respuesta` from `respuestas` inner join `pregunta_respuesta` on `respuestas`.`id` = `pregunta_respuesta`.`id_respuesta` where `pregunta_respuesta`.`id_pregunta` = 7 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 7 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 17 limit 1 | 0ms
+2014-09-15 19:36:52 | select * from `cliente` where `id` = 7 limit 1 | 1ms
+2014-09-15 19:36:52 | select `id_pregunta_respuesta` from `cliente_preguntas` where `cliente_preguntas`.`id_cliente` = 7 and return_pregunta(id_pregunta_respuesta) = 7 and `estado` = A limit 1 | 1ms
+2014-09-15 19:36:52 | select * from `pregunta_respuesta` where `id` = 17 limit 1 | 2ms
+2014-09-15 19:36:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 1 | 0ms
+2014-09-15 19:36:52 | select * from `telefonos_contacto` where `id_empresa` = 1 and `tipo` = 2 | 0ms
+2014-09-15 19:36:52 | select * from `centro_de_ayuda` where `id_empresa` = 1 | 1ms
+2014-09-15 19:36:52 | select * from `sucursales` where `id_empresa` = 1 | 1ms
+2014-09-15 19:36:52 | select * from `servicio_empresa` where `id_empresa` = 1 | 1ms
+>>>>>>> origin/dev
+
+=| GET _debugbar/assets/stylesheets |=
+
+=| GET _debugbar/assets/javascript |=
+<<<<<<< HEAD
 
 =| GET home |=
 2014-09-16 14:10:04 | select * from `cliente` where `id` = 2 limit 1 | 0ms
@@ -21754,3 +22714,5 @@
 =| GET / |=
 
 =| GET login |=
+=======
+>>>>>>> origin/dev
