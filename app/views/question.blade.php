@@ -23,25 +23,25 @@
 
 <script>
 
-    $(document).ready(function(){
-        $("#botonRegistrar").click(function(){
-            var cantidadPreguntas = $(".pregunta").length;
-            var ok = true;
-//console.log("cantidad preguntas "+cantidadPreguntas);
-for(cant = 1; cant <= cantidadPreguntas; cant++)
-{
-    if( typeof($('input[id='+cant+']:checked').val()) == 'undefined')
-    {
-        ok = false;
-    }
-}
-if(!ok)
-{
-    $('#mensaje').html('<p>Por favor responda todas las preguntas</p>');
-    return false;
-}
-});
+$(document).ready(function(){
+    $("#botonRegistrar").click(function(){
+        var cantidadPreguntas = $(".pregunta").length;
+        var ok = true;
+        
+        for(cant = 1; cant <= cantidadPreguntas; cant++)
+        {
+            if( typeof($('input[id='+cant+']:checked').val()) == 'undefined')
+            {
+                ok = false;
+            }
+        }
+        if(!ok)
+        {
+            $('#mensaje').html('<p>Por favor responda todas las preguntas</p>');
+            return false;
+        }
     });
+});
 </script>
 
 <div class="row">

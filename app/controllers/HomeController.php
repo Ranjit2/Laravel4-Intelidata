@@ -3,10 +3,20 @@
 class HomeController extends BaseController {
 
 	public function index() {
-		if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
-			return View::make('home');
-		} else {
-			return Redirect::to('/question');
+		if(ClienteController::estaRegistrado(Session::get('ses_user_id')))
+		{
+			//return Cliente::find(7)->persona;
+			if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
+				return View::make('home');
+			} else {
+				return Redirect::to('/question');
+			}
+		}
+		else
+		{
+			//return "no esta registrado";
+			return View::make('users.profile2');
+			//return Redirect::to('user/profile');
 		}
 	}
 

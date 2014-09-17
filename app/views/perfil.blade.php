@@ -8,15 +8,73 @@
 @section('script')
 <script>
 $("#botonRegistrar").click(function(){
+
     var cantidadPreguntas = $(".pregunta").length;
+
     var ok = true;
+    var arregloRespuestas = [];
+    var contador = 0;
     for(cant = 1; cant <= cantidadPreguntas; cant++)
     {
+        arregloRespuestas[contador] = $('input[id='+cant+']:checked');
         if( typeof($('input[id='+cant+']:checked').val()) == 'undefined')
         {
             ok = false;
         }
+        contador++;
     }
+
+
+    //recorremos las respuestas para ver que tipo de medio de comunicacion eligio
+    for(var arr in arregloRespuestas)
+    {
+        var dato = arregloRespuestas[arr][0].defaultValue;
+        var tieneTelefono   = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'telefono')}};
+        var tieneCelular    = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'celular')}};
+        var tieneEmail      = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'email')}};
+        var tieneDireccion  = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'direccion')}};
+        var tieneFacebook   = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'facebook')}};       
+        var tieneTwitter    = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'twitter')}};       
+        var tieneSkype      = {{ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'skype')}};
+        
+        if(dato == 1)//telefono y celular
+        {
+            if(!tieneTelefono && !tieneCelular)
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el telefono o el celular en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 2)//email
+        {
+            if(!tieneEmail) 
+                
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el email</p>');
+                return false;
+            }
+        }
+
+        if(dato == 3)//correo postal valida direccion
+        {
+            if(!tieneDireccion) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado la direccion para el correo postal en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 4)//redes sociales FB, skype, twitter
+        {
+            if(!tieneFacebook && !tieneSkype && !tieneTwitter) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado las redes sociales en perfil</p>');
+                return false;
+            }
+        }
+    }
+    //valida si le falto contestar alguna pregunta
     if(!ok)
     {
         $('#mensaje').html('<p>Por favor responda todas las preguntas</p>');
@@ -37,7 +95,7 @@ $("#botonRegistrar").click(function(){
                     <div class="sr-only">{{$cont = 1;}}</div>
                     @foreach ($preguntas as $pregunta)
                     <h4 class="pregunta">{{$cont++.'.- '.$pregunta->pregunta}}</h4>
-                    <div class="sr-only">{{ $respuestas = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get(); }}</div>
+                    <div class="sr-only">{{ $respuestas = Pregunta::find($pregunta->id)->respuestas()->select('respuestas.id','respuesta')->get(); }}</div>
                     <div class="form-group">
                         @foreach ($respuestas as $respuesta)
                         <div class="input-group">

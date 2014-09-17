@@ -47,7 +47,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	public function persona () {
-		return $this->hasOne('Persona','id', 'id_persona');
+		return $this->hasOne('Persona','id', 'persona_id');
 	}
 
 	public function getAuthIdentifier() {

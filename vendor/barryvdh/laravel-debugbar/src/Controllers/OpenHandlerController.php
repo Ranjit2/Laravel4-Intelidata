@@ -5,12 +5,8 @@ use Illuminate\Http\Response;
 
 class OpenHandlerController extends BaseController
 {
-
     public function handle()
     {
-        // Reflash session data
-        $this->app['session']->reflash();
-
         $debugbar = $this->app['debugbar'];
 
         if (!$debugbar->isEnabled()) {

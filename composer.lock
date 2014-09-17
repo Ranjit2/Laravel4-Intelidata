@@ -89,16 +89,16 @@
         },
         {
             "name": "artisaninweb/laravel-soap",
-            "version": "0.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/artisaninweb/laravel-soap.git",
-                "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0"
+                "reference": "b2ff17cd006f6040f8b2bb0bc0bab272c2aa896f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
-                "reference": "a5da0e888b0dc7cb731e7bcf42c268c145580bb0",
+                "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/b2ff17cd006f6040f8b2bb0bc0bab272c2aa896f",
+                "reference": "b2ff17cd006f6040f8b2bb0bc0bab272c2aa896f",
                 "shasum": ""
             },
             "require": {
@@ -127,7 +127,7 @@
                 "soap",
                 "wrapper"
             ],
-            "time": "2014-08-08 07:05:19"
+            "time": "2014-09-13 17:58:40"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -135,16 +135,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "1559bfcb6e244802f9f3fa3c8ea9b21e5699cc5d"
+                "reference": "5e600f7f7de5cdb1483fe1d63ad1614e2a780e61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/1559bfcb6e244802f9f3fa3c8ea9b21e5699cc5d",
-                "reference": "1559bfcb6e244802f9f3fa3c8ea9b21e5699cc5d",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5e600f7f7de5cdb1483fe1d63ad1614e2a780e61",
+                "reference": "5e600f7f7de5cdb1483fe1d63ad1614e2a780e61",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~4.0",
+                "laravel/framework": "4.*|5.0.*",
                 "maximebf/debugbar": "~1.9.15",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
@@ -181,7 +181,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-09-08 19:15:48"
+            "time": "2014-09-15 11:57:42"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -912,12 +912,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "01109315e2bca979d2bb1c88260fde036864c0c6"
+                "reference": "942e90d797ea4e6c470659a8aa7cda9d52e48551"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/01109315e2bca979d2bb1c88260fde036864c0c6",
-                "reference": "01109315e2bca979d2bb1c88260fde036864c0c6",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/942e90d797ea4e6c470659a8aa7cda9d52e48551",
+                "reference": "942e90d797ea4e6c470659a8aa7cda9d52e48551",
                 "shasum": ""
             },
             "require": {
@@ -954,7 +954,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-09-09 17:33:15"
+            "time": "2014-09-15 15:53:53"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1045,16 +1045,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c"
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e60ea917ab862254a6db37fa9cb8933138c1e73c",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
                 "shasum": ""
             },
             "require": {
@@ -1156,29 +1156,39 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-05 19:52:17"
+            "time": "2014-09-15 02:45:24"
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v1.1.5",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4"
+                "reference": "125219407bb97f100cba93d6d45a690023020e42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/0c67aba8387726458d42461eae91a3415593bbc4",
-                "reference": "0c67aba8387726458d42461eae91a3415593bbc4",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/125219407bb97f100cba93d6d45a690023020e42",
+                "reference": "125219407bb97f100cba93d6d45a690023020e42",
                 "shasum": ""
             },
             "require": {
+                "illuminate/cache": "~4.0",
+                "illuminate/config": "~4.0",
+                "illuminate/filesystem": "~4.0",
+                "illuminate/http": "~4.0",
+                "illuminate/routing": "~4.0",
+                "illuminate/support": "~4.0",
+                "illuminate/view": "~4.0",
+                "nesbot/carbon": "~1.0",
                 "php": ">=5.3.0",
-                "phpoffice/phpexcel": "~1.8.0"
+                "phpoffice/phpexcel": "~1.8.0",
+                "phpseclib/phpseclib": ">=0.3.7",
+                "tijsverkoyen/css-to-inline-styles": "~1.5"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
-                "orchestra/testbench": "~2.2.0@dev",
+                "orchestra/testbench": "~2.2.0",
                 "phpunit/phpunit": "~4.0"
             },
             "type": "library",
@@ -1211,7 +1221,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2014-07-10 09:06:07"
+            "time": "2014-09-13 21:22:52"
         },
         {
             "name": "maximebf/debugbar",
@@ -1591,16 +1601,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.7",
+            "version": "0.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4"
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8b8c62f278e363b75ddcacaf5803710232fbd3e4",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/5085202f1f37769aae59f9711c423f28159c9b29",
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29",
                 "shasum": ""
             },
             "require": {
@@ -1609,6 +1619,7 @@
             "require-dev": {
                 "phing/phing": "2.7.*",
                 "phpunit/phpunit": "4.0.*",
+                "sami/sami": "1.*",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -1684,7 +1695,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-07-05 16:36:21"
+            "time": "2014-09-13 02:42:45"
         },
         {
             "name": "predis/predis",
@@ -2787,17 +2798,64 @@
             "time": "2014-08-04 20:00:35"
         },
         {
+            "name": "tijsverkoyen/css-to-inline-styles",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+                "reference": "c50e8cd86acb0e528855c59653006e96d094a5b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/c50e8cd86acb0e528855c59653006e96d094a5b1",
+                "reference": "c50e8cd86acb0e528855c59653006e96d094a5b1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/css-selector": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TijsVerkoyen\\CssToInlineStyles\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "css_to_inline_styles@verkoyen.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "time": "2014-08-01 18:02:04"
+        },
+        {
             "name": "twitter/bootstrap",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "97027a2f6fad00c4d74fbef5aef6cccb179f8229"
+                "reference": "5a5cf224e19f5c2e9b464d6d4b94a5f5d989d5d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/97027a2f6fad00c4d74fbef5aef6cccb179f8229",
-                "reference": "97027a2f6fad00c4d74fbef5aef6cccb179f8229",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5a5cf224e19f5c2e9b464d6d4b94a5f5d989d5d8",
+                "reference": "5a5cf224e19f5c2e9b464d6d4b94a5f5d989d5d8",
                 "shasum": ""
             },
             "replace": {
@@ -2835,7 +2893,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-09-09 01:14:12"
+            "time": "2014-09-16 03:59:09"
         },
         {
             "name": "tzookb/tbmsg",
@@ -2981,7 +3039,9 @@
             "time": "2014-05-27 14:21:26"
         }
     ],
-    "aliases": [],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "twitter/bootstrap": 20,
@@ -2992,7 +3052,10 @@
         "freshwork/chilean-bundle": 20,
         "watson/bootstrap-form": 20
     },
-    "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }

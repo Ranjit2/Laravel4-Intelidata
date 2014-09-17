@@ -10,45 +10,50 @@
 			<span class="icon fa fa-file-text-o fa-lg fa-fw"></span>Reportes</a>
 		</a>
 		<ul class="list-unstyled children collapse" id="collapseOne">
-			<?php if(Session::get('ses_user_tipo') == 'cliente'): ?>
-			<li class="<?php echo HTML::activeLink('charts/pie'); ?>">
+			<!-- <li class="<?php echo HTML::activeLink('charts/pie'); ?>">
 				<a href="<?php echo URL::to('/charts/pie'); ?>"><span class="icon pe-7s-graph fa-lg fa-fw "></span>Donut/Pie Charts</a>
-			</li>
-			<hr>
-			<?php endif; ?>
+			</li> -->
+			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/column'); ?>">
 				<a href="<?php echo URL::to('/charts/column'); ?>"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Historico Facturado</a>
 			</li>
 			<hr>
+			<?php endif; ?>
 			<li class="<?php echo HTML::activeLink('charts/stackbar'); ?>">
 				<a href="<?php echo URL::to('/charts/stackbar'); ?>"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Hist&oacute;rico Acumulado</a>
 			</li>
 			<hr>
-			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/breakchart'); ?>">
 				<a href="<?php echo URL::to('/charts/breakchart'); ?>"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Detalle por mes</a>
 			</li>
 			<hr>
-			<?php endif; ?>
+			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/evolution'); ?>">
 				<a href="<?php echo URL::to('/charts/evolution'); ?>"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Evolución gasto total mensual</a>
 			</li>
 			<hr>
+			<?php endif; ?>
+			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/comparative'); ?>">
 				<a href="<?php echo URL::to('/charts/comparative'); ?>"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Gráfico comparativo</a>
 			</li>
 			<hr>
+			<?php endif; ?>
 			<li class="<?php echo HTML::activeLink('charts/grafHistoricoCategoria'); ?>">
 				<a href="<?php echo URL::to('/charts/grafHistoricoCategoria'); ?>"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por categorías</a>
 			</li>
 			<hr>
+			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/grafHistoricoMes'); ?>">
 				<a href="<?php echo URL::to('/charts/grafHistoricoMes'); ?>"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por mes</a>
 			</li>
 			<hr>
+			<?php endif; ?>
+			<?php if(Session::get('ses_user_tipo') == 'empresa'): ?>
 			<li class="<?php echo HTML::activeLink('charts/telefonosPorProducto'); ?>">
 				<a href="<?php echo URL::to('/charts/telefonosPorProducto'); ?>"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Tel&eacute;fonos por productos</a>
 			</li>
+			<?php endif; ?>
 		</ul>
 	</li>
 	<li class="<?php echo HTML::activeLink('user/message'); ?>">

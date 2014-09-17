@@ -1,5 +1,20 @@
 # Changelog for Laravel Debugbar
 
+## 1.7.7 (2014-09-15)
+
+- Make it compatible with Laravel 5.0-dev
+- Allow anonymous function as `enabled` setting (for IP checks etc)
+- Escape query bindings, to prevent executing of scripts/html
+
+## 1.7.6 (2014-09-12)
+
+- Fix reflash bug
+- Fix caching of debugbar assets
+
+## 1.7.5 (2014-09-12)
+
+- Reflash data for all debugbar requests
+
 ## 1.7.4 (2014-09-08)
 
 - Rename assets routes to prevent Nginx conflicts

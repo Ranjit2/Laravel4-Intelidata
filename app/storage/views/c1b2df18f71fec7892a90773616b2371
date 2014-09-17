@@ -1,0 +1,94 @@
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php echo HTML::genera_contacto($preguntas); ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('aside'); ?>
+@parent
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+<script>
+$("#botonRegistrar").click(function(){
+    //console.log($('input:radio[name=4]:checked').val());
+    
+
+    var radioButtonSelected = ($('input:radio:checked')); //0 al 3 trae las 4 preguntas
+    var cantidadPreguntas = <?php echo count($preguntas); ?>;
+
+
+    //recorremos las respuestas para ver que tipo de medio de comunicacion eligio
+    for(var cont = 0; cont < cantidadPreguntas; cont++)
+    {
+        
+    	//filter_var(ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'twitter'), FILTER_VALIDATE_BOOLEAN);
+
+        var dato = radioButtonSelected[cont].defaultValue;
+        var tieneTelefono   = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'telefono'); ?>;
+        var tieneCelular    = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'celular'); ?>;
+        var tieneEmail      = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'email'); ?>;
+        var tieneDireccion  = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'direccion'); ?>;
+		var tieneFacebook   = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'facebook'); ?>;       
+		var tieneTwitter    = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'twitter'); ?>;       
+		var tieneSkype      = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'skype'); ?>;       
+
+        if(dato == 1)//telefono y celular
+        {
+            if(!tieneTelefono && !tieneCelular)
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el telefono o el celular en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 2)//email
+        {
+            if(!tieneEmail) 
+            	
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el email</p>');
+                return false;
+            }
+        }
+
+        if(dato == 3)//correo postal valida direccion
+        {
+            if(!tieneDireccion) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado la direccion para el correo postal en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 4)//redes sociales FB, skype, twitter
+        {
+            if(!tieneFacebook && !tieneSkype && !tieneTwitter) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado las redes sociales en perfil</p>');
+                return false;
+            }
+        }
+    }
+
+});
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('style'); ?>
+<style type="text/css" media="screen">
+</style>
+<?php $__env->stopSection(); ?>
+
+
+
+
+
+<?php echo $__env->make('layouts.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

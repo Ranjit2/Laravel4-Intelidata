@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.8 on 2014-09-10.
+ * Generated for Laravel 4.2.9 on 2014-09-16.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -654,7 +654,7 @@ namespace {
         /**
          * Register a binding with the container.
          *
-         * @param string $abstract
+         * @param string|array $abstract
          * @param \Closure|string|null $concrete
          * @param bool $shared
          * @return void 
@@ -696,7 +696,7 @@ namespace {
          * Wrap a Closure such that it is shared.
          *
          * @param \Closure $closure
-         * @return \Illuminate\Container\Closure 
+         * @return \Closure 
          * @static 
          */
         public static function share($closure){
@@ -1675,10 +1675,11 @@ namespace {
          * Set the event dispatcher instance.
          *
          * @param \Illuminate\Events\Dispatcher
+         * @return void 
          * @static 
          */
         public static function setDispatcher($events){
-            return \Illuminate\Auth\Guard::setDispatcher($events);
+            \Illuminate\Auth\Guard::setDispatcher($events);
         }
         
         /**
@@ -3171,9 +3172,23 @@ namespace {
          * @return array 
          * @static 
          */
-        public static function select($query, $bindings = array()){
+        public static function selectFromWriteConnection($query, $bindings = array()){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::select($query, $bindings);
+            return \Illuminate\Database\MySqlConnection::selectFromWriteConnection($query, $bindings);
+        }
+        
+        /**
+         * Run a select statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @param bool $useReadPdo
+         * @return array 
+         * @static 
+         */
+        public static function select($query, $bindings = array(), $useReadPdo = true){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::select($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -3398,7 +3413,7 @@ namespace {
         /**
          * Get the current PDO connection.
          *
-         * @return \Illuminate\Database\PDO 
+         * @return \PDO 
          * @static 
          */
         public static function getPdo(){
@@ -3409,7 +3424,7 @@ namespace {
         /**
          * Get the current PDO connection used for reading.
          *
-         * @return \Illuminate\Database\PDO 
+         * @return \PDO 
          * @static 
          */
         public static function getReadPdo(){
@@ -3805,7 +3820,7 @@ namespace {
          *
          * @param array $columns
          * @return \Illuminate\Database\Eloquent\Model|static 
-         * @throws ModelNotFoundException
+         * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
          * @static 
          */
         public static function firstOrFail($columns = array()){
@@ -3909,7 +3924,7 @@ namespace {
          * Get the hydrated models without eager loading.
          *
          * @param array $columns
-         * @return array|static[] 
+         * @return \Illuminate\Database\Eloquent\Model[] 
          * @static 
          */
         public static function getModels($columns = array()){
@@ -5105,7 +5120,7 @@ namespace {
         /**
          * Create a new file
          *
-         * @param string $title
+         * @param $filename
          * @param callable|null $callback
          * @return \Maatwebsite\Excel\LaravelExcelWriter 
          * @static 
@@ -5116,11 +5131,11 @@ namespace {
         
         /**
          * Load an existing file
-         * 
-         * @param  string $file The file we want to load
          *
-         * @param callback|null $callback @param  string|null $encoding
-         *  @return LaravelExcelReader
+         * @param string $file The file we want to load
+         * @param callback|null $callback
+         * @param string|null $encoding
+         * @return \Maatwebsite\Excel\LaravelExcelReader 
          * @static 
          */
         public static function load($file, $callback = null, $encoding = null){
@@ -5141,8 +5156,8 @@ namespace {
         /**
          * Select sheets by index
          *
-         * @param \Maatwebsite\Excel\[type] $sheets [description]
-         * @return \Maatwebsite\Excel\[type] [description]
+         * @param array $sheets
+         * @return $this 
          * @static 
          */
         public static function selectSheetsByIndex($sheets = array()){
@@ -6448,6 +6463,26 @@ namespace {
          */
         public static function secure(){
             return \Illuminate\Http\Request::secure();
+        }
+        
+        /**
+         * Returns the client IP address.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function ip(){
+            return \Illuminate\Http\Request::ip();
+        }
+        
+        /**
+         * Returns the client IP addresses.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function ips(){
+            return \Illuminate\Http\Request::ips();
         }
         
         /**
@@ -8101,11 +8136,11 @@ namespace {
          * @param array $data
          * @param \Closure|string $callback
          * @param string $queue
-         * @return void 
+         * @return mixed 
          * @static 
          */
         public static function queue($view, $data, $callback, $queue = null){
-            \Illuminate\Mail\Mailer::queue($view, $data, $callback, $queue);
+            return \Illuminate\Mail\Mailer::queue($view, $data, $callback, $queue);
         }
         
         /**
@@ -8115,11 +8150,11 @@ namespace {
          * @param string|array $view
          * @param array $data
          * @param \Closure|string $callback
-         * @return void 
+         * @return mixed 
          * @static 
          */
         public static function queueOn($queue, $view, $data, $callback){
-            \Illuminate\Mail\Mailer::queueOn($queue, $view, $data, $callback);
+            return \Illuminate\Mail\Mailer::queueOn($queue, $view, $data, $callback);
         }
         
         /**
@@ -8130,11 +8165,11 @@ namespace {
          * @param array $data
          * @param \Closure|string $callback
          * @param string $queue
-         * @return void 
+         * @return mixed 
          * @static 
          */
         public static function later($delay, $view, $data, $callback, $queue = null){
-            \Illuminate\Mail\Mailer::later($delay, $view, $data, $callback, $queue);
+            return \Illuminate\Mail\Mailer::later($delay, $view, $data, $callback, $queue);
         }
         
         /**
@@ -8145,11 +8180,11 @@ namespace {
          * @param string|array $view
          * @param array $data
          * @param \Closure|string $callback
-         * @return void 
+         * @return mixed 
          * @static 
          */
         public static function laterOn($queue, $delay, $view, $data, $callback){
-            \Illuminate\Mail\Mailer::laterOn($queue, $delay, $view, $data, $callback);
+            return \Illuminate\Mail\Mailer::laterOn($queue, $delay, $view, $data, $callback);
         }
         
         /**
@@ -8679,6 +8714,16 @@ namespace {
         }
         
         /**
+         * Determine if the application is in maintenance mode.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function isDownForMaintenance(){
+            return \Illuminate\Queue\QueueManager::isDownForMaintenance();
+        }
+        
+        /**
          * Push a new job onto the queue.
          *
          * @param string $job
@@ -9100,6 +9145,26 @@ namespace {
          */
         public static function secure(){
             return \Illuminate\Http\Request::secure();
+        }
+        
+        /**
+         * Returns the client IP address.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function ip(){
+            return \Illuminate\Http\Request::ip();
+        }
+        
+        /**
+         * Returns the client IP addresses.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function ips(){
+            return \Illuminate\Http\Request::ips();
         }
         
         /**
@@ -11172,6 +11237,17 @@ namespace {
         }
         
         /**
+         * Determine if this is a valid session ID.
+         *
+         * @param string $id
+         * @return bool 
+         * @static 
+         */
+        public static function isValidId($id){
+            return \Illuminate\Session\Store::isValidId($id);
+        }
+        
+        /**
          * Returns the session name.
          *
          * @return mixed The session name.
@@ -13215,6 +13291,11 @@ namespace {
         public static function ga(){
             return \TagPlanet\UniversalAnalytics\UniversalAnalytics::ga();
         }
+        
+    }
+
+
+    class Faker extends \Faker\Factory{
         
     }
 

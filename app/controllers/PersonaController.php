@@ -94,10 +94,10 @@ class PersonaController extends BaseController {
 			'telefono_fijo_personal' => '',
 			'celular_personal'       => '',
 			'email_personal'         => 'email',
-			'direccion_work'         => '',
-			'telefono_fijo_work'     => '',
-			'celular_work'           => '',
-			'email_work'             => 'email',
+			// 'direccion_work'         => '',
+			// 'telefono_fijo_work'     => '',
+			// 'celular_work'           => '',
+			// 'email_work'             => 'email',
 			'twitter'                => '',
 			'facebook'               => '',
 			'skype'                  => '',
@@ -112,10 +112,10 @@ class PersonaController extends BaseController {
 			$perso->telefono_fijo_personal = Input::get('telefono_fijo_personal');
 			$perso->celular_personal       = Input::get('celular_personal');
 			$perso->email_personal         = Input::get('email_personal');
-			$perso->direccion_work         = Input::get('direccion_work');
-			$perso->telefono_fijo_work     = Input::get('telefono_fijo_work');
-			$perso->celular_work           = Input::get('celular_work');
-			$perso->email_work             = Input::get('email_work');
+			// $perso->direccion_work         = Input::get('direccion_work');
+			// $perso->telefono_fijo_work     = Input::get('telefono_fijo_work');
+			// $perso->celular_work           = Input::get('celular_work');
+			// $perso->email_work             = Input::get('email_work');
 			$perso->twitter                = Input::get('twitter');
 			$perso->facebook               = Input::get('facebook');
 			$perso->skype                  = Input::get('skype');
@@ -123,6 +123,51 @@ class PersonaController extends BaseController {
 
 			Session::flash('message', 'Successfully updated nerd!');
 			return Redirect::to('/user/profile');
+		}
+	}
+
+	public function ingreso()
+	{
+		$rules = array(
+			'direccion_personal'     => '',
+			'telefono_fijo_personal' => '',
+			'celular_personal'       => '',
+			'email_personal'         => 'email',
+			'twitter'                => '',
+			'facebook'               => '',
+			'skype'                  => '',
+			);
+		$validator = Validator::make(Input::all(), $rules);
+		if ($validator->fails()) {
+			return Redirect::to('/user/profile2')->withErrors($validator)->withInput();
+		} else {
+			
+			//se ingresa nuevos datos de persona para el cliente
+			$persona                         = new Persona;
+			$persona->direccion_personal     = Input::get('direccion_personal');
+			$persona->telefono_fijo_personal = Input::get('telefono_fijo_personal');
+			$persona->celular_personal       = Input::get('celular_personal');
+			$persona->email_personal         = Input::get('email_personal');
+			$persona->twitter                = Input::get('twitter');
+			$persona->facebook               = Input::get('facebook');
+			$persona->skype                  = Input::get('skype');
+			$persona->save();
+			$insertedId = $persona->id;
+
+			//se actualiza la tabla de cliente con el password recien ingresado
+			$clienteU 	          = Cliente::find(Session::get('ses_user_id'));
+			$clienteU->persona_id = $insertedId;
+			$clienteU->save();
+
+			//Session::flash('message', 'Successfully updated nerd!');
+			//verificar aca si tiene preguntas pendientes si es asi enviar a responder preguntas sino al home
+			if(count(Pregunta::scopeWhereNot(Session::get('ses_user_id'))) == 0) {
+				return View::make('home');
+			} 
+			else 
+			{
+				return Redirect::to('/question');
+			}
 		}
 	}
 

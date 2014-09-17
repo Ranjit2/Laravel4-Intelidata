@@ -658,7 +658,7 @@ HTML::macro('genera_contacto', function($p) {
     $a    .= '<fieldset class="col-md-offset-1"><legend>Contacto</legend>';
     $a    .= Form::open();
     foreach ($p as $pregunta) {
-        $r = Pregunta::find($pregunta->id)->respuestas()->select('respuesta')->get();
+        $r = Pregunta::find($pregunta->id)->respuestas()->select('respuestas.id','respuesta')->get();
         $a .= '<h4>' . $cont++ .'- '. $pregunta->pregunta . '</h4>';
         foreach ($r as $respuesta) {
             $a .= '<div class="input-group col-md-8"><span class="input-group-addon beautiful">';
@@ -666,6 +666,7 @@ HTML::macro('genera_contacto', function($p) {
             $a .= '<label type="text" class="form-control">' . $respuesta->respuesta . '</label></div>';
         }
     }
+    $a .= '<div style="color:red; font-weight: bold;" id="mensaje"></div>';
     $a .= '<button class="btn3d btn btn-primary btn-lg pull-right" id="botonRegistrar">MODIFICAR</button>';
     $a .= Form::close();
     $a .= '</fieldset>';

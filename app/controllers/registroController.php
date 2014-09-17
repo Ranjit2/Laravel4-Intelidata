@@ -135,7 +135,7 @@ class RegistroController extends \BaseController {
 		$persona->nombre         = $variable['nombre'];
 		$persona->apellidos      = $variable['apellidos'];
 		$persona->email_personal = $variable['email'];
-			//$persona->save();
+		$persona->save();
 		$insertedId = $persona->id;
 
 			//se actualiza la tabla de cliente con el password recien ingresado
@@ -143,7 +143,7 @@ class RegistroController extends \BaseController {
 		$clienteU 	          = Cliente::find($idCliente);
 		$clienteU->clave      = Hash::make($variable['password']);
 		$clienteU->id_persona = $insertedId;
-			//$clienteU->save();
+		$clienteU->save();
 
 		return "grabado correctamente";
 	}

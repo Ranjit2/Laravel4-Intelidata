@@ -77,9 +77,12 @@ class PreguntasController extends BaseController {
 				$a->estado = 'B';
 				$a->save();
 			}
+
 			$clientePregunta                        = new ClientePregunta;
 			$clientePregunta->id_cliente            = Session::get('ses_user_id');
 			$clientePregunta->id_pregunta_respuesta = $this->devuelvePreguntaRespuesta((int) $p, (int) $r);
+
+
 			$clientePregunta->save();
 		}
 		return Redirect::to('/home');

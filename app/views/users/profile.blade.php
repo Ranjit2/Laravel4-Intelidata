@@ -7,9 +7,9 @@
 			<div class="panel-body">
 				<div class="profile">
 					{{ Form::model($persona, array('role' => 'form', 'url' => array('/user/profile', $persona->id), 'method' => 'PUT')) }}
-					<h2>Editar Perfil <small></small></h2>
+					<h2>Perfil <small></small></h2>
 					<fieldset>
-						<legend class="text-right" class="text-right" class="text-right">Personal</legend>
+						<legend class="text-right" class="text-right" class="text-right">Información personal</legend>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<div class="form-group has-feedback">
@@ -32,9 +32,10 @@
 
 								</div>
 							</div>
+
 						</div>
 					</fieldset>
-					<fieldset>
+					<!-- <fieldset>
 						<legend class="text-right" class="text-right">Trabajo</legend>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12">
@@ -59,7 +60,7 @@
 								</div>
 							</div>
 						</div>
-					</fieldset>
+					</fieldset> -->
 					<fieldset>
 						<legend class="text-right">Redes Sociales</legend>
 						<div class="row">

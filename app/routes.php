@@ -47,11 +47,15 @@ Route::group(array('before' => 'auth'), function()use($idata){
 	Route::group(array('prefix' => 'user'), function()use($idata) {
 		Route::get('message', function() { return View::make('message'); });
 		// Profile
+		// primera vez llenado de perfil
+		Route::post('profile2', 'PersonaController@ingreso');
+		
 		Route::get('profile', 'PersonaController@edit');
 		Route::put('profile/{id}', 'PersonaController@update');
 		// Contact questions
 		Route::get('question', 'PreguntasController@index2');
 		Route::post('question', 'PreguntasController@recibe');
+
 	});
 
 	// Contact init
@@ -180,3 +184,28 @@ Route::get('pdf', function(){
 });
 
 Route::post('edit-marks', 'HomeController@postEditMarks');
+
+
+
+Route::get('majony', function(){
+
+
+
+	$tieneTwitter  = filter_var(ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'twitter'), FILTER_VALIDATE_BOOLEAN);
+	$tieneFacebook = filter_var(ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'facebook'), FILTER_VALIDATE_BOOLEAN);
+	$tieneSkype    = filter_var(ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'skype'), FILTER_VALIDATE_BOOLEAN);
+
+	// var_dump(ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'facebook'));
+	// return;
+
+
+
+	if( ($tieneTwitter) || ($tieneFacebook) || ($tieneSkype) )
+	{
+		return "tyiene una red solcial";
+	}
+	else
+	{
+		return "no tiene redes sociales";
+	}
+});

@@ -1,0 +1,124 @@
+<?php $__env->startSection('style'); ?>
+<style type="text/css">
+</style>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+<script>
+$("#botonRegistrar").click(function(){
+
+    var cantidadPreguntas = $(".pregunta").length;
+
+    var ok = true;
+    var arregloRespuestas = [];
+    var contador = 0;
+    for(cant = 1; cant <= cantidadPreguntas; cant++)
+    {
+        arregloRespuestas[contador] = $('input[id='+cant+']:checked');
+        if( typeof($('input[id='+cant+']:checked').val()) == 'undefined')
+        {
+            ok = false;
+        }
+        contador++;
+    }
+
+
+    //recorremos las respuestas para ver que tipo de medio de comunicacion eligio
+    for(var arr in arregloRespuestas)
+    {
+        var dato = arregloRespuestas[arr][0].defaultValue;
+        var tieneTelefono   = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'telefono'); ?>;
+        var tieneCelular    = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'celular'); ?>;
+        var tieneEmail      = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'email'); ?>;
+        var tieneDireccion  = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'direccion'); ?>;
+        var tieneFacebook   = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'facebook'); ?>;       
+        var tieneTwitter    = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'twitter'); ?>;       
+        var tieneSkype      = <?php echo ClienteController::existeDatoCliente(Session::get('ses_user_id'), 'skype'); ?>;
+        
+        if(dato == 1)//telefono y celular
+        {
+            if(!tieneTelefono && !tieneCelular)
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el telefono o el celular en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 2)//email
+        {
+            if(!tieneEmail) 
+                
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado el email</p>');
+                return false;
+            }
+        }
+
+        if(dato == 3)//correo postal valida direccion
+        {
+            if(!tieneDireccion) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado la direccion para el correo postal en perfil</p>');
+                return false;
+            }
+        }
+
+        if(dato == 4)//redes sociales FB, skype, twitter
+        {
+            if(!tieneFacebook && !tieneSkype && !tieneTwitter) 
+            {
+                $('#mensaje').html('<p>Aun no ha ingresado las redes sociales en perfil</p>');
+                return false;
+            }
+        }
+    }
+    //valida si le falto contestar alguna pregunta
+    if(!ok)
+    {
+        $('#mensaje').html('<p>Por favor responda todas las preguntas</p>');
+        return false;
+    }
+});
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <fieldset>
+                    <legend>DATOS DE CONTACTO</legend>
+                    <?php echo Form::open(array('url' => 'question', 'method' => 'POST'));; ?>
+
+                    <div class="sr-only"><?php echo $cont = 1;; ?></div>
+                    <?php foreach($preguntas as $pregunta): ?>
+                    <h4 class="pregunta"><?php echo $cont++.'.- '.$pregunta->pregunta; ?></h4>
+                    <div class="sr-only"><?php echo $respuestas = Pregunta::find($pregunta->id)->respuestas()->select('respuestas.id','respuesta')->get();; ?></div>
+                    <div class="form-group">
+                        <?php foreach($respuestas as $respuesta): ?>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" id ="<?php echo $cont-1; ?>" name="<?php echo $pregunta->id; ?>" value="<?php echo $respuesta->id; ?>">
+                            </span>
+                            <label type="text" class="form-control"><?php echo $respuesta->respuesta; ?></label>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endforeach; ?>
+                    <div style="color:red; font-weight: bold;" id="mensaje"></div>
+                    <p class="pull-right">
+                        <?php echo HTML::link('/logout', 'VOLVER', array('class' => 'btn btn-default btn-lg'));; ?>
+
+                        <?php echo Form::submit('REGÍSTRATE', array('id' => 'botonRegistrar' , 'class' => 'btn btn-primary btn-lg'));; ?>
+
+                    </p>
+                    <?php echo Form::close();; ?>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.two_column', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
