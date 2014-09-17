@@ -3039,7 +3039,9 @@
             "time": "2014-05-27 14:21:26"
         }
     ],
-    "aliases": [],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "twitter/bootstrap": 20,
@@ -3050,7 +3052,10 @@
         "freshwork/chilean-bundle": 20,
         "watson/bootstrap-form": 20
     },
-    "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }

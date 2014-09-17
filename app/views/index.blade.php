@@ -25,12 +25,12 @@
             <span class="help-block">{{ $errors->first('password'); }}</span>
         </div>
     </div>
-    <div class="remember text-right">
+<!--     <div class="remember text-right">
         <a href="/user/forgot_password" class="">Olvidé mi contraseña</a>
-    </div>
-    <div class="col-md-6">
+    </div> -->
+    <!-- <div class="col-md-6">
         {{ HTML::link('/registro', 'REGÍSTRATE', array('class' => 'btn3d btn btn-primary btn-lg')); }}
-    </div>
+    </div> -->
     <div class="col-md-6">
         {{ Form::submit('INICIA SESIÓN', array('class' => 'btn3d btn btn-primary btn-lg')); }}
     </div>

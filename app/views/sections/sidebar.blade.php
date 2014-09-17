@@ -10,45 +10,50 @@
 			<span class="icon fa fa-file-text-o fa-lg fa-fw"></span>Reportes</a>
 		</a>
 		<ul class="list-unstyled children collapse" id="collapseOne">
-			@if (Session::get('ses_user_tipo') == 'cliente')
-			<li class="{{ HTML::activeLink('charts/pie') }}">
+			<!-- <li class="{{ HTML::activeLink('charts/pie') }}">
 				<a href="{{ URL::to('/charts/pie') }}"><span class="icon pe-7s-graph fa-lg fa-fw "></span>Donut/Pie Charts</a>
-			</li>
-			<hr>
-			@endif
+			</li> -->
+			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/column') }}">
 				<a href="{{ URL::to('/charts/column') }}"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Historico Facturado</a>
 			</li>
 			<hr>
+			@endif
 			<li class="{{ HTML::activeLink('charts/stackbar') }}">
 				<a href="{{ URL::to('/charts/stackbar') }}"><span class="icon pe-7s-graph3 fa-lg fa-fw"></span>Hist&oacute;rico Acumulado</a>
 			</li>
 			<hr>
-			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/breakchart') }}">
 				<a href="{{ URL::to('/charts/breakchart') }}"><span class="icon pe-7s-help2 fa-lg fa-fw"></span>Detalle por mes</a>
 			</li>
 			<hr>
-			@endif
+			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/evolution') }}">
 				<a href="{{ URL::to('/charts/evolution') }}"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Evolución gasto total mensual</a>
 			</li>
 			<hr>
+			@endif
+			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/comparative') }}">
 				<a href="{{ URL::to('/charts/comparative') }}"><span class="icon pe-7s-graph2 fa-lg fa-fw"></span>Gráfico comparativo</a>
 			</li>
 			<hr>
+			@endif
 			<li class="{{ HTML::activeLink('charts/grafHistoricoCategoria') }}">
 				<a href="{{ URL::to('/charts/grafHistoricoCategoria') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por categorías</a>
 			</li>
 			<hr>
+			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/grafHistoricoMes') }}">
 				<a href="{{ URL::to('/charts/grafHistoricoMes') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Histórico por mes</a>
 			</li>
 			<hr>
+			@endif
+			@if (Session::get('ses_user_tipo') == 'empresa')
 			<li class="{{ HTML::activeLink('charts/telefonosPorProducto') }}">
 				<a href="{{ URL::to('/charts/telefonosPorProducto') }}"><span class="icon pe-7s-graph fa-lg fa-fw"></span>Tel&eacute;fonos por productos</a>
 			</li>
+			@endif
 		</ul>
 	</li>
 	<li class="{{ HTML::activeState(array('message-center/categorias','message-center/atencion','message-center/promociones','message-center/legal')) }}">
