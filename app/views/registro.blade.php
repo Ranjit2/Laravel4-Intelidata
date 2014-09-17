@@ -1,5 +1,7 @@
 @extends('layouts.two_column')
 
+@section('title', 'Registro')
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">

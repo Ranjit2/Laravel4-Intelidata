@@ -614,7 +614,7 @@ HTML::macro('tiny_timeline', function() {
     return $a;
 });
 
-HTML::macro('timeline', function($data){
+HTML::macro('timeline2', function($data){
     $a = array('', 'timeline-inverted');
     $b = array('', 'success', 'warning', 'danger', 'info', '');
     $c = array('fa-info', 'fa-usd', 'fa-check');
@@ -650,6 +650,22 @@ HTML::macro('timeline', function($data){
         echo $d;
     }
     unset($d);
+});
+
+HTML::macro('timeline', function($hitos){
+    $output = '';
+    foreach ($hitos as $hito) {
+        $date = new Carbon($hito->fecha);
+        $output .= '<li class="' . $hito->posicion . '">';
+        $output .= '<div class="timeline-badge ' . $hito->color . '">';
+        $output .= '<i class="fa ' . $hito->icon . '"></i></div>';
+        $output .= '<div class="timeline-panel"><div class="timeline-heading">';
+        $output .= '<h4 class="timeline-title">' . $hito->hito  . '</h4>';
+        $output .= '<p><small class="text-muted"><i class="fa fa-clock-o"></i> ' .  $date->toDateString() . '</small></p>';
+        $output .= '</div><div class="timeline-body"><a href="pdf" target="_blank" class="btn btn-sm btn-primary pull-right">Ver más</a></div></div></li>';
+        echo $output;
+    }
+    unset($output);
 });
 
 HTML::macro('genera_contacto', function($p) {

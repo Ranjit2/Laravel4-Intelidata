@@ -13,9 +13,9 @@
                 <div id="timeline-scroll">
                     <ul id="results" class="timeline"></ul>
                 </div>
-                <div class="animation_image" style="display:none;" align="center">
-                    {{ HTML::image('images/ajax-loader.gif')}}
-                </div>
+                {{--<div class="animation_image" style="display:none;" align="center">--}}
+                    {{--{{ HTML::image('images/ajax-loader.gif')}}--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -39,9 +39,9 @@
         var res_hei = parseInt($('#timeline-scroll')[0].scrollHeight);
         var tot     = parseInt(s_top+w_hei);
 
-        console.log("TOT: " + parseInt(tot));
-        console.log("RES_HEI: "+ parseInt($('#timeline-scroll')[0].scrollHeight));
-        console.log("-> (: "+  parseInt(-tot));
+        // console.log("TOT: " + parseInt(tot));
+        // console.log("RES_HEI: "+ parseInt($('#timeline-scroll')[0].scrollHeight));
+        // console.log("-> (: "+  parseInt(-tot));
 
             if(parseInt(res_hei - tot) == 0) {
                 if(track_load <= total_groups && loading==false) {

@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Evolución de mis gastos')
+
 @section('aside')
 @parent
 @stop

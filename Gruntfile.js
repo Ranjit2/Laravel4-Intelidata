@@ -25,8 +25,9 @@ module.exports = function(grunt) {
                 src: [
                 // '<%= paths.assets.vendor %>jquery/dist/jquery.js',
                 // '<%= paths.assets.vendor %>bootstrap/dist/js/bootstrap.js',
-                '<%= paths.assets.js %>frontend.js',
-                '<%= paths.assets.js %>chart.js'
+	                '<%= paths.assets.js %>frontend.js',
+	                '<%= paths.assets.js %>numeral.min.js',
+	                '<%= paths.assets.js %>chart.js',
                 ],
                 dest: '<%= paths.js %>frontend.js',
             },

@@ -1,5 +1,7 @@
 @extends('layouts.two_column')
 
+@section('title', 'Contacto')
+
 @section('style')
 <style type="text/css">
 </style>

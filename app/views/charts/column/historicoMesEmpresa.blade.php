@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+
+@section('title', 'Histórico por mes')
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">

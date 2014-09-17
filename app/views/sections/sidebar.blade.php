@@ -51,8 +51,27 @@
 			</li>
 		</ul>
 	</li>
-	<li class="{{ HTML::activeLink('user/message') }}">
-		<a href="{{ URL::to('/user/message') }}"><span class="icon fa fa-envelope-o fa-lg fa-fw"></span><span class="badge pull-right">4</span>Centro de Mensajes</a>
+	<li class="{{ HTML::activeState(array('message-center/categorias','message-center/atencion','message-center/promociones','message-center/legal')) }}">
+		<a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			<span class="icon fa fa-envelope-o fa-lg fa-fw"></span>Centro de Mensajes</a>
+		</a>
+		<ul class="list-unstyled children collapse" id="collapseTwo">
+			<li class="{{ HTML::activeLink('message-center/categorias') }}">
+				<a href="{{ URL::to('message-center/categorias') }}"><span class="icon pe-7s-drawer fa-lg fa-fw"></span>Categorías</a>
+			</li>
+			<hr>
+			<li class="{{ HTML::activeLink('message-center/promociones') }}">
+				<a href="{{ URL::to('message-center/promociones') }}"><span class="icon pe-7s-gift fa-lg fa-fw"></span>Promociones</a>
+			</li>
+			<hr>
+			<li class="{{ HTML::activeLink('message-center/legal') }}">
+				<a href="{{ URL::to('message-center/legal') }}"><span class="icon pe-7s-pin fa-lg fa-fw"></span>Legal</a>
+			</li>
+			<hr>
+			<li class="{{ HTML::activeLink('message-center/atencion') }}">
+				<a href="{{ URL::to('message-center/atencion') }}"><span class="icon pe-7s-speaker fa-lg fa-fw"></span><span class="badge pull-right">4</span>Atención al cliente</a>
+			</li>
+		</ul>
 	</li>
 	<!-- <li class="item-8 deeper parent">
 		<a class="" href="#">

@@ -1,14 +1,19 @@
-if ('matchMedia' in window) {
-	// Chrome, Firefox, and IE 10 support mediaMatch listeners
-	window.matchMedia('print').addListener(function (media) {
-		chart.validateNow();
-	});
-} else {
-	// IE and Firefox fire before/after events
-	window.onbeforeprint = function () {
-		chart.validateNow();
+var canvas = new CanvasLoader('animation_image');
+
+$(window).resize(function () {
+	$('.animation_image').centerToWindow();
+	if ('matchMedia' in window) {
+		// Chrome, Firefox, and IE 10 support mediaMatch listeners
+		window.matchMedia('print').addListener(function (media) {
+			chart.validateNow();
+		});
+	} else {
+		// IE and Firefox fire before/after events
+		window.onbeforeprint = function () {
+			chart.validateNow();
+		}
 	}
-}
+});
 
 // LOAD DATA FROM GRAFFCONTROLLER
 $.loadJSON = function (url) {
@@ -21,13 +26,13 @@ $.loadJSON = function (url) {
 			dataType: 'json',
 		});
 		request.done(function () {
-			console.log("success");
+			//console.log("success");
 		});
 		request.fail(function () {
 			console.log("Error:\n" + JSON.stringify(jqXHR) + '\n' + textStatus + ': ' + errorThrown + '\n');
 		});
 		request.always(function () {
-			console.log("complete");
+			//console.log("complete");
 		});
 		request.error(function (jqXHR, exception) {
 			if (jqXHR.status === 0) {
@@ -45,16 +50,21 @@ $.loadJSON = function (url) {
 			} else {
 				console.log('Uncaught Error.n' + jqXHR.responseText);
 			}
+			$('.animation_image').hide();
 		});
 // RETURN DATA
 		return request.responseJSON;
 	} catch (err) {
 		console.log('Error:\n' + err);
+		$('.animation_image').hide();
 	}
 };
 
 // LOAD DIFERENTS CHARTS
 $.loadChart = function (div, url, type, date) {
+	$.canvas_show(canvas);
+	$('.animation_image').centerToWindow();
+	$('.animation_image').show();
 // DIV ID
 	var div = typeof div !== 'undefined' ? div : 'chartdiv';
 // DATE OF DATA
@@ -71,12 +81,12 @@ $.loadChart = function (div, url, type, date) {
 	try {
 // GET DATA
 		if (json.length < 1 || json == 'NULL') {
-			console.log("No hay datos disponibles.");
+			//console.log("No hay datos disponibles.");
 			$('#error').show();
 			$('#' + div).hide();
 			return false;
 		} else {
-			console.log("JSON correcto");
+			//console.log("JSON correcto");
 			$('#error').hide();
 			$('#' + div).show();
 			// SWITCH CHART DEPENDS VAR "TYPE"
@@ -138,9 +148,11 @@ $.loadChart = function (div, url, type, date) {
 			}
 			;
 		}
+		$('.animation_image').hide();
 	} catch (err) {
-// SHOW ERRORS
+		// SHOW ERRORS
 		console.log('Error:\n' + err);
+		$('.animation_image').hide();
 	}
 };
 
@@ -841,18 +853,42 @@ $.categoryAxis = function (chart, parse) {
 };
 
 $.generateTable = function (json) {
+	$('.animation_image').show();
 	var date;
-	var val2;
-	var val3;
+	numeral.defaultFormat('$0,0');
+	var val2 = numeral();
+	var val3 = numeral();
 	var variation;
+	var resta;
 	$.each(json.data, function (key, value) {
 		date = value['date-full'];
-		val2 = typeof value['val2'] !== 'undefined' && value['val2'].length != 0 ? value['val2'] : 0;
-		val3 = typeof value['val3'] !== 'undefined' && value['val3'].length != 0 ? value['val3'] : 0;
-		//variation = parseInt(((val3-val2)*100)/val2);
-		//variation = parseInt(((val3-val2)*100)/val2);
-		//console.log(variation + '%');
-		console.log('RESTA: ' + parseInt(val3-val2));
-		console.log('VAL2: ' + parseInt(val3-val2));
+		val2 = typeof value['val2'] !== 'undefined' && value['val2'].length != 0 ? val2.set(value['val2']) : val2.set(0);
+		val3 = typeof value['val3'] !== 'undefined' && value['val3'].length != 0 ? val3.set(value['val3']) : val3.set(0);
+		if (val2.value() != 0 && val3.value() != 0) {
+			resta = parseInt(val3.value() - val2.value());
+			if (resta < 0) {
+				resta = parseInt(-1 * resta);
+			}
+			variation = Math.ceil((resta * 100) / val2.value());
+		}
+		else {
+			variation = 100;
+		}
+		if (val2.value() > val3.value()) {
+			$('#statics tbody').append('<tr>' +
+			'<td>' + date + '</td>' +
+			'<td>' + val2.format() + '</td>' +
+			'<td>' + val3.format() + '</td>' +
+			'<td><i class="fa fa-arrow-down fa-fw arrow-down"></i> ' + variation + '%</td>' +
+			'</tr>');
+		} else {
+			$('#statics tbody').append('<tr>' +
+			'<td>' + date + '</td>' +
+			'<td>' + val2.format() + '</td>' +
+			'<td>' + val3.format() + '</td>' +
+			'<td><i class="fa fa-arrow-up fa-fw arrow-up"></i> ' + variation + '%</td>' +
+			'</tr>');
+		}
+
 	});
 };

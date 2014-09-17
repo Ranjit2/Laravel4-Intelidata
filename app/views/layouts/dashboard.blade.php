@@ -27,8 +27,10 @@
 	{{ HTML::style('css/bootstrap-select.min.css') }}
 	<!--  -->
 	{{ HTML::style('css/hover-min.css') }}
+	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css') }}
 	@yield('style')
-	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+	<!-- Include the heartcode canvasloader js file -->
+    <script src="http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js"></script>
 </head>
 <body>
 	<header class="container-fluid topbar">
@@ -40,6 +42,9 @@
 				@include('sections.sidebar')
 			</aside>
 			<section class="col-xs-12 col-sm-12 col-md-9 col-lg-9 main">
+    			<div id="animation_image" class="animation_image" style="display:none;" align="center">
+                    {{--{{ HTML::image('images/loading.gif')}}--}}
+                </div>
 				@yield('content')
 			</section>
 		</div>
@@ -59,7 +64,7 @@
 	{{ HTML::script('js/amcharts/amcharts.js') }}
 	{{ HTML::script('js/amcharts/pie.js') }}
 	{{ HTML::script('js/amcharts/serial.js') }}
-	{{ HTML::script('js/amcharts/exporting/amexport.js') }}
+	{{ HTML::script('j  s/amcharts/exporting/amexport.js') }}
 	{{ HTML::script('js/bootstrap-select.min.js') }}
 	<!--     {{ HTML::script('http://www.amcharts.com/lib/3/pie.js') }}
 	{{ HTML::script('http://www.amcharts.com/lib/3/serial.js') }}

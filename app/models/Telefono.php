@@ -85,34 +85,4 @@ class Telefono extends Eloquent {
 		$b['data'] = $b;
 		return Response::json($b);
 	}
-
-	public static function tl_total() {
-		$items_per_group = (int) 1;
-		$data = DB::select('SELECT f.id, c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
-			FROM cliente c
-			INNER JOIN telefono f ON c.id = f.id_cliente
-			INNER JOIN total t ON f.id = t.id_telefono
-			WHERE c.id = ?
-			ORDER BY t.fecha DESC;', array(Session::get('ses_user_id')));
-		$total_records = count($data);
-		$total_records = ceil($total_records/$items_per_group);
-		return $total_records;
-	}
-
-	public static function tl_paginate($gn = 0){
-		$items_per_group = (int) 1;
-		$position = ($gn * $items_per_group);
-		$data = DB::select('SELECT c.numero_cliente, f.numero, f.informacion_al , f.inicio_fac, f.fin_fac
-			FROM cliente c
-			INNER JOIN telefono f ON c.id = f.id_cliente
-			INNER JOIN total t ON f.id = t.id_telefono
-			WHERE c.id = ?
-			ORDER BY t.fecha DESC
-			LIMIT ?, ?;', array(Session::get('ses_user_id'), (int) $position, (int) $items_per_group));
-		if ($data) {
-			return $data;
-		} else {
-			return "Ha ocurrido un error";
-		}
-	}
 }

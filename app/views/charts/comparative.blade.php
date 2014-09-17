@@ -1,5 +1,10 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Gráfico comparativo')
+
+@section('style')
+@stop
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">
@@ -19,28 +24,21 @@
 						</div>
 					</div>
 					<div id="chartdiv" style="min-height: 450px !important;"></div>
-				</div>
-				<div class="col-md-12">
 					<div id="legenddiv" style="min-height: 40px;"></div>
 				</div>
 			    <div class="col-md-12 table-responsive">
-			        <table class="table">
-			            <caption>Estadistica</caption>
+			        <table id="statics" class="table table-condensed table-hover">
+			            <h3>Estadísticas</h3>
+			            <caption>Porcentaje sobre variación monto total</caption>
 			            <thead>
 			                <tr>
 			                    <th></th>
 			                    <th>2013</th>
 			                    <th>2014</th>
-			                    <th>Variación</th>
+			                    <th>Variaci&oacute;n</th>
 			                </tr>
 			            </thead>
 			            <tbody>
-			               <tr>
-                                <th></th>
-                                <th>b</th>
-                                <th>c</th>
-                                <th>d</th>
-                            </tr>
 			            </tbody>
 			        </table>
 			    </div>

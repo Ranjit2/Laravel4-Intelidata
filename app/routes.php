@@ -44,7 +44,7 @@ Route::group(array('before' => 'auth'), function()use($idata){
 	Route::get('logout', 'HomeController@doLogout');
 
 	// USER
-	Route::group(array('prefix' => 'user'), function()use($idata) {
+	Route::group(array('prefix' => 'user'), function() use ($idata) {
 		Route::get('message', function() { return View::make('message'); });
 		// Profile
 		Route::get('profile', 'PersonaController@edit');
@@ -52,6 +52,14 @@ Route::group(array('before' => 'auth'), function()use($idata){
 		// Contact questions
 		Route::get('question', 'PreguntasController@index2');
 		Route::post('question', 'PreguntasController@recibe');
+	});
+
+	// USER
+	Route::group(array('prefix' => 'message-center'), function() use ($idata) {
+		Route::get('categorias', function() { return View::make('message_center.categorias'); });
+		Route::get('atencion', function() { return View::make('message_center.atencion_cliente'); });
+		Route::get('legal', function() { return View::make('message_center.legal'); });
+		Route::get('promociones', function() { return View::make('message_center.promociones'); });
 	});
 
 	// Contact init
@@ -154,7 +162,17 @@ Route::get('prueba', function(){
 });
 
 Route::get('test', function() {
-	Cliente::postChartComparative(7);
+	// Func::printr(Hito::orderBy('fecha','DESC')->get()->toArray());
+	// Func::printr(Hito::find(24)->cliente);
+	$totalItems = 9;
+	$perPage = 1;
+	$data =  Cliente::find(7)->hitos()->orderBy('fecha', 'DESC')->get()->toArray();
+	$query = Paginator::make($data, $totalItems, $perPage);
+	// if(count($query))
+	// {
+		Func::printr($query);
+	// }
+
 });
 
 Route::get('excel', function (){

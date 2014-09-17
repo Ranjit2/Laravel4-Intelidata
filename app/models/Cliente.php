@@ -42,6 +42,11 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable   = array('id','numero_cliente','rut','clave');
 	protected $hidden     = array('numero_cliente', 'clave');
 
+	public function hitos()
+	{
+		return $this->hasMany('Hito');
+	}
+
 	public function clientePreguntas() {
 		return $this->hasMany('ClientePregunta','id_cliente');
 	}
@@ -424,7 +429,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 			}
 			$data[$count] = array(
 				'date' => '',
-                'date-full' => '',
+				'date-full' => '',
 				'year1' => $years[0],
 				'year2' => $years[1],
 				'year3' => $years[2],
@@ -444,7 +449,7 @@ class Cliente extends Eloquent implements UserInterface, RemindableInterface {
 
 		foreach ($query as $value) {
 			array_set($data, $value->month.'.date', substr(Func::convNumberToMonth($value->month), 0, 3));
-            array_set($data, $value->month.'.date-full', Func::convNumberToMonth($value->month));
+			array_set($data, $value->month.'.date-full', Func::convNumberToMonth($value->month));
 
 			// echo $value->month . '<br>';
 			switch ($value->year) {

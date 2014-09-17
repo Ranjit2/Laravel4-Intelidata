@@ -66,7 +66,7 @@
 <div class="row">
 	<hr class="borde-vtr">
 	<div class="col-xs-12 col-md-12 col-lg-12 legal-content">
-		<p class="muted"><strong>{{ Carbon::now()->year }} &copy; VTR Globalcom S.A. | </strong>
+		<p class="muted"><strong>{{ Carbon::now()->year }} <i class="fa fa-copyright"></i> VTR Globalcom S.A. | </strong>
 		<a href="http://vtr.com/politicas.php" target="_blank">Condiciones de uso |</a>
 		<a href="http://vtr.com/privacidad/" target="_blank"> privacidad</a>
 		</p>

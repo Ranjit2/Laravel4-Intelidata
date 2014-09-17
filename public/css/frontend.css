@@ -6716,7 +6716,7 @@ a {
   border: 0px;
   margin: 0;
   padding: 0;
-  background: url('/images/footer.png') 0 0 repeat;
+  background: url('/idata/images/footer.png') 0 0 repeat;
 }
 /**
 *
@@ -6895,4 +6895,15 @@ a {
 }
 .btn3d:active.btn-danger {
   box-shadow: none;
+}
+.animation_image {
+  z-index: 99999999999999;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 800px;
+}
+.arrow-up {
+  color: #0086ac;
+}
+.arrow-down {
+  color: #d9534f;
 }
